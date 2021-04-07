@@ -1,0 +1,343 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{1AEA3709-BB45-4DF5-A8CE-374AD830EFF2}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>UMCLocker</RootNamespace>
+    <AssemblyName>UMCLocker</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <TargetFrameworkProfile />
+    <PublishUrl>\\vn-file\Share\18 IT\U34811%28hoanht%29\LOCKER\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Unc</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
+    <WebPage>publish.htm</WebPage>
+    <ApplicationRevision>26</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <Win32Resource>
+    </Win32Resource>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>cabinet-icon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>CABC4725FE3E4A0E019DEEAFF7A684E55403BB86</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>UMCLocker_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.Data.v18.2, Version=18.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Utils.v18.2, Version=18.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Xpo.v18.2, Version=18.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraBars.v18.2, Version=18.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v18.2, Version=18.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="ExcelDataReader, Version=3.6.0.0, Culture=neutral, PublicKeyToken=93517dbe6a4012fa, processorArchitecture=MSIL">
+      <HintPath>..\packages\ExcelDataReader.3.6.0\lib\net45\ExcelDataReader.dll</HintPath>
+    </Reference>
+    <Reference Include="ExcelDataReader.DataSet, Version=3.6.0.0, Culture=neutral, PublicKeyToken=93517dbe6a4012fa, processorArchitecture=MSIL">
+      <HintPath>..\packages\ExcelDataReader.DataSet.3.6.0\lib\net35\ExcelDataReader.DataSet.dll</HintPath>
+    </Reference>
+    <Reference Include="Spire.Common, Version=10.5.7.0, Culture=neutral, PublicKeyToken=663f351905198cb3, processorArchitecture=MSIL">
+      <HintPath>packages\Spire.XLS.10.5.7\lib\net40\Spire.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Spire.License, Version=1.3.8.40, Culture=neutral, PublicKeyToken=b1144360237c8b3f, processorArchitecture=MSIL">
+      <HintPath>packages\Spire.XLS.10.5.7\lib\net40\Spire.License.dll</HintPath>
+    </Reference>
+    <Reference Include="Spire.Pdf, Version=6.5.9.0, Culture=neutral, PublicKeyToken=663f351905198cb3, processorArchitecture=MSIL">
+      <HintPath>packages\Spire.XLS.10.5.7\lib\net40\Spire.Pdf.dll</HintPath>
+    </Reference>
+    <Reference Include="Spire.XLS, Version=10.5.7.0, Culture=neutral, PublicKeyToken=663f351905198cb3, processorArchitecture=MSIL">
+      <HintPath>packages\Spire.XLS.10.5.7\lib\net40\Spire.XLS.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Telerik.WinControls, Version=2019.1.219.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e" />
+    <Reference Include="Telerik.WinControls.UI, Version=2019.1.219.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e" />
+    <Reference Include="TelerikCommon, Version=2019.1.219.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Business\DeptController.cs" />
+    <Compile Include="Business\LockerController.cs" />
+    <Compile Include="Business\MainTabController.cs" />
+    <Compile Include="Business\PosController.cs" />
+    <Compile Include="Business\SettingController.cs" />
+    <Compile Include="Business\ShoesController.cs" />
+    <Compile Include="Business\StaffController.cs" />
+    <Compile Include="Business\StaffTrashController.cs" />
+    <Compile Include="Constants.cs" />
+    <Compile Include="Business\Utils.cs" />
+    <Compile Include="Dept.cs">
+      <DependentUpon>UMCLOCKERModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DetailKeyForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DetailKeyForm.Designer.cs">
+      <DependentUpon>DetailKeyForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\DeptEntity.cs" />
+    <Compile Include="Entities\ErrorInfo.cs" />
+    <Compile Include="Entities\IModelEntities.cs" />
+    <Compile Include="Entities\KeyEntity.cs" />
+    <Compile Include="Entities\LockerEntity.cs" />
+    <Compile Include="Entities\PosEntity.cs" />
+    <Compile Include="Entities\ShoesEntity.cs" />
+    <Compile Include="Entities\StaffEntity.cs" />
+    <Compile Include="history.cs">
+      <DependentUpon>UMCLOCKERModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Locker.cs">
+      <DependentUpon>UMCLOCKERModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MainTab.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainTab.Designer.cs">
+      <DependentUpon>MainTab.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pos.cs">
+      <DependentUpon>UMCLOCKERModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Sho.cs">
+      <DependentUpon>UMCLOCKERModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Staff.cs">
+      <DependentUpon>UMCLOCKERModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UMCLOCKERModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UMCLOCKERModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UMCLOCKERModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UMCLOCKERModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UMCLOCKERModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UMCLOCKERModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="UserNewForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserNewForm.Designer.cs">
+      <DependentUpon>UserNewForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CustomViews.cs" />
+    <Compile Include="Views\InputBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\InputBox.Designer.cs">
+      <DependentUpon>InputBox.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="DetailKeyForm.resx">
+      <DependentUpon>DetailKeyForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainTab.resx">
+      <DependentUpon>MainTab.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserNewForm.resx">
+      <DependentUpon>UserNewForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\InputBox.resx">
+      <DependentUpon>InputBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\Dept.datasource" />
+    <None Include="Properties\DataSources\UMCLocker.Entities.DeptEntity.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EntityDeploy Include="UMCLOCKERModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>UMCLOCKERModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="UMCLOCKERModel.edmx.diagram">
+      <DependentUpon>UMCLOCKERModel.edmx</DependentUpon>
+    </None>
+    <None Include="UMCLocker_TemporaryKey.pfx" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\delete-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\add-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\edit-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\search-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\filter-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\find-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\sav-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\list-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\key-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="UMCLOCKERModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>UMCLOCKERModel.edmx</DependentUpon>
+      <LastGenOutput>UMCLOCKERModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="UMCLOCKERModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>UMCLOCKERModel.edmx</DependentUpon>
+      <LastGenOutput>UMCLOCKERModel.cs</LastGenOutput>
+    </Content>
+    <None Include="Assets\import-excel.png" />
+    <Content Include="Assets\trash.png" />
+    <None Include="Assets\icon-duplicate.png" />
+    <None Include="Assets\loading.gif" />
+    <None Include="Assets\loading.png" />
+    <Content Include="cabinet-icon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.6.1 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Contents\" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="Microsoft.Office.Core">
+      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>7</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Microsoft.Office.Interop.Excel">
+      <Guid>{00020813-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>8</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="VBIDE">
+      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
