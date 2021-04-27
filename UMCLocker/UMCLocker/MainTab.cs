@@ -15,8 +15,6 @@ namespace UMCLocker
 
         public LockerController lockerController;
         public ShoesController shoesController;
-        DeptController deptController;
-        PosController posController;
         public StaffController staffController;
         public StaffTrashController staffTrashController;
         SettingController settingController;
@@ -31,52 +29,19 @@ namespace UMCLocker
             KeyPreview = true;
             lockerController = new LockerController(this);
             shoesController = new ShoesController(this);
-            deptController = new DeptController(this);
-            posController = new PosController(this);
             staffController = new StaffController(this);
             staffTrashController = new StaffTrashController(this);
             settingController = new SettingController(this);
             staffController.LoadAll();
+            staffController.LoadCompleted += () =>
+            {
+                staffTrashController.LoadAll();
+            };
             lockerController.LoadAll();
             shoesController.LoadAll();
-            deptController.LoadAll();
-            posController.LoadAll();
-            staffTrashController.LoadAll();
-            //  Utils.ReadingFileXLMSToDB(@"D:\18.HOANHT\Doccument\Phần mềm quản lý khóa\Danh sách sử dụng tủ giầy, locker 2020.xlsx");
-            //Utils.UpdateKey();
+           
         }
 
-        private void btnAddDept_Click(object sender, EventArgs e)
-        {
-            deptController.btnAddDept_Click(sender, e);
-        }
-
-        private void btnEditDept_Click(object sender, EventArgs e)
-        {
-            deptController.btnEditDept_Click(sender, e);
-        }
-
-        private void btnDeleteDept_Click(object sender, EventArgs e)
-        {
-            deptController.btnDeleteDept_Click(sender, e);
-
-        }
-
-        private void btnAddPos_Click(object sender, EventArgs e)
-        {
-            posController.btnAddPos_Click(sender, e);
-        }
-
-        private void btnEditPos_Click(object sender, EventArgs e)
-        {
-            posController.btnEditPos_Click(sender, e);
-        }
-
-        private void btnDeletePos_Click(object sender, EventArgs e)
-        {
-            posController.btnDeletePos_Click(sender, e);
-
-        }
 
         private void btnAddLocker_Click(object sender, EventArgs e)
         {
@@ -195,25 +160,6 @@ namespace UMCLocker
             staffController.txbSearchStaff_KeyDown(sender, e);
         }
 
-        private void txbSearchDept_KeyDown(object sender, KeyEventArgs e)
-        {
-            deptController.txbSearchDept_KeyDown(sender, e);
-        }
-
-        private void btnSearchDept_Click(object sender, EventArgs e)
-        {
-            deptController.btnSearchDept_Click(sender, e);
-        }
-
-        private void txbSearchPos_KeyDown(object sender, KeyEventArgs e)
-        {
-            posController.txbSearchPos_KeyDown(sender, e);
-        }
-
-        private void btnSearchPos_Click(object sender, EventArgs e)
-        {
-            posController.btnSearchPos_Click(sender, e);
-        }
 
         private void dgrvLocker_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
@@ -233,11 +179,6 @@ namespace UMCLocker
         private void dgrvShoes_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             shoesController.dgrvShoes_CellMouseDoubleClick(sender, e);
-        }
-
-        private void dgrvPos_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            posController.dgrvPos_CellClick(sender, e);
         }
 
         private void MainTab_KeyUp(object sender, KeyEventArgs e)
@@ -401,6 +342,15 @@ namespace UMCLocker
                 btnEditStaff.PerformClick();
             }
                
+        }
+
+        private void tabCtrMain_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //if(tabCtrMain.SelectedIndex == 2)
+            //{
+            //    // tab những người nghỉ việc
+            //    staffTrashController.LoadAll();
+            //}
         }
     }
 }

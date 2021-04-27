@@ -53,8 +53,8 @@ namespace UMCLocker
         public static string STATE_USED = "USED";
         public static string STATE_ON = "ON";
         public static string STATE_OFF = "OFF";
-        public static string NOTE_NOT_RETURN_KEY = "Not return key";
-        public static string NOTE_RETURN_KEY = "Return key";
+        public static string NOTE_NOT_RETURN_KEY = "NV không trả khóa";
+        public static string NOTE_RETURN_KEY = "NV có trả khóa";
         public static string LOCKER = "L";
         public static string SHOES = "S";
 

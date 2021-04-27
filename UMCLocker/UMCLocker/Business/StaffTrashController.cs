@@ -26,6 +26,9 @@ namespace UMCLocker.Business
             view.DpMonth.Format = DateTimePickerFormat.Custom;
             view.DpMonth.CustomFormat = "MM yyyy";
             view.DpMonth.ShowUpDown = true;
+            view.PbStaffTrash.Location = new Point((view.PbStaff.Parent.ClientSize.Width / 2) - (view.PbStaff.Image.Width / 2),
+                             (view.PbStaff.Parent.ClientSize.Height / 2) - (view.PbStaff.Image.Height / 2));
+            view.PbStaffTrash.Refresh();
         }
 
         private void BgwStaffTrash_RunWorkerCompleted(object sender, System.ComponentModel.RunWorkerCompletedEventArgs e)
@@ -37,6 +40,7 @@ namespace UMCLocker.Business
                 bindingSource.ResetBindings(true);
                 view.DgrvTrash.Refresh();
                 ChangeStateButton();
+                view.PbStaffTrash.Hide();
             }
             catch { }
         }
@@ -50,12 +54,13 @@ namespace UMCLocker.Business
         {
             BackgroundWorker worker = (BackgroundWorker)sender;
             bindingSource = new BindingSource();
-            _staffs = (new StaffEntity()).GetAllData(Constants.STATE_OFF);
+            _staffs = (new StaffEntity()).GetAllStaffTrash();
         }
 
         public void LoadAll()
         {
-            view.BgStaffTrash.RunWorkerAsync();
+            if (!view.BgStaffTrash.IsBusy)
+                view.BgStaffTrash.RunWorkerAsync();
         }
 
         internal void btnDeleteTrash_Click(object sender, EventArgs e)

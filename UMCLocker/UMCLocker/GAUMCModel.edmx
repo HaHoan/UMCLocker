@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="GA_UMCModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="PR_ContractLiquite">
+          <Key>
+            <PropertyRef Name="StaffCode" />
+          </Key>
+          <Property Name="StaffCode" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="LiquidationDate" Type="datetime" />
+          <Property Name="Reason" Type="nvarchar" MaxLength="200" />
+          <Property Name="Retiring" Type="bit" />
+          <Property Name="NoAL" Type="int" />
+          <Property Name="Infringe" Type="bit" Nullable="false" />
+        </EntityType>
+        <Function Name="sp_Get_All_Staff" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="deptCode" Type="varchar" Mode="In" />
+        </Function>
+        <EntityContainer Name="GA_UMCModelStoreContainer">
+          <EntitySet Name="PR_ContractLiquite" EntityType="Self.PR_ContractLiquite" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="GA_UMCModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="PR_ContractLiquite">
+          <Key>
+            <PropertyRef Name="StaffCode" />
+          </Key>
+          <Property Name="StaffCode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LiquidationDate" Type="DateTime" Precision="3" />
+          <Property Name="Reason" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Retiring" Type="Boolean" />
+          <Property Name="NoAL" Type="Int32" />
+          <Property Name="Infringe" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="GA_UMCEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="PR_ContractLiquite" EntityType="Self.PR_ContractLiquite" />
+          <FunctionImport Name="sp_Get_All_Staff" ReturnType="Collection(GA_UMCModel.sp_Get_All_Staff_Result)">
+            <Parameter Name="deptCode" Mode="In" Type="String" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="sp_Get_All_Staff_Result">
+          <Property Type="String" Name="StaffCode" Nullable="false" MaxLength="10" />
+          <Property Type="String" Name="FullName" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="DeptCode" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="BirthDate" Nullable="false" Precision="23" />
+          <Property Type="String" Name="Sex" Nullable="true" MaxLength="3" />
+          <Property Type="DateTime" Name="EntryDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="PosName" Nullable="true" MaxLength="255" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="GA_UMCModelStoreContainer" CdmEntityContainer="GA_UMCEntities">
+          <EntitySetMapping Name="PR_ContractLiquite">
+            <EntityTypeMapping TypeName="GA_UMCModel.PR_ContractLiquite">
+              <MappingFragment StoreEntitySet="PR_ContractLiquite">
+                <ScalarProperty Name="StaffCode" ColumnName="StaffCode" />
+                <ScalarProperty Name="LiquidationDate" ColumnName="LiquidationDate" />
+                <ScalarProperty Name="Reason" ColumnName="Reason" />
+                <ScalarProperty Name="Retiring" ColumnName="Retiring" />
+                <ScalarProperty Name="NoAL" ColumnName="NoAL" />
+                <ScalarProperty Name="Infringe" ColumnName="Infringe" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_Get_All_Staff" FunctionName="GA_UMCModel.Store.sp_Get_All_Staff">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="GA_UMCModel.sp_Get_All_Staff_Result">
+                <ScalarProperty Name="StaffCode" ColumnName="StaffCode" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="DeptCode" ColumnName="DeptCode" />
+                <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+                <ScalarProperty Name="Sex" ColumnName="Sex" />
+                <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+                <ScalarProperty Name="PosName" ColumnName="PosName" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -75,7 +75,7 @@ namespace UMCLocker.Entities
         }
         public string locker_number
         {
-            get => (Locker == null  || Locker.locker_number == 0 )? "" : Locker.locker_number.ToString();
+            get => (Locker == null || Locker.locker_number == 0) ? "" : Locker.locker_number.ToString();
             set { locker_number = value; }
         }
         public string locker_index
@@ -83,7 +83,7 @@ namespace UMCLocker.Entities
 
             get
             {
-               return (Locker == null || Locker.locker_index == 0 ? "" : Locker.locker_index.ToString());
+                return (Locker == null || Locker.locker_index == 0 ? "" : Locker.locker_index.ToString());
             }
             set { locker_index = value; }
         }
@@ -129,7 +129,7 @@ namespace UMCLocker.Entities
             get
             {
                 return string.Format("Mã nhân viên: {0}         Họ tên: {1}          Giới tính:{2}          Ngày vào:{3}            Phòng ban:{4}           Chức vụ:{5}         Số tủ locker:{6}            Số ô locker:{7}         Số tủ giày:{8}          Số ô giày:{9}",
-                    staff_code, full_name, genderStr, (enter_date is DateTime date) ? date.ToString("dd/MM/yyyy") : Constants.NO_DATA, deptName, posName, (Locker != null && Locker.locker_number != 0)  ? Locker.locker_number.ToString() : Constants.NO_DATA, (Locker != null && Locker.locker_index != 0) ? Locker.locker_index.ToString() : Constants.NO_DATA, (Sho != null && Sho.shoes_number != 0) ? Sho.shoes_number.ToString() : Constants.NO_DATA, (Sho != null && Sho.shoes_index != 0) ? Sho.shoes_index.ToString() : Constants.NO_DATA);
+                    staff_code, full_name, genderStr, (enter_date is DateTime date) ? date.ToString("dd/MM/yyyy") : Constants.NO_DATA, deptName, posName, (Locker != null && Locker.locker_number != 0) ? Locker.locker_number.ToString() : Constants.NO_DATA, (Locker != null && Locker.locker_index != 0) ? Locker.locker_index.ToString() : Constants.NO_DATA, (Sho != null && Sho.shoes_number != 0) ? Sho.shoes_number.ToString() : Constants.NO_DATA, (Sho != null && Sho.shoes_index != 0) ? Sho.shoes_index.ToString() : Constants.NO_DATA);
             }
         }
 
@@ -238,8 +238,7 @@ namespace UMCLocker.Entities
                 return new ResultInfo(Constants.ERROR_COMMON, e.Message.ToString());
             }
         }
-
-        public List<StaffEntity> GetAllData(string state)
+        public List<StaffEntity> GetAllStaffTrash()
         {
             try
             {
@@ -251,10 +250,134 @@ namespace UMCLocker.Entities
                     staffs = db.Staffs.Include(d => d.Dept).Include(p => p.Pos)
                                                             .Include(l => l.Locker)
                                                             .Include(s => s.Sho)
-                                                            .OrderBy(r => r.id)
-                                                            .Where(s => s.state == state)
+                                                            .OrderByDescending(r => r.enter_date)
+                                                            .Where(s => s.state == Constants.STATE_OFF)
                                                             .ToList();
+                    list = staffs.Select((x, i) => new StaffEntity
+                    {
+                        index = i + 1,
+                        id = x.id,
+                        staff_code = x.staff_code,
+                        full_name = x.full_name,
+                        gender = x.gender,
+                        enter_date = x.enter_date,
+                        locker_id = x.locker_id,
+                        shoes_id = x.shoes_id,
+                        Locker = x.Locker,
+                        department = x.department,
+                        position = x.position,
+                        Sho = x.Sho,
+                        Dept = x.Dept,
+                        Pos = x.Pos,
+                        note = x.note,
+                        end_date = x.end_date
+                    }).ToList();
 
+                    return list;
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return null;
+            }
+        }
+        public List<StaffEntity> GetAllData()
+        {
+            try
+            {
+                using (var db = new UMCLOCKEREntities())
+                {
+                    List<Staff> staffs = new List<Staff>();
+                    List<StaffEntity> list = new List<StaffEntity>();
+
+                    staffs = db.Staffs.Include(d => d.Dept).Include(p => p.Pos)
+                                                            .Include(l => l.Locker)
+                                                            .Include(s => s.Sho)
+                                                            .OrderByDescending(r => r.enter_date)
+                                                            .Where(s => s.state == Constants.STATE_ON)
+                                                            .ToList();
+                    if (staffs.Count == 0) return new List<StaffEntity>();
+                    var lastDate = staffs[0].enter_date;
+                    var GADb = new GA_UMCEntities();
+                    var GAList = GADb.sp_Get_All_Staff(null).ToList();
+                    var GALiquite = GADb.PR_ContractLiquite.ToList();
+                    foreach (var staff in staffs)
+                    {
+                        try
+                        {
+                            var code = int.Parse(staff.staff_code);
+                        }
+                        catch
+                        {
+                            continue;
+                        }
+                        if (GAList.Where(m => int.Parse(m.StaffCode) == int.Parse(staff.staff_code)).FirstOrDefault() == null)
+                        {
+                            var end_date = GALiquite.Where(m => int.Parse(m.StaffCode) == int.Parse(staff.staff_code)).FirstOrDefault().LiquidationDate;
+                            if (end_date > DateTime.Now) continue; 
+                            Locker locker;
+                            Sho shoes;
+                            if (staff.locker_id != null)
+                            {
+                                locker = db.Lockers.Where(m => m.id == staff.locker_id).FirstOrDefault();
+                                locker.state = Constants.STATE_AVAIABLE;
+                            }
+                            if (staff.shoes_id != null)
+                            {
+                                shoes = db.Shoes.Where(m => m.id == staff.shoes_id).FirstOrDefault();
+                                shoes.state = Constants.STATE_AVAIABLE;
+                            }
+                            staff.state = Constants.STATE_OFF;
+                            staff.end_date = end_date;
+                            staff.note = Constants.NOTE_NOT_RETURN_KEY;
+                            db.SaveChanges();
+                        }
+                    }
+                    GAList = GAList.Where(m => m.EntryDate >= lastDate).ToList();
+                    foreach (var ga in GAList)
+                    {
+                        if (staffs.Where(m => m.staff_code != Constants.VALUE_DEFAULT && int.Parse(m.staff_code) == int.Parse(ga.StaffCode)) == null)
+                        {
+                            var Dept = db.Depts.Where(m => m.name == ga.DeptCode).FirstOrDefault();
+                            if (Dept == null)
+                            {
+                                Dept dept = new Dept()
+                                {
+                                    name = ga.DeptCode
+                                };
+                                db.Depts.Add(dept);
+                                db.SaveChanges();
+                                Dept = dept;
+                            }
+                            var Pos = db.Pos.Where(m => m.name == ga.PosName).FirstOrDefault();
+                            if (Pos == null)
+                            {
+                                Pos pos = new Pos()
+                                {
+                                    name = ga.PosName
+                                };
+                                db.Pos.Add(pos);
+                                db.SaveChanges();
+                                Pos = pos;
+                            }
+                            Staff staff = new Staff()
+                            {
+                                staff_code = ga.StaffCode,
+                                full_name = ga.FullName,
+                                gender = ga.Sex,
+                                enter_date = ga.EntryDate,
+                                locker_id = null,
+                                shoes_id = null,
+                                department = Dept.id,
+                                position = Pos.id,
+                                state = Constants.STATE_ON
+                            };
+                            db.Staffs.Add(staff);
+                            db.SaveChanges();
+                            staffs.Add(staff);
+                        }
+                    }
 
                     list = staffs.Select((x, i) => new StaffEntity
                     {
@@ -429,7 +552,7 @@ namespace UMCLocker.Entities
                         {
                             id = shoes_id2,
                             shoes_number = Sho.shoes_number,
-                            shoes_index =Sho.shoes_index,
+                            shoes_index = Sho.shoes_index,
                             shoes_type = Sho.shoes_type,
                             state = Constants.STATE_USED,
                             owned = id

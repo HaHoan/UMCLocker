@@ -120,14 +120,18 @@
     <Reference Include="TelerikCommon, Version=2019.1.219.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Business\DeptController.cs" />
     <Compile Include="Business\LockerController.cs" />
     <Compile Include="Business\MainTabController.cs" />
-    <Compile Include="Business\PosController.cs" />
     <Compile Include="Business\SettingController.cs" />
     <Compile Include="Business\ShoesController.cs" />
     <Compile Include="Business\StaffController.cs" />
     <Compile Include="Business\StaffTrashController.cs" />
+    <Compile Include="ConfirmDelete.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConfirmDelete.Designer.cs">
+      <DependentUpon>ConfirmDelete.cs</DependentUpon>
+    </Compile>
     <Compile Include="Constants.cs" />
     <Compile Include="Business\Utils.cs" />
     <Compile Include="Dept.cs">
@@ -147,6 +151,21 @@
     <Compile Include="Entities\PosEntity.cs" />
     <Compile Include="Entities\ShoesEntity.cs" />
     <Compile Include="Entities\StaffEntity.cs" />
+    <Compile Include="GAUMCModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GAUMCModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GAUMCModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GAUMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GAUMCModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GAUMCModel.edmx</DependentUpon>
+    </Compile>
     <Compile Include="history.cs">
       <DependentUpon>UMCLOCKERModel.tt</DependentUpon>
     </Compile>
@@ -169,8 +188,14 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="PR_ContractLiquite.cs">
+      <DependentUpon>GAUMCModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Sho.cs">
       <DependentUpon>UMCLOCKERModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_Get_All_Staff_Result.cs">
+      <DependentUpon>GAUMCModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Staff.cs">
       <DependentUpon>UMCLOCKERModel.tt</DependentUpon>
@@ -203,6 +228,9 @@
     <Compile Include="Views\InputBox.Designer.cs">
       <DependentUpon>InputBox.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ConfirmDelete.resx">
+      <DependentUpon>ConfirmDelete.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DetailKeyForm.resx">
       <DependentUpon>DetailKeyForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -221,6 +249,13 @@
     <EmbeddedResource Include="Views\InputBox.resx">
       <DependentUpon>InputBox.cs</DependentUpon>
     </EmbeddedResource>
+    <EntityDeploy Include="GAUMCModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>GAUMCModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="GAUMCModel.edmx.diagram">
+      <DependentUpon>GAUMCModel.edmx</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\Dept.datasource" />
     <None Include="Properties\DataSources\UMCLocker.Entities.DeptEntity.datasource" />
@@ -278,6 +313,16 @@
     <None Include="Assets\key-icon.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="GAUMCModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>GAUMCModel.edmx</DependentUpon>
+      <LastGenOutput>GAUMCModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="GAUMCModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>GAUMCModel.edmx</DependentUpon>
+      <LastGenOutput>GAUMCModel.cs</LastGenOutput>
+    </Content>
     <Content Include="UMCLOCKERModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>UMCLOCKERModel.edmx</DependentUpon>

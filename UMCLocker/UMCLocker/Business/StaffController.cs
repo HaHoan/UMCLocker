@@ -16,6 +16,7 @@ namespace UMCLocker.Business
     {
         private List<StaffEntity> _staffs;
         private int oldScrollIndex = 0;
+        public Action LoadCompleted;
         public StaffController(MainTab view) : base(view)
         {
             view.BgwStaff.DoWork += BgwStaff_DoWork;
@@ -56,6 +57,7 @@ namespace UMCLocker.Business
                
                 view.PbStaff.Hide();
                 ChangeStateButton();
+                LoadCompleted();
             }
             catch { }
         }
@@ -80,7 +82,7 @@ namespace UMCLocker.Business
         {
             BackgroundWorker worker = (BackgroundWorker)sender;
             bindingSource = new BindingSource();
-            _staffs = (new StaffEntity()).GetAllData(Constants.STATE_ON);
+            _staffs = (new StaffEntity()).GetAllData();
         }
 
         public void LoadAll()
@@ -170,10 +172,11 @@ namespace UMCLocker.Business
             try
             {
                 StaffEntity s = ((List<StaffEntity>)bindingSource.DataSource)[view.DgrvStaff.CurrentCell.RowIndex];
-                if (MessageBox.Show(string.Format(Constants.CONFIRM_DELETE_STAFF, s.full_name), "", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                ConfirmDelete formConfirm = new ConfirmDelete(s.full_name);
+                formConfirm.OK += (isReturnKey, endDate) =>
                 {
-                    s.end_date = DateTime.Now;
-                    s.note = Constants.NOTE_RETURN_KEY;
+                    s.end_date = endDate;
+                    s.note = isReturnKey ? Constants.NOTE_RETURN_KEY : Constants.NOTE_NOT_RETURN_KEY;
                     ResultInfo result = s.MoveToTrash();
                     if (result.code < 0)
                     {
@@ -186,14 +189,16 @@ namespace UMCLocker.Business
                         if (view.DgrvStaff.Rows.Count > 0)
                         {
                             view.LblInfo.Text = ((List<StaffEntity>)bindingSource.DataSource)[0].info;
-                        }else
+                        }
+                        else
                         {
                             view.LblInfo.Text = "";
                         }
                         view.UpdateLockerAfterDeleteUser();
                         ChangeStateButton();
                     }
-                }
+                };
+                formConfirm.ShowDialog();
             }
             catch (Exception ex)
             {
