@@ -26,6 +26,8 @@ namespace UMCLocker
         public string state { get; set; }
         public Nullable<System.DateTime> end_date { get; set; }
         public string note { get; set; }
+        public string reason_change_key { get; set; }
+        public string customer { get; set; }
     
         public virtual Dept Dept { get; set; }
         public virtual Locker Locker { get; set; }

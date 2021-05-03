@@ -28,6 +28,7 @@ namespace UMCLocker
         }
     
         public virtual DbSet<PR_ContractLiquite> PR_ContractLiquite { get; set; }
+        public virtual DbSet<PR_InputDataToManage> PR_InputDataToManage { get; set; }
     
         public virtual ObjectResult<sp_Get_All_Staff_Result> sp_Get_All_Staff(string deptCode)
         {
@@ -36,6 +37,11 @@ namespace UMCLocker
                 new ObjectParameter("deptCode", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_Get_All_Staff_Result>("sp_Get_All_Staff", deptCodeParameter);
+        }
+    
+        public virtual ObjectResult<sp_Get_All_Staff_2_Result> sp_Get_All_Staff_2()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_Get_All_Staff_2_Result>("sp_Get_All_Staff_2");
         }
     }
 }

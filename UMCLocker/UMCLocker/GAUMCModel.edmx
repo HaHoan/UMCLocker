@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="GA_UMCModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="GA_UMCModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="PR_ContractLiquite">
           <Key>
             <PropertyRef Name="StaffCode" />
@@ -16,14 +16,29 @@
           <Property Name="NoAL" Type="int" />
           <Property Name="Infringe" Type="bit" Nullable="false" />
         </EntityType>
+        <EntityType Name="PR_InputDataToManage">
+          <Key>
+            <PropertyRef Name="Staffcode" />
+            <PropertyRef Name="AppliedDate" />
+            <PropertyRef Name="KindView" />
+          </Key>
+          <Property Name="Staffcode" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="AppliedDate" Type="datetime" Nullable="false" />
+          <Property Name="KindView" Type="int" Nullable="false" />
+          <Property Name="Customer" Type="nvarchar" MaxLength="300" Nullable="false" />
+          <Property Name="Job" Type="nvarchar" MaxLength="300" Nullable="false" />
+          <Property Name="Direct_InDirect" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Stage" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
         <Function Name="sp_Get_All_Staff" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="deptCode" Type="varchar" Mode="In" />
         </Function>
+        <Function Name="sp_Get_All_Staff_2" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <EntityContainer Name="GA_UMCModelStoreContainer">
           <EntitySet Name="PR_ContractLiquite" EntityType="Self.PR_ContractLiquite" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PR_InputDataToManage" EntityType="Self.PR_InputDataToManage" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="GA_UMCModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -41,8 +56,10 @@
         <EntityContainer Name="GA_UMCEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="PR_ContractLiquite" EntityType="Self.PR_ContractLiquite" />
           <FunctionImport Name="sp_Get_All_Staff" ReturnType="Collection(GA_UMCModel.sp_Get_All_Staff_Result)">
-            <Parameter Name="deptCode" Mode="In" Type="String" />
+          <Parameter Name="deptCode" Mode="In" Type="String" />
           </FunctionImport>
+          <FunctionImport Name="sp_Get_All_Staff_2" ReturnType="Collection(GA_UMCModel.sp_Get_All_Staff_2_Result)" />
+          <EntitySet Name="PR_InputDataToManage" EntityType="GA_UMCModel.PR_InputDataToManage" />
         </EntityContainer>
         <ComplexType Name="sp_Get_All_Staff_Result">
           <Property Type="String" Name="StaffCode" Nullable="false" MaxLength="10" />
@@ -53,6 +70,30 @@
           <Property Type="DateTime" Name="EntryDate" Nullable="true" Precision="23" />
           <Property Type="String" Name="PosName" Nullable="true" MaxLength="255" />
         </ComplexType>
+        <ComplexType Name="sp_Get_All_Staff_2_Result">
+          <Property Type="String" Name="StaffCode" Nullable="false" MaxLength="10" />
+          <Property Type="String" Name="FullName" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="DeptCode" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="BirthDate" Nullable="false" Precision="23" />
+          <Property Type="String" Name="Sex" Nullable="true" MaxLength="3" />
+          <Property Type="DateTime" Name="EntryDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="PosName" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="Customer" Nullable="false" MaxLength="300" />
+        </ComplexType>
+        <EntityType Name="PR_InputDataToManage">
+          <Key>
+            <PropertyRef Name="Staffcode" />
+            <PropertyRef Name="AppliedDate" />
+            <PropertyRef Name="KindView" />
+          </Key>
+          <Property Name="Staffcode" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="AppliedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="KindView" Type="Int32" Nullable="false" />
+          <Property Name="Customer" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="Job" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="Direct_InDirect" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Stage" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -84,6 +125,33 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_Get_All_Staff_2" FunctionName="GA_UMCModel.Store.sp_Get_All_Staff_2">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="GA_UMCModel.sp_Get_All_Staff_2_Result">
+                <ScalarProperty Name="StaffCode" ColumnName="StaffCode" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="DeptCode" ColumnName="DeptCode" />
+                <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+                <ScalarProperty Name="Sex" ColumnName="Sex" />
+                <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+                <ScalarProperty Name="PosName" ColumnName="PosName" />
+                <ScalarProperty Name="Customer" ColumnName="Customer" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="PR_InputDataToManage">
+            <EntityTypeMapping TypeName="GA_UMCModel.PR_InputDataToManage">
+              <MappingFragment StoreEntitySet="PR_InputDataToManage">
+                <ScalarProperty Name="Stage" ColumnName="Stage" />
+                <ScalarProperty Name="Direct_InDirect" ColumnName="Direct_InDirect" />
+                <ScalarProperty Name="Job" ColumnName="Job" />
+                <ScalarProperty Name="Customer" ColumnName="Customer" />
+                <ScalarProperty Name="KindView" ColumnName="KindView" />
+                <ScalarProperty Name="AppliedDate" ColumnName="AppliedDate" />
+                <ScalarProperty Name="Staffcode" ColumnName="Staffcode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

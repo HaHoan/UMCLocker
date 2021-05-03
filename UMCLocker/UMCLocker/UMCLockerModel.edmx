@@ -66,6 +66,8 @@
           <Property Name="state" Type="nchar" MaxLength="10" Nullable="false" />
           <Property Name="end_date" Type="date" />
           <Property Name="note" Type="nvarchar" MaxLength="50" />
+          <Property Name="reason_change_key" Type="nvarchar(max)" />
+          <Property Name="customer" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <Association Name="FK_HistoryLocker">
           <End Role="history" Type="Self.history" Multiplicity="0..1" />
@@ -300,6 +302,8 @@
           <Property Name="state" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
           <Property Name="end_date" Type="DateTime" Precision="0" />
           <Property Name="note" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="reason_change_key" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="customer" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Dept" Relationship="UMCLOCKERModel.FK_StaffDept" FromRole="Staff" ToRole="Dept" />
           <NavigationProperty Name="Locker" Relationship="UMCLOCKERModel.FK_LockerStaff" FromRole="Staff" ToRole="Locker" />
           <NavigationProperty Name="Pos" Relationship="UMCLOCKERModel.FK_StaffPos" FromRole="Staff" ToRole="Pos" />
@@ -353,7 +357,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -412,6 +416,8 @@
           <EntitySetMapping Name="Staffs">
             <EntityTypeMapping TypeName="UMCLOCKERModel.Staff">
               <MappingFragment StoreEntitySet="Staff">
+                <ScalarProperty Name="customer" ColumnName="customer" />
+                <ScalarProperty Name="reason_change_key" ColumnName="reason_change_key" />
                 <ScalarProperty Name="note" ColumnName="note" />
                 <ScalarProperty Name="end_date" ColumnName="end_date" />
                 <ScalarProperty Name="state" ColumnName="state" />

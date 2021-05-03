@@ -99,54 +99,7 @@ namespace UMCLocker.Business
                             staff.full_name = table.Rows[i].ItemArray[6].ToString();
                             staff.gender = table.Rows[i].ItemArray[10].ToString();
                             string enterdate = table.Rows[i].ItemArray[4].ToString();
-                            //if (!string.IsNullOrEmpty(enterdate))
-                            //{
-                            //    try
-                            //    {
-                            //        staff.enter_date = DateTime.Parse(enterdate);
-                            //    }
-                            //    catch
-                            //    {
 
-                            //    }
-                            //    if (staff.enter_date == null)
-                            //    {
-                            //        try
-                            //        {
-                            //            staff.enter_date = DateTime.ParseExact(enterdate, "dd/MM/yyyy", null);
-
-                            //        }
-                            //        catch
-                            //        {
-
-                            //        }
-                            //    }
-                            //    if (staff.enter_date == null)
-                            //    {
-                            //        try
-                            //        {
-                            //            staff.enter_date = DateTime.ParseExact(enterdate.Substring(0, 10), "MM/dd/yyyy", null);
-
-                            //        }
-                            //        catch
-                            //        {
-
-                            //        }
-                            //    }
-                            //    if (staff.enter_date == null)
-                            //    {
-                            //        try
-                            //        {
-                            //            staff.enter_date = DateTime.ParseExact(enterdate, "d/M/yyyy", null);
-                            //        }
-                            //        catch
-                            //        {
-
-                            //        }
-                            //    }
-
-
-                            //}
                             if (!string.IsNullOrEmpty(enterdate))
                             {
 
@@ -179,13 +132,15 @@ namespace UMCLocker.Business
                             if (!string.IsNullOrEmpty(dept))
                             {
                                 staff.Dept = db.Depts.Where(x => x.name == dept).FirstOrDefault();
-                                staff.department = staff.Dept.id;
+                                if (staff.Dept != null)
+                                    staff.department = staff.Dept.id;
                             }
                             string pos = table.Rows[i].ItemArray[5].ToString();
                             if (!string.IsNullOrEmpty(pos))
                             {
                                 staff.Pos = db.Pos.Where(x => x.name == pos).FirstOrDefault();
-                                staff.position = staff.Pos.id;
+                                if (staff.Pos != null)
+                                    staff.position = staff.Pos.id;
                             }
                             staff.state = Constants.STATE_ON;
                             db.Staffs.Add(staff);
@@ -368,7 +323,7 @@ namespace UMCLocker.Business
                                 int indexOfSpace = enterdate.IndexOf(' ');
 
                                 enterdate = indexOfSpace > 0 ? enterdate.Substring(0, indexOfSpace) : enterdate;
-                               
+
                                 split = enterdate.Split('/');
                                 staff.enter_date = new DateTime(int.Parse(split[2]), int.Parse(split[1]), int.Parse(split[0]));
                             }
@@ -383,9 +338,9 @@ namespace UMCLocker.Business
 
                                     Console.Write(ex);
                                 }
-                               
+
                             }
-                           
+
                         }
                         string dept = table.Rows[i].ItemArray[5].ToString();
                         if (!string.IsNullOrEmpty(dept))
@@ -424,12 +379,12 @@ namespace UMCLocker.Business
                                     staff.locker_id = int.Parse(rsLocker.message);
                                 }
                             }
-                            catch ( Exception e)
+                            catch (Exception e)
                             {
 
                                 Console.Write(e);
                             }
-                           
+
                         }
                         else
                         {
@@ -458,7 +413,7 @@ namespace UMCLocker.Business
                             {
                                 Console.Write(e);
                             }
-                            
+
                         }
                         else
                         {
@@ -640,6 +595,251 @@ namespace UMCLocker.Business
                     excelReader2007.Close();
                 return new ResultInfo(Constants.ERROR_COMMON, e.Message.ToString());
             }
+        }
+
+
+    }
+
+    public static class ExportUtils
+    {
+        public static string GetFileName(FolderBrowserDialog choofdlog, string fileNameExcel)
+        {
+            string folderName = choofdlog.SelectedPath;
+            string[] fileEntries = Directory.GetFiles(folderName);
+            string fileName = "";
+            int i = -1;
+            foreach (var file in fileEntries)
+            {
+                if (file.Contains(fileNameExcel))
+                {
+                    int start = file.IndexOf('(');
+                    int end = file.IndexOf(')');
+                    if (start > 0 && end > 0)
+                    {
+                        string index = file.Substring(start + 1, end - start - 1);
+                        if (int.Parse(index) > i)
+                        {
+                            i = int.Parse(index);
+                        }
+                    }
+                    else
+                    {
+                        if (i < 0)
+                            i = 0;
+                    }
+
+                }
+            }
+            if (i < 0)
+            {
+                fileName = folderName + "\\" + fileNameExcel + ".xlsx";
+            }
+            else
+            {
+                fileName = folderName + "\\" + fileNameExcel + "(" + (i + 1).ToString() + ")" + ".xlsx";
+            }
+            return fileName;
+        }
+        public static ResultInfo ExportStaff(List<StaffEntity> staffs, string path)
+        {
+            try
+            {
+                Workbook workbook = new Workbook();
+                Worksheet sheet = workbook.Worksheets[0];
+
+                int row = 1;
+                sheet.Range[string.Format("A{0}", row)].Text = "STT";
+                sheet.Range[string.Format("B{0}", row)].Text = "Mã nhân viên";
+                sheet.Range[string.Format("C{0}", row)].Text = "Họ và tên";
+                sheet.Range[string.Format("D{0}", row)].Text = "Giới tính";
+                sheet.Range[string.Format("E{0}", row)].Text = "Ngày vào";
+                sheet.Range[string.Format("F{0}", row)].Text = "Khách hàng";
+                sheet.Range[string.Format("G{0}", row)].Text = "Phòng ban";
+                sheet.Range[string.Format("H{0}", row)].Text = "Vị trí";
+                sheet.Range[string.Format("I{0}", row)].Text = "Locker";
+                sheet.Range["I1:J1"].Merge();
+                sheet.Range[string.Format("K{0}", row)].Text = "Shoes";
+                sheet.Range["K1:L1"].Merge();
+
+                row++;
+                sheet.Range[string.Format("H{0}", row)].Text = "Số tủ";
+                sheet.Range[string.Format("I{0}", row)].Text = "Số ô";
+                sheet.Range[string.Format("J{0}", row)].Text = "Số tủ";
+                sheet.Range[string.Format("K{0}", row)].Text = "Số ô";
+
+                row++;
+                foreach (var staff in staffs)
+                {
+                    sheet.Range[string.Format("A{0}", row)].Text = staff.index.ToString();
+                    sheet.Range[string.Format("A{0}", row)].NumberFormat = "0";
+                    sheet.Range[string.Format("A{0}", row)].NumberValue = staff.index;
+                    string staff_code = "N/A";
+                    try
+                    {
+                        staff_code = string.Format("{0:00000}", int.Parse(staff.staff_code));
+                        sheet.Range[string.Format("B{0}", row)].Text = staff_code;
+                    }
+                    catch (Exception)
+                    {
+                        sheet.Range[string.Format("B{0}", row)].Text = "N/A";
+                    }
+
+                    sheet.Range[string.Format("C{0}", row)].Text = staff.full_name;
+                    sheet.Range[string.Format("D{0}", row)].Text = staff.genderStr;
+                    if (staff.enter_date is DateTime enterDate)
+                    {
+                        sheet.Range[string.Format("E{0}", row)].Text = enterDate.ToShortDateString();
+                    }
+
+                    sheet.Range[string.Format("F{0}", row)].Text = staff.customer != null ? staff.customer : "";
+                    sheet.Range[string.Format("G{0}", row)].Text = staff.deptName;
+                    sheet.Range[string.Format("H{0}", row)].Text = staff.posName;
+                    if (staff.Locker == null)
+                    {
+                        sheet.Range[string.Format("I{0}", row)].Text = "";
+                        sheet.Range[string.Format("J{0}", row)].Text = "";
+                    }
+                    else
+                    {
+                        sheet.Range[string.Format("I{0}", row)].NumberFormat = "0";
+                        sheet.Range[string.Format("I{0}", row)].NumberValue = staff.Locker.locker_number;
+                        sheet.Range[string.Format("J{0}", row)].NumberFormat = "0";
+                        sheet.Range[string.Format("J{0}", row)].NumberValue = staff.Locker.locker_index;
+                    }
+                    if (staff.Sho == null)
+                    {
+                        sheet.Range[string.Format("K{0}", row)].Text = "";
+                        sheet.Range[string.Format("L{0}", row)].Text = "";
+                    }
+                    else
+                    {
+                        sheet.Range[string.Format("K{0}", row)].NumberFormat = "0";
+                        sheet.Range[string.Format("K{0}", row)].NumberValue = staff.Sho.shoes_number;
+                        sheet.Range[string.Format("L{0}", row)].NumberFormat = "0";
+                        sheet.Range[string.Format("L{0}", row)].NumberValue = staff.Sho.shoes_index;
+                    }
+
+                    row++;
+                }
+                workbook.SaveToFile(path, ExcelVersion.Version2013);
+                return new ResultInfo()
+                {
+                    code = Constants.SUCCESS,
+                    message = "Export successfully"
+                };
+            }
+            catch (Exception e)
+            {
+                return new ResultInfo()
+                {
+                    code = Constants.ERROR_COMMON,
+                    message = e.Message.ToString()
+                };
+            }
+        }
+        public static ResultInfo ExportStaffTrash(List<StaffEntity> staffs, string path)
+        {
+            try
+            {
+                Workbook workbook = new Workbook();
+                Worksheet sheet = workbook.Worksheets[0];
+
+                int row = 1;
+                sheet.Range[string.Format("A{0}", row)].Text = "STT";
+                sheet.Range[string.Format("B{0}", row)].Text = "Mã nhân viên";
+                sheet.Range[string.Format("C{0}", row)].Text = "Họ và tên";
+                sheet.Range[string.Format("D{0}", row)].Text = "Giới tính";
+                sheet.Range[string.Format("E{0}", row)].Text = "Ngày vào";
+                sheet.Range[string.Format("F{0}", row)].Text = "Khách hàng";
+                sheet.Range[string.Format("G{0}", row)].Text = "Phòng ban";
+                sheet.Range[string.Format("H{0}", row)].Text = "Vị trí";
+                sheet.Range[string.Format("I{0}", row)].Text = "Locker";
+                sheet.Range["I1:J1"].Merge();
+                sheet.Range[string.Format("K{0}", row)].Text = "Shoes";
+                sheet.Range["K1:L1"].Merge();
+                sheet.Range[string.Format("M{0}", row)].Text = "Ngày kết thúc";
+                sheet.Range[string.Format("N{0}", row)].Text = "Ghi chú";
+
+                row++;
+                sheet.Range[string.Format("H{0}", row)].Text = "Số tủ";
+                sheet.Range[string.Format("I{0}", row)].Text = "Số ô";
+                sheet.Range[string.Format("J{0}", row)].Text = "Số tủ";
+                sheet.Range[string.Format("K{0}", row)].Text = "Số ô";
+
+                row++;
+                foreach (var staff in staffs)
+                {
+                    sheet.Range[string.Format("A{0}", row)].Text = staff.index.ToString();
+                    sheet.Range[string.Format("A{0}", row)].NumberFormat = "0";
+                    sheet.Range[string.Format("A{0}", row)].NumberValue = staff.index;
+                    string staff_code = "N/A";
+                    try
+                    {
+                        staff_code = string.Format("{0:00000}", int.Parse(staff.staff_code));
+                        sheet.Range[string.Format("B{0}", row)].Text = staff_code;
+                    }
+                    catch (Exception)
+                    {
+                        sheet.Range[string.Format("B{0}", row)].Text = "N/A";
+                    }
+
+                    sheet.Range[string.Format("C{0}", row)].Text = staff.full_name;
+                    sheet.Range[string.Format("D{0}", row)].Text = staff.genderStr;
+                    if (staff.enter_date is DateTime enterDate)
+                    {
+                        sheet.Range[string.Format("E{0}", row)].Text = enterDate.ToShortDateString();
+                    }
+
+                    sheet.Range[string.Format("F{0}", row)].Text = staff.customer != null ? staff.customer : "";
+                    sheet.Range[string.Format("G{0}", row)].Text = staff.deptName;
+                    sheet.Range[string.Format("H{0}", row)].Text = staff.posName;
+                    if (staff.Locker == null)
+                    {
+                        sheet.Range[string.Format("I{0}", row)].Text = "";
+                        sheet.Range[string.Format("J{0}", row)].Text = "";
+                    }
+                    else
+                    {
+                        sheet.Range[string.Format("I{0}", row)].NumberFormat = "0";
+                        sheet.Range[string.Format("I{0}", row)].NumberValue = staff.Locker.locker_number;
+                        sheet.Range[string.Format("J{0}", row)].NumberFormat = "0";
+                        sheet.Range[string.Format("J{0}", row)].NumberValue = staff.Locker.locker_index;
+                    }
+                    if (staff.Sho == null)
+                    {
+                        sheet.Range[string.Format("K{0}", row)].Text = "";
+                        sheet.Range[string.Format("L{0}", row)].Text = "";
+                    }
+                    else
+                    {
+                        sheet.Range[string.Format("K{0}", row)].NumberFormat = "0";
+                        sheet.Range[string.Format("K{0}", row)].NumberValue = staff.Sho.shoes_number;
+                        sheet.Range[string.Format("L{0}", row)].NumberFormat = "0";
+                        sheet.Range[string.Format("L{0}", row)].NumberValue = staff.Sho.shoes_index;
+                    }
+                    if (staff.end_date is DateTime endDate)
+                    {
+                        sheet.Range[string.Format("M{0}", row)].Text = endDate.ToShortDateString();
+                    }
+                    sheet.Range[string.Format("N{0}", row)].Text = staff.note;
+                    row++;
+                }
+                workbook.SaveToFile(path, ExcelVersion.Version2013);
+                return new ResultInfo()
+                {
+                    code = Constants.SUCCESS,
+                    message = "Export successfully"
+                };
+            }
+            catch (Exception e)
+            {
+                return new ResultInfo()
+                {
+                    code = Constants.ERROR_COMMON,
+                    message = e.Message.ToString()
+                };
+            }
+
         }
     }
 }

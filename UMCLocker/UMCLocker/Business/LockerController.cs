@@ -65,7 +65,7 @@ namespace UMCLocker.Business
                 row[0] = locker.locker_number;
                 row[1] = locker.locker_index;
                 row[2] = (locker.locker_type == Constants.FEMALE) ? "Tủ nữ" : "Tủ nam";
-                row[3] = locker.state;
+                row[3] = locker.owned != null ? Constants.STATE_USED : Constants.STATE_AVAIABLE;
                 dt.Rows.Add(row);
             }
             ChangeStateButton();

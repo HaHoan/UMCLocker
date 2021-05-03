@@ -123,9 +123,39 @@ namespace UMCLocker.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_sync_30 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-sync-30", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_sync_48 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-sync-48", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap import_excel {
             get {
                 object obj = ResourceManager.GetObject("import-excel", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap import_excel1 {
+            get {
+                object obj = ResourceManager.GetObject("import-excel1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

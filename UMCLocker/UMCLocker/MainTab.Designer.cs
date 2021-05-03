@@ -52,12 +52,14 @@ namespace UMCLocker
             this.panel3 = new System.Windows.Forms.Panel();
             this.tabCtrMain = new System.Windows.Forms.TabControl();
             this.tPStaff = new System.Windows.Forms.TabPage();
+            this.pbStaff = new System.Windows.Forms.PictureBox();
             this.dgrvStaff = new System.Windows.Forms.DataGridView();
             this.index = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.staff_code = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.full_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gender = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.enter_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CustomerStaff = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.department = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.position = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.locker_number = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -75,34 +77,52 @@ namespace UMCLocker
             this.panel9 = new System.Windows.Forms.Panel();
             this.lblInfo = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.btnSync = new System.Windows.Forms.Button();
+            this.btnExportStaff = new System.Windows.Forms.Button();
+            this.btnFilterEnterMonth = new System.Windows.Forms.Button();
             this.dpEnterMonth = new System.Windows.Forms.DateTimePicker();
+            this.btnAllStaff = new System.Windows.Forms.Button();
+            this.btnFilterEnterDate = new System.Windows.Forms.Button();
             this.dpFilterEnterDate = new System.Windows.Forms.DateTimePicker();
             this.txbSearchStaff = new System.Windows.Forms.TextBox();
+            this.btnDeleteStaff = new System.Windows.Forms.Button();
+            this.btnEditStaff = new System.Windows.Forms.Button();
+            this.btnAddStaff = new System.Windows.Forms.Button();
             this.tPKey = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.lblNumberShoes = new System.Windows.Forms.Label();
+            this.btnShoesList = new System.Windows.Forms.Button();
             this.cbbShoesState = new System.Windows.Forms.ComboBox();
             this.cbbShoesType = new System.Windows.Forms.ComboBox();
             this.cbbShoesIndex = new System.Windows.Forms.ComboBox();
+            this.btnShoesSearch = new System.Windows.Forms.Button();
             this.cbbShoesNumber = new System.Windows.Forms.ComboBox();
+            this.btnDeleteShoes = new System.Windows.Forms.Button();
+            this.btnAddShoes = new System.Windows.Forms.Button();
             this.panel6 = new System.Windows.Forms.Panel();
             this.lblNumberLocker = new System.Windows.Forms.Label();
+            this.btnLockerList = new System.Windows.Forms.Button();
             this.cbbLockerState = new System.Windows.Forms.ComboBox();
             this.cbbLockerType = new System.Windows.Forms.ComboBox();
+            this.btnLockerSearch = new System.Windows.Forms.Button();
             this.cbbLockerIndex = new System.Windows.Forms.ComboBox();
             this.cbbLockerNumber = new System.Windows.Forms.ComboBox();
+            this.btnDeleteLocker = new System.Windows.Forms.Button();
+            this.btnAddLocker = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dgrvLocker = new System.Windows.Forms.DataGridView();
             this.dgrvShoes = new System.Windows.Forms.DataGridView();
             this.tPTrash = new System.Windows.Forms.TabPage();
+            this.pbStaffTrash = new System.Windows.Forms.PictureBox();
             this.dgrvTrash = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Customer = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -120,9 +140,13 @@ namespace UMCLocker
             this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel10 = new System.Windows.Forms.Panel();
+            this.btnExportTrash = new System.Windows.Forms.Button();
+            this.btnTrashAll = new System.Windows.Forms.Button();
+            this.btnTrashFilter = new System.Windows.Forms.Button();
             this.cbbNote = new System.Windows.Forms.ComboBox();
             this.dpMonth = new System.Windows.Forms.DateTimePicker();
             this.txbSearchTrash = new System.Windows.Forms.TextBox();
+            this.btnDeleteTrash = new System.Windows.Forms.Button();
             this.tPSetting = new System.Windows.Forms.TabPage();
             this.panel11 = new System.Windows.Forms.Panel();
             this.panel12 = new System.Windows.Forms.Panel();
@@ -179,29 +203,12 @@ namespace UMCLocker
             this.bgwSettingAddStaff = new System.ComponentModel.BackgroundWorker();
             this.bgwSettingImportKey = new System.ComponentModel.BackgroundWorker();
             this.bgwImportQuitWork = new System.ComponentModel.BackgroundWorker();
-            this.pbStaff = new System.Windows.Forms.PictureBox();
-            this.btnFilterEnterMonth = new System.Windows.Forms.Button();
-            this.btnAllStaff = new System.Windows.Forms.Button();
-            this.btnFilterEnterDate = new System.Windows.Forms.Button();
-            this.btnDeleteStaff = new System.Windows.Forms.Button();
-            this.btnEditStaff = new System.Windows.Forms.Button();
-            this.btnAddStaff = new System.Windows.Forms.Button();
-            this.btnShoesList = new System.Windows.Forms.Button();
-            this.btnShoesSearch = new System.Windows.Forms.Button();
-            this.btnDeleteShoes = new System.Windows.Forms.Button();
-            this.btnAddShoes = new System.Windows.Forms.Button();
-            this.btnLockerList = new System.Windows.Forms.Button();
-            this.btnLockerSearch = new System.Windows.Forms.Button();
-            this.btnDeleteLocker = new System.Windows.Forms.Button();
-            this.btnAddLocker = new System.Windows.Forms.Button();
-            this.pbStaffTrash = new System.Windows.Forms.PictureBox();
-            this.btnTrashAll = new System.Windows.Forms.Button();
-            this.btnTrashFilter = new System.Windows.Forms.Button();
-            this.btnDeleteTrash = new System.Windows.Forms.Button();
+            this.bgwSync = new System.ComponentModel.BackgroundWorker();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.tabCtrMain.SuspendLayout();
             this.tPStaff.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbStaff)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgrvStaff)).BeginInit();
             this.panel9.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -212,6 +219,7 @@ namespace UMCLocker
             ((System.ComponentModel.ISupportInitialize)(this.dgrvLocker)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgrvShoes)).BeginInit();
             this.tPTrash.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbStaffTrash)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgrvTrash)).BeginInit();
             this.panel10.SuspendLayout();
             this.tPSetting.SuspendLayout();
@@ -220,8 +228,6 @@ namespace UMCLocker
             this.panel14.SuspendLayout();
             this.panel13.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbStaff)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbStaffTrash)).BeginInit();
             this.SuspendLayout();
             // 
             // imageList1
@@ -309,6 +315,18 @@ namespace UMCLocker
             this.tPStaff.Text = "Quản lý nhân viên";
             this.tPStaff.UseVisualStyleBackColor = true;
             // 
+            // pbStaff
+            // 
+            this.pbStaff.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pbStaff.BackColor = System.Drawing.Color.Transparent;
+            this.pbStaff.Image = global::UMCLocker.Properties.Resources.loading;
+            this.pbStaff.Location = new System.Drawing.Point(597, 258);
+            this.pbStaff.Name = "pbStaff";
+            this.pbStaff.Size = new System.Drawing.Size(64, 64);
+            this.pbStaff.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pbStaff.TabIndex = 3;
+            this.pbStaff.TabStop = false;
+            // 
             // dgrvStaff
             // 
             this.dgrvStaff.AllowUserToAddRows = false;
@@ -335,6 +353,7 @@ namespace UMCLocker
             this.full_name,
             this.gender,
             this.enter_date,
+            this.CustomerStaff,
             this.department,
             this.position,
             this.locker_number,
@@ -404,6 +423,13 @@ namespace UMCLocker
             this.enter_date.HeaderText = "Ngày vào";
             this.enter_date.Name = "enter_date";
             this.enter_date.ReadOnly = true;
+            // 
+            // CustomerStaff
+            // 
+            this.CustomerStaff.DataPropertyName = "customer";
+            this.CustomerStaff.HeaderText = "Khách hàng";
+            this.CustomerStaff.Name = "CustomerStaff";
+            this.CustomerStaff.ReadOnly = true;
             // 
             // department
             // 
@@ -531,6 +557,8 @@ namespace UMCLocker
             // 
             // panel4
             // 
+            this.panel4.Controls.Add(this.btnSync);
+            this.panel4.Controls.Add(this.btnExportStaff);
             this.panel4.Controls.Add(this.btnFilterEnterMonth);
             this.panel4.Controls.Add(this.dpEnterMonth);
             this.panel4.Controls.Add(this.btnAllStaff);
@@ -546,6 +574,45 @@ namespace UMCLocker
             this.panel4.Size = new System.Drawing.Size(1267, 37);
             this.panel4.TabIndex = 0;
             // 
+            // btnSync
+            // 
+            this.btnSync.FlatAppearance.BorderSize = 0;
+            this.btnSync.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSync.Image = global::UMCLocker.Properties.Resources.icons8_sync_30;
+            this.btnSync.Location = new System.Drawing.Point(1211, 5);
+            this.btnSync.Name = "btnSync";
+            this.btnSync.Size = new System.Drawing.Size(40, 23);
+            this.btnSync.TabIndex = 20;
+            this.btnSync.Tag = "0";
+            this.btnSync.UseVisualStyleBackColor = true;
+            this.btnSync.Click += new System.EventHandler(this.btnSync_Click);
+            // 
+            // btnExportStaff
+            // 
+            this.btnExportStaff.FlatAppearance.BorderSize = 0;
+            this.btnExportStaff.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExportStaff.Image = global::UMCLocker.Properties.Resources.import_excel1;
+            this.btnExportStaff.Location = new System.Drawing.Point(1160, 6);
+            this.btnExportStaff.Name = "btnExportStaff";
+            this.btnExportStaff.Size = new System.Drawing.Size(45, 23);
+            this.btnExportStaff.TabIndex = 19;
+            this.btnExportStaff.Tag = "0";
+            this.btnExportStaff.UseVisualStyleBackColor = true;
+            this.btnExportStaff.Click += new System.EventHandler(this.btnExportStaff_Click);
+            // 
+            // btnFilterEnterMonth
+            // 
+            this.btnFilterEnterMonth.FlatAppearance.BorderSize = 0;
+            this.btnFilterEnterMonth.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFilterEnterMonth.Image = global::UMCLocker.Properties.Resources.filter_icon;
+            this.btnFilterEnterMonth.Location = new System.Drawing.Point(1071, 5);
+            this.btnFilterEnterMonth.Name = "btnFilterEnterMonth";
+            this.btnFilterEnterMonth.Size = new System.Drawing.Size(45, 23);
+            this.btnFilterEnterMonth.TabIndex = 18;
+            this.btnFilterEnterMonth.Tag = "0";
+            this.btnFilterEnterMonth.UseVisualStyleBackColor = true;
+            this.btnFilterEnterMonth.Click += new System.EventHandler(this.btnFilterEnterMonth_Click);
+            // 
             // dpEnterMonth
             // 
             this.dpEnterMonth.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
@@ -553,6 +620,32 @@ namespace UMCLocker
             this.dpEnterMonth.Name = "dpEnterMonth";
             this.dpEnterMonth.Size = new System.Drawing.Size(200, 20);
             this.dpEnterMonth.TabIndex = 17;
+            // 
+            // btnAllStaff
+            // 
+            this.btnAllStaff.FlatAppearance.BorderSize = 0;
+            this.btnAllStaff.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAllStaff.Image = global::UMCLocker.Properties.Resources.list_icon;
+            this.btnAllStaff.Location = new System.Drawing.Point(1112, 6);
+            this.btnAllStaff.Name = "btnAllStaff";
+            this.btnAllStaff.Size = new System.Drawing.Size(45, 23);
+            this.btnAllStaff.TabIndex = 16;
+            this.btnAllStaff.Tag = "0";
+            this.btnAllStaff.UseVisualStyleBackColor = true;
+            this.btnAllStaff.Click += new System.EventHandler(this.btnAllStaff_Click);
+            // 
+            // btnFilterEnterDate
+            // 
+            this.btnFilterEnterDate.FlatAppearance.BorderSize = 0;
+            this.btnFilterEnterDate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFilterEnterDate.Image = global::UMCLocker.Properties.Resources.filter_icon;
+            this.btnFilterEnterDate.Location = new System.Drawing.Point(776, 6);
+            this.btnFilterEnterDate.Name = "btnFilterEnterDate";
+            this.btnFilterEnterDate.Size = new System.Drawing.Size(45, 23);
+            this.btnFilterEnterDate.TabIndex = 15;
+            this.btnFilterEnterDate.Tag = "0";
+            this.btnFilterEnterDate.UseVisualStyleBackColor = true;
+            this.btnFilterEnterDate.Click += new System.EventHandler(this.btnFilterStaff_Click);
             // 
             // dpFilterEnterDate
             // 
@@ -571,6 +664,45 @@ namespace UMCLocker
             this.txbSearchStaff.TabIndex = 4;
             this.txbSearchStaff.Text = "Nhập mã nhân viên";
             this.txbSearchStaff.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txbSearchStaff_KeyDown);
+            // 
+            // btnDeleteStaff
+            // 
+            this.btnDeleteStaff.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnDeleteStaff.FlatAppearance.BorderSize = 0;
+            this.btnDeleteStaff.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDeleteStaff.Image = global::UMCLocker.Properties.Resources.delete_icon;
+            this.btnDeleteStaff.Location = new System.Drawing.Point(70, 0);
+            this.btnDeleteStaff.Name = "btnDeleteStaff";
+            this.btnDeleteStaff.Size = new System.Drawing.Size(35, 37);
+            this.btnDeleteStaff.TabIndex = 2;
+            this.btnDeleteStaff.UseVisualStyleBackColor = true;
+            this.btnDeleteStaff.Click += new System.EventHandler(this.btnDeleteStaff_Click);
+            // 
+            // btnEditStaff
+            // 
+            this.btnEditStaff.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnEditStaff.FlatAppearance.BorderSize = 0;
+            this.btnEditStaff.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEditStaff.Image = global::UMCLocker.Properties.Resources.edit_icon;
+            this.btnEditStaff.Location = new System.Drawing.Point(35, 0);
+            this.btnEditStaff.Name = "btnEditStaff";
+            this.btnEditStaff.Size = new System.Drawing.Size(35, 37);
+            this.btnEditStaff.TabIndex = 1;
+            this.btnEditStaff.UseVisualStyleBackColor = true;
+            this.btnEditStaff.Click += new System.EventHandler(this.btnEditStaff_Click);
+            // 
+            // btnAddStaff
+            // 
+            this.btnAddStaff.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnAddStaff.FlatAppearance.BorderSize = 0;
+            this.btnAddStaff.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddStaff.Image = global::UMCLocker.Properties.Resources.add_icon;
+            this.btnAddStaff.Location = new System.Drawing.Point(0, 0);
+            this.btnAddStaff.Name = "btnAddStaff";
+            this.btnAddStaff.Size = new System.Drawing.Size(35, 37);
+            this.btnAddStaff.TabIndex = 0;
+            this.btnAddStaff.UseVisualStyleBackColor = true;
+            this.btnAddStaff.Click += new System.EventHandler(this.btnAddStaff_Click);
             // 
             // tPKey
             // 
@@ -635,6 +767,19 @@ namespace UMCLocker
             this.lblNumberShoes.TabIndex = 13;
             this.lblNumberShoes.Text = "0";
             // 
+            // btnShoesList
+            // 
+            this.btnShoesList.FlatAppearance.BorderSize = 0;
+            this.btnShoesList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnShoesList.Image = global::UMCLocker.Properties.Resources.list_icon;
+            this.btnShoesList.Location = new System.Drawing.Point(509, 0);
+            this.btnShoesList.Name = "btnShoesList";
+            this.btnShoesList.Size = new System.Drawing.Size(23, 23);
+            this.btnShoesList.TabIndex = 12;
+            this.btnShoesList.Tag = "0";
+            this.btnShoesList.UseVisualStyleBackColor = true;
+            this.btnShoesList.Click += new System.EventHandler(this.btnShoesList_Click);
+            // 
             // cbbShoesState
             // 
             this.cbbShoesState.FormattingEnabled = true;
@@ -670,6 +815,19 @@ namespace UMCLocker
             this.cbbShoesIndex.TextChanged += new System.EventHandler(this.cbbShoesIndex_TextChanged);
             this.cbbShoesIndex.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cbbShoesIndex_KeyPress);
             // 
+            // btnShoesSearch
+            // 
+            this.btnShoesSearch.FlatAppearance.BorderSize = 0;
+            this.btnShoesSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnShoesSearch.Image = global::UMCLocker.Properties.Resources.filter_icon;
+            this.btnShoesSearch.Location = new System.Drawing.Point(463, 2);
+            this.btnShoesSearch.Name = "btnShoesSearch";
+            this.btnShoesSearch.Size = new System.Drawing.Size(23, 23);
+            this.btnShoesSearch.TabIndex = 5;
+            this.btnShoesSearch.Tag = "0";
+            this.btnShoesSearch.UseVisualStyleBackColor = true;
+            this.btnShoesSearch.Click += new System.EventHandler(this.btnShoesSearch_Click);
+            // 
             // cbbShoesNumber
             // 
             this.cbbShoesNumber.FormattingEnabled = true;
@@ -681,6 +839,32 @@ namespace UMCLocker
             this.cbbShoesNumber.TabIndexChanged += new System.EventHandler(this.cbbShoesNumber_SelectedIndexChanged);
             this.cbbShoesNumber.TextChanged += new System.EventHandler(this.cbbShoesNumber_TextChanged);
             this.cbbShoesNumber.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cbbShoesNumber_KeyPress);
+            // 
+            // btnDeleteShoes
+            // 
+            this.btnDeleteShoes.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnDeleteShoes.FlatAppearance.BorderSize = 0;
+            this.btnDeleteShoes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDeleteShoes.Image = global::UMCLocker.Properties.Resources.delete_icon;
+            this.btnDeleteShoes.Location = new System.Drawing.Point(31, 0);
+            this.btnDeleteShoes.Name = "btnDeleteShoes";
+            this.btnDeleteShoes.Size = new System.Drawing.Size(31, 29);
+            this.btnDeleteShoes.TabIndex = 1;
+            this.btnDeleteShoes.UseVisualStyleBackColor = true;
+            this.btnDeleteShoes.Click += new System.EventHandler(this.btnDeleteShoes_Click);
+            // 
+            // btnAddShoes
+            // 
+            this.btnAddShoes.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnAddShoes.FlatAppearance.BorderSize = 0;
+            this.btnAddShoes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddShoes.Image = global::UMCLocker.Properties.Resources.add_icon;
+            this.btnAddShoes.Location = new System.Drawing.Point(0, 0);
+            this.btnAddShoes.Name = "btnAddShoes";
+            this.btnAddShoes.Size = new System.Drawing.Size(31, 29);
+            this.btnAddShoes.TabIndex = 0;
+            this.btnAddShoes.UseVisualStyleBackColor = true;
+            this.btnAddShoes.Click += new System.EventHandler(this.btnAddShoes_Click);
             // 
             // panel6
             // 
@@ -709,6 +893,19 @@ namespace UMCLocker
             this.lblNumberLocker.TabIndex = 12;
             this.lblNumberLocker.Text = "0";
             // 
+            // btnLockerList
+            // 
+            this.btnLockerList.FlatAppearance.BorderSize = 0;
+            this.btnLockerList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLockerList.Image = global::UMCLocker.Properties.Resources.list_icon;
+            this.btnLockerList.Location = new System.Drawing.Point(531, 1);
+            this.btnLockerList.Name = "btnLockerList";
+            this.btnLockerList.Size = new System.Drawing.Size(42, 23);
+            this.btnLockerList.TabIndex = 11;
+            this.btnLockerList.Tag = "0";
+            this.btnLockerList.UseVisualStyleBackColor = true;
+            this.btnLockerList.Click += new System.EventHandler(this.btnLockerList_Click);
+            // 
             // cbbLockerState
             // 
             this.cbbLockerState.FormattingEnabled = true;
@@ -731,6 +928,19 @@ namespace UMCLocker
             this.cbbLockerType.TabIndex = 9;
             this.cbbLockerType.Text = "Chọn loại";
             this.cbbLockerType.SelectedIndexChanged += new System.EventHandler(this.cbbLockerType_SelectedIndexChanged);
+            // 
+            // btnLockerSearch
+            // 
+            this.btnLockerSearch.FlatAppearance.BorderSize = 0;
+            this.btnLockerSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLockerSearch.Image = global::UMCLocker.Properties.Resources.filter_icon;
+            this.btnLockerSearch.Location = new System.Drawing.Point(495, 1);
+            this.btnLockerSearch.Name = "btnLockerSearch";
+            this.btnLockerSearch.Size = new System.Drawing.Size(42, 23);
+            this.btnLockerSearch.TabIndex = 7;
+            this.btnLockerSearch.Tag = "0";
+            this.btnLockerSearch.UseVisualStyleBackColor = true;
+            this.btnLockerSearch.Click += new System.EventHandler(this.btnLockerSearch_Click);
             // 
             // cbbLockerIndex
             // 
@@ -755,6 +965,32 @@ namespace UMCLocker
             this.cbbLockerNumber.TabIndexChanged += new System.EventHandler(this.cbbLockerNumber_SelectedIndexChanged);
             this.cbbLockerNumber.TextChanged += new System.EventHandler(this.cbbLockerNumber_TextChanged);
             this.cbbLockerNumber.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cbbLockerNumber_KeyPress);
+            // 
+            // btnDeleteLocker
+            // 
+            this.btnDeleteLocker.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnDeleteLocker.FlatAppearance.BorderSize = 0;
+            this.btnDeleteLocker.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDeleteLocker.Image = global::UMCLocker.Properties.Resources.delete_icon;
+            this.btnDeleteLocker.Location = new System.Drawing.Point(31, 0);
+            this.btnDeleteLocker.Name = "btnDeleteLocker";
+            this.btnDeleteLocker.Size = new System.Drawing.Size(31, 29);
+            this.btnDeleteLocker.TabIndex = 1;
+            this.btnDeleteLocker.UseVisualStyleBackColor = true;
+            this.btnDeleteLocker.Click += new System.EventHandler(this.btnDeleteLocker_Click);
+            // 
+            // btnAddLocker
+            // 
+            this.btnAddLocker.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnAddLocker.FlatAppearance.BorderSize = 0;
+            this.btnAddLocker.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddLocker.Image = global::UMCLocker.Properties.Resources.add_icon;
+            this.btnAddLocker.Location = new System.Drawing.Point(0, 0);
+            this.btnAddLocker.Name = "btnAddLocker";
+            this.btnAddLocker.Size = new System.Drawing.Size(31, 29);
+            this.btnAddLocker.TabIndex = 0;
+            this.btnAddLocker.UseVisualStyleBackColor = true;
+            this.btnAddLocker.Click += new System.EventHandler(this.btnAddLocker_Click);
             // 
             // label2
             // 
@@ -846,6 +1082,18 @@ namespace UMCLocker
             this.tPTrash.Text = "Danh sách nghỉ việc";
             this.tPTrash.UseVisualStyleBackColor = true;
             // 
+            // pbStaffTrash
+            // 
+            this.pbStaffTrash.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pbStaffTrash.BackColor = System.Drawing.Color.Transparent;
+            this.pbStaffTrash.Image = global::UMCLocker.Properties.Resources.loading;
+            this.pbStaffTrash.Location = new System.Drawing.Point(605, 277);
+            this.pbStaffTrash.Name = "pbStaffTrash";
+            this.pbStaffTrash.Size = new System.Drawing.Size(64, 64);
+            this.pbStaffTrash.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pbStaffTrash.TabIndex = 6;
+            this.pbStaffTrash.TabStop = false;
+            // 
             // dgrvTrash
             // 
             this.dgrvTrash.AllowUserToAddRows = false;
@@ -872,6 +1120,7 @@ namespace UMCLocker
             this.dataGridViewTextBoxColumn3,
             this.dataGridViewTextBoxColumn4,
             this.dataGridViewTextBoxColumn5,
+            this.Customer,
             this.dataGridViewTextBoxColumn6,
             this.dataGridViewTextBoxColumn7,
             this.dataGridViewTextBoxColumn8,
@@ -942,6 +1191,13 @@ namespace UMCLocker
             this.dataGridViewTextBoxColumn5.HeaderText = "Ngày vào";
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
             this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            // 
+            // Customer
+            // 
+            this.Customer.DataPropertyName = "customer";
+            this.Customer.HeaderText = "Khách hàng";
+            this.Customer.Name = "Customer";
+            this.Customer.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn6
             // 
@@ -1065,6 +1321,7 @@ namespace UMCLocker
             // 
             // panel10
             // 
+            this.panel10.Controls.Add(this.btnExportTrash);
             this.panel10.Controls.Add(this.btnTrashAll);
             this.panel10.Controls.Add(this.btnTrashFilter);
             this.panel10.Controls.Add(this.cbbNote);
@@ -1077,13 +1334,52 @@ namespace UMCLocker
             this.panel10.Size = new System.Drawing.Size(1269, 37);
             this.panel10.TabIndex = 4;
             // 
+            // btnExportTrash
+            // 
+            this.btnExportTrash.FlatAppearance.BorderSize = 0;
+            this.btnExportTrash.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExportTrash.Image = global::UMCLocker.Properties.Resources.import_excel;
+            this.btnExportTrash.Location = new System.Drawing.Point(1012, 4);
+            this.btnExportTrash.Name = "btnExportTrash";
+            this.btnExportTrash.Size = new System.Drawing.Size(42, 23);
+            this.btnExportTrash.TabIndex = 14;
+            this.btnExportTrash.Tag = "0";
+            this.btnExportTrash.UseVisualStyleBackColor = true;
+            this.btnExportTrash.Click += new System.EventHandler(this.btnExportTrash_Click);
+            // 
+            // btnTrashAll
+            // 
+            this.btnTrashAll.FlatAppearance.BorderSize = 0;
+            this.btnTrashAll.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTrashAll.Image = global::UMCLocker.Properties.Resources.list_icon;
+            this.btnTrashAll.Location = new System.Drawing.Point(924, 4);
+            this.btnTrashAll.Name = "btnTrashAll";
+            this.btnTrashAll.Size = new System.Drawing.Size(42, 23);
+            this.btnTrashAll.TabIndex = 13;
+            this.btnTrashAll.Tag = "0";
+            this.btnTrashAll.UseVisualStyleBackColor = true;
+            this.btnTrashAll.Click += new System.EventHandler(this.btnTrashAll_Click);
+            // 
+            // btnTrashFilter
+            // 
+            this.btnTrashFilter.FlatAppearance.BorderSize = 0;
+            this.btnTrashFilter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTrashFilter.Image = global::UMCLocker.Properties.Resources.filter_icon;
+            this.btnTrashFilter.Location = new System.Drawing.Point(846, 4);
+            this.btnTrashFilter.Name = "btnTrashFilter";
+            this.btnTrashFilter.Size = new System.Drawing.Size(42, 23);
+            this.btnTrashFilter.TabIndex = 12;
+            this.btnTrashFilter.Tag = "0";
+            this.btnTrashFilter.UseVisualStyleBackColor = true;
+            this.btnTrashFilter.Click += new System.EventHandler(this.btnTrashFilter_Click);
+            // 
             // cbbNote
             // 
             this.cbbNote.FormattingEnabled = true;
             this.cbbNote.Items.AddRange(new object[] {
-            "Return key",
-            "Not return key"});
-            this.cbbNote.Location = new System.Drawing.Point(711, 5);
+            "NV có trả khóa",
+            "NV không trả khóa"});
+            this.cbbNote.Location = new System.Drawing.Point(708, 7);
             this.cbbNote.Name = "cbbNote";
             this.cbbNote.Size = new System.Drawing.Size(121, 21);
             this.cbbNote.TabIndex = 6;
@@ -1105,6 +1401,19 @@ namespace UMCLocker
             this.txbSearchTrash.TabIndex = 4;
             this.txbSearchTrash.Text = "Nhập mã nhân viên";
             this.txbSearchTrash.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txbSearchTrash_KeyDown);
+            // 
+            // btnDeleteTrash
+            // 
+            this.btnDeleteTrash.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnDeleteTrash.FlatAppearance.BorderSize = 0;
+            this.btnDeleteTrash.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDeleteTrash.Image = global::UMCLocker.Properties.Resources.delete_icon;
+            this.btnDeleteTrash.Location = new System.Drawing.Point(0, 0);
+            this.btnDeleteTrash.Name = "btnDeleteTrash";
+            this.btnDeleteTrash.Size = new System.Drawing.Size(35, 37);
+            this.btnDeleteTrash.TabIndex = 2;
+            this.btnDeleteTrash.UseVisualStyleBackColor = true;
+            this.btnDeleteTrash.Click += new System.EventHandler(this.btnDeleteTrash_Click);
             // 
             // tPSetting
             // 
@@ -1600,250 +1909,10 @@ namespace UMCLocker
             // 
             this.errorProvider1.ContainerControl = this;
             // 
-            // pbStaff
+            // bgwSync
             // 
-            this.pbStaff.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pbStaff.BackColor = System.Drawing.Color.Transparent;
-            this.pbStaff.Image = global::UMCLocker.Properties.Resources.loading;
-            this.pbStaff.Location = new System.Drawing.Point(597, 258);
-            this.pbStaff.Name = "pbStaff";
-            this.pbStaff.Size = new System.Drawing.Size(64, 64);
-            this.pbStaff.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pbStaff.TabIndex = 3;
-            this.pbStaff.TabStop = false;
-            // 
-            // btnFilterEnterMonth
-            // 
-            this.btnFilterEnterMonth.FlatAppearance.BorderSize = 0;
-            this.btnFilterEnterMonth.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFilterEnterMonth.Image = global::UMCLocker.Properties.Resources.filter_icon;
-            this.btnFilterEnterMonth.Location = new System.Drawing.Point(1071, 5);
-            this.btnFilterEnterMonth.Name = "btnFilterEnterMonth";
-            this.btnFilterEnterMonth.Size = new System.Drawing.Size(45, 23);
-            this.btnFilterEnterMonth.TabIndex = 18;
-            this.btnFilterEnterMonth.Tag = "0";
-            this.btnFilterEnterMonth.UseVisualStyleBackColor = true;
-            this.btnFilterEnterMonth.Click += new System.EventHandler(this.btnFilterEnterMonth_Click);
-            // 
-            // btnAllStaff
-            // 
-            this.btnAllStaff.FlatAppearance.BorderSize = 0;
-            this.btnAllStaff.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAllStaff.Image = global::UMCLocker.Properties.Resources.list_icon;
-            this.btnAllStaff.Location = new System.Drawing.Point(1122, 3);
-            this.btnAllStaff.Name = "btnAllStaff";
-            this.btnAllStaff.Size = new System.Drawing.Size(45, 23);
-            this.btnAllStaff.TabIndex = 16;
-            this.btnAllStaff.Tag = "0";
-            this.btnAllStaff.UseVisualStyleBackColor = true;
-            this.btnAllStaff.Click += new System.EventHandler(this.btnAllStaff_Click);
-            // 
-            // btnFilterEnterDate
-            // 
-            this.btnFilterEnterDate.FlatAppearance.BorderSize = 0;
-            this.btnFilterEnterDate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFilterEnterDate.Image = global::UMCLocker.Properties.Resources.filter_icon;
-            this.btnFilterEnterDate.Location = new System.Drawing.Point(776, 6);
-            this.btnFilterEnterDate.Name = "btnFilterEnterDate";
-            this.btnFilterEnterDate.Size = new System.Drawing.Size(45, 23);
-            this.btnFilterEnterDate.TabIndex = 15;
-            this.btnFilterEnterDate.Tag = "0";
-            this.btnFilterEnterDate.UseVisualStyleBackColor = true;
-            this.btnFilterEnterDate.Click += new System.EventHandler(this.btnFilterStaff_Click);
-            // 
-            // btnDeleteStaff
-            // 
-            this.btnDeleteStaff.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnDeleteStaff.FlatAppearance.BorderSize = 0;
-            this.btnDeleteStaff.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDeleteStaff.Image = global::UMCLocker.Properties.Resources.delete_icon;
-            this.btnDeleteStaff.Location = new System.Drawing.Point(70, 0);
-            this.btnDeleteStaff.Name = "btnDeleteStaff";
-            this.btnDeleteStaff.Size = new System.Drawing.Size(35, 37);
-            this.btnDeleteStaff.TabIndex = 2;
-            this.btnDeleteStaff.UseVisualStyleBackColor = true;
-            this.btnDeleteStaff.Click += new System.EventHandler(this.btnDeleteStaff_Click);
-            // 
-            // btnEditStaff
-            // 
-            this.btnEditStaff.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnEditStaff.FlatAppearance.BorderSize = 0;
-            this.btnEditStaff.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEditStaff.Image = global::UMCLocker.Properties.Resources.edit_icon;
-            this.btnEditStaff.Location = new System.Drawing.Point(35, 0);
-            this.btnEditStaff.Name = "btnEditStaff";
-            this.btnEditStaff.Size = new System.Drawing.Size(35, 37);
-            this.btnEditStaff.TabIndex = 1;
-            this.btnEditStaff.UseVisualStyleBackColor = true;
-            this.btnEditStaff.Click += new System.EventHandler(this.btnEditStaff_Click);
-            // 
-            // btnAddStaff
-            // 
-            this.btnAddStaff.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnAddStaff.FlatAppearance.BorderSize = 0;
-            this.btnAddStaff.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddStaff.Image = global::UMCLocker.Properties.Resources.add_icon;
-            this.btnAddStaff.Location = new System.Drawing.Point(0, 0);
-            this.btnAddStaff.Name = "btnAddStaff";
-            this.btnAddStaff.Size = new System.Drawing.Size(35, 37);
-            this.btnAddStaff.TabIndex = 0;
-            this.btnAddStaff.UseVisualStyleBackColor = true;
-            this.btnAddStaff.Click += new System.EventHandler(this.btnAddStaff_Click);
-            // 
-            // btnShoesList
-            // 
-            this.btnShoesList.FlatAppearance.BorderSize = 0;
-            this.btnShoesList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnShoesList.Image = global::UMCLocker.Properties.Resources.list_icon;
-            this.btnShoesList.Location = new System.Drawing.Point(509, 0);
-            this.btnShoesList.Name = "btnShoesList";
-            this.btnShoesList.Size = new System.Drawing.Size(23, 23);
-            this.btnShoesList.TabIndex = 12;
-            this.btnShoesList.Tag = "0";
-            this.btnShoesList.UseVisualStyleBackColor = true;
-            this.btnShoesList.Click += new System.EventHandler(this.btnShoesList_Click);
-            // 
-            // btnShoesSearch
-            // 
-            this.btnShoesSearch.FlatAppearance.BorderSize = 0;
-            this.btnShoesSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnShoesSearch.Image = global::UMCLocker.Properties.Resources.filter_icon;
-            this.btnShoesSearch.Location = new System.Drawing.Point(463, 2);
-            this.btnShoesSearch.Name = "btnShoesSearch";
-            this.btnShoesSearch.Size = new System.Drawing.Size(23, 23);
-            this.btnShoesSearch.TabIndex = 5;
-            this.btnShoesSearch.Tag = "0";
-            this.btnShoesSearch.UseVisualStyleBackColor = true;
-            this.btnShoesSearch.Click += new System.EventHandler(this.btnShoesSearch_Click);
-            // 
-            // btnDeleteShoes
-            // 
-            this.btnDeleteShoes.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnDeleteShoes.FlatAppearance.BorderSize = 0;
-            this.btnDeleteShoes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDeleteShoes.Image = global::UMCLocker.Properties.Resources.delete_icon;
-            this.btnDeleteShoes.Location = new System.Drawing.Point(31, 0);
-            this.btnDeleteShoes.Name = "btnDeleteShoes";
-            this.btnDeleteShoes.Size = new System.Drawing.Size(31, 29);
-            this.btnDeleteShoes.TabIndex = 1;
-            this.btnDeleteShoes.UseVisualStyleBackColor = true;
-            this.btnDeleteShoes.Click += new System.EventHandler(this.btnDeleteShoes_Click);
-            // 
-            // btnAddShoes
-            // 
-            this.btnAddShoes.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnAddShoes.FlatAppearance.BorderSize = 0;
-            this.btnAddShoes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddShoes.Image = global::UMCLocker.Properties.Resources.add_icon;
-            this.btnAddShoes.Location = new System.Drawing.Point(0, 0);
-            this.btnAddShoes.Name = "btnAddShoes";
-            this.btnAddShoes.Size = new System.Drawing.Size(31, 29);
-            this.btnAddShoes.TabIndex = 0;
-            this.btnAddShoes.UseVisualStyleBackColor = true;
-            this.btnAddShoes.Click += new System.EventHandler(this.btnAddShoes_Click);
-            // 
-            // btnLockerList
-            // 
-            this.btnLockerList.FlatAppearance.BorderSize = 0;
-            this.btnLockerList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLockerList.Image = global::UMCLocker.Properties.Resources.list_icon;
-            this.btnLockerList.Location = new System.Drawing.Point(531, 1);
-            this.btnLockerList.Name = "btnLockerList";
-            this.btnLockerList.Size = new System.Drawing.Size(42, 23);
-            this.btnLockerList.TabIndex = 11;
-            this.btnLockerList.Tag = "0";
-            this.btnLockerList.UseVisualStyleBackColor = true;
-            this.btnLockerList.Click += new System.EventHandler(this.btnLockerList_Click);
-            // 
-            // btnLockerSearch
-            // 
-            this.btnLockerSearch.FlatAppearance.BorderSize = 0;
-            this.btnLockerSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLockerSearch.Image = global::UMCLocker.Properties.Resources.filter_icon;
-            this.btnLockerSearch.Location = new System.Drawing.Point(495, 1);
-            this.btnLockerSearch.Name = "btnLockerSearch";
-            this.btnLockerSearch.Size = new System.Drawing.Size(42, 23);
-            this.btnLockerSearch.TabIndex = 7;
-            this.btnLockerSearch.Tag = "0";
-            this.btnLockerSearch.UseVisualStyleBackColor = true;
-            this.btnLockerSearch.Click += new System.EventHandler(this.btnLockerSearch_Click);
-            // 
-            // btnDeleteLocker
-            // 
-            this.btnDeleteLocker.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnDeleteLocker.FlatAppearance.BorderSize = 0;
-            this.btnDeleteLocker.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDeleteLocker.Image = global::UMCLocker.Properties.Resources.delete_icon;
-            this.btnDeleteLocker.Location = new System.Drawing.Point(31, 0);
-            this.btnDeleteLocker.Name = "btnDeleteLocker";
-            this.btnDeleteLocker.Size = new System.Drawing.Size(31, 29);
-            this.btnDeleteLocker.TabIndex = 1;
-            this.btnDeleteLocker.UseVisualStyleBackColor = true;
-            this.btnDeleteLocker.Click += new System.EventHandler(this.btnDeleteLocker_Click);
-            // 
-            // btnAddLocker
-            // 
-            this.btnAddLocker.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnAddLocker.FlatAppearance.BorderSize = 0;
-            this.btnAddLocker.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddLocker.Image = global::UMCLocker.Properties.Resources.add_icon;
-            this.btnAddLocker.Location = new System.Drawing.Point(0, 0);
-            this.btnAddLocker.Name = "btnAddLocker";
-            this.btnAddLocker.Size = new System.Drawing.Size(31, 29);
-            this.btnAddLocker.TabIndex = 0;
-            this.btnAddLocker.UseVisualStyleBackColor = true;
-            this.btnAddLocker.Click += new System.EventHandler(this.btnAddLocker_Click);
-            // 
-            // pbStaffTrash
-            // 
-            this.pbStaffTrash.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pbStaffTrash.BackColor = System.Drawing.Color.Transparent;
-            this.pbStaffTrash.Image = global::UMCLocker.Properties.Resources.loading;
-            this.pbStaffTrash.Location = new System.Drawing.Point(605, 277);
-            this.pbStaffTrash.Name = "pbStaffTrash";
-            this.pbStaffTrash.Size = new System.Drawing.Size(64, 64);
-            this.pbStaffTrash.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pbStaffTrash.TabIndex = 6;
-            this.pbStaffTrash.TabStop = false;
-            // 
-            // btnTrashAll
-            // 
-            this.btnTrashAll.FlatAppearance.BorderSize = 0;
-            this.btnTrashAll.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnTrashAll.Image = global::UMCLocker.Properties.Resources.list_icon;
-            this.btnTrashAll.Location = new System.Drawing.Point(889, 4);
-            this.btnTrashAll.Name = "btnTrashAll";
-            this.btnTrashAll.Size = new System.Drawing.Size(42, 23);
-            this.btnTrashAll.TabIndex = 13;
-            this.btnTrashAll.Tag = "0";
-            this.btnTrashAll.UseVisualStyleBackColor = true;
-            this.btnTrashAll.Click += new System.EventHandler(this.btnTrashAll_Click);
-            // 
-            // btnTrashFilter
-            // 
-            this.btnTrashFilter.FlatAppearance.BorderSize = 0;
-            this.btnTrashFilter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnTrashFilter.Image = global::UMCLocker.Properties.Resources.filter_icon;
-            this.btnTrashFilter.Location = new System.Drawing.Point(853, 4);
-            this.btnTrashFilter.Name = "btnTrashFilter";
-            this.btnTrashFilter.Size = new System.Drawing.Size(42, 23);
-            this.btnTrashFilter.TabIndex = 12;
-            this.btnTrashFilter.Tag = "0";
-            this.btnTrashFilter.UseVisualStyleBackColor = true;
-            this.btnTrashFilter.Click += new System.EventHandler(this.btnTrashFilter_Click);
-            // 
-            // btnDeleteTrash
-            // 
-            this.btnDeleteTrash.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnDeleteTrash.FlatAppearance.BorderSize = 0;
-            this.btnDeleteTrash.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDeleteTrash.Image = global::UMCLocker.Properties.Resources.delete_icon;
-            this.btnDeleteTrash.Location = new System.Drawing.Point(0, 0);
-            this.btnDeleteTrash.Name = "btnDeleteTrash";
-            this.btnDeleteTrash.Size = new System.Drawing.Size(35, 37);
-            this.btnDeleteTrash.TabIndex = 2;
-            this.btnDeleteTrash.UseVisualStyleBackColor = true;
-            this.btnDeleteTrash.Click += new System.EventHandler(this.btnDeleteTrash_Click);
+            this.bgwSync.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bgwSync_DoWork);
+            this.bgwSync.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bgwSync_RunWorkerCompleted);
             // 
             // MainTab
             // 
@@ -1864,6 +1933,7 @@ namespace UMCLocker
             this.tabCtrMain.ResumeLayout(false);
             this.tPStaff.ResumeLayout(false);
             this.tPStaff.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbStaff)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgrvStaff)).EndInit();
             this.panel9.ResumeLayout(false);
             this.panel9.PerformLayout();
@@ -1879,6 +1949,7 @@ namespace UMCLocker
             ((System.ComponentModel.ISupportInitialize)(this.dgrvShoes)).EndInit();
             this.tPTrash.ResumeLayout(false);
             this.tPTrash.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbStaffTrash)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgrvTrash)).EndInit();
             this.panel10.ResumeLayout(false);
             this.panel10.PerformLayout();
@@ -1892,8 +1963,6 @@ namespace UMCLocker
             this.panel13.ResumeLayout(false);
             this.panel13.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbStaff)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbStaffTrash)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1912,7 +1981,7 @@ namespace UMCLocker
         public Button BtnDeleteLocker { get { return btnDeleteLocker; } }
         public DataGridView DgrvLocker { get { return dgrvLocker; } }
         public DataGridView DgrvShoes { get { return dgrvShoes; } }
-        
+
         public ComboBox CbbShoesIndex { get { return cbbShoesIndex; } }
         public ComboBox CbbLockerIndex { get { return cbbLockerIndex; } }
         public Button BtnLockerSearch { get { return btnLockerSearch; } }
@@ -1948,25 +2017,6 @@ namespace UMCLocker
         private TabPage tPStaff;
         private PictureBox pbStaff;
         private DataGridView dgrvStaff;
-        private DataGridViewTextBoxColumn index;
-        private DataGridViewTextBoxColumn staff_code;
-        private DataGridViewTextBoxColumn full_name;
-        private DataGridViewTextBoxColumn gender;
-        private DataGridViewTextBoxColumn enter_date;
-        private DataGridViewTextBoxColumn department;
-        private DataGridViewTextBoxColumn position;
-        private DataGridViewTextBoxColumn locker_number;
-        private DataGridViewTextBoxColumn locker_index;
-        private DataGridViewTextBoxColumn shoes_number;
-        private DataGridViewTextBoxColumn shoes_index;
-        private DataGridViewTextBoxColumn id;
-        private DataGridViewTextBoxColumn locker;
-        private DataGridViewTextBoxColumn Pos;
-        private DataGridViewTextBoxColumn Dept;
-        private DataGridViewTextBoxColumn posId;
-        private DataGridViewTextBoxColumn info;
-        private DataGridViewTextBoxColumn deptId;
-        private DataGridViewTextBoxColumn Sho;
         private Panel panel9;
         private Label lblInfo;
         private Panel panel4;
@@ -2007,27 +2057,6 @@ namespace UMCLocker
         private DataGridView dgrvShoes;
         private TabPage tPTrash;
         private DataGridView dgrvTrash;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
-        private DataGridViewTextBoxColumn end_date;
-        private DataGridViewTextBoxColumn note;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn16;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn17;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn18;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn19;
         private Panel panel10;
         private Button btnTrashAll;
         private Button btnTrashFilter;
@@ -2086,6 +2115,53 @@ namespace UMCLocker
         private Label lblImportStaffState;
         private Button btnImportStaff;
         private PictureBox pbStaffTrash;
+        private Button btnExportStaff;
+        private Button btnExportTrash;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private DataGridViewTextBoxColumn Customer;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
+        private DataGridViewTextBoxColumn end_date;
+        private DataGridViewTextBoxColumn note;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn16;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn17;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn18;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn19;
+        private DataGridViewTextBoxColumn index;
+        private DataGridViewTextBoxColumn staff_code;
+        private DataGridViewTextBoxColumn full_name;
+        private DataGridViewTextBoxColumn gender;
+        private DataGridViewTextBoxColumn enter_date;
+        private DataGridViewTextBoxColumn CustomerStaff;
+        private DataGridViewTextBoxColumn department;
+        private DataGridViewTextBoxColumn position;
+        private DataGridViewTextBoxColumn locker_number;
+        private DataGridViewTextBoxColumn locker_index;
+        private DataGridViewTextBoxColumn shoes_number;
+        private DataGridViewTextBoxColumn shoes_index;
+        private DataGridViewTextBoxColumn id;
+        private DataGridViewTextBoxColumn locker;
+        private DataGridViewTextBoxColumn Pos;
+        private DataGridViewTextBoxColumn Dept;
+        private DataGridViewTextBoxColumn posId;
+        private DataGridViewTextBoxColumn info;
+        private DataGridViewTextBoxColumn deptId;
+        private DataGridViewTextBoxColumn Sho;
+        private Button btnSync;
+        private System.ComponentModel.BackgroundWorker bgwSync;
+        public System.ComponentModel.BackgroundWorker BgwSync  { get => bgwSync; }
 
         public System.ComponentModel.BackgroundWorker BgwImportQuitWork { get => bgwImportQuitWork; }
         public Button BtnTrashAll { get => btnTrashAll; }

@@ -88,6 +88,10 @@
     <Reference Include="ExcelDataReader.DataSet, Version=3.6.0.0, Culture=neutral, PublicKeyToken=93517dbe6a4012fa, processorArchitecture=MSIL">
       <HintPath>..\packages\ExcelDataReader.DataSet.3.6.0\lib\net35\ExcelDataReader.DataSet.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.IO.RecyclableMemoryStream, Version=1.4.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.IO.RecyclableMemoryStream.1.4.1\lib\net45\Microsoft.IO.RecyclableMemoryStream.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
     <Reference Include="Spire.Common, Version=10.5.7.0, Culture=neutral, PublicKeyToken=663f351905198cb3, processorArchitecture=MSIL">
       <HintPath>packages\Spire.XLS.10.5.7\lib\net40\Spire.Common.dll</HintPath>
     </Reference>
@@ -102,10 +106,12 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.IO.Compression" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.Threading.Tasks" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -191,8 +197,14 @@
     <Compile Include="PR_ContractLiquite.cs">
       <DependentUpon>GAUMCModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="PR_InputDataToManage.cs">
+      <DependentUpon>GAUMCModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Sho.cs">
       <DependentUpon>UMCLOCKERModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_Get_All_Staff_2_Result.cs">
+      <DependentUpon>GAUMCModel.tt</DependentUpon>
     </Compile>
     <Compile Include="sp_Get_All_Staff_Result.cs">
       <DependentUpon>GAUMCModel.tt</DependentUpon>
@@ -313,6 +325,8 @@
     <None Include="Assets\key-icon.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\icons8-sync-48.png" />
+    <None Include="Assets\icons8-sync-30.png" />
     <Content Include="GAUMCModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>GAUMCModel.edmx</DependentUpon>

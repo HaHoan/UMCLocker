@@ -166,6 +166,7 @@ namespace UMCLocker.Business
                 bindingSource.DataSource = _staffs.Where(x => x.note == searchNote && x.end_date?.Month == searchMonth.Month && x.end_date?.Year == searchMonth.Year).ToList();
             }
 
+
             view.DgrvTrash.Refresh();
             ChangeStateButton();
         }
@@ -177,6 +178,19 @@ namespace UMCLocker.Business
             ChangeStateButton();
             view.DpMonth.Value = DateTime.Now;
             view.CbbNote.Text = "";
+        }
+
+        internal void btnExportTrash_Click(object sender, EventArgs e)
+        {
+            var choofdlog = new FolderBrowserDialog();
+
+            if (choofdlog.ShowDialog() == DialogResult.OK)
+            {
+                string fileName = ExportUtils.GetFileName(choofdlog, Constants.EXCEL_STAFF_LIQUITE);
+                var result = ExportUtils.ExportStaffTrash(_staffs, fileName);
+                MessageBox.Show(result.message);
+
+            }
         }
     }
 }

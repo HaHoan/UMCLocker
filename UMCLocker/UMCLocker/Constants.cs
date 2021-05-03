@@ -21,6 +21,7 @@ namespace UMCLocker
         public static string REQUIRED = "( * )";
         public static string FILTERED = "1";
         public static string ALL_LIST = "0";
+        public static string ALL_FILTER = "ALL";
         public static string MALE = "M";
         public static string FEMALE = "F";
         public static string NO_DATA = "";
@@ -57,6 +58,8 @@ namespace UMCLocker
         public static string NOTE_RETURN_KEY = "NV có trả khóa";
         public static string LOCKER = "L";
         public static string SHOES = "S";
+        public static string EXCEL_STAFF = "Danh sách nhân viên sử dụng khóa";
+        public static string EXCEL_STAFF_LIQUITE = "Danh sách nhân viên nghỉ việc";
 
     }
     public enum FormType

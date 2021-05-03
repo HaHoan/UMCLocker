@@ -260,6 +260,7 @@ namespace UMCLocker.Entities
                         staff_code = x.staff_code,
                         full_name = x.full_name,
                         gender = x.gender,
+                        customer = x.customer,
                         enter_date = x.enter_date,
                         locker_id = x.locker_id,
                         shoes_id = x.shoes_id,
@@ -282,7 +283,54 @@ namespace UMCLocker.Entities
                 return null;
             }
         }
+
         public List<StaffEntity> GetAllData()
+        {
+            try
+            {
+                using (var db = new UMCLOCKEREntities())
+                {
+                    List<Staff> staffs = new List<Staff>();
+                    List<StaffEntity> list = new List<StaffEntity>();
+
+                    staffs = db.Staffs.Include(d => d.Dept).Include(p => p.Pos)
+                                                            .Include(l => l.Locker)
+                                                            .Include(s => s.Sho)
+                                                            .OrderByDescending(r => r.enter_date)
+                                                            .Where(s => s.state == Constants.STATE_ON)
+                                                            .ToList();
+         
+                    list = staffs.Select((x, i) => new StaffEntity
+                    {
+                        index = i + 1,
+                        id = x.id,
+                        staff_code = x.staff_code,
+                        full_name = x.full_name,
+                        gender = x.gender,
+                        enter_date = x.enter_date,
+                        locker_id = x.locker_id,
+                        shoes_id = x.shoes_id,
+                        Locker = x.Locker,
+                        department = x.department,
+                        position = x.position,
+                        Sho = x.Sho,
+                        Dept = x.Dept,
+                        Pos = x.Pos,
+                        note = x.note,
+                        end_date = x.end_date,
+                        customer = x.customer
+                    }).ToList();
+
+                    return list;
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return null;
+            }
+        }
+        public List<StaffEntity> SyncAllData()
         {
             try
             {
@@ -300,8 +348,9 @@ namespace UMCLocker.Entities
                     if (staffs.Count == 0) return new List<StaffEntity>();
                     var lastDate = staffs[0].enter_date;
                     var GADb = new GA_UMCEntities();
-                    var GAList = GADb.sp_Get_All_Staff(null).ToList();
+                    var GAList = GADb.sp_Get_All_Staff_2().ToList();
                     var GALiquite = GADb.PR_ContractLiquite.ToList();
+                    var GAManageCus = GADb.PR_InputDataToManage.Where(m => m.KindView == 0).ToList();
                     foreach (var staff in staffs)
                     {
                         try
@@ -312,10 +361,11 @@ namespace UMCLocker.Entities
                         {
                             continue;
                         }
-                        if (GAList.Where(m => int.Parse(m.StaffCode) == int.Parse(staff.staff_code)).FirstOrDefault() == null)
+                        var Ga = GAList.Where(m => int.Parse(m.StaffCode) == int.Parse(staff.staff_code)).FirstOrDefault();
+                        if (Ga == null)
                         {
                             var end_date = GALiquite.Where(m => int.Parse(m.StaffCode) == int.Parse(staff.staff_code)).FirstOrDefault().LiquidationDate;
-                            if (end_date > DateTime.Now) continue; 
+                            if (end_date > DateTime.Now) continue;
                             Locker locker;
                             Sho shoes;
                             if (staff.locker_id != null)
@@ -331,7 +381,61 @@ namespace UMCLocker.Entities
                             staff.state = Constants.STATE_OFF;
                             staff.end_date = end_date;
                             staff.note = Constants.NOTE_NOT_RETURN_KEY;
+                            var cus = GAManageCus.Where(m => int.Parse(m.Staffcode) == int.Parse(staff.staff_code)).FirstOrDefault();
+                            if (cus != null)
+                                staff.customer = cus.Customer;
                             db.SaveChanges();
+                        }
+                        else
+                        {
+                            bool isChanged = false;
+                            if (staff.full_name.Trim() != Ga.FullName.Trim())
+                            {
+                                staff.full_name = Ga.FullName;
+                                isChanged = true;
+                            }
+                            if (staff.customer == null || staff.customer.Trim() != Ga.Customer.Trim())
+                            {
+                                staff.customer = Ga.Customer;
+                                isChanged = true;
+                            }
+
+                            if (staff.Dept.name.Trim() != Ga.DeptCode)
+                            {
+                                var Dept = db.Depts.Where(m => m.name == Ga.DeptCode).FirstOrDefault();
+                                if (Dept == null)
+                                {
+                                    Dept dept = new Dept()
+                                    {
+                                        name = Ga.DeptCode
+                                    };
+                                    db.Depts.Add(dept);
+                                    db.SaveChanges();
+                                    Dept = dept;
+                                }
+                                staff.department = Dept.id;
+                                isChanged = true;
+                            }
+                            if (staff.Pos.name.Trim() != Ga.DeptCode)
+                            {
+                                var Pos = db.Pos.Where(m => m.name == Ga.PosName).FirstOrDefault();
+                                if (Pos == null)
+                                {
+                                    Pos pos = new Pos()
+                                    {
+                                        name = Ga.PosName
+                                    };
+                                    db.Pos.Add(pos);
+                                    db.SaveChanges();
+                                    Pos = pos;
+                                }
+                                staff.position = Pos.id;
+
+                            }
+
+
+                            if (isChanged)
+                                db.SaveChanges();
                         }
                     }
                     GAList = GAList.Where(m => m.EntryDate >= lastDate).ToList();
@@ -371,14 +475,15 @@ namespace UMCLocker.Entities
                                 shoes_id = null,
                                 department = Dept.id,
                                 position = Pos.id,
-                                state = Constants.STATE_ON
+                                state = Constants.STATE_ON,
+                                customer = ga.Customer
                             };
                             db.Staffs.Add(staff);
                             db.SaveChanges();
                             staffs.Add(staff);
                         }
                     }
-
+                    staffs = staffs.Where(m => m.state.Trim() == Constants.STATE_ON).ToList();
                     list = staffs.Select((x, i) => new StaffEntity
                     {
                         index = i + 1,
@@ -396,7 +501,8 @@ namespace UMCLocker.Entities
                         Dept = x.Dept,
                         Pos = x.Pos,
                         note = x.note,
-                        end_date = x.end_date
+                        end_date = x.end_date,
+                        customer = x.customer
                     }).ToList();
 
                     return list;

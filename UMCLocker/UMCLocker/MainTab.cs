@@ -352,5 +352,30 @@ namespace UMCLocker
             //    staffTrashController.LoadAll();
             //}
         }
+
+        private void btnExportStaff_Click(object sender, EventArgs e)
+        {
+            staffController.btnExportStaff_Click(sender, e);
+        }
+
+        private void btnExportTrash_Click(object sender, EventArgs e)
+        {
+            staffTrashController.btnExportTrash_Click(sender, e);
+        }
+
+        private void btnSync_Click(object sender, EventArgs e)
+        {
+            staffController.btnSync_Click(sender, e);
+        }
+
+        private void bgwSync_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
+        {
+            staffController.bgwSync_DoWork(sender, e);
+        }
+
+        private void bgwSync_RunWorkerCompleted(object sender, System.ComponentModel.RunWorkerCompletedEventArgs e)
+        {
+            staffController.bgwSync_RunWorkerCompleted(sender, e);
+        }
     }
 }

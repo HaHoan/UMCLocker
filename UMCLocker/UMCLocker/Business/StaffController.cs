@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -36,13 +37,17 @@ namespace UMCLocker.Business
             view.DpEnterMonth.ShowUpDown = true;
             view.DgrvStaff.Columns[4].DefaultCellStyle.Format = "dd-MM-yyyy";
         }
-       
+
         private void BgwStaff_RunWorkerCompleted(object sender, System.ComponentModel.RunWorkerCompletedEventArgs e)
+        {
+            LoadingAllStaffComplete();
+        }
+        private void LoadingAllStaffComplete()
         {
             try
             {
 
-                 bindingSource.DataSource = _staffs;
+                bindingSource.DataSource = _staffs;
                 view.DgrvStaff.DataSource = bindingSource;
                 bindingSource.ResetBindings(true);
                 view.DgrvStaff.Refresh();
@@ -54,7 +59,7 @@ namespace UMCLocker.Business
                     view.DgrvStaff.CurrentCell = view.DgrvStaff.Rows[oldScrollIndex].Cells[0];
                     UpdateTextInfo();
                 }
-               
+
                 view.PbStaff.Hide();
                 ChangeStateButton();
                 LoadCompleted();
@@ -67,11 +72,12 @@ namespace UMCLocker.Business
             {
                 StaffEntity s = ((List<StaffEntity>)bindingSource.DataSource)[view.DgrvStaff.CurrentCell.RowIndex];
                 view.LblInfo.Text = s.info;
-            }catch(Exception e)
+            }
+            catch (Exception e)
             {
                 view.LblInfo.Text = "";
             }
-           
+
         }
         private void BgwStaff_ProgressChanged(object sender, System.ComponentModel.ProgressChangedEventArgs e)
         {
@@ -109,24 +115,24 @@ namespace UMCLocker.Business
         {
             UserNewForm newForm = new UserNewForm(null, FormType.New);
             newForm.OnCloseHandler += view.OnCloseStaffForm;
-            newForm.Show();
+            newForm.ShowDialog();
         }
 
         public void btnEditStaff_Click(object sender, EventArgs e)
         {
             try
-            {                   
-                int id = int.Parse(view.DgrvStaff.Rows[view.DgrvStaff.CurrentCell.RowIndex].Cells[11].Value.ToString());
-                 StaffEntity s1 = _staffs.Where(x => x.id == id ).FirstOrDefault();
-                 StaffEntity s = StaffEntity.GetStaffById(id);
+            {
+                int id = int.Parse(view.DgrvStaff.Rows[view.DgrvStaff.CurrentCell.RowIndex].Cells[12].Value.ToString());
+                StaffEntity s1 = _staffs.Where(x => x.id == id).FirstOrDefault();
+                StaffEntity s = StaffEntity.GetStaffById(id);
                 s.index = s1.index;
-                if(s != null)
+                if (s != null)
                 {
                     UserNewForm newForm = new UserNewForm(s, FormType.Edit);
                     newForm.OnCloseHandler += view.OnCloseStaffForm;
                     newForm.Show();
                 }
-               
+
             }
             catch (Exception ex)
             {
@@ -152,16 +158,24 @@ namespace UMCLocker.Business
                 }
                 else
                 {
-                    // _staffs.Where(d => d.id == staff.id).Select(d => { d.id = staff.id; return d; }).FirstOrDefault();
-                    //_staffs = new StaffEntity().GetAllData(Constants.STATE_ON);
-                    // bindingSource.DataSource = _staffs;
+                    _staffs = new StaffEntity().GetAllData();
+                    staff = _staffs.Where(d => d.id == staff.id).Select(d => { d.id = staff.id; return d; }).FirstOrDefault();
+                    bindingSource.DataSource = _staffs;
                     oldScrollIndex = staff.index - 1;
-                    LoadAll();
+                    if (view.DgrvStaff.Rows.Count > 0 && oldScrollIndex >= 0)
+                    {
+                        view.DgrvStaff.FirstDisplayedScrollingRowIndex = oldScrollIndex;
+                        view.DgrvStaff.Rows[oldScrollIndex].Selected = true;
+                        view.DgrvStaff.CurrentCell = view.DgrvStaff.Rows[oldScrollIndex].Cells[0];
+                        UpdateTextInfo();
+                    }
+
                 }
 
-              
+
             }
-            catch (Exception ex){
+            catch (Exception ex)
+            {
                 Console.WriteLine(ex.ToString());
             }
 
@@ -186,6 +200,7 @@ namespace UMCLocker.Business
                     {
                         view.DgrvStaff.Rows.RemoveAt(view.DgrvStaff.CurrentCell.RowIndex);
                         _staffs.RemoveAll(x => x.id == s.id);
+                        view.DgrvStaff.Refresh();
                         if (view.DgrvStaff.Rows.Count > 0)
                         {
                             view.LblInfo.Text = ((List<StaffEntity>)bindingSource.DataSource)[0].info;
@@ -290,11 +305,12 @@ namespace UMCLocker.Business
                     StaffEntity s = ((List<StaffEntity>)bindingSource.DataSource)[view.DgrvStaff.CurrentCell.RowIndex];
                     view.LblInfo.Text = s.info;
                 }
-            }catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 Console.WriteLine(ex.ToString());
             }
-           
+
         }
 
         internal void btnFilterStaff_Click(object sender, EventArgs e)
@@ -337,6 +353,37 @@ namespace UMCLocker.Business
 
             view.DgrvStaff.Refresh();
             ChangeStateButton();
+        }
+
+        internal void bgwSync_DoWork(object sender, DoWorkEventArgs e)
+        {
+            BackgroundWorker worker = (BackgroundWorker)sender;
+            bindingSource = new BindingSource();
+            _staffs = (new StaffEntity()).SyncAllData();
+
+        }
+
+        internal void bgwSync_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            LoadingAllStaffComplete();
+        }
+
+        internal void btnSync_Click(object sender, EventArgs e)
+        {
+            view.PbStaff.Show();
+            view.BgwSync.RunWorkerAsync();
+        }
+
+        internal void btnExportStaff_Click(object sender, EventArgs e)
+        {
+            var choofdlog = new FolderBrowserDialog();
+
+            if (choofdlog.ShowDialog() == DialogResult.OK)
+            {
+                string fileName = ExportUtils.GetFileName(choofdlog, Constants.EXCEL_STAFF);
+                var result = ExportUtils.ExportStaff(_staffs, fileName);
+                MessageBox.Show(result.message);
+            }
         }
     }
 }

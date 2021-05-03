@@ -63,6 +63,7 @@ namespace UMCLocker.Business
             {
                 view.CbbShoesNumber.Items.Add(shoesNumber);
             }
+            view.CbbShoesType.Items.Clear();
             view.CbbShoesType.Items.Add("Tủ nam");
             view.CbbShoesType.Items.Add("Tủ nữ");
         }
@@ -76,7 +77,7 @@ namespace UMCLocker.Business
                 row[0] = s.shoes_number;
                 row[1] = s.shoes_index;
                 row[2] = (s.shoes_type == Constants.FEMALE) ? "Tủ nữ" : "Tủ nam";
-                row[3] = s.state;
+                row[3] = s.owned == null ? Constants.STATE_AVAIABLE : Constants.STATE_USED ;
                 dt.Rows.Add(row);
             }
             ChangeStateButton();
