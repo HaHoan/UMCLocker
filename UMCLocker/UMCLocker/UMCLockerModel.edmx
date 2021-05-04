@@ -68,6 +68,8 @@
           <Property Name="note" Type="nvarchar" MaxLength="50" />
           <Property Name="reason_change_key" Type="nvarchar(max)" />
           <Property Name="customer" Type="nvarchar" MaxLength="50" />
+          <Property Name="modify_date" Type="datetime" />
+          <Property Name="date_change_key" Type="datetime" />
         </EntityType>
         <Association Name="FK_HistoryLocker">
           <End Role="history" Type="Self.history" Multiplicity="0..1" />
@@ -304,6 +306,8 @@
           <Property Name="note" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="reason_change_key" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="customer" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="modify_date" Type="DateTime" Precision="3" />
+          <Property Name="date_change_key" Type="DateTime" Precision="3" />
           <NavigationProperty Name="Dept" Relationship="UMCLOCKERModel.FK_StaffDept" FromRole="Staff" ToRole="Dept" />
           <NavigationProperty Name="Locker" Relationship="UMCLOCKERModel.FK_LockerStaff" FromRole="Staff" ToRole="Locker" />
           <NavigationProperty Name="Pos" Relationship="UMCLOCKERModel.FK_StaffPos" FromRole="Staff" ToRole="Pos" />
@@ -416,6 +420,8 @@
           <EntitySetMapping Name="Staffs">
             <EntityTypeMapping TypeName="UMCLOCKERModel.Staff">
               <MappingFragment StoreEntitySet="Staff">
+                <ScalarProperty Name="date_change_key" ColumnName="date_change_key" />
+                <ScalarProperty Name="modify_date" ColumnName="modify_date" />
                 <ScalarProperty Name="customer" ColumnName="customer" />
                 <ScalarProperty Name="reason_change_key" ColumnName="reason_change_key" />
                 <ScalarProperty Name="note" ColumnName="note" />

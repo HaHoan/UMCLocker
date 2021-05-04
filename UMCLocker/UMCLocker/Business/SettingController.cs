@@ -45,10 +45,10 @@ namespace UMCLocker.Business
             string sFileName = (string)e.Argument;
             using (UMCLOCKEREntities db = new UMCLOCKEREntities())
             {
-               db.Staffs.RemoveRange(db.Staffs);
-                db.Lockers.RemoveRange(db.Lockers);
-               db.Shoes.RemoveRange(db.Shoes);
-                db.SaveChanges();
+               //db.Staffs.RemoveRange(db.Staffs);
+               // db.Lockers.RemoveRange(db.Lockers);
+               //db.Shoes.RemoveRange(db.Shoes);
+               // db.SaveChanges();
             }
             ResultInfo result = Utils.ImportKeyFromExcelToDb(sFileName);
             e.Result = result.message;

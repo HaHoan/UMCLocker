@@ -12,7 +12,7 @@
         <EntityTypeShape EntityType="UMCLOCKERModel.Sho" Width="1.5" PointX="3" PointY="5.125" IsExpanded="true" />
         <AssociationConnector Association="UMCLOCKERModel.FK_HistoryLocker" ManuallyRouted="false" />
         <AssociationConnector Association="UMCLOCKERModel.FK_HistoryShoes" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="UMCLOCKERModel.Staff" Width="1.5" PointX="5.25" PointY="5.375" />
+        <EntityTypeShape EntityType="UMCLOCKERModel.Staff" Width="1.5" PointX="5.25" PointY="5.25" />
         <AssociationConnector Association="UMCLOCKERModel.FK_StaffDept" />
         <AssociationConnector Association="UMCLOCKERModel.FK_LockerStaff" />
         <AssociationConnector Association="UMCLOCKERModel.FK_StaffPos" />

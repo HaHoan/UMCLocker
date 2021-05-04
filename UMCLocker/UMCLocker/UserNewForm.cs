@@ -78,10 +78,10 @@ namespace UMCLocker
             txbStaffCode.Enabled = false;
             txbFullName.Enabled = false;
             rbtnMale.Enabled = false;
-            dtpEnterDate.Enabled = false;
+            dtpEnterDate.Enabled = true;
             rbtnFemale.Enabled = false;
-            cbbDepartment.Enabled = false;
-            cbbPosition.Enabled = false;
+            cbbDepartment.Enabled = true;
+            cbbPosition.Enabled = true;
             cbbReasonChangeKey.Enabled = true;
             txbStaffCode.Text = _newStaff.staff_code;
             txbFullName.Text = _newStaff.full_name;
@@ -221,6 +221,7 @@ namespace UMCLocker
                 if (_type == FormType.Edit || _type == FormType.OnlyChangeKeyLocker || _type == FormType.OnlyChangeKeyShoes)
                 {
                     _newStaff.reason_change_key = cbbReasonChangeKey.Text;
+                    _newStaff.date_change_key = DateTime.Now;
                     result = _newStaff.Update();
                 }
                 else if (_type == FormType.New)

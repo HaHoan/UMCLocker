@@ -111,19 +111,10 @@ namespace UMCLocker.Business
                                     enterdate = indexOfSpace > 0 ? enterdate.Substring(0, indexOfSpace) : enterdate;
 
                                     split = enterdate.Split('/');
-                                    staff.enter_date = new DateTime(int.Parse(split[2]), int.Parse(split[1]), int.Parse(split[0]));
+                                    staff.enter_date = new DateTime(int.Parse(split[2]), int.Parse(split[0]), int.Parse(split[1]));
                                 }
-                                catch (Exception e)
+                                catch (Exception)
                                 {
-                                    try
-                                    {
-                                        staff.enter_date = new DateTime(int.Parse(split[2]), int.Parse(split[0]), int.Parse(split[1]));
-                                    }
-                                    catch (Exception ex)
-                                    {
-
-                                        Console.Write(ex);
-                                    }
 
                                 }
 
@@ -143,8 +134,13 @@ namespace UMCLocker.Business
                                     staff.position = staff.Pos.id;
                             }
                             staff.state = Constants.STATE_ON;
-                            db.Staffs.Add(staff);
-                            db.SaveChanges();
+                            var check = db.Staffs.Where(m => m.staff_code == staff.staff_code).FirstOrDefault();
+                            if (check == null)
+                            {
+                                db.Staffs.Add(staff);
+                                db.SaveChanges();
+                            }
+
                         }
                     }
 
@@ -243,213 +239,236 @@ namespace UMCLocker.Business
         {
             IExcelDataReader excelReader2007 = null;
 
-            try
-            {
-                Workbook workbook = new Workbook();
-                Worksheet sheet = workbook.Worksheets[0];
-                sheet.Name = "Danh sách nhân viên bị trùng khóa";
-                int row = 1;
-                sheet.Range[string.Format("A{0}", row)].Text = "Mã nhân viên";
-                sheet.Range[string.Format("B{0}", row)].Text = "Họ và tên";
-                sheet.Range[string.Format("C{0}", row)].Text = "Giới tính";
-                sheet.Range[string.Format("D{0}", row)].Text = "Số tủ locker";
-                sheet.Range[string.Format("E{0}", row)].Text = "Số ô locker";
-                sheet.Range[string.Format("F{0}", row)].Text = "Trạng thái";
-                sheet.Range[string.Format("G{0}", row)].Text = "Số tủ giày";
-                sheet.Range[string.Format("H{0}", row)].Text = "Số ô giày";
-                sheet.Range[string.Format("I{0}", row)].Text = "Trạng thái";
-                row++;
-                FileStream stream = new FileStream(path, FileMode.Open);
-                excelReader2007 = ExcelReaderFactory.CreateOpenXmlReader(stream);
+            //try
+            //{
+            Workbook workbook = new Workbook();
+            Worksheet sheet = workbook.Worksheets[0];
+            Worksheet sheet1 = workbook.Worksheets[1];
+            Worksheet sheet2 = workbook.Worksheets[2];
+            sheet.Name = "Danh sách nhân viên bị trùng khóa";
+            sheet1.Name = "Danh sách nhân viên bị trùng Code";
+            sheet2.Name = "Danh sách nhân viên nhập sai định dạng ngày vào";
+            int row = 1;
+            int row1 = 1;
+            int row2 = 1;
+            sheet1.Range[string.Format("A{0}", row)].Text = "Mã nhân viên";
+            sheet1.Range[string.Format("B{0}", row)].Text = "Họ và tên";
+            row1++;
+            sheet2.Range[string.Format("A{0}", row)].Text = "Mã nhân viên";
+            sheet2.Range[string.Format("B{0}", row)].Text = "Họ và tên";
+            row2++;
+            sheet.Range[string.Format("A{0}", row)].Text = "Mã nhân viên";
+            sheet.Range[string.Format("B{0}", row)].Text = "Họ và tên";
+            sheet.Range[string.Format("C{0}", row)].Text = "Giới tính";
+            sheet.Range[string.Format("D{0}", row)].Text = "Số tủ locker";
+            sheet.Range[string.Format("E{0}", row)].Text = "Số ô locker";
+            sheet.Range[string.Format("F{0}", row)].Text = "Trạng thái";
+            sheet.Range[string.Format("G{0}", row)].Text = "Số tủ giày";
+            sheet.Range[string.Format("H{0}", row)].Text = "Số ô giày";
+            sheet.Range[string.Format("I{0}", row)].Text = "Trạng thái";
+            row++;
+            FileStream stream = new FileStream(path, FileMode.Open);
+            excelReader2007 = ExcelReaderFactory.CreateOpenXmlReader(stream);
 
-                DataSet result = excelReader2007.AsDataSet();
-                DataTable table = result.Tables[0];
-                HashSet<string> hsDept = new HashSet<string>();
-                HashSet<string> hsPos = new HashSet<string>();
-                Dictionary<int, HashSet<int>> dictLocker = new Dictionary<int, HashSet<int>>();
-                Dictionary<int, HashSet<int>> dictShoes = new Dictionary<int, HashSet<int>>();
-                int rowTemp = row;
-                using (var db = new UMCLOCKEREntities())
+            DataSet result = excelReader2007.AsDataSet();
+            DataTable table = result.Tables[0];
+            HashSet<string> hsDept = new HashSet<string>();
+            HashSet<string> hsPos = new HashSet<string>();
+            Dictionary<int, HashSet<int>> dictLocker = new Dictionary<int, HashSet<int>>();
+            Dictionary<int, HashSet<int>> dictShoes = new Dictionary<int, HashSet<int>>();
+            int rowTemp = row;
+            using (var db = new UMCLOCKEREntities())
+            {
                 {
-                    {
-                        for (int i = 3; i < table.Rows.Count; i++)
-                        {
-                            string deptStr = table.Rows[i].ItemArray[5].ToString();
-                            string posStr = table.Rows[i].ItemArray[6].ToString();
-                            if (string.IsNullOrEmpty(deptStr))
-                            {
-                                deptStr = "N/A";
-                            }
-                            if (string.IsNullOrEmpty(posStr))
-                            {
-                                posStr = "N/A";
-                            }
-                            hsDept.Add(deptStr);
-                            hsPos.Add(posStr);
-                        }
-                    }
-                    foreach (string name in hsDept)
-                    {
-                        Dept dept = new Dept();
-                        dept.name = name;
-                        db.Depts.Add(dept);
-                        db.SaveChanges();
-                    }
-                    foreach (string name in hsPos)
-                    {
-                        Pos pos = new Pos();
-                        pos.name = name;
-                        db.Pos.Add(pos);
-                        db.SaveChanges();
-                    }
                     for (int i = 3; i < table.Rows.Count; i++)
                     {
-                        // reading staff
-                        Staff staff = new Staff();
-                        string staff_code = table.Rows[i].ItemArray[1].ToString();
-                        if (string.IsNullOrEmpty(staff_code))
+                        string deptStr = table.Rows[i].ItemArray[5].ToString();
+                        string posStr = table.Rows[i].ItemArray[7].ToString();
+                        if (string.IsNullOrEmpty(deptStr))
                         {
-                            staff_code = "N/A";
+                            deptStr = "N/A";
                         }
-                        staff.staff_code = staff_code;
-                        staff.full_name = table.Rows[i].ItemArray[2].ToString();
-                        staff.gender = table.Rows[i].ItemArray[3].ToString();
-                        string enterdate = table.Rows[i].ItemArray[4].ToString();
-                        if (!string.IsNullOrEmpty(enterdate))
+                        if (string.IsNullOrEmpty(posStr))
                         {
-                            string[] split = { };
-                            try
-                            {
-                                int indexOfSpace = enterdate.IndexOf(' ');
-
-                                enterdate = indexOfSpace > 0 ? enterdate.Substring(0, indexOfSpace) : enterdate;
-
-                                split = enterdate.Split('/');
-                                staff.enter_date = new DateTime(int.Parse(split[2]), int.Parse(split[1]), int.Parse(split[0]));
-                            }
-                            catch (Exception e)
-                            {
-                                try
-                                {
-                                    staff.enter_date = new DateTime(int.Parse(split[2]), int.Parse(split[0]), int.Parse(split[1]));
-                                }
-                                catch (Exception ex)
-                                {
-
-                                    Console.Write(ex);
-                                }
-
-                            }
-
+                            posStr = "N/A";
                         }
-                        string dept = table.Rows[i].ItemArray[5].ToString();
-                        if (!string.IsNullOrEmpty(dept))
+                        hsDept.Add(deptStr);
+                        hsPos.Add(posStr);
+                    }
+                }
+                foreach (string name in hsDept)
+                {
+                    Dept dept = new Dept();
+                    dept.name = name;
+                    db.Depts.Add(dept);
+                    db.SaveChanges();
+                }
+                foreach (string name in hsPos)
+                {
+                    Pos pos = new Pos();
+                    pos.name = name;
+                    db.Pos.Add(pos);
+                    db.SaveChanges();
+                }
+                for (int i = 3; i < table.Rows.Count; i++)
+                {
+                    // reading staff
+                    Staff staff = new Staff();
+                    string staff_code = table.Rows[i].ItemArray[1].ToString();
+                    if (string.IsNullOrEmpty(staff_code))
+                    {
+                        staff_code = "N/A";
+                    }
+                    staff.staff_code = staff_code;
+                    staff.full_name = table.Rows[i].ItemArray[2].ToString();
+                    staff.gender = table.Rows[i].ItemArray[3].ToString();
+                    string enterdate = table.Rows[i].ItemArray[4].ToString();
+
+                    if (!string.IsNullOrEmpty(enterdate))
+                    {
+
+                        string[] split = { };
+                        try
                         {
-                            staff.Dept = db.Depts.Where(x => x.name == dept).FirstOrDefault();
+                            int indexOfSpace = enterdate.IndexOf(' ');
+
+                            enterdate = indexOfSpace > 0 ? enterdate.Substring(0, indexOfSpace) : enterdate;
+
+                            split = enterdate.Split('/');
+                            staff.enter_date = new DateTime(int.Parse(split[2]), int.Parse(split[0]), int.Parse(split[1]));
+                        }
+                        catch (Exception)
+                        {
+                            sheet2.Range[string.Format("A{0}", row2)].Text = staff.staff_code;
+                            sheet2.Range[string.Format("B{0}", row2)].Text = staff.full_name;
+                            row2++;
+                        }
+
+                    }
+                    string dept = table.Rows[i].ItemArray[5].ToString();
+                    if (!string.IsNullOrEmpty(dept))
+                    {
+                        staff.Dept = db.Depts.Where(x => x.name == dept).FirstOrDefault();
+                        if (staff.Dept != null)
                             staff.department = staff.Dept.id;
-                        }
-                        string pos = table.Rows[i].ItemArray[6].ToString();
-                        if (!string.IsNullOrEmpty(pos))
-                        {
-                            staff.Pos = db.Pos.Where(x => x.name == pos).FirstOrDefault();
+                    }
+                    string cus = table.Rows[i].ItemArray[6].ToString();
+                    string pos = table.Rows[i].ItemArray[7].ToString();
+                    if (!string.IsNullOrEmpty(pos))
+                    {
+                        staff.Pos = db.Pos.Where(x => x.name == pos).FirstOrDefault();
+                        if (staff.Pos != null)
                             staff.position = staff.Pos.id;
-                        }
-                        // locker
-                        string lockerNumberStr = table.Rows[i].ItemArray[7].ToString();
-                        string lockerIndexStr = table.Rows[i].ItemArray[8].ToString();
-                        string shoesNumberStr = table.Rows[i].ItemArray[9].ToString();
-                        string shoesIndexStr = table.Rows[i].ItemArray[10].ToString();
-                        ResultInfo rsLocker = new ResultInfo();
-                        ResultInfo rsShoes = new ResultInfo();
+                    }
+                    // locker
+                    string lockerNumberStr = table.Rows[i].ItemArray[8].ToString();
+                    string lockerIndexStr = table.Rows[i].ItemArray[9].ToString();
+                    string shoesNumberStr = table.Rows[i].ItemArray[10].ToString();
+                    string shoesIndexStr = table.Rows[i].ItemArray[11].ToString();
+                    ResultInfo rsLocker = new ResultInfo();
+                    ResultInfo rsShoes = new ResultInfo();
 
-                        if (!string.IsNullOrWhiteSpace(lockerNumberStr) &&
-                            !string.IsNullOrWhiteSpace(lockerIndexStr))
+                    if (!string.IsNullOrWhiteSpace(lockerNumberStr) &&
+                        !string.IsNullOrWhiteSpace(lockerIndexStr))
+                    {
+                        try
                         {
-                            try
-                            {
-                                rsLocker = new LockerEntity()
-                                {
-
-                                    locker_number = int.Parse(lockerNumberStr),
-                                    locker_index = int.Parse(lockerIndexStr),
-                                    locker_type = staff.gender
-                                }.IsLockerInUsed();
-                                if (rsLocker.code == Constants.SUCCESS)
-                                {
-                                    staff.locker_id = int.Parse(rsLocker.message);
-                                }
-                            }
-                            catch (Exception e)
+                            rsLocker = new LockerEntity()
                             {
 
-                                Console.Write(e);
+                                locker_number = int.Parse(lockerNumberStr),
+                                locker_index = int.Parse(lockerIndexStr),
+                                locker_type = staff.gender
+                            }.IsLockerInUsed();
+                            if (rsLocker.code == Constants.SUCCESS)
+                            {
+                                staff.locker_id = int.Parse(rsLocker.message);
                             }
-
                         }
-                        else
+                        catch (Exception e)
                         {
-                            rsLocker.code = Constants.ERROR_LACK_KEY;
-                            rsLocker.message = "Thiếu key";
+
+                            Console.Write(e);
                         }
 
-                        if (!string.IsNullOrWhiteSpace(shoesNumberStr) &&
-                            !string.IsNullOrWhiteSpace(shoesIndexStr))
-                        {
-                            try
-                            {
-                                rsShoes = new ShoesEntity()
-                                {
-                                    shoes_number = int.Parse(shoesNumberStr),
-                                    shoes_index = int.Parse(shoesIndexStr),
-                                    shoes_type = staff.gender
-                                }.IsShoesInUsed();
-                                if (rsShoes.code == Constants.SUCCESS)
-                                {
-                                    staff.shoes_id = int.Parse(rsShoes.message);
-                                }
+                    }
+                    else
+                    {
+                        rsLocker.code = Constants.ERROR_LACK_KEY;
+                        rsLocker.message = "Thiếu key";
+                    }
 
-                            }
-                            catch (Exception e)
+                    if (!string.IsNullOrWhiteSpace(shoesNumberStr) &&
+                        !string.IsNullOrWhiteSpace(shoesIndexStr))
+                    {
+                        try
+                        {
+                            rsShoes = new ShoesEntity()
                             {
-                                Console.Write(e);
+                                shoes_number = int.Parse(shoesNumberStr),
+                                shoes_index = int.Parse(shoesIndexStr),
+                                shoes_type = staff.gender
+                            }.IsShoesInUsed();
+                            if (rsShoes.code == Constants.SUCCESS)
+                            {
+                                staff.shoes_id = int.Parse(rsShoes.message);
                             }
 
                         }
-                        else
+                        catch (Exception e)
                         {
-                            rsShoes.code = Constants.ERROR_LACK_KEY;
-                            rsShoes.message = "Thiếu key";
-                        }
-                        if (rsLocker.code != Constants.SUCCESS || rsShoes.code != Constants.SUCCESS)
-                        {
-                            sheet.Range[string.Format("A{0}", row)].Text = staff.staff_code;
-                            sheet.Range[string.Format("B{0}", row)].Text = staff.full_name;
-                            sheet.Range[string.Format("C{0}", row)].Text = staff.gender;
-                            sheet.Range[string.Format("D{0}", row)].Text = lockerNumberStr;
-                            sheet.Range[string.Format("E{0}", row)].Text = lockerIndexStr;
-                            sheet.Range[string.Format("F{0}", row)].Text = rsLocker.code == Constants.SUCCESS ? "OK" : rsLocker.message;
-                            sheet.Range[string.Format("G{0}", row)].Text = shoesNumberStr;
-                            sheet.Range[string.Format("H{0}", row)].Text = shoesIndexStr;
-                            sheet.Range[string.Format("I{0}", row)].Text = rsShoes.code == Constants.SUCCESS ? "OK" : rsShoes.message;
-                            row++;
+                            Console.Write(e);
                         }
 
-                        staff.state = Constants.STATE_ON;
+                    }
+                    else
+                    {
+                        rsShoes.code = Constants.ERROR_LACK_KEY;
+                        rsShoes.message = "Thiếu key";
+                    }
+                    if (rsLocker.code != Constants.SUCCESS || rsShoes.code != Constants.SUCCESS)
+                    {
+                        sheet.Range[string.Format("A{0}", row)].Text = staff.staff_code;
+                        sheet.Range[string.Format("B{0}", row)].Text = staff.full_name;
+                        sheet.Range[string.Format("C{0}", row)].Text = staff.gender;
+                        sheet.Range[string.Format("D{0}", row)].Text = lockerNumberStr;
+                        sheet.Range[string.Format("E{0}", row)].Text = lockerIndexStr;
+                        sheet.Range[string.Format("F{0}", row)].Text = rsLocker.code == Constants.SUCCESS ? "OK" : rsLocker.message;
+                        sheet.Range[string.Format("G{0}", row)].Text = shoesNumberStr;
+                        sheet.Range[string.Format("H{0}", row)].Text = shoesIndexStr;
+                        sheet.Range[string.Format("I{0}", row)].Text = rsShoes.code == Constants.SUCCESS ? "OK" : rsShoes.message;
+                        row++;
+                    }
+
+                    staff.state = Constants.STATE_ON;
+
+                    var check = db.Staffs.Where(m => m.staff_code != Constants.VALUE_DEFAULT && m.staff_code == staff_code).FirstOrDefault();
+                    if (check == null)
+                    {
                         db.Staffs.Add(staff);
                         db.SaveChanges();
                     }
+                    else
+                    {
+                        sheet1.Range[string.Format("A{0}", row1)].Text = staff.staff_code;
+                        sheet1.Range[string.Format("B{0}", row1)].Text = staff.full_name;
+                        row1++;
+                    }
+
+
                 }
-                workbook.SaveToFile(@"c:\UMCLocker\duplicate_key.xlsx", ExcelVersion.Version2013);
-                excelReader2007.Close();
-                Console.Read();
-                return new ResultInfo(Constants.SUCCESS, "Import success!");
             }
-            catch (Exception e)
-            {
-                if (excelReader2007 != null)
-                    excelReader2007.Close();
-                return new ResultInfo(Constants.ERROR_COMMON, e.Message.ToString());
-            }
+            workbook.SaveToFile(@"c:\UMCLocker\duplicate_key.xlsx", ExcelVersion.Version2013);
+            excelReader2007.Close();
+            Console.Read();
+            return new ResultInfo(Constants.SUCCESS, "Import success!");
+            //}
+            //catch (Exception e)
+            //{
+            //    if (excelReader2007 != null)
+            //        excelReader2007.Close();
+            //    return new ResultInfo(Constants.ERROR_COMMON, e.Message.ToString());
+            //}
 
         }
 
@@ -660,7 +679,8 @@ namespace UMCLocker.Business
                 sheet.Range["I1:J1"].Merge();
                 sheet.Range[string.Format("K{0}", row)].Text = "Shoes";
                 sheet.Range["K1:L1"].Merge();
-
+                sheet.Range[string.Format("M{0}", row)].Text = "Ngày đổi khóa cuối cùng";
+                sheet.Range[string.Format("N{0}", row)].Text = "Lý do đổi khóa";
                 row++;
                 sheet.Range[string.Format("H{0}", row)].Text = "Số tủ";
                 sheet.Range[string.Format("I{0}", row)].Text = "Số ô";
@@ -718,7 +738,12 @@ namespace UMCLocker.Business
                         sheet.Range[string.Format("L{0}", row)].NumberFormat = "0";
                         sheet.Range[string.Format("L{0}", row)].NumberValue = staff.Sho.shoes_index;
                     }
+                    if (staff.date_change_key is DateTime date_change_key)
+                    {
+                        sheet.Range[string.Format("M{0}", row)].Text = date_change_key.ToShortDateString();
+                    }
 
+                    sheet.Range[string.Format("N{0}", row)].Text = staff.reason_change_key == null ? "" : staff.reason_change_key;
                     row++;
                 }
                 workbook.SaveToFile(path, ExcelVersion.Version2013);

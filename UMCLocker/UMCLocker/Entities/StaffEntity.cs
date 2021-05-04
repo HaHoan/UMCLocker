@@ -299,7 +299,7 @@ namespace UMCLocker.Entities
                                                             .OrderByDescending(r => r.enter_date)
                                                             .Where(s => s.state == Constants.STATE_ON)
                                                             .ToList();
-         
+
                     list = staffs.Select((x, i) => new StaffEntity
                     {
                         index = i + 1,
@@ -318,7 +318,9 @@ namespace UMCLocker.Entities
                         Pos = x.Pos,
                         note = x.note,
                         end_date = x.end_date,
-                        customer = x.customer
+                        customer = x.customer,
+                        reason_change_key = x.reason_change_key,
+                        date_change_key = x.date_change_key
                     }).ToList();
 
                     return list;
@@ -330,7 +332,7 @@ namespace UMCLocker.Entities
                 return null;
             }
         }
-        public List<StaffEntity> SyncAllData()
+        public List<StaffEntity> SyncAllData(out string error)
         {
             try
             {
@@ -345,7 +347,12 @@ namespace UMCLocker.Entities
                                                             .OrderByDescending(r => r.enter_date)
                                                             .Where(s => s.state == Constants.STATE_ON)
                                                             .ToList();
-                    if (staffs.Count == 0) return new List<StaffEntity>();
+                    if (staffs.Count == 0)
+                    {
+                        error = "";
+                        return new List<StaffEntity>();
+                    }
+
                     var lastDate = staffs[0].enter_date;
                     var GADb = new GA_UMCEntities();
                     var GAList = GADb.sp_Get_All_Staff_2().ToList();
@@ -353,6 +360,7 @@ namespace UMCLocker.Entities
                     var GAManageCus = GADb.PR_InputDataToManage.Where(m => m.KindView == 0).ToList();
                     foreach (var staff in staffs)
                     {
+
                         try
                         {
                             var code = int.Parse(staff.staff_code);
@@ -364,7 +372,11 @@ namespace UMCLocker.Entities
                         var Ga = GAList.Where(m => int.Parse(m.StaffCode) == int.Parse(staff.staff_code)).FirstOrDefault();
                         if (Ga == null)
                         {
-                            var end_date = GALiquite.Where(m => int.Parse(m.StaffCode) == int.Parse(staff.staff_code)).FirstOrDefault().LiquidationDate;
+
+                            var liquite = GALiquite.Where(m => int.Parse(m.StaffCode) == int.Parse(staff.staff_code)).FirstOrDefault();
+                            if (liquite == null) continue;
+                            var end_date = liquite.LiquidationDate;
+
                             if (end_date > DateTime.Now) continue;
                             Locker locker;
                             Sho shoes;
@@ -399,8 +411,11 @@ namespace UMCLocker.Entities
                                 staff.customer = Ga.Customer;
                                 isChanged = true;
                             }
-
-                            if (staff.Dept.name.Trim() != Ga.DeptCode)
+                            if (staff.enter_date == null || staff.enter_date != Ga.EntryDate)
+                            {
+                                staff.enter_date = Ga.EntryDate;
+                            }
+                            if (staff.Dept != null && staff.Dept.name.Trim() != Ga.DeptCode)
                             {
                                 var Dept = db.Depts.Where(m => m.name == Ga.DeptCode).FirstOrDefault();
                                 if (Dept == null)
@@ -416,7 +431,7 @@ namespace UMCLocker.Entities
                                 staff.department = Dept.id;
                                 isChanged = true;
                             }
-                            if (staff.Pos.name.Trim() != Ga.DeptCode)
+                            if (staff.Pos != null && staff.Pos.name.Trim() != Ga.DeptCode)
                             {
                                 var Pos = db.Pos.Where(m => m.name == Ga.PosName).FirstOrDefault();
                                 if (Pos == null)
@@ -504,13 +519,13 @@ namespace UMCLocker.Entities
                         end_date = x.end_date,
                         customer = x.customer
                     }).ToList();
-
+                    error = "";
                     return list;
                 }
             }
             catch (Exception e)
             {
-                Console.WriteLine(e.Message);
+                error = e.Message.ToString();
                 return null;
             }
         }
@@ -614,6 +629,8 @@ namespace UMCLocker.Entities
                     update.full_name = full_name;
                     update.gender = gender;
                     update.enter_date = enter_date;
+                    update.reason_change_key = reason_change_key;
+                    update.date_change_key = date_change_key;
                     if (department != null)
                     {
                         update.department = department;

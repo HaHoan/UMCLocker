@@ -359,13 +359,20 @@ namespace UMCLocker.Business
         {
             BackgroundWorker worker = (BackgroundWorker)sender;
             bindingSource = new BindingSource();
-            _staffs = (new StaffEntity()).SyncAllData();
-
+            string error = "";
+            _staffs = (new StaffEntity()).SyncAllData(out error);
+            e.Result = error;
         }
 
         internal void bgwSync_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-            LoadingAllStaffComplete();
+            string error = e.Result as string;
+            if (!string.IsNullOrEmpty(error))
+            {
+                MessageBox.Show(error);
+            }
+            else
+                LoadingAllStaffComplete();
         }
 
         internal void btnSync_Click(object sender, EventArgs e)
