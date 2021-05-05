@@ -272,35 +272,13 @@ namespace UMCLocker
             settingController.btnAddStaffExcel_Click(sender, e);
         }
 
-        private void btnImportLocker_Click(object sender, EventArgs e)
-        {
-            settingController.btnImportLocker_Click(sender, e);
-        }
+       
 
-        private void btnImportShoes1_Click(object sender, EventArgs e)
-        {
-            settingController.btnImportShoes1_Click(sender, e);
-        }
+      
 
-        private void btnDeleteLockerAll_Click(object sender, EventArgs e)
-        {
-            settingController.btnDeleteLockerAll_Click(sender, e);
-        }
+      
 
-        private void btnDeleteShoesAll_Click(object sender, EventArgs e)
-        {
-            settingController.btnDeleteShoesAll_Click(sender, e);
-        }
-
-        private void btnSettingLockerDelete_Click(object sender, EventArgs e)
-        {
-            settingController.btnSettingLockerDelete_Click(sender, e);
-        }
-
-        private void btnDeleteRangeShoes_Click(object sender, EventArgs e)
-        {
-            settingController.btnDeleteRangeShoes_Click(sender, e);
-        }
+      
 
         private void btnImportKey_Click(object sender, EventArgs e)
         {

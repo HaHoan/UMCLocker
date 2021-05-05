@@ -138,7 +138,7 @@ namespace UMCLocker
             try
             {
                 _newStaff.staff_code = txbStaffCode.Text.ToString().Trim();
-                if (_newStaff.CheckUserExist())
+                if (_newStaff.CheckUserExist() && _type == FormType.New)
                 {
                     MessageBox.Show("Đã tồn tại nhân viên " + _newStaff.staff_code + " này rồi!");
                     txbStaffCode.SelectAll();

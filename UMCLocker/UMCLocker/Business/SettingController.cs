@@ -73,7 +73,7 @@ namespace UMCLocker.Business
         private void BgwSettingAddStaff_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             string msg = (string)e.Result;
-            view.LblAddStaffState.Text = msg;
+            MessageBox.Show(msg);
             view.staffController.LoadAll();
         }
 
@@ -122,84 +122,14 @@ namespace UMCLocker.Business
             if (choofdlog.ShowDialog() == DialogResult.OK)
             {
                 string sFileName = choofdlog.FileName;
-                view.LblAddStaffState.Text = "Loading..";
+                view.LblStatusAddStaff.Text = "Loading..";
                 view.BgwSettingAddStaff.RunWorkerAsync(argument: sFileName);
             }
         }
 
-        internal void btnImportLocker_Click(object sender, EventArgs e)
-        {
-            if (string.IsNullOrEmpty(view.TbLockerFrom.Text) ||
-                string.IsNullOrEmpty(view.TxbLockerTo.Text) ||
-                string.IsNullOrEmpty(view.TxbLockerType.Text) ||
-                string.IsNullOrEmpty(view.TxbSoOTrongTuLocker.Text))
-            {
-                MessageBox.Show("Hãy nhập đầy đủ thông tin");
-                return;
-            }
-            try
-            {
-                using (UMCLOCKEREntities db = new UMCLOCKEREntities())
-                {
-                    int locker_number = int.Parse(view.TbLockerFrom.Text.ToString());
-                    int locker_index = int.Parse(view.TxbLockerTo.Text.ToString());
-                    string locker_type = view.TxbLockerType.Text.ToString();
+       
 
-                    var from = new SqlParameter("@from", locker_number);
-                    var to = new SqlParameter("@to", locker_index);
-                    var soo1tu = new SqlParameter("@soo1tu", int.Parse(view.TxbSoOTrongTuLocker.Text.ToString()));
-                    var loaitu = new SqlParameter("@loaitu", locker_type);
-                    db.Database.ExecuteSqlCommand("enter_locker @from, @to,@soo1tu, @loaitu",
-                        parameters: new[] { from, to, soo1tu, loaitu });
-                    view.lockerController.LoadAll();
-                    MessageBox.Show("Thêm thành công!");
-                    return;
-
-
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-
-        }
-
-        internal void btnImportShoes1_Click(object sender, EventArgs e)
-        {
-            if (string.IsNullOrEmpty(view.TxbShoesFrom.Text) ||
-               string.IsNullOrEmpty(view.TxbShoesTo.Text) ||
-               string.IsNullOrEmpty(view.TxbTypeShoes.Text) ||
-               string.IsNullOrEmpty(view.TxbSoOTrongTuShoes.Text))
-            {
-                MessageBox.Show("Hãy nhập đầy đủ thông tin");
-                return;
-            }
-            try
-            {
-                using (UMCLOCKEREntities db = new UMCLOCKEREntities())
-                {
-                    int shoes_number = int.Parse(view.TxbShoesFrom.Text.ToString());
-                    int shoes_index = int.Parse(view.TxbShoesTo.Text.ToString());
-                    string shoes_type = view.TxbTypeShoes.Text.ToString();
-
-                    var from = new SqlParameter("@from", shoes_number);
-                    var to = new SqlParameter("@to", shoes_index);
-                    var soo1tu = new SqlParameter("@soo1tu", int.Parse(view.TxbSoOTrongTuShoes.Text.ToString()));
-                    var loaitu = new SqlParameter("@loaitu", shoes_type);
-                    db.Database.ExecuteSqlCommand("enter_shoes @from, @to,@soo1tu, @loaitu",
-                        parameters: new[] { from, to, soo1tu, loaitu });
-                    view.shoesController.LoadAll();
-                    MessageBox.Show("Thêm thành công!");
-
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-                return;
-            }
-        }
+       
 
         internal void btnDeleteLockerAll_Click(object sender, EventArgs e)
         {
@@ -241,76 +171,7 @@ namespace UMCLocker.Business
 
         }
 
-        internal void btnSettingLockerDelete_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                if (string.IsNullOrEmpty(view.TbLockerFrom.Text) ||
-                string.IsNullOrEmpty(view.TxbLockerTo.Text) ||
-                string.IsNullOrEmpty(view.TxbLockerType.Text) ||
-                string.IsNullOrEmpty(view.TxbSoOTrongTuLocker.Text))
-                {
-                    MessageBox.Show("Hãy nhập đầy đủ thông tin");
-                    return;
-                }
-                using (UMCLOCKEREntities db = new UMCLOCKEREntities())
-                {
-                    int locker_number = int.Parse(view.TbLockerFrom.Text.ToString());
-                    int locker_index = int.Parse(view.TxbLockerTo.Text.ToString());
-                    string locker_type = view.TxbLockerType.Text.ToString();
-
-                    var from = new SqlParameter("@from", locker_number);
-                    var to = new SqlParameter("@to", locker_index);
-                    var soo1tu = new SqlParameter("@soo1tu", int.Parse(view.TxbSoOTrongTuLocker.Text.ToString()));
-                    var loaitu = new SqlParameter("@loaitu", locker_type);
-                    db.Database.ExecuteSqlCommand("delete_range_locker @from, @to,@soo1tu, @loaitu",
-                        parameters: new[] { from, to, soo1tu, loaitu });
-                    view.lockerController.LoadAll();
-                    MessageBox.Show("Xóa thành công!");
-                    return;
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
-        internal void btnDeleteRangeShoes_Click(object sender, EventArgs e)
-        {
-            if (string.IsNullOrEmpty(view.TxbShoesFrom.Text) ||
-              string.IsNullOrEmpty(view.TxbShoesTo.Text) ||
-              string.IsNullOrEmpty(view.TxbTypeShoes.Text) ||
-              string.IsNullOrEmpty(view.TxbSoOTrongTuShoes.Text))
-            {
-                MessageBox.Show("Hãy nhập đầy đủ thông tin");
-                return;
-            }
-            try
-            {
-                using (UMCLOCKEREntities db = new UMCLOCKEREntities())
-                {
-                    int shoes_number = int.Parse(view.TxbShoesFrom.Text.ToString());
-                    int shoes_index = int.Parse(view.TxbShoesTo.Text.ToString());
-                    string shoes_type = view.TxbTypeShoes.Text.ToString();
-
-                    var from = new SqlParameter("@from", shoes_number);
-                    var to = new SqlParameter("@to", shoes_index);
-                    var soo1tu = new SqlParameter("@soo1tu", int.Parse(view.TxbSoOTrongTuShoes.Text.ToString()));
-                    var loaitu = new SqlParameter("@loaitu", shoes_type);
-                    db.Database.ExecuteSqlCommand("delete_range_shoes @from, @to,@soo1tu, @loaitu",
-                        parameters: new[] { from, to, soo1tu, loaitu });
-                    view.shoesController.LoadAll();
-                    MessageBox.Show("Xóa thành công!");
-
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-                return;
-            }
-        }
+       
 
         internal void btnImportKey_Click(object sender, EventArgs e)
         {
