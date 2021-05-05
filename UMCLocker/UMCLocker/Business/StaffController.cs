@@ -61,6 +61,7 @@ namespace UMCLocker.Business
                 }
 
                 view.PbStaff.Hide();
+
                 ChangeStateButton();
                 LoadCompleted();
             }
@@ -99,6 +100,7 @@ namespace UMCLocker.Business
 
         private void ChangeStateButton()
         {
+            if (!view.isLogin) return;
             if (view.DgrvStaff.Rows.Count == 0)
             {
                 view.BtnEditStaff.Enabled = false;

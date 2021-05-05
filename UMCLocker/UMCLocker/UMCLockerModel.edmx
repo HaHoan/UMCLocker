@@ -31,6 +31,14 @@
           <Property Name="history_id" Type="int" />
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
         </EntityType>
+        <EntityType Name="Member">
+          <Key>
+            <PropertyRef Name="Username" />
+          </Key>
+          <Property Name="Username" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsAdmin" Type="bit" />
+        </EntityType>
         <EntityType Name="Pos">
           <Key>
             <PropertyRef Name="id" />
@@ -147,6 +155,7 @@
           <EntitySet Name="Dept" EntityType="Self.Dept" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="history" EntityType="Self.history" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Locker" EntityType="Self.Locker" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Member" EntityType="Self.Member" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Pos" EntityType="Self.Pos" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Shoes" EntityType="Self.Shoes" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Staff" EntityType="Self.Staff" Schema="dbo" store:Type="Tables" />
@@ -287,6 +296,7 @@
             <End Role="Sho" EntitySet="Shoes" />
             <End Role="Staff" EntitySet="Staffs" />
           </AssociationSet>
+          <EntitySet Name="Members" EntityType="UMCLOCKERModel.Member" />
           </EntityContainer>
         <EntityType Name="Staff">
           <Key>
@@ -361,6 +371,14 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="Member">
+          <Key>
+            <PropertyRef Name="Username" />
+          </Key>
+          <Property Name="Username" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsAdmin" Type="Boolean" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -436,6 +454,15 @@
                 <ScalarProperty Name="gender" ColumnName="gender" />
                 <ScalarProperty Name="full_name" ColumnName="full_name" />
                 <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Members">
+            <EntityTypeMapping TypeName="UMCLOCKERModel.Member">
+              <MappingFragment StoreEntitySet="Member">
+                <ScalarProperty Name="IsAdmin" ColumnName="IsAdmin" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

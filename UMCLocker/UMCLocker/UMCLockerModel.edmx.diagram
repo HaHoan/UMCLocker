@@ -17,6 +17,7 @@
         <AssociationConnector Association="UMCLOCKERModel.FK_LockerStaff" />
         <AssociationConnector Association="UMCLOCKERModel.FK_StaffPos" />
         <AssociationConnector Association="UMCLOCKERModel.FK_ShoesStaff" />
+        <EntityTypeShape EntityType="UMCLOCKERModel.Member" Width="1.5" PointX="5.375" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

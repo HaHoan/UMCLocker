@@ -77,7 +77,7 @@ namespace UMCLocker.Business
                 row[0] = s.shoes_number;
                 row[1] = s.shoes_index;
                 row[2] = (s.shoes_type == Constants.FEMALE) ? "Tủ nữ" : "Tủ nam";
-                row[3] = s.owned == null ? Constants.STATE_AVAIABLE : Constants.STATE_USED ;
+                row[3] = s.state ;
                 dt.Rows.Add(row);
             }
             ChangeStateButton();

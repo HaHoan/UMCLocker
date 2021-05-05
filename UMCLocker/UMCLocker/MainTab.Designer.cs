@@ -32,18 +32,19 @@ namespace UMCLocker
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainTab));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnLogin = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.bgwStaff = new System.ComponentModel.BackgroundWorker();
             this.bgwLocker = new System.ComponentModel.BackgroundWorker();
@@ -88,32 +89,6 @@ namespace UMCLocker
             this.btnDeleteStaff = new System.Windows.Forms.Button();
             this.btnEditStaff = new System.Windows.Forms.Button();
             this.btnAddStaff = new System.Windows.Forms.Button();
-            this.tPKey = new System.Windows.Forms.TabPage();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.lblNumberShoes = new System.Windows.Forms.Label();
-            this.btnShoesList = new System.Windows.Forms.Button();
-            this.cbbShoesState = new System.Windows.Forms.ComboBox();
-            this.cbbShoesType = new System.Windows.Forms.ComboBox();
-            this.cbbShoesIndex = new System.Windows.Forms.ComboBox();
-            this.btnShoesSearch = new System.Windows.Forms.Button();
-            this.cbbShoesNumber = new System.Windows.Forms.ComboBox();
-            this.btnDeleteShoes = new System.Windows.Forms.Button();
-            this.btnAddShoes = new System.Windows.Forms.Button();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.lblNumberLocker = new System.Windows.Forms.Label();
-            this.btnLockerList = new System.Windows.Forms.Button();
-            this.cbbLockerState = new System.Windows.Forms.ComboBox();
-            this.cbbLockerType = new System.Windows.Forms.ComboBox();
-            this.btnLockerSearch = new System.Windows.Forms.Button();
-            this.cbbLockerIndex = new System.Windows.Forms.ComboBox();
-            this.cbbLockerNumber = new System.Windows.Forms.ComboBox();
-            this.btnDeleteLocker = new System.Windows.Forms.Button();
-            this.btnAddLocker = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.dgrvLocker = new System.Windows.Forms.DataGridView();
-            this.dgrvShoes = new System.Windows.Forms.DataGridView();
             this.tPTrash = new System.Windows.Forms.TabPage();
             this.pbStaffTrash = new System.Windows.Forms.PictureBox();
             this.dgrvTrash = new System.Windows.Forms.DataGridView();
@@ -140,6 +115,7 @@ namespace UMCLocker
             this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel10 = new System.Windows.Forms.Panel();
+            this.btnEditTrash = new System.Windows.Forms.Button();
             this.btnExportTrash = new System.Windows.Forms.Button();
             this.btnTrashAll = new System.Windows.Forms.Button();
             this.btnTrashFilter = new System.Windows.Forms.Button();
@@ -147,6 +123,32 @@ namespace UMCLocker
             this.dpMonth = new System.Windows.Forms.DateTimePicker();
             this.txbSearchTrash = new System.Windows.Forms.TextBox();
             this.btnDeleteTrash = new System.Windows.Forms.Button();
+            this.tPKey = new System.Windows.Forms.TabPage();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.lblNumberShoes = new System.Windows.Forms.Label();
+            this.btnShoesList = new System.Windows.Forms.Button();
+            this.cbbShoesState = new System.Windows.Forms.ComboBox();
+            this.cbbShoesType = new System.Windows.Forms.ComboBox();
+            this.cbbShoesIndex = new System.Windows.Forms.ComboBox();
+            this.btnShoesSearch = new System.Windows.Forms.Button();
+            this.cbbShoesNumber = new System.Windows.Forms.ComboBox();
+            this.btnDeleteShoes = new System.Windows.Forms.Button();
+            this.btnAddShoes = new System.Windows.Forms.Button();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.lblNumberLocker = new System.Windows.Forms.Label();
+            this.btnLockerList = new System.Windows.Forms.Button();
+            this.cbbLockerState = new System.Windows.Forms.ComboBox();
+            this.cbbLockerType = new System.Windows.Forms.ComboBox();
+            this.btnLockerSearch = new System.Windows.Forms.Button();
+            this.cbbLockerIndex = new System.Windows.Forms.ComboBox();
+            this.cbbLockerNumber = new System.Windows.Forms.ComboBox();
+            this.btnDeleteLocker = new System.Windows.Forms.Button();
+            this.btnAddLocker = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.dgrvLocker = new System.Windows.Forms.DataGridView();
+            this.dgrvShoes = new System.Windows.Forms.DataGridView();
             this.tPSetting = new System.Windows.Forms.TabPage();
             this.panel11 = new System.Windows.Forms.Panel();
             this.panel12 = new System.Windows.Forms.Panel();
@@ -179,9 +181,9 @@ namespace UMCLocker
             this.label15 = new System.Windows.Forms.Label();
             this.btnImportShoes1 = new System.Windows.Forms.Button();
             this.lblAddStaffState2 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnAddStaffFromExcel = new System.Windows.Forms.Button();
             this.lblImportStaffState1 = new System.Windows.Forms.Label();
-            this.button5 = new System.Windows.Forms.Button();
+            this.btnImportStaffExcel = new System.Windows.Forms.Button();
             this.txbLockerType = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.txbSoOTrongTuLocker = new System.Windows.Forms.TextBox();
@@ -212,16 +214,16 @@ namespace UMCLocker
             ((System.ComponentModel.ISupportInitialize)(this.dgrvStaff)).BeginInit();
             this.panel9.SuspendLayout();
             this.panel4.SuspendLayout();
+            this.tPTrash.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbStaffTrash)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgrvTrash)).BeginInit();
+            this.panel10.SuspendLayout();
             this.tPKey.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgrvLocker)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgrvShoes)).BeginInit();
-            this.tPTrash.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbStaffTrash)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgrvTrash)).BeginInit();
-            this.panel10.SuspendLayout();
             this.tPSetting.SuspendLayout();
             this.panel11.SuspendLayout();
             this.panel12.SuspendLayout();
@@ -244,12 +246,27 @@ namespace UMCLocker
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.btnLogin);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1283, 61);
             this.panel1.TabIndex = 0;
+            // 
+            // btnLogin
+            // 
+            this.btnLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogin.Image = global::UMCLocker.Properties.Resources.icons8_account_48;
+            this.btnLogin.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnLogin.Location = new System.Drawing.Point(1166, 12);
+            this.btnLogin.Name = "btnLogin";
+            this.btnLogin.Size = new System.Drawing.Size(109, 43);
+            this.btnLogin.TabIndex = 1;
+            this.btnLogin.Text = "Login";
+            this.btnLogin.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnLogin.UseVisualStyleBackColor = true;
+            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
             // label3
             // 
@@ -287,8 +304,8 @@ namespace UMCLocker
             // 
             this.tabCtrMain.Appearance = System.Windows.Forms.TabAppearance.Buttons;
             this.tabCtrMain.Controls.Add(this.tPStaff);
-            this.tabCtrMain.Controls.Add(this.tPKey);
             this.tabCtrMain.Controls.Add(this.tPTrash);
+            this.tabCtrMain.Controls.Add(this.tPKey);
             this.tabCtrMain.Controls.Add(this.tPSetting);
             this.tabCtrMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabCtrMain.ImageList = this.imageList1;
@@ -331,21 +348,21 @@ namespace UMCLocker
             // 
             this.dgrvStaff.AllowUserToAddRows = false;
             this.dgrvStaff.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-            this.dgrvStaff.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.Black;
+            this.dgrvStaff.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle11;
             this.dgrvStaff.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgrvStaff.BackgroundColor = System.Drawing.SystemColors.Window;
             this.dgrvStaff.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgrvStaff.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgrvStaff.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle12;
             this.dgrvStaff.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgrvStaff.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.index,
@@ -368,14 +385,14 @@ namespace UMCLocker
             this.info,
             this.deptId,
             this.Sho});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgrvStaff.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle13.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgrvStaff.DefaultCellStyle = dataGridViewCellStyle13;
             this.dgrvStaff.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgrvStaff.Location = new System.Drawing.Point(3, 40);
             this.dgrvStaff.Name = "dgrvStaff";
@@ -704,6 +721,368 @@ namespace UMCLocker
             this.btnAddStaff.UseVisualStyleBackColor = true;
             this.btnAddStaff.Click += new System.EventHandler(this.btnAddStaff_Click);
             // 
+            // tPTrash
+            // 
+            this.tPTrash.Controls.Add(this.pbStaffTrash);
+            this.tPTrash.Controls.Add(this.dgrvTrash);
+            this.tPTrash.Controls.Add(this.panel10);
+            this.tPTrash.ImageIndex = 4;
+            this.tPTrash.Location = new System.Drawing.Point(4, 26);
+            this.tPTrash.Name = "tPTrash";
+            this.tPTrash.Padding = new System.Windows.Forms.Padding(3);
+            this.tPTrash.Size = new System.Drawing.Size(1275, 619);
+            this.tPTrash.TabIndex = 4;
+            this.tPTrash.Text = "Danh sách nghỉ việc";
+            this.tPTrash.UseVisualStyleBackColor = true;
+            // 
+            // pbStaffTrash
+            // 
+            this.pbStaffTrash.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pbStaffTrash.BackColor = System.Drawing.Color.Transparent;
+            this.pbStaffTrash.Image = global::UMCLocker.Properties.Resources.loading;
+            this.pbStaffTrash.Location = new System.Drawing.Point(605, 277);
+            this.pbStaffTrash.Name = "pbStaffTrash";
+            this.pbStaffTrash.Size = new System.Drawing.Size(64, 64);
+            this.pbStaffTrash.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pbStaffTrash.TabIndex = 6;
+            this.pbStaffTrash.TabStop = false;
+            // 
+            // dgrvTrash
+            // 
+            this.dgrvTrash.AllowUserToAddRows = false;
+            this.dgrvTrash.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.Black;
+            this.dgrvTrash.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle14;
+            this.dgrvTrash.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgrvTrash.BackgroundColor = System.Drawing.SystemColors.Window;
+            this.dgrvTrash.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgrvTrash.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle15;
+            this.dgrvTrash.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dgrvTrash.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3,
+            this.dataGridViewTextBoxColumn4,
+            this.dataGridViewTextBoxColumn5,
+            this.Customer,
+            this.dataGridViewTextBoxColumn6,
+            this.dataGridViewTextBoxColumn7,
+            this.dataGridViewTextBoxColumn8,
+            this.dataGridViewTextBoxColumn9,
+            this.dataGridViewTextBoxColumn10,
+            this.dataGridViewTextBoxColumn11,
+            this.end_date,
+            this.note,
+            this.dataGridViewTextBoxColumn12,
+            this.dataGridViewTextBoxColumn13,
+            this.dataGridViewTextBoxColumn14,
+            this.dataGridViewTextBoxColumn15,
+            this.dataGridViewTextBoxColumn16,
+            this.dataGridViewTextBoxColumn17,
+            this.dataGridViewTextBoxColumn18,
+            this.dataGridViewTextBoxColumn19});
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle16.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle16.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgrvTrash.DefaultCellStyle = dataGridViewCellStyle16;
+            this.dgrvTrash.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgrvTrash.Location = new System.Drawing.Point(3, 40);
+            this.dgrvTrash.Name = "dgrvTrash";
+            this.dgrvTrash.ReadOnly = true;
+            this.dgrvTrash.RowHeadersVisible = false;
+            this.dgrvTrash.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.dgrvTrash.Size = new System.Drawing.Size(1269, 576);
+            this.dgrvTrash.TabIndex = 5;
+            this.dgrvTrash.VirtualMode = true;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "index";
+            this.dataGridViewTextBoxColumn1.HeaderText = "STT";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Width = 56;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "staff_code";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Mã nhân viên ";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "full_name";
+            this.dataGridViewTextBoxColumn3.HeaderText = "Họ và tên";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "genderStr";
+            this.dataGridViewTextBoxColumn4.HeaderText = "Giới tính";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "enter_date";
+            this.dataGridViewTextBoxColumn5.HeaderText = "Ngày vào";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            // 
+            // Customer
+            // 
+            this.Customer.DataPropertyName = "customer";
+            this.Customer.HeaderText = "Khách hàng";
+            this.Customer.Name = "Customer";
+            this.Customer.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "deptName";
+            this.dataGridViewTextBoxColumn6.HeaderText = "Phòng ban";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            this.dataGridViewTextBoxColumn7.DataPropertyName = "posName";
+            this.dataGridViewTextBoxColumn7.HeaderText = "Chức vụ";
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            this.dataGridViewTextBoxColumn7.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn8
+            // 
+            this.dataGridViewTextBoxColumn8.DataPropertyName = "locker_number";
+            this.dataGridViewTextBoxColumn8.HeaderText = "Số tủ locker";
+            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            this.dataGridViewTextBoxColumn8.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn9
+            // 
+            this.dataGridViewTextBoxColumn9.DataPropertyName = "locker_index";
+            this.dataGridViewTextBoxColumn9.HeaderText = "Số ô locker";
+            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            this.dataGridViewTextBoxColumn9.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn10
+            // 
+            this.dataGridViewTextBoxColumn10.DataPropertyName = "shoes_number";
+            this.dataGridViewTextBoxColumn10.HeaderText = "Số tủ giày";
+            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
+            this.dataGridViewTextBoxColumn10.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn11
+            // 
+            this.dataGridViewTextBoxColumn11.DataPropertyName = "shoes_index";
+            this.dataGridViewTextBoxColumn11.HeaderText = "Số ô giày";
+            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
+            this.dataGridViewTextBoxColumn11.ReadOnly = true;
+            // 
+            // end_date
+            // 
+            this.end_date.DataPropertyName = "end_date";
+            this.end_date.HeaderText = "Ngày kết thúc";
+            this.end_date.Name = "end_date";
+            this.end_date.ReadOnly = true;
+            // 
+            // note
+            // 
+            this.note.DataPropertyName = "note";
+            this.note.HeaderText = "Ghi chú";
+            this.note.Name = "note";
+            this.note.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn12
+            // 
+            this.dataGridViewTextBoxColumn12.DataPropertyName = "id";
+            this.dataGridViewTextBoxColumn12.HeaderText = "id";
+            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
+            this.dataGridViewTextBoxColumn12.ReadOnly = true;
+            this.dataGridViewTextBoxColumn12.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn13
+            // 
+            this.dataGridViewTextBoxColumn13.DataPropertyName = "Locker";
+            this.dataGridViewTextBoxColumn13.HeaderText = "locker";
+            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
+            this.dataGridViewTextBoxColumn13.ReadOnly = true;
+            this.dataGridViewTextBoxColumn13.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn14
+            // 
+            this.dataGridViewTextBoxColumn14.DataPropertyName = "Pos";
+            this.dataGridViewTextBoxColumn14.HeaderText = "Pos";
+            this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
+            this.dataGridViewTextBoxColumn14.ReadOnly = true;
+            this.dataGridViewTextBoxColumn14.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn15
+            // 
+            this.dataGridViewTextBoxColumn15.DataPropertyName = "Dept";
+            this.dataGridViewTextBoxColumn15.HeaderText = "Dept";
+            this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
+            this.dataGridViewTextBoxColumn15.ReadOnly = true;
+            this.dataGridViewTextBoxColumn15.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn16
+            // 
+            this.dataGridViewTextBoxColumn16.DataPropertyName = "position";
+            this.dataGridViewTextBoxColumn16.HeaderText = "posId";
+            this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
+            this.dataGridViewTextBoxColumn16.ReadOnly = true;
+            this.dataGridViewTextBoxColumn16.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn17
+            // 
+            this.dataGridViewTextBoxColumn17.DataPropertyName = "info";
+            this.dataGridViewTextBoxColumn17.HeaderText = "info";
+            this.dataGridViewTextBoxColumn17.Name = "dataGridViewTextBoxColumn17";
+            this.dataGridViewTextBoxColumn17.ReadOnly = true;
+            this.dataGridViewTextBoxColumn17.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn18
+            // 
+            this.dataGridViewTextBoxColumn18.DataPropertyName = "department";
+            this.dataGridViewTextBoxColumn18.HeaderText = "deptId";
+            this.dataGridViewTextBoxColumn18.Name = "dataGridViewTextBoxColumn18";
+            this.dataGridViewTextBoxColumn18.ReadOnly = true;
+            this.dataGridViewTextBoxColumn18.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn19
+            // 
+            this.dataGridViewTextBoxColumn19.DataPropertyName = "Sho";
+            this.dataGridViewTextBoxColumn19.HeaderText = "Sho";
+            this.dataGridViewTextBoxColumn19.Name = "dataGridViewTextBoxColumn19";
+            this.dataGridViewTextBoxColumn19.ReadOnly = true;
+            this.dataGridViewTextBoxColumn19.Visible = false;
+            // 
+            // panel10
+            // 
+            this.panel10.Controls.Add(this.btnEditTrash);
+            this.panel10.Controls.Add(this.btnExportTrash);
+            this.panel10.Controls.Add(this.btnTrashAll);
+            this.panel10.Controls.Add(this.btnTrashFilter);
+            this.panel10.Controls.Add(this.cbbNote);
+            this.panel10.Controls.Add(this.dpMonth);
+            this.panel10.Controls.Add(this.txbSearchTrash);
+            this.panel10.Controls.Add(this.btnDeleteTrash);
+            this.panel10.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel10.Location = new System.Drawing.Point(3, 3);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(1269, 37);
+            this.panel10.TabIndex = 4;
+            // 
+            // btnEditTrash
+            // 
+            this.btnEditTrash.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnEditTrash.FlatAppearance.BorderSize = 0;
+            this.btnEditTrash.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEditTrash.Image = global::UMCLocker.Properties.Resources.edit_icon;
+            this.btnEditTrash.Location = new System.Drawing.Point(0, 0);
+            this.btnEditTrash.Name = "btnEditTrash";
+            this.btnEditTrash.Size = new System.Drawing.Size(35, 37);
+            this.btnEditTrash.TabIndex = 15;
+            this.btnEditTrash.UseVisualStyleBackColor = true;
+            this.btnEditTrash.Click += new System.EventHandler(this.btnEditTrash_Click);
+            // 
+            // btnExportTrash
+            // 
+            this.btnExportTrash.FlatAppearance.BorderSize = 0;
+            this.btnExportTrash.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExportTrash.Image = global::UMCLocker.Properties.Resources.import_excel;
+            this.btnExportTrash.Location = new System.Drawing.Point(1012, 4);
+            this.btnExportTrash.Name = "btnExportTrash";
+            this.btnExportTrash.Size = new System.Drawing.Size(42, 23);
+            this.btnExportTrash.TabIndex = 14;
+            this.btnExportTrash.Tag = "0";
+            this.btnExportTrash.UseVisualStyleBackColor = true;
+            this.btnExportTrash.Click += new System.EventHandler(this.btnExportTrash_Click);
+            // 
+            // btnTrashAll
+            // 
+            this.btnTrashAll.FlatAppearance.BorderSize = 0;
+            this.btnTrashAll.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTrashAll.Image = global::UMCLocker.Properties.Resources.list_icon;
+            this.btnTrashAll.Location = new System.Drawing.Point(949, 4);
+            this.btnTrashAll.Name = "btnTrashAll";
+            this.btnTrashAll.Size = new System.Drawing.Size(42, 23);
+            this.btnTrashAll.TabIndex = 13;
+            this.btnTrashAll.Tag = "0";
+            this.btnTrashAll.UseVisualStyleBackColor = true;
+            this.btnTrashAll.Click += new System.EventHandler(this.btnTrashAll_Click);
+            // 
+            // btnTrashFilter
+            // 
+            this.btnTrashFilter.FlatAppearance.BorderSize = 0;
+            this.btnTrashFilter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTrashFilter.Image = global::UMCLocker.Properties.Resources.filter_icon;
+            this.btnTrashFilter.Location = new System.Drawing.Point(873, 4);
+            this.btnTrashFilter.Name = "btnTrashFilter";
+            this.btnTrashFilter.Size = new System.Drawing.Size(42, 23);
+            this.btnTrashFilter.TabIndex = 12;
+            this.btnTrashFilter.Tag = "0";
+            this.btnTrashFilter.UseVisualStyleBackColor = true;
+            this.btnTrashFilter.Click += new System.EventHandler(this.btnTrashFilter_Click);
+            // 
+            // cbbNote
+            // 
+            this.cbbNote.FormattingEnabled = true;
+            this.cbbNote.Items.AddRange(new object[] {
+            "NV có trả khóa",
+            "NV không trả khóa"});
+            this.cbbNote.Location = new System.Drawing.Point(732, 7);
+            this.cbbNote.Name = "cbbNote";
+            this.cbbNote.Size = new System.Drawing.Size(121, 21);
+            this.cbbNote.TabIndex = 6;
+            // 
+            // dpMonth
+            // 
+            this.dpMonth.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dpMonth.Location = new System.Drawing.Point(517, 7);
+            this.dpMonth.Name = "dpMonth";
+            this.dpMonth.Size = new System.Drawing.Size(200, 20);
+            this.dpMonth.TabIndex = 5;
+            // 
+            // txbSearchTrash
+            // 
+            this.txbSearchTrash.ForeColor = System.Drawing.Color.Gray;
+            this.txbSearchTrash.Location = new System.Drawing.Point(79, 8);
+            this.txbSearchTrash.Name = "txbSearchTrash";
+            this.txbSearchTrash.Size = new System.Drawing.Size(416, 20);
+            this.txbSearchTrash.TabIndex = 4;
+            this.txbSearchTrash.Text = "Nhập mã nhân viên";
+            this.txbSearchTrash.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txbSearchTrash_KeyDown);
+            // 
+            // btnDeleteTrash
+            // 
+            this.btnDeleteTrash.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnDeleteTrash.FlatAppearance.BorderSize = 0;
+            this.btnDeleteTrash.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDeleteTrash.Image = global::UMCLocker.Properties.Resources.delete_icon;
+            this.btnDeleteTrash.Location = new System.Drawing.Point(38, 1);
+            this.btnDeleteTrash.Name = "btnDeleteTrash";
+            this.btnDeleteTrash.Size = new System.Drawing.Size(35, 37);
+            this.btnDeleteTrash.TabIndex = 2;
+            this.btnDeleteTrash.UseVisualStyleBackColor = true;
+            this.btnDeleteTrash.Click += new System.EventHandler(this.btnDeleteTrash_Click);
+            // 
             // tPKey
             // 
             this.tPKey.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -1018,19 +1397,19 @@ namespace UMCLocker
             // 
             this.dgrvLocker.AllowUserToAddRows = false;
             this.dgrvLocker.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dgrvLocker.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dgrvLocker.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle17;
             this.dgrvLocker.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgrvLocker.BackgroundColor = System.Drawing.SystemColors.Window;
             this.dgrvLocker.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgrvLocker.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle18.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle18.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgrvLocker.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle18;
             this.dgrvLocker.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgrvLocker.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgrvLocker.Location = new System.Drawing.Point(4, 61);
@@ -1045,19 +1424,19 @@ namespace UMCLocker
             // 
             this.dgrvShoes.AllowUserToAddRows = false;
             this.dgrvShoes.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dgrvShoes.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dgrvShoes.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle19;
             this.dgrvShoes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgrvShoes.BackgroundColor = System.Drawing.SystemColors.Window;
             this.dgrvShoes.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgrvShoes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle20.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle20.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle20.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgrvShoes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle20;
             this.dgrvShoes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgrvShoes.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgrvShoes.Location = new System.Drawing.Point(637, 61);
@@ -1067,353 +1446,6 @@ namespace UMCLocker
             this.dgrvShoes.Size = new System.Drawing.Size(626, 546);
             this.dgrvShoes.TabIndex = 6;
             this.dgrvShoes.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgrvShoes_CellMouseDoubleClick);
-            // 
-            // tPTrash
-            // 
-            this.tPTrash.Controls.Add(this.pbStaffTrash);
-            this.tPTrash.Controls.Add(this.dgrvTrash);
-            this.tPTrash.Controls.Add(this.panel10);
-            this.tPTrash.ImageIndex = 4;
-            this.tPTrash.Location = new System.Drawing.Point(4, 26);
-            this.tPTrash.Name = "tPTrash";
-            this.tPTrash.Padding = new System.Windows.Forms.Padding(3);
-            this.tPTrash.Size = new System.Drawing.Size(1275, 619);
-            this.tPTrash.TabIndex = 4;
-            this.tPTrash.Text = "Danh sách nghỉ việc";
-            this.tPTrash.UseVisualStyleBackColor = true;
-            // 
-            // pbStaffTrash
-            // 
-            this.pbStaffTrash.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pbStaffTrash.BackColor = System.Drawing.Color.Transparent;
-            this.pbStaffTrash.Image = global::UMCLocker.Properties.Resources.loading;
-            this.pbStaffTrash.Location = new System.Drawing.Point(605, 277);
-            this.pbStaffTrash.Name = "pbStaffTrash";
-            this.pbStaffTrash.Size = new System.Drawing.Size(64, 64);
-            this.pbStaffTrash.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pbStaffTrash.TabIndex = 6;
-            this.pbStaffTrash.TabStop = false;
-            // 
-            // dgrvTrash
-            // 
-            this.dgrvTrash.AllowUserToAddRows = false;
-            this.dgrvTrash.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black;
-            this.dgrvTrash.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle8;
-            this.dgrvTrash.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgrvTrash.BackgroundColor = System.Drawing.SystemColors.Window;
-            this.dgrvTrash.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgrvTrash.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
-            this.dgrvTrash.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dgrvTrash.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4,
-            this.dataGridViewTextBoxColumn5,
-            this.Customer,
-            this.dataGridViewTextBoxColumn6,
-            this.dataGridViewTextBoxColumn7,
-            this.dataGridViewTextBoxColumn8,
-            this.dataGridViewTextBoxColumn9,
-            this.dataGridViewTextBoxColumn10,
-            this.dataGridViewTextBoxColumn11,
-            this.end_date,
-            this.note,
-            this.dataGridViewTextBoxColumn12,
-            this.dataGridViewTextBoxColumn13,
-            this.dataGridViewTextBoxColumn14,
-            this.dataGridViewTextBoxColumn15,
-            this.dataGridViewTextBoxColumn16,
-            this.dataGridViewTextBoxColumn17,
-            this.dataGridViewTextBoxColumn18,
-            this.dataGridViewTextBoxColumn19});
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgrvTrash.DefaultCellStyle = dataGridViewCellStyle10;
-            this.dgrvTrash.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgrvTrash.Location = new System.Drawing.Point(3, 40);
-            this.dgrvTrash.Name = "dgrvTrash";
-            this.dgrvTrash.ReadOnly = true;
-            this.dgrvTrash.RowHeadersVisible = false;
-            this.dgrvTrash.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.dgrvTrash.Size = new System.Drawing.Size(1269, 576);
-            this.dgrvTrash.TabIndex = 5;
-            this.dgrvTrash.VirtualMode = true;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "index";
-            this.dataGridViewTextBoxColumn1.HeaderText = "STT";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.Width = 56;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "staff_code";
-            this.dataGridViewTextBoxColumn2.HeaderText = "Mã nhân viên ";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "full_name";
-            this.dataGridViewTextBoxColumn3.HeaderText = "Họ và tên";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "genderStr";
-            this.dataGridViewTextBoxColumn4.HeaderText = "Giới tính";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "enter_date";
-            this.dataGridViewTextBoxColumn5.HeaderText = "Ngày vào";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.ReadOnly = true;
-            // 
-            // Customer
-            // 
-            this.Customer.DataPropertyName = "customer";
-            this.Customer.HeaderText = "Khách hàng";
-            this.Customer.Name = "Customer";
-            this.Customer.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "deptName";
-            this.dataGridViewTextBoxColumn6.HeaderText = "Phòng ban";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            this.dataGridViewTextBoxColumn6.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn7
-            // 
-            this.dataGridViewTextBoxColumn7.DataPropertyName = "posName";
-            this.dataGridViewTextBoxColumn7.HeaderText = "Chức vụ";
-            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            this.dataGridViewTextBoxColumn7.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn8
-            // 
-            this.dataGridViewTextBoxColumn8.DataPropertyName = "locker_number";
-            this.dataGridViewTextBoxColumn8.HeaderText = "Số tủ locker";
-            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
-            this.dataGridViewTextBoxColumn8.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn9
-            // 
-            this.dataGridViewTextBoxColumn9.DataPropertyName = "locker_index";
-            this.dataGridViewTextBoxColumn9.HeaderText = "Số ô locker";
-            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
-            this.dataGridViewTextBoxColumn9.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn10
-            // 
-            this.dataGridViewTextBoxColumn10.DataPropertyName = "shoes_number";
-            this.dataGridViewTextBoxColumn10.HeaderText = "Số tủ giày";
-            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
-            this.dataGridViewTextBoxColumn10.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn11
-            // 
-            this.dataGridViewTextBoxColumn11.DataPropertyName = "shoes_index";
-            this.dataGridViewTextBoxColumn11.HeaderText = "Số ô giày";
-            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
-            this.dataGridViewTextBoxColumn11.ReadOnly = true;
-            // 
-            // end_date
-            // 
-            this.end_date.DataPropertyName = "end_date";
-            this.end_date.HeaderText = "Ngày kết thúc";
-            this.end_date.Name = "end_date";
-            this.end_date.ReadOnly = true;
-            // 
-            // note
-            // 
-            this.note.DataPropertyName = "note";
-            this.note.HeaderText = "Ghi chú";
-            this.note.Name = "note";
-            this.note.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn12
-            // 
-            this.dataGridViewTextBoxColumn12.DataPropertyName = "id";
-            this.dataGridViewTextBoxColumn12.HeaderText = "id";
-            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
-            this.dataGridViewTextBoxColumn12.ReadOnly = true;
-            this.dataGridViewTextBoxColumn12.Visible = false;
-            // 
-            // dataGridViewTextBoxColumn13
-            // 
-            this.dataGridViewTextBoxColumn13.DataPropertyName = "Locker";
-            this.dataGridViewTextBoxColumn13.HeaderText = "locker";
-            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
-            this.dataGridViewTextBoxColumn13.ReadOnly = true;
-            this.dataGridViewTextBoxColumn13.Visible = false;
-            // 
-            // dataGridViewTextBoxColumn14
-            // 
-            this.dataGridViewTextBoxColumn14.DataPropertyName = "Pos";
-            this.dataGridViewTextBoxColumn14.HeaderText = "Pos";
-            this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
-            this.dataGridViewTextBoxColumn14.ReadOnly = true;
-            this.dataGridViewTextBoxColumn14.Visible = false;
-            // 
-            // dataGridViewTextBoxColumn15
-            // 
-            this.dataGridViewTextBoxColumn15.DataPropertyName = "Dept";
-            this.dataGridViewTextBoxColumn15.HeaderText = "Dept";
-            this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
-            this.dataGridViewTextBoxColumn15.ReadOnly = true;
-            this.dataGridViewTextBoxColumn15.Visible = false;
-            // 
-            // dataGridViewTextBoxColumn16
-            // 
-            this.dataGridViewTextBoxColumn16.DataPropertyName = "position";
-            this.dataGridViewTextBoxColumn16.HeaderText = "posId";
-            this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
-            this.dataGridViewTextBoxColumn16.ReadOnly = true;
-            this.dataGridViewTextBoxColumn16.Visible = false;
-            // 
-            // dataGridViewTextBoxColumn17
-            // 
-            this.dataGridViewTextBoxColumn17.DataPropertyName = "info";
-            this.dataGridViewTextBoxColumn17.HeaderText = "info";
-            this.dataGridViewTextBoxColumn17.Name = "dataGridViewTextBoxColumn17";
-            this.dataGridViewTextBoxColumn17.ReadOnly = true;
-            this.dataGridViewTextBoxColumn17.Visible = false;
-            // 
-            // dataGridViewTextBoxColumn18
-            // 
-            this.dataGridViewTextBoxColumn18.DataPropertyName = "department";
-            this.dataGridViewTextBoxColumn18.HeaderText = "deptId";
-            this.dataGridViewTextBoxColumn18.Name = "dataGridViewTextBoxColumn18";
-            this.dataGridViewTextBoxColumn18.ReadOnly = true;
-            this.dataGridViewTextBoxColumn18.Visible = false;
-            // 
-            // dataGridViewTextBoxColumn19
-            // 
-            this.dataGridViewTextBoxColumn19.DataPropertyName = "Sho";
-            this.dataGridViewTextBoxColumn19.HeaderText = "Sho";
-            this.dataGridViewTextBoxColumn19.Name = "dataGridViewTextBoxColumn19";
-            this.dataGridViewTextBoxColumn19.ReadOnly = true;
-            this.dataGridViewTextBoxColumn19.Visible = false;
-            // 
-            // panel10
-            // 
-            this.panel10.Controls.Add(this.btnExportTrash);
-            this.panel10.Controls.Add(this.btnTrashAll);
-            this.panel10.Controls.Add(this.btnTrashFilter);
-            this.panel10.Controls.Add(this.cbbNote);
-            this.panel10.Controls.Add(this.dpMonth);
-            this.panel10.Controls.Add(this.txbSearchTrash);
-            this.panel10.Controls.Add(this.btnDeleteTrash);
-            this.panel10.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel10.Location = new System.Drawing.Point(3, 3);
-            this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(1269, 37);
-            this.panel10.TabIndex = 4;
-            // 
-            // btnExportTrash
-            // 
-            this.btnExportTrash.FlatAppearance.BorderSize = 0;
-            this.btnExportTrash.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnExportTrash.Image = global::UMCLocker.Properties.Resources.import_excel;
-            this.btnExportTrash.Location = new System.Drawing.Point(1012, 4);
-            this.btnExportTrash.Name = "btnExportTrash";
-            this.btnExportTrash.Size = new System.Drawing.Size(42, 23);
-            this.btnExportTrash.TabIndex = 14;
-            this.btnExportTrash.Tag = "0";
-            this.btnExportTrash.UseVisualStyleBackColor = true;
-            this.btnExportTrash.Click += new System.EventHandler(this.btnExportTrash_Click);
-            // 
-            // btnTrashAll
-            // 
-            this.btnTrashAll.FlatAppearance.BorderSize = 0;
-            this.btnTrashAll.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnTrashAll.Image = global::UMCLocker.Properties.Resources.list_icon;
-            this.btnTrashAll.Location = new System.Drawing.Point(924, 4);
-            this.btnTrashAll.Name = "btnTrashAll";
-            this.btnTrashAll.Size = new System.Drawing.Size(42, 23);
-            this.btnTrashAll.TabIndex = 13;
-            this.btnTrashAll.Tag = "0";
-            this.btnTrashAll.UseVisualStyleBackColor = true;
-            this.btnTrashAll.Click += new System.EventHandler(this.btnTrashAll_Click);
-            // 
-            // btnTrashFilter
-            // 
-            this.btnTrashFilter.FlatAppearance.BorderSize = 0;
-            this.btnTrashFilter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnTrashFilter.Image = global::UMCLocker.Properties.Resources.filter_icon;
-            this.btnTrashFilter.Location = new System.Drawing.Point(846, 4);
-            this.btnTrashFilter.Name = "btnTrashFilter";
-            this.btnTrashFilter.Size = new System.Drawing.Size(42, 23);
-            this.btnTrashFilter.TabIndex = 12;
-            this.btnTrashFilter.Tag = "0";
-            this.btnTrashFilter.UseVisualStyleBackColor = true;
-            this.btnTrashFilter.Click += new System.EventHandler(this.btnTrashFilter_Click);
-            // 
-            // cbbNote
-            // 
-            this.cbbNote.FormattingEnabled = true;
-            this.cbbNote.Items.AddRange(new object[] {
-            "NV có trả khóa",
-            "NV không trả khóa"});
-            this.cbbNote.Location = new System.Drawing.Point(708, 7);
-            this.cbbNote.Name = "cbbNote";
-            this.cbbNote.Size = new System.Drawing.Size(121, 21);
-            this.cbbNote.TabIndex = 6;
-            // 
-            // dpMonth
-            // 
-            this.dpMonth.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dpMonth.Location = new System.Drawing.Point(490, 7);
-            this.dpMonth.Name = "dpMonth";
-            this.dpMonth.Size = new System.Drawing.Size(200, 20);
-            this.dpMonth.TabIndex = 5;
-            // 
-            // txbSearchTrash
-            // 
-            this.txbSearchTrash.ForeColor = System.Drawing.Color.Gray;
-            this.txbSearchTrash.Location = new System.Drawing.Point(50, 8);
-            this.txbSearchTrash.Name = "txbSearchTrash";
-            this.txbSearchTrash.Size = new System.Drawing.Size(416, 20);
-            this.txbSearchTrash.TabIndex = 4;
-            this.txbSearchTrash.Text = "Nhập mã nhân viên";
-            this.txbSearchTrash.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txbSearchTrash_KeyDown);
-            // 
-            // btnDeleteTrash
-            // 
-            this.btnDeleteTrash.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnDeleteTrash.FlatAppearance.BorderSize = 0;
-            this.btnDeleteTrash.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDeleteTrash.Image = global::UMCLocker.Properties.Resources.delete_icon;
-            this.btnDeleteTrash.Location = new System.Drawing.Point(0, 0);
-            this.btnDeleteTrash.Name = "btnDeleteTrash";
-            this.btnDeleteTrash.Size = new System.Drawing.Size(35, 37);
-            this.btnDeleteTrash.TabIndex = 2;
-            this.btnDeleteTrash.UseVisualStyleBackColor = true;
-            this.btnDeleteTrash.Click += new System.EventHandler(this.btnDeleteTrash_Click);
             // 
             // tPSetting
             // 
@@ -1460,14 +1492,16 @@ namespace UMCLocker
             this.panel12.Controls.Add(this.panel14);
             this.panel12.Controls.Add(this.panel13);
             this.panel12.Controls.Add(this.lblAddStaffState2);
-            this.panel12.Controls.Add(this.button3);
+            this.panel12.Controls.Add(this.btnAddStaffFromExcel);
             this.panel12.Controls.Add(this.lblImportStaffState1);
-            this.panel12.Controls.Add(this.button5);
+            this.panel12.Controls.Add(this.btnImportStaffExcel);
             this.panel12.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel12.Location = new System.Drawing.Point(0, 0);
             this.panel12.Name = "panel12";
             this.panel12.Size = new System.Drawing.Size(1269, 613);
             this.panel12.TabIndex = 14;
+            this.panel12.Visible = false;
+            this.panel12.Paint += new System.Windows.Forms.PaintEventHandler(this.panel12_Paint);
             // 
             // lblImportQuitWork
             // 
@@ -1477,6 +1511,8 @@ namespace UMCLocker
             this.lblImportQuitWork.Size = new System.Drawing.Size(33, 13);
             this.lblImportQuitWork.TabIndex = 27;
             this.lblImportQuitWork.Text = "None";
+            this.lblImportQuitWork.Visible = false;
+            this.lblImportQuitWork.Click += new System.EventHandler(this.lblImportQuitWork_Click);
             // 
             // btnImportQuitWork
             // 
@@ -1486,6 +1522,7 @@ namespace UMCLocker
             this.btnImportQuitWork.TabIndex = 26;
             this.btnImportQuitWork.Text = "Import nhân viên nghỉ việc";
             this.btnImportQuitWork.UseVisualStyleBackColor = true;
+            this.btnImportQuitWork.Visible = false;
             this.btnImportQuitWork.Click += new System.EventHandler(this.btnImportQuitWork_Click);
             // 
             // lblImportKey
@@ -1496,6 +1533,7 @@ namespace UMCLocker
             this.lblImportKey.Size = new System.Drawing.Size(33, 13);
             this.lblImportKey.TabIndex = 25;
             this.lblImportKey.Text = "None";
+            this.lblImportKey.Visible = false;
             // 
             // btnImportKey
             // 
@@ -1505,6 +1543,7 @@ namespace UMCLocker
             this.btnImportKey.TabIndex = 24;
             this.btnImportKey.Text = "Import tủ giày và locker";
             this.btnImportKey.UseVisualStyleBackColor = true;
+            this.btnImportKey.Visible = false;
             this.btnImportKey.Click += new System.EventHandler(this.btnImportKey_Click);
             // 
             // panel14
@@ -1744,15 +1783,15 @@ namespace UMCLocker
             this.lblAddStaffState2.TabIndex = 3;
             this.lblAddStaffState2.Text = "None";
             // 
-            // button3
+            // btnAddStaffFromExcel
             // 
-            this.button3.Location = new System.Drawing.Point(33, 211);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(211, 23);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "Thêm nhân viên từ file excel";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.btnAddStaffExcel_Click);
+            this.btnAddStaffFromExcel.Location = new System.Drawing.Point(33, 211);
+            this.btnAddStaffFromExcel.Name = "btnAddStaffFromExcel";
+            this.btnAddStaffFromExcel.Size = new System.Drawing.Size(211, 23);
+            this.btnAddStaffFromExcel.TabIndex = 2;
+            this.btnAddStaffFromExcel.Text = "Thêm nhân viên từ file excel";
+            this.btnAddStaffFromExcel.UseVisualStyleBackColor = true;
+            this.btnAddStaffFromExcel.Click += new System.EventHandler(this.btnAddStaffExcel_Click);
             // 
             // lblImportStaffState1
             // 
@@ -1763,15 +1802,15 @@ namespace UMCLocker
             this.lblImportStaffState1.TabIndex = 1;
             this.lblImportStaffState1.Text = "None";
             // 
-            // button5
+            // btnImportStaffExcel
             // 
-            this.button5.Location = new System.Drawing.Point(33, 139);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(211, 23);
-            this.button5.TabIndex = 0;
-            this.button5.Text = "Import nhân viên từ file excel";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.btnImportStaff_Click);
+            this.btnImportStaffExcel.Location = new System.Drawing.Point(33, 139);
+            this.btnImportStaffExcel.Name = "btnImportStaffExcel";
+            this.btnImportStaffExcel.Size = new System.Drawing.Size(211, 23);
+            this.btnImportStaffExcel.TabIndex = 0;
+            this.btnImportStaffExcel.Text = "Import nhân viên từ file excel";
+            this.btnImportStaffExcel.UseVisualStyleBackColor = true;
+            this.btnImportStaffExcel.Click += new System.EventHandler(this.btnImportStaff_Click);
             // 
             // txbLockerType
             // 
@@ -1939,6 +1978,12 @@ namespace UMCLocker
             this.panel9.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
+            this.tPTrash.ResumeLayout(false);
+            this.tPTrash.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbStaffTrash)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgrvTrash)).EndInit();
+            this.panel10.ResumeLayout(false);
+            this.panel10.PerformLayout();
             this.tPKey.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
@@ -1947,12 +1992,6 @@ namespace UMCLocker
             this.panel6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgrvLocker)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgrvShoes)).EndInit();
-            this.tPTrash.ResumeLayout(false);
-            this.tPTrash.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbStaffTrash)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgrvTrash)).EndInit();
-            this.panel10.ResumeLayout(false);
-            this.panel10.PerformLayout();
             this.tPSetting.ResumeLayout(false);
             this.panel11.ResumeLayout(false);
             this.panel11.PerformLayout();
@@ -1997,6 +2036,7 @@ namespace UMCLocker
         private System.ComponentModel.BackgroundWorker bgStaffTrash;
         public TextBox TxbSearchTrash { get { return txbSearchTrash; } }
         public Button BtnDeleteTrash { get { return btnDeleteTrash; } }
+        public Button BtnEditTrash { get { return btnEditTrash; } }
         public ComboBox CbbLockerState { get => cbbLockerState; }
         public Label LblAddStaffState { get => lblAddStaffState2; }
         public Label LblImportStaffState { get => lblImportStaffState1; }
@@ -2027,7 +2067,6 @@ namespace UMCLocker
         private DateTimePicker dpFilterEnterDate;
         private TextBox txbSearchStaff;
         private Button btnDeleteStaff;
-        private Button btnEditStaff;
         private Button btnAddStaff;
         private TabPage tPKey;
         private TableLayoutPanel tableLayoutPanel1;
@@ -2096,9 +2135,9 @@ namespace UMCLocker
         private Label label15;
         private Button btnImportShoes1;
         private Label lblAddStaffState2;
-        private Button button3;
+        private Button btnAddStaffFromExcel;
         private Label lblImportStaffState1;
-        private Button button5;
+        private Button btnImportStaffExcel;
         private TextBox txbLockerType;
         private Label label7;
         private TextBox txbSoOTrongTuLocker;
@@ -2161,6 +2200,10 @@ namespace UMCLocker
         private DataGridViewTextBoxColumn Sho;
         private Button btnSync;
         private System.ComponentModel.BackgroundWorker bgwSync;
+        private Button btnEditStaff;
+        private Button btnEditTrash;
+        private Button btnLogin;
+
         public System.ComponentModel.BackgroundWorker BgwSync  { get => bgwSync; }
 
         public System.ComponentModel.BackgroundWorker BgwImportQuitWork { get => bgwImportQuitWork; }

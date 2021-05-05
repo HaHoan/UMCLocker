@@ -26,7 +26,7 @@
     <MapFileExtensions>true</MapFileExtensions>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>31</ApplicationRevision>
+    <ApplicationRevision>32</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -178,11 +178,20 @@
     <Compile Include="Locker.cs">
       <DependentUpon>UMCLOCKERModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainTab.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="MainTab.Designer.cs">
       <DependentUpon>MainTab.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Member.cs">
+      <DependentUpon>UMCLOCKERModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Pos.cs">
       <DependentUpon>UMCLOCKERModel.tt</DependentUpon>
@@ -245,6 +254,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DetailKeyForm.resx">
       <DependentUpon>DetailKeyForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainTab.resx">
       <DependentUpon>MainTab.cs</DependentUpon>
@@ -327,6 +339,7 @@
   <ItemGroup>
     <None Include="Assets\icons8-sync-48.png" />
     <None Include="Assets\icons8-sync-30.png" />
+    <None Include="Assets\icons8-account-48.png" />
     <Content Include="GAUMCModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>GAUMCModel.edmx</DependentUpon>

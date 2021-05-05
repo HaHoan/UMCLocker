@@ -187,6 +187,7 @@
             this.txbShoesNumber.Size = new System.Drawing.Size(100, 20);
             this.txbShoesNumber.TabIndex = 38;
             this.txbShoesNumber.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txbShoesNumber_KeyPress);
+            this.txbShoesNumber.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.txbShoesNumber_PreviewKeyDown);
             // 
             // txbLockerIndex
             // 
@@ -195,6 +196,7 @@
             this.txbLockerIndex.Size = new System.Drawing.Size(100, 20);
             this.txbLockerIndex.TabIndex = 37;
             this.txbLockerIndex.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txbLockerIndex_KeyPress);
+            this.txbLockerIndex.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.txbLockerIndex_PreviewKeyDown);
             // 
             // txbLockerNumber
             // 
@@ -203,6 +205,7 @@
             this.txbLockerNumber.Size = new System.Drawing.Size(100, 20);
             this.txbLockerNumber.TabIndex = 36;
             this.txbLockerNumber.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txbLockerNumber_KeyPress);
+            this.txbLockerNumber.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.txbLockerNumber_PreviewKeyDown);
             // 
             // label17
             // 

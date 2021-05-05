@@ -138,6 +138,13 @@ namespace UMCLocker
             try
             {
                 _newStaff.staff_code = txbStaffCode.Text.ToString().Trim();
+                if (_newStaff.CheckUserExist())
+                {
+                    MessageBox.Show("Đã tồn tại nhân viên " + _newStaff.staff_code + " này rồi!");
+                    txbStaffCode.SelectAll();
+                    txbStaffCode.Focus();
+                    return;
+                }
                 if (string.IsNullOrEmpty(_newStaff.staff_code))
                 {
                     txbStaffCode.Focus();
@@ -361,5 +368,40 @@ namespace UMCLocker
             onlyEnterNumber(sender, e);
         }
 
+        private void txbLockerNumber_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
+        {
+            if(e.KeyCode == Keys.Right)
+            {
+                txbLockerIndex.SelectAll();
+                txbLockerIndex.Focus();
+            }
+        }
+
+        private void txbLockerIndex_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
+        {
+            if (e.KeyCode == Keys.Right)
+            {
+                txbShoesNumber.SelectAll();
+                txbShoesNumber.Focus();
+            }
+            else if (e.KeyCode == Keys.Left)
+            {
+                txbLockerNumber.SelectAll();
+                txbLockerNumber.Focus();
+            }
+        }
+
+        private void txbShoesNumber_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
+        {
+            if(e.KeyCode == Keys.Right)
+            {
+                txbShoesIndex.SelectAll();
+                txbShoesIndex.Focus();
+            }else if(e.KeyCode == Keys.Left)
+            {
+                txbLockerNumber.SelectAll();
+                txbLockerIndex.SelectAll();
+            }
+        }
     }
 }

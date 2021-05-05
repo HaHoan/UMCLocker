@@ -91,13 +91,17 @@ namespace UMCLocker.Business
         }
         private void ChangeStateButton()
         {
+            if (!view.isLogin) return;
             if (view.DgrvTrash.Rows.Count == 0)
             {
                 view.BtnDeleteTrash.Enabled = false;
+                view.BtnEditTrash.Enabled = false;
+                
             }
             else
             {
                 view.BtnDeleteTrash.Enabled = true;
+                view.BtnEditTrash.Enabled = true;
             }
 
         }
@@ -190,6 +194,34 @@ namespace UMCLocker.Business
                 var result = ExportUtils.ExportStaffTrash(_staffs, fileName);
                 MessageBox.Show(result.message);
 
+            }
+        }
+
+        internal void btnEditTrash_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                StaffEntity s = ((List<StaffEntity>)bindingSource.DataSource)[view.DgrvTrash.CurrentCell.RowIndex];
+                ConfirmDelete formConfirm = new ConfirmDelete(s.full_name);
+                formConfirm.OK += (isReturnKey, endDate) =>
+                {
+                    s.end_date = endDate;
+                    s.note = isReturnKey ? Constants.NOTE_RETURN_KEY : Constants.NOTE_NOT_RETURN_KEY;
+                    ResultInfo result = s.MoveToTrash();
+                    if (result.code < 0)
+                    {
+                        MessageBox.Show(result.message);
+                    }
+                    else
+                    {
+                        view.BgStaffTrash.RunWorkerAsync();
+                    }
+                };
+                formConfirm.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString());
             }
         }
     }

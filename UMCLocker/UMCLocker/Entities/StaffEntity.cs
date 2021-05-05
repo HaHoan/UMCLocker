@@ -604,6 +604,23 @@ namespace UMCLocker.Entities
                 return new ResultInfo(Constants.ERROR_COMMON, e.Message.ToString());
             }
         }
+        public bool CheckUserExist()
+        {
+            try
+            {
+                using (var db = new UMCLOCKEREntities())
+                {
+                    var staff = db.Staffs.Where(m => m.staff_code == this.staff_code).FirstOrDefault();
+                    if (staff == null) return false;
+                    else return true;
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
         public ResultInfo Update()
         {
             try

@@ -18,9 +18,11 @@ namespace UMCLocker
         public StaffController staffController;
         public StaffTrashController staffTrashController;
         SettingController settingController;
+        public bool isLogin = false;
         public MainTab()
         {
             InitializeComponent();
+           
         }
 
         private void MainTab_Load(object sender, EventArgs e)
@@ -39,8 +41,8 @@ namespace UMCLocker
             };
             lockerController.LoadAll();
             shoesController.LoadAll();
-           
-        }
+            DisableButton();
+       }
 
 
         private void btnAddLocker_Click(object sender, EventArgs e)
@@ -337,11 +339,11 @@ namespace UMCLocker
 
         private void MainTab_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.E && Control.ModifierKeys == Keys.Control)
+            if (e.KeyCode == Keys.O && Control.ModifierKeys == Keys.Control)
             {
                 btnEditStaff.PerformClick();
             }
-               
+
         }
 
         private void tabCtrMain_SelectedIndexChanged(object sender, EventArgs e)
@@ -376,6 +378,70 @@ namespace UMCLocker
         private void bgwSync_RunWorkerCompleted(object sender, System.ComponentModel.RunWorkerCompletedEventArgs e)
         {
             staffController.bgwSync_RunWorkerCompleted(sender, e);
+        }
+
+        private void btnEditTrash_Click(object sender, EventArgs e)
+        {
+            staffTrashController.btnEditTrash_Click(sender, e);
+        }
+        private void DisableButton()
+        {
+            btnAddStaff.Enabled = false;
+            btnEditStaff.Enabled = false;
+            btnDeleteStaff.Enabled = false;
+            btnAddLocker.Enabled = false;
+            btnDeleteLocker.Enabled = false;
+            btnAddShoes.Enabled = false;
+            btnDeleteShoes.Enabled = false;
+            btnDeleteTrash.Enabled = false;
+            btnEditTrash.Enabled = false;
+            btnImportStaffExcel.Enabled = false;
+            btnAddStaffFromExcel.Enabled = false;
+        }
+        private void EnableButton()
+        {
+            btnAddStaff.Enabled = true;
+            btnEditStaff.Enabled = true;
+            btnDeleteStaff.Enabled = true;
+            btnAddLocker.Enabled = true;
+            btnDeleteLocker.Enabled = true;
+            btnAddShoes.Enabled = true;
+            btnDeleteShoes.Enabled = true;
+            btnDeleteTrash.Enabled = true;
+            btnEditTrash.Enabled = true;
+            btnImportStaffExcel.Enabled = true;
+            btnAddStaffFromExcel.Enabled = true;
+        }
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+            if (isLogin)
+            {
+                isLogin = false;
+                btnLogin.Text = "Login";
+                DisableButton();
+            }
+            else
+            {
+                var loginForm = new LoginForm();
+                loginForm.LoginOK += (username) =>
+                {
+                    btnLogin.Text = username;
+                    isLogin = true;
+                    EnableButton();
+                };
+                loginForm.ShowDialog();
+            }
+            
+        }
+
+        private void panel12_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void lblImportQuitWork_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

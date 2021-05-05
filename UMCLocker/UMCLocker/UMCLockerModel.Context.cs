@@ -31,5 +31,6 @@ namespace UMCLocker
         public virtual DbSet<Pos> Pos { get; set; }
         public virtual DbSet<Sho> Shoes { get; set; }
         public virtual DbSet<Staff> Staffs { get; set; }
+        public virtual DbSet<Member> Members { get; set; }
     }
 }
