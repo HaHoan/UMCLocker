@@ -32,16 +32,16 @@ namespace UMCLocker
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainTab));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle28 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle29 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle30 = new System.Windows.Forms.DataGridViewCellStyle();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnLogin = new System.Windows.Forms.Button();
@@ -150,31 +150,6 @@ namespace UMCLocker
             this.dgrvLocker = new System.Windows.Forms.DataGridView();
             this.dgrvShoes = new System.Windows.Forms.DataGridView();
             this.tPSetting = new System.Windows.Forms.TabPage();
-            this.panel11 = new System.Windows.Forms.Panel();
-            this.panel12 = new System.Windows.Forms.Panel();
-            this.lblStatusAddStaff = new System.Windows.Forms.Label();
-            this.lblImportQuitWork = new System.Windows.Forms.Label();
-            this.btnImportQuitWork = new System.Windows.Forms.Button();
-            this.lblImportKey = new System.Windows.Forms.Label();
-            this.btnImportKey = new System.Windows.Forms.Button();
-            this.btnAddStaffFromExcel = new System.Windows.Forms.Button();
-            this.lblImportStaffState1 = new System.Windows.Forms.Label();
-            this.btnImportStaffExcel = new System.Windows.Forms.Button();
-            this.txbLockerType = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.txbSoOTrongTuLocker = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.txbLockerTo = new System.Windows.Forms.TextBox();
-            this.txbTo = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.lblImportShoesState = new System.Windows.Forms.Label();
-            this.btnImportShoes = new System.Windows.Forms.Button();
-            this.lblImportLockerState = new System.Windows.Forms.Label();
-            this.lblAddStaffState = new System.Windows.Forms.Label();
-            this.btnImportLocker = new System.Windows.Forms.Button();
-            this.btnAddStaffExcel = new System.Windows.Forms.Button();
-            this.lblImportStaffState = new System.Windows.Forms.Label();
-            this.btnImportStaff = new System.Windows.Forms.Button();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.bgStaffTrash = new System.ComponentModel.BackgroundWorker();
             this.bgwSettingImportStaff = new System.ComponentModel.BackgroundWorker();
@@ -182,6 +157,8 @@ namespace UMCLocker
             this.bgwSettingImportKey = new System.ComponentModel.BackgroundWorker();
             this.bgwImportQuitWork = new System.ComponentModel.BackgroundWorker();
             this.bgwSync = new System.ComponentModel.BackgroundWorker();
+            this.btnAddNewStaffFromExcel = new System.Windows.Forms.Button();
+            this.lblStatusAddStaff = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.tabCtrMain.SuspendLayout();
@@ -201,8 +178,6 @@ namespace UMCLocker
             ((System.ComponentModel.ISupportInitialize)(this.dgrvLocker)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgrvShoes)).BeginInit();
             this.tPSetting.SuspendLayout();
-            this.panel11.SuspendLayout();
-            this.panel12.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -322,21 +297,21 @@ namespace UMCLocker
             // 
             this.dgrvStaff.AllowUserToAddRows = false;
             this.dgrvStaff.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-            this.dgrvStaff.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle21.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle21.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle21.ForeColor = System.Drawing.Color.Black;
+            this.dgrvStaff.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle21;
             this.dgrvStaff.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgrvStaff.BackgroundColor = System.Drawing.SystemColors.Window;
             this.dgrvStaff.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgrvStaff.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle22.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            dataGridViewCellStyle22.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle22.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle22.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle22.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgrvStaff.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle22;
             this.dgrvStaff.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgrvStaff.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.index,
@@ -359,14 +334,14 @@ namespace UMCLocker
             this.info,
             this.deptId,
             this.Sho});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgrvStaff.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle23.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle23.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle23.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgrvStaff.DefaultCellStyle = dataGridViewCellStyle23;
             this.dgrvStaff.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgrvStaff.Location = new System.Drawing.Point(3, 40);
             this.dgrvStaff.Name = "dgrvStaff";
@@ -725,21 +700,21 @@ namespace UMCLocker
             // 
             this.dgrvTrash.AllowUserToAddRows = false;
             this.dgrvTrash.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
-            this.dgrvTrash.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle24.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle24.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle24.ForeColor = System.Drawing.Color.Black;
+            this.dgrvTrash.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle24;
             this.dgrvTrash.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgrvTrash.BackgroundColor = System.Drawing.SystemColors.Window;
             this.dgrvTrash.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgrvTrash.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle25.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle25.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            dataGridViewCellStyle25.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle25.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle25.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle25.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle25.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgrvTrash.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle25;
             this.dgrvTrash.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgrvTrash.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
@@ -764,14 +739,14 @@ namespace UMCLocker
             this.dataGridViewTextBoxColumn17,
             this.dataGridViewTextBoxColumn18,
             this.dataGridViewTextBoxColumn19});
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgrvTrash.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle26.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle26.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle26.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle26.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle26.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle26.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgrvTrash.DefaultCellStyle = dataGridViewCellStyle26;
             this.dgrvTrash.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgrvTrash.Location = new System.Drawing.Point(3, 40);
             this.dgrvTrash.Name = "dgrvTrash";
@@ -1371,19 +1346,19 @@ namespace UMCLocker
             // 
             this.dgrvLocker.AllowUserToAddRows = false;
             this.dgrvLocker.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dgrvLocker.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle27.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dgrvLocker.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle27;
             this.dgrvLocker.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgrvLocker.BackgroundColor = System.Drawing.SystemColors.Window;
             this.dgrvLocker.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgrvLocker.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle28.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle28.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle28.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle28.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle28.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle28.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle28.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgrvLocker.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle28;
             this.dgrvLocker.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgrvLocker.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgrvLocker.Location = new System.Drawing.Point(4, 61);
@@ -1398,19 +1373,19 @@ namespace UMCLocker
             // 
             this.dgrvShoes.AllowUserToAddRows = false;
             this.dgrvShoes.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dgrvShoes.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle29.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dgrvShoes.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle29;
             this.dgrvShoes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgrvShoes.BackgroundColor = System.Drawing.SystemColors.Window;
             this.dgrvShoes.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgrvShoes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle30.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle30.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle30.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle30.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle30.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle30.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle30.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgrvShoes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle30;
             this.dgrvShoes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgrvShoes.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgrvShoes.Location = new System.Drawing.Point(637, 61);
@@ -1423,7 +1398,8 @@ namespace UMCLocker
             // 
             // tPSetting
             // 
-            this.tPSetting.Controls.Add(this.panel11);
+            this.tPSetting.Controls.Add(this.lblStatusAddStaff);
+            this.tPSetting.Controls.Add(this.btnAddNewStaffFromExcel);
             this.tPSetting.ImageIndex = 5;
             this.tPSetting.Location = new System.Drawing.Point(4, 26);
             this.tPSetting.Name = "tPSetting";
@@ -1433,205 +1409,6 @@ namespace UMCLocker
             this.tPSetting.Text = "Cài đặt";
             this.tPSetting.UseVisualStyleBackColor = true;
             // 
-            // panel11
-            // 
-            this.panel11.Controls.Add(this.panel12);
-            this.panel11.Controls.Add(this.txbLockerType);
-            this.panel11.Controls.Add(this.label7);
-            this.panel11.Controls.Add(this.txbSoOTrongTuLocker);
-            this.panel11.Controls.Add(this.label6);
-            this.panel11.Controls.Add(this.txbLockerTo);
-            this.panel11.Controls.Add(this.txbTo);
-            this.panel11.Controls.Add(this.label4);
-            this.panel11.Controls.Add(this.lblImportShoesState);
-            this.panel11.Controls.Add(this.btnImportShoes);
-            this.panel11.Controls.Add(this.lblImportLockerState);
-            this.panel11.Controls.Add(this.lblAddStaffState);
-            this.panel11.Controls.Add(this.btnImportLocker);
-            this.panel11.Controls.Add(this.btnAddStaffExcel);
-            this.panel11.Controls.Add(this.lblImportStaffState);
-            this.panel11.Controls.Add(this.btnImportStaff);
-            this.panel11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel11.Location = new System.Drawing.Point(3, 3);
-            this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(1269, 613);
-            this.panel11.TabIndex = 0;
-            // 
-            // panel12
-            // 
-            this.panel12.Controls.Add(this.lblStatusAddStaff);
-            this.panel12.Controls.Add(this.lblImportQuitWork);
-            this.panel12.Controls.Add(this.btnImportQuitWork);
-            this.panel12.Controls.Add(this.lblImportKey);
-            this.panel12.Controls.Add(this.btnImportKey);
-            this.panel12.Controls.Add(this.btnAddStaffFromExcel);
-            this.panel12.Controls.Add(this.lblImportStaffState1);
-            this.panel12.Controls.Add(this.btnImportStaffExcel);
-            this.panel12.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel12.Location = new System.Drawing.Point(0, 0);
-            this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(1269, 613);
-            this.panel12.TabIndex = 14;
-            this.panel12.Visible = false;
-            this.panel12.Paint += new System.Windows.Forms.PaintEventHandler(this.panel12_Paint);
-            // 
-            // lblStatusAddStaff
-            // 
-            this.lblStatusAddStaff.AutoSize = true;
-            this.lblStatusAddStaff.Location = new System.Drawing.Point(287, 216);
-            this.lblStatusAddStaff.Name = "lblStatusAddStaff";
-            this.lblStatusAddStaff.Size = new System.Drawing.Size(33, 13);
-            this.lblStatusAddStaff.TabIndex = 28;
-            this.lblStatusAddStaff.Text = "...";
-            // 
-            // lblImportQuitWork
-            // 
-            this.lblImportQuitWork.AutoSize = true;
-            this.lblImportQuitWork.Location = new System.Drawing.Point(287, 334);
-            this.lblImportQuitWork.Name = "lblImportQuitWork";
-            this.lblImportQuitWork.Size = new System.Drawing.Size(33, 13);
-            this.lblImportQuitWork.TabIndex = 27;
-            this.lblImportQuitWork.Text = "None";
-            this.lblImportQuitWork.Visible = false;
-            this.lblImportQuitWork.Click += new System.EventHandler(this.lblImportQuitWork_Click);
-            // 
-            // btnImportQuitWork
-            // 
-            this.btnImportQuitWork.Location = new System.Drawing.Point(33, 329);
-            this.btnImportQuitWork.Name = "btnImportQuitWork";
-            this.btnImportQuitWork.Size = new System.Drawing.Size(211, 23);
-            this.btnImportQuitWork.TabIndex = 26;
-            this.btnImportQuitWork.Text = "Import nhân viên nghỉ việc";
-            this.btnImportQuitWork.UseVisualStyleBackColor = true;
-            this.btnImportQuitWork.Visible = false;
-            this.btnImportQuitWork.Click += new System.EventHandler(this.btnImportQuitWork_Click);
-            // 
-            // lblImportKey
-            // 
-            this.lblImportKey.AutoSize = true;
-            this.lblImportKey.Location = new System.Drawing.Point(293, 276);
-            this.lblImportKey.Name = "lblImportKey";
-            this.lblImportKey.Size = new System.Drawing.Size(33, 13);
-            this.lblImportKey.TabIndex = 25;
-            this.lblImportKey.Text = "None";
-            this.lblImportKey.Visible = false;
-            // 
-            // btnImportKey
-            // 
-            this.btnImportKey.Location = new System.Drawing.Point(33, 271);
-            this.btnImportKey.Name = "btnImportKey";
-            this.btnImportKey.Size = new System.Drawing.Size(211, 23);
-            this.btnImportKey.TabIndex = 24;
-            this.btnImportKey.Text = "Import tủ giày và locker";
-            this.btnImportKey.UseVisualStyleBackColor = true;
-            this.btnImportKey.Visible = false;
-            this.btnImportKey.Click += new System.EventHandler(this.btnImportKey_Click);
-            // 
-            // btnAddStaffFromExcel
-            // 
-            this.btnAddStaffFromExcel.Location = new System.Drawing.Point(33, 211);
-            this.btnAddStaffFromExcel.Name = "btnAddStaffFromExcel";
-            this.btnAddStaffFromExcel.Size = new System.Drawing.Size(211, 23);
-            this.btnAddStaffFromExcel.TabIndex = 2;
-            this.btnAddStaffFromExcel.Text = "Thêm nhân viên từ file excel";
-            this.btnAddStaffFromExcel.UseVisualStyleBackColor = true;
-            this.btnAddStaffFromExcel.Click += new System.EventHandler(this.btnAddStaffExcel_Click);
-            // 
-            // lblImportStaffState1
-            // 
-            this.lblImportStaffState1.AutoSize = true;
-            this.lblImportStaffState1.Location = new System.Drawing.Point(293, 149);
-            this.lblImportStaffState1.Name = "lblImportStaffState1";
-            this.lblImportStaffState1.Size = new System.Drawing.Size(33, 13);
-            this.lblImportStaffState1.TabIndex = 1;
-            this.lblImportStaffState1.Text = "None";
-            // 
-            // btnImportStaffExcel
-            // 
-            this.btnImportStaffExcel.Location = new System.Drawing.Point(33, 139);
-            this.btnImportStaffExcel.Name = "btnImportStaffExcel";
-            this.btnImportStaffExcel.Size = new System.Drawing.Size(211, 23);
-            this.btnImportStaffExcel.TabIndex = 0;
-            this.btnImportStaffExcel.Text = "Import nhân viên từ file excel";
-            this.btnImportStaffExcel.UseVisualStyleBackColor = true;
-            this.btnImportStaffExcel.Click += new System.EventHandler(this.btnImportStaff_Click);
-           
-           
-            // 
-            // lblImportShoesState
-            // 
-            this.lblImportShoesState.AutoSize = true;
-            this.lblImportShoesState.Location = new System.Drawing.Point(258, 468);
-            this.lblImportShoesState.Name = "lblImportShoesState";
-            this.lblImportShoesState.Size = new System.Drawing.Size(33, 13);
-            this.lblImportShoesState.TabIndex = 5;
-            this.lblImportShoesState.Text = "None";
-            // 
-            // btnImportShoes
-            // 
-            this.btnImportShoes.Location = new System.Drawing.Point(21, 463);
-            this.btnImportShoes.Name = "btnImportShoes";
-            this.btnImportShoes.Size = new System.Drawing.Size(211, 23);
-            this.btnImportShoes.TabIndex = 4;
-            this.btnImportShoes.Text = "Import tủ giày từ file excel";
-            this.btnImportShoes.UseVisualStyleBackColor = true;
-            // 
-            // lblImportLockerState
-            // 
-            this.lblImportLockerState.AutoSize = true;
-            this.lblImportLockerState.Location = new System.Drawing.Point(273, 190);
-            this.lblImportLockerState.Name = "lblImportLockerState";
-            this.lblImportLockerState.Size = new System.Drawing.Size(33, 13);
-            this.lblImportLockerState.TabIndex = 3;
-            this.lblImportLockerState.Text = "None";
-            // 
-            // lblAddStaffState
-            // 
-            this.lblAddStaffState.AutoSize = true;
-            this.lblAddStaffState.Location = new System.Drawing.Point(258, 85);
-            this.lblAddStaffState.Name = "lblAddStaffState";
-            this.lblAddStaffState.Size = new System.Drawing.Size(33, 13);
-            this.lblAddStaffState.TabIndex = 3;
-            this.lblAddStaffState.Text = "None";
-            // 
-            // btnImportLocker
-            // 
-            this.btnImportLocker.Location = new System.Drawing.Point(21, 185);
-            this.btnImportLocker.Name = "btnImportLocker";
-            this.btnImportLocker.Size = new System.Drawing.Size(211, 23);
-            this.btnImportLocker.TabIndex = 2;
-            this.btnImportLocker.Text = "Import tủ locker từ file excel";
-            this.btnImportLocker.UseVisualStyleBackColor = true;
-            // 
-            // btnAddStaffExcel
-            // 
-            this.btnAddStaffExcel.Location = new System.Drawing.Point(21, 80);
-            this.btnAddStaffExcel.Name = "btnAddStaffExcel";
-            this.btnAddStaffExcel.Size = new System.Drawing.Size(211, 23);
-            this.btnAddStaffExcel.TabIndex = 2;
-            this.btnAddStaffExcel.Text = "Thêm nhân viên từ file excel";
-            this.btnAddStaffExcel.UseVisualStyleBackColor = true;
-            this.btnAddStaffExcel.Click += new System.EventHandler(this.btnAddStaffExcel_Click);
-            // 
-            // lblImportStaffState
-            // 
-            this.lblImportStaffState.AutoSize = true;
-            this.lblImportStaffState.Location = new System.Drawing.Point(258, 34);
-            this.lblImportStaffState.Name = "lblImportStaffState";
-            this.lblImportStaffState.Size = new System.Drawing.Size(33, 13);
-            this.lblImportStaffState.TabIndex = 1;
-            this.lblImportStaffState.Text = "None";
-            // 
-            // btnImportStaff
-            // 
-            this.btnImportStaff.Location = new System.Drawing.Point(21, 29);
-            this.btnImportStaff.Name = "btnImportStaff";
-            this.btnImportStaff.Size = new System.Drawing.Size(211, 23);
-            this.btnImportStaff.TabIndex = 0;
-            this.btnImportStaff.Text = "Import nhân viên từ file excel";
-            this.btnImportStaff.UseVisualStyleBackColor = true;
-            this.btnImportStaff.Click += new System.EventHandler(this.btnImportStaff_Click);
-            // 
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
@@ -1640,6 +1417,25 @@ namespace UMCLocker
             // 
             this.bgwSync.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bgwSync_DoWork);
             this.bgwSync.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bgwSync_RunWorkerCompleted);
+            // 
+            // btnAddNewStaffFromExcel
+            // 
+            this.btnAddNewStaffFromExcel.Location = new System.Drawing.Point(38, 44);
+            this.btnAddNewStaffFromExcel.Name = "btnAddNewStaffFromExcel";
+            this.btnAddNewStaffFromExcel.Size = new System.Drawing.Size(166, 23);
+            this.btnAddNewStaffFromExcel.TabIndex = 0;
+            this.btnAddNewStaffFromExcel.Text = "Nhập nhân viên mới";
+            this.btnAddNewStaffFromExcel.UseVisualStyleBackColor = true;
+            this.btnAddNewStaffFromExcel.Click += new System.EventHandler(this.btnAddNewStaffFromExcel_Click);
+            // 
+            // lblStatusAddStaff
+            // 
+            this.lblStatusAddStaff.AutoSize = true;
+            this.lblStatusAddStaff.Location = new System.Drawing.Point(231, 48);
+            this.lblStatusAddStaff.Name = "lblStatusAddStaff";
+            this.lblStatusAddStaff.Size = new System.Drawing.Size(33, 13);
+            this.lblStatusAddStaff.TabIndex = 2;
+            this.lblStatusAddStaff.Text = "None";
             // 
             // MainTab
             // 
@@ -1681,10 +1477,7 @@ namespace UMCLocker
             ((System.ComponentModel.ISupportInitialize)(this.dgrvLocker)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgrvShoes)).EndInit();
             this.tPSetting.ResumeLayout(false);
-            this.panel11.ResumeLayout(false);
-            this.panel11.PerformLayout();
-            this.panel12.ResumeLayout(false);
-            this.panel12.PerformLayout();
+            this.tPSetting.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
 
@@ -1722,7 +1515,6 @@ namespace UMCLocker
         public Button BtnDeleteTrash { get { return btnDeleteTrash; } }
         public Button BtnEditTrash { get { return btnEditTrash; } }
         public ComboBox CbbLockerState { get => cbbLockerState; }
-        public Label LblImportStaffState { get => lblImportStaffState1; }
         private System.ComponentModel.BackgroundWorker bgwSettingImportStaff;
         private System.ComponentModel.BackgroundWorker bgwSettingAddStaff;
        
@@ -1780,30 +1572,6 @@ namespace UMCLocker
         private TextBox txbSearchTrash;
         private Button btnDeleteTrash;
         private TabPage tPSetting;
-        private Panel panel11;
-        private Panel panel12;
-        private Label lblImportQuitWork;
-        private Button btnImportQuitWork;
-        private Label lblImportKey;
-        private Button btnImportKey;
-        private Button btnAddStaffFromExcel;
-        private Label lblImportStaffState1;
-        private Button btnImportStaffExcel;
-        private TextBox txbLockerType;
-        private Label label7;
-        private TextBox txbSoOTrongTuLocker;
-        private Label label6;
-        private TextBox txbLockerTo;
-        private Label txbTo;
-        private Label label4;
-        private Label lblImportShoesState;
-        private Button btnImportShoes;
-        private Label lblImportLockerState;
-        private Label lblAddStaffState;
-        private Button btnImportLocker;
-        private Button btnAddStaffExcel;
-        private Label lblImportStaffState;
-        private Button btnImportStaff;
         private PictureBox pbStaffTrash;
         private Button btnExportStaff;
         private Button btnExportTrash;
@@ -1854,6 +1622,7 @@ namespace UMCLocker
         private Button btnEditStaff;
         private Button btnEditTrash;
         private Button btnLogin;
+        private Button btnAddNewStaffFromExcel;
         private Label lblStatusAddStaff;
         public Label LblStatusAddStaff { get => lblStatusAddStaff; }
         public System.ComponentModel.BackgroundWorker BgwSync  { get => bgwSync; }
@@ -1868,9 +1637,7 @@ namespace UMCLocker
         public DateTimePicker DpEnterMonth { get => dpEnterMonth; }
         public DateTimePicker DpFilterEnterDate { get => dpFilterEnterDate; }
         public DateTimePicker DpMonth { get => dpMonth; }
-        public Label LblImportQuitWork { get => lblImportQuitWork; }
         public Label LblNumberLocker { get => lblNumberLocker; }
-        public Label LblImportKey { get => lblImportKey; }
         public System.ComponentModel.BackgroundWorker BgwSettingImportKey { get => bgwSettingImportKey; }
         public System.ComponentModel.BackgroundWorker BgwSettingAddStaff { get => bgwSettingAddStaff; }
         public System.ComponentModel.BackgroundWorker BgwSettingImportStaff { get => bgwSettingImportStaff; }

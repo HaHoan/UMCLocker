@@ -93,9 +93,9 @@ namespace UMCLocker
             staffController.btnAddStaff_Click(sender, e);
         }
 
-        public void OnCloseStaffForm(StaffEntity staff)
+        public void OnCloseStaffForm()
         {
-            staffController.UpdateTableAfterAddNew(staff);
+            staffController.LoadAll();
             lockerController.LoadAll();
             shoesController.LoadAll();
         }
@@ -261,35 +261,8 @@ namespace UMCLocker
         {
             shoesController.btnShoesList_Click(sender, e);
         }
-
-        private void btnImportStaff_Click(object sender, EventArgs e)
-        {
-            settingController.btnImportStaff_Click(sender, e);
-        }
-
-        private void btnAddStaffExcel_Click(object sender, EventArgs e)
-        {
-            settingController.btnAddStaffExcel_Click(sender, e);
-        }
-
-       
-
-      
-
-      
-
-      
-
-        private void btnImportKey_Click(object sender, EventArgs e)
-        {
-            settingController.btnImportKey_Click(sender, e);
-        }
-
-        private void btnImportQuitWork_Click(object sender, EventArgs e)
-        {
-            settingController.btnImportQuitWork_Click(sender, e);
-        }
-
+  
+  
         private void btnTrashFilter_Click(object sender, EventArgs e)
         {
             staffTrashController.btnTrashFilter_Click(sender, e);
@@ -326,11 +299,7 @@ namespace UMCLocker
 
         private void tabCtrMain_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //if(tabCtrMain.SelectedIndex == 2)
-            //{
-            //    // tab những người nghỉ việc
-            //    staffTrashController.LoadAll();
-            //}
+          
         }
 
         private void btnExportStaff_Click(object sender, EventArgs e)
@@ -373,8 +342,7 @@ namespace UMCLocker
             btnDeleteShoes.Enabled = false;
             btnDeleteTrash.Enabled = false;
             btnEditTrash.Enabled = false;
-            btnImportStaffExcel.Enabled = false;
-            btnAddStaffFromExcel.Enabled = false;
+            btnAddNewStaffFromExcel.Enabled = false;
         }
         private void EnableButton()
         {
@@ -387,8 +355,7 @@ namespace UMCLocker
             btnDeleteShoes.Enabled = true;
             btnDeleteTrash.Enabled = true;
             btnEditTrash.Enabled = true;
-            btnImportStaffExcel.Enabled = true;
-            btnAddStaffFromExcel.Enabled = true;
+            btnAddNewStaffFromExcel.Enabled = true;
         }
         private void btnLogin_Click(object sender, EventArgs e)
         {
@@ -412,14 +379,9 @@ namespace UMCLocker
             
         }
 
-        private void panel12_Paint(object sender, PaintEventArgs e)
+        private void btnAddNewStaffFromExcel_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void lblImportQuitWork_Click(object sender, EventArgs e)
-        {
-
+            settingController.btnAddNewStaffFromExcel_Click(sender, e);
         }
     }
 }

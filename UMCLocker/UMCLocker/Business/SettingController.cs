@@ -33,7 +33,6 @@ namespace UMCLocker.Business
         private void BgwImportQuitWork_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             string msg = (string)e.Result;
-            view.LblImportQuitWork.Text = msg;
             view.lockerController.LoadAll();
             view.shoesController.LoadAll();
             view.staffController.LoadAll();
@@ -57,7 +56,6 @@ namespace UMCLocker.Business
         private void BgwSettingImportKey_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             string msg = (string)e.Result;
-            view.LblImportKey.Text = msg;
             view.lockerController.LoadAll();
             view.shoesController.LoadAll();
             view.staffController.LoadAll();
@@ -73,7 +71,7 @@ namespace UMCLocker.Business
         private void BgwSettingAddStaff_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             string msg = (string)e.Result;
-            MessageBox.Show(msg);
+            view.LblStatusAddStaff.Text = msg;
             view.staffController.LoadAll();
         }
 
@@ -94,7 +92,6 @@ namespace UMCLocker.Business
         private void BgwSettingImportStaff_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             string msg = (string)e.Result;
-            view.LblImportStaffState.Text = msg;
             view.staffController.LoadAll();
             view.lockerController.LoadAll();
             view.shoesController.LoadAll();
@@ -109,22 +106,13 @@ namespace UMCLocker.Business
             if (choofdlog.ShowDialog() == DialogResult.OK)
             {
                 string sFileName = choofdlog.FileName;
-                view.LblImportStaffState.Text = "Loading..";
                 view.BgwSettingImportStaff.RunWorkerAsync(argument: sFileName);
             }
         }
 
         internal void btnAddStaffExcel_Click(object sender, EventArgs e)
         {
-            OpenFileDialog choofdlog = new OpenFileDialog();
-            choofdlog.FilterIndex = 1;
-
-            if (choofdlog.ShowDialog() == DialogResult.OK)
-            {
-                string sFileName = choofdlog.FileName;
-                view.LblStatusAddStaff.Text = "Loading..";
-                view.BgwSettingAddStaff.RunWorkerAsync(argument: sFileName);
-            }
+            
         }
 
        
@@ -184,7 +172,6 @@ namespace UMCLocker.Business
                 if (choofdlog.ShowDialog() == DialogResult.OK)
                 {
                      string sFileName = choofdlog.FileName;
-                    view.LblImportKey.Text = "Loading..";
                     view.BgwSettingImportKey.RunWorkerAsync(argument: sFileName);
                 }
 
@@ -203,8 +190,20 @@ namespace UMCLocker.Business
             if (choofdlog.ShowDialog() == DialogResult.OK)
             {
                 string sFileName = choofdlog.FileName;
-                view.LblImportQuitWork.Text = "Loading..";
                 view.BgwImportQuitWork.RunWorkerAsync(argument: sFileName);
+            }
+        }
+
+        internal void btnAddNewStaffFromExcel_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog choofdlog = new OpenFileDialog();
+            choofdlog.FilterIndex = 1;
+
+            if (choofdlog.ShowDialog() == DialogResult.OK)
+            {
+                string sFileName = choofdlog.FileName;
+                view.LblStatusAddStaff.Text = "Loading...";
+                view.BgwSettingAddStaff.RunWorkerAsync(argument: sFileName);
             }
         }
     }

@@ -64,6 +64,7 @@
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
+            this.lblStatus = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.SuspendLayout();
@@ -79,7 +80,7 @@
             this.panel2.Location = new System.Drawing.Point(10, 10);
             this.panel2.Name = "panel2";
             this.panel2.Padding = new System.Windows.Forms.Padding(10);
-            this.panel2.Size = new System.Drawing.Size(764, 518);
+            this.panel2.Size = new System.Drawing.Size(764, 547);
             this.panel2.TabIndex = 22;
             // 
             // label1
@@ -101,7 +102,7 @@
             this.btnSaveStaff.Image = global::UMCLocker.Properties.Resources.sav_icon;
             this.btnSaveStaff.Location = new System.Drawing.Point(694, 10);
             this.btnSaveStaff.Name = "btnSaveStaff";
-            this.btnSaveStaff.Size = new System.Drawing.Size(58, 44);
+            this.btnSaveStaff.Size = new System.Drawing.Size(58, 39);
             this.btnSaveStaff.TabIndex = 23;
             this.btnSaveStaff.UseVisualStyleBackColor = true;
             this.btnSaveStaff.Click += new System.EventHandler(this.btnSaveStaff_Click);
@@ -109,6 +110,7 @@
             // panel3
             // 
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel3.Controls.Add(this.lblStatus);
             this.panel3.Controls.Add(this.cbbReasonChangeKey);
             this.panel3.Controls.Add(this.label18);
             this.panel3.Controls.Add(this.txbShoesIndex);
@@ -141,10 +143,10 @@
             this.panel3.Controls.Add(this.label15);
             this.panel3.Controls.Add(this.label16);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel3.Location = new System.Drawing.Point(10, 54);
+            this.panel3.Location = new System.Drawing.Point(10, 49);
             this.panel3.Margin = new System.Windows.Forms.Padding(0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(742, 452);
+            this.panel3.Size = new System.Drawing.Size(742, 486);
             this.panel3.TabIndex = 22;
             // 
             // cbbReasonChangeKey
@@ -179,6 +181,7 @@
             this.txbShoesIndex.Size = new System.Drawing.Size(100, 20);
             this.txbShoesIndex.TabIndex = 39;
             this.txbShoesIndex.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txbShoesIndex_KeyPress);
+            this.txbShoesIndex.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.txbShoesIndex_PreviewKeyDown);
             // 
             // txbShoesNumber
             // 
@@ -292,7 +295,7 @@
             this.lblFullNameError.AutoSize = true;
             this.lblFullNameError.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFullNameError.ForeColor = System.Drawing.Color.Black;
-            this.lblFullNameError.Location = new System.Drawing.Point(606, 82);
+            this.lblFullNameError.Location = new System.Drawing.Point(608, 85);
             this.lblFullNameError.Name = "lblFullNameError";
             this.lblFullNameError.Size = new System.Drawing.Size(27, 16);
             this.lblFullNameError.TabIndex = 27;
@@ -303,7 +306,7 @@
             this.lblStaffCodeError.AutoSize = true;
             this.lblStaffCodeError.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblStaffCodeError.ForeColor = System.Drawing.Color.Black;
-            this.lblStaffCodeError.Location = new System.Drawing.Point(606, 47);
+            this.lblStaffCodeError.Location = new System.Drawing.Point(613, 44);
             this.lblStaffCodeError.Name = "lblStaffCodeError";
             this.lblStaffCodeError.Size = new System.Drawing.Size(27, 16);
             this.lblStaffCodeError.TabIndex = 26;
@@ -357,6 +360,7 @@
             this.txbStaffCode.Size = new System.Drawing.Size(493, 20);
             this.txbStaffCode.TabIndex = 4;
             this.txbStaffCode.TextChanged += new System.EventHandler(this.txbStaffCode_TextChanged);
+            this.txbStaffCode.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.txbStaffCode_PreviewKeyDown);
             // 
             // label10
             // 
@@ -469,11 +473,21 @@
             this.button2.TabIndex = 14;
             this.button2.UseVisualStyleBackColor = true;
             // 
+            // lblStatus
+            // 
+            this.lblStatus.AutoSize = true;
+            this.lblStatus.ForeColor = System.Drawing.Color.Maroon;
+            this.lblStatus.Location = new System.Drawing.Point(24, 448);
+            this.lblStatus.Name = "lblStatus";
+            this.lblStatus.Size = new System.Drawing.Size(35, 13);
+            this.lblStatus.TabIndex = 42;
+            this.lblStatus.Text = "status";
+            // 
             // UserNewForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(784, 538);
+            this.ClientSize = new System.Drawing.Size(784, 567);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.button2);
             this.MaximizeBox = false;
@@ -530,5 +544,6 @@
         private System.Windows.Forms.ComboBox cbbDepartment;
         private System.Windows.Forms.ComboBox cbbReasonChangeKey;
         private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label lblStatus;
     }
 }

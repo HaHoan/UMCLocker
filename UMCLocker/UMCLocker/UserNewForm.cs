@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using UMCLocker.Business;
 using UMCLocker.Entities;
+using System.Data.Entity;
 
 namespace UMCLocker
 {
@@ -17,7 +18,7 @@ namespace UMCLocker
         public StaffEntity _newStaff;
         private List<DeptEntity> _depts;
         private List<PosEntity> _pos;
-        public delegate void CloseHandler(StaffEntity staff);
+        public delegate void CloseHandler();
         public event CloseHandler OnCloseHandler;
         public FormType _type;
         public UserNewForm()
@@ -53,36 +54,36 @@ namespace UMCLocker
 
         private void SetUpFormForChangeKeyLocker()
         {
-            txbStaffCode.Enabled = false;
-            txbFullName.Enabled = false;
-            rbtnMale.Enabled = false;
-            dtpEnterDate.Enabled = false;
-            rbtnFemale.Enabled = false;
-            cbbDepartment.Enabled = false;
-            cbbPosition.Enabled = false;
+            //txbStaffCode.Enabled = false;
+            //txbFullName.Enabled = false;
+            //rbtnMale.Enabled = false;
+            //dtpEnterDate.Enabled = false;
+            //rbtnFemale.Enabled = false;
+            //cbbDepartment.Enabled = false;
+            //cbbPosition.Enabled = false;
         }
 
         private void SetUpFormForChangeKeyShoes()
         {
-            txbStaffCode.Enabled = false;
-            txbFullName.Enabled = false;
-            rbtnMale.Enabled = false;
-            dtpEnterDate.Enabled = false;
-            rbtnFemale.Enabled = false;
-            cbbDepartment.Enabled = false;
-            cbbPosition.Enabled = false;
+            //txbStaffCode.Enabled = false;
+            //txbFullName.Enabled = false;
+            //rbtnMale.Enabled = false;
+            //dtpEnterDate.Enabled = false;
+            //rbtnFemale.Enabled = false;
+            //cbbDepartment.Enabled = false;
+            //cbbPosition.Enabled = false;
         }
 
         private void SetUpDataForEditMode()
         {
-            txbStaffCode.Enabled = false;
-            txbFullName.Enabled = false;
-            rbtnMale.Enabled = false;
-            dtpEnterDate.Enabled = true;
-            rbtnFemale.Enabled = false;
-            cbbDepartment.Enabled = true;
-            cbbPosition.Enabled = true;
-            cbbReasonChangeKey.Enabled = true;
+            //txbStaffCode.Enabled = false;
+            //txbFullName.Enabled = false;
+            //rbtnMale.Enabled = false;
+            //dtpEnterDate.Enabled = true;
+            //rbtnFemale.Enabled = false;
+            //cbbDepartment.Enabled = true;
+            //cbbPosition.Enabled = true;
+            //cbbReasonChangeKey.Enabled = true;
             txbStaffCode.Text = _newStaff.staff_code;
             txbFullName.Text = _newStaff.full_name;
             if (_newStaff.gender == Constants.MALE)
@@ -134,6 +135,11 @@ namespace UMCLocker
         }
 
         private void btnSaveStaff_Click(object sender, EventArgs e)
+        {
+            SaveStaff();
+        }
+
+        private void SaveStaff()
         {
             try
             {
@@ -239,8 +245,9 @@ namespace UMCLocker
 
                 if (result.code == Constants.SUCCESS)
                 {
-                    OnCloseHandler(_newStaff);
-                    Close();
+                    txbStaffCode.SelectAll();
+                    txbStaffCode.Focus();
+                    lblStatus.Text = "OK";
                 }
                 else if (result.code == Constants.ERROR_DUPLICATE_DATA)
                 {
@@ -259,9 +266,8 @@ namespace UMCLocker
             {
                 Console.WriteLine(ex.ToString());
             }
+
         }
-
-
         private void txbStaffCode_TextChanged(object sender, EventArgs e)
         {
             lblStaffCodeError.Text = Constants.REQUIRED;
@@ -275,10 +281,7 @@ namespace UMCLocker
 
         private void UserNewForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if ((sender as Button) != null && string.Equals((sender as Button).Name, @"CloseButton") && MessageBox.Show(Constants.CONFIRM_CLOSE_WITHOUT_SAVE, "", MessageBoxButtons.YesNo) == DialogResult.No)
-            {
-                e.Cancel = true;
-            }
+            OnCloseHandler();
         }
 
 
@@ -370,7 +373,7 @@ namespace UMCLocker
 
         private void txbLockerNumber_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
         {
-            if(e.KeyCode == Keys.Right)
+            if (e.KeyCode == Keys.Right)
             {
                 txbLockerIndex.SelectAll();
                 txbLockerIndex.Focus();
@@ -393,14 +396,41 @@ namespace UMCLocker
 
         private void txbShoesNumber_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
         {
-            if(e.KeyCode == Keys.Right)
+            if (e.KeyCode == Keys.Right)
             {
                 txbShoesIndex.SelectAll();
                 txbShoesIndex.Focus();
-            }else if(e.KeyCode == Keys.Left)
+            }
+            else if (e.KeyCode == Keys.Left)
             {
                 txbLockerNumber.SelectAll();
                 txbLockerIndex.SelectAll();
+            }
+        }
+
+        private void txbShoesIndex_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                SaveStaff();
+            }
+
+        }
+
+        private void txbStaffCode_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+            {
+                var db = new UMCLOCKEREntities();
+                var staff = db.Staffs.Include(m => m.Locker).Include(m => m.Sho).Where(m => m.staff_code == txbStaffCode.Text.Trim()).FirstOrDefault();
+                if(staff == null)
+                {
+                    MessageBox.Show("Chưa có nhân viên này!");
+                    return;
+                }
+                _newStaff = new StaffEntity(staff);
+                lblStatus.Text = "";
+                SetUpDataForEditMode();
             }
         }
     }
