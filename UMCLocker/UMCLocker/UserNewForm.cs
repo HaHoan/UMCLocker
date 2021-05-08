@@ -124,11 +124,21 @@ namespace UMCLocker
                 txbLockerNumber.Text = _newStaff.Locker.locker_number.ToString();
                 txbLockerIndex.Text = _newStaff.Locker.locker_index.ToString();
             }
+            else
+            {
+                txbLockerNumber.Text = "";
+                txbLockerIndex.Text = "";
+            }
 
             if (_newStaff.shoes_id != null)
             {
                 txbShoesNumber.Text = _newStaff.Sho.shoes_number.ToString();
                 txbShoesIndex.Text = _newStaff.Sho.shoes_index.ToString();
+            }
+            else
+            {
+                txbShoesNumber.Text = "";
+                txbShoesIndex.Text = "";
             }
             txbLockerNumber.SelectAll();
             txbLockerNumber.Focus();
@@ -167,6 +177,7 @@ namespace UMCLocker
                 if (rbtnMale.Checked)
                 {
                     _newStaff.gender = Constants.MALE;
+                   
                     _newStaff.Locker.locker_type = Constants.MALE;
                     _newStaff.Sho.shoes_type = Constants.MALE;
                 }

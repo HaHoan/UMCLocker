@@ -120,6 +120,14 @@ namespace UMCLocker.Entities
             state = s.state;
             end_date = s.end_date;
             note = s.note;
+            if (Locker == null)
+            {
+                Locker = new Locker();
+            }
+            if (Sho == null)
+            {
+                Sho = new Sho();
+            }
         }
 
         public StaffEntity(int id) { }
@@ -250,7 +258,7 @@ namespace UMCLocker.Entities
                     staffs = db.Staffs.Include(d => d.Dept).Include(p => p.Pos)
                                                             .Include(l => l.Locker)
                                                             .Include(s => s.Sho)
-                                                            .OrderByDescending(r => r.enter_date)
+                                                            .OrderByDescending(r => r.modify_date)
                                                             .Where(s => s.state == Constants.STATE_OFF)
                                                             .ToList();
                     list = staffs.Select((x, i) => new StaffEntity
@@ -296,7 +304,7 @@ namespace UMCLocker.Entities
                     staffs = db.Staffs.Include(d => d.Dept).Include(p => p.Pos)
                                                             .Include(l => l.Locker)
                                                             .Include(s => s.Sho)
-                                                            .OrderByDescending(r => r.enter_date)
+                                                            .OrderByDescending(r => r.modify_date)
                                                             .Where(s => s.state == Constants.STATE_ON)
                                                             .ToList();
 
@@ -542,6 +550,7 @@ namespace UMCLocker.Entities
                         full_name = staff.full_name,
                         gender = staff.gender,
                         enter_date = staff.enter_date,
+                        customer = staff.customer,
                         state = Constants.STATE_ON
                     };
                     if (staff.department != null)
@@ -560,7 +569,7 @@ namespace UMCLocker.Entities
                     {
                         s.shoes_id = staff.shoes_id;
                     }
-
+                    s.modify_date = DateTime.Now;
                     db.Staffs.Add(s);
                     db.SaveChanges();
                     return new ResultInfo(Constants.SUCCESS, s.id.ToString());
@@ -595,6 +604,7 @@ namespace UMCLocker.Entities
                     update.state = Constants.STATE_OFF;
                     update.end_date = end_date;
                     update.note = note;
+                    update.modify_date = DateTime.Now;
                     db.SaveChanges();
                     return new ResultInfo(Constants.SUCCESS, update.id.ToString());
                 }
@@ -648,6 +658,7 @@ namespace UMCLocker.Entities
                     update.enter_date = enter_date;
                     update.reason_change_key = reason_change_key;
                     update.date_change_key = date_change_key;
+                    update.modify_date = DateTime.Now;
                     if (department != null)
                     {
                         update.department = department;
