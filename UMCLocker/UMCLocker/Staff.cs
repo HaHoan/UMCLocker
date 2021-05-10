@@ -32,8 +32,8 @@ namespace UMCLocker
         public Nullable<System.DateTime> date_change_key { get; set; }
     
         public virtual Dept Dept { get; set; }
-        public virtual Locker Locker { get; set; }
         public virtual Pos Pos { get; set; }
         public virtual Sho Sho { get; set; }
+        public virtual Locker Locker { get; set; }
     }
 }

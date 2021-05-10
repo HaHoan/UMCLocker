@@ -22,7 +22,7 @@ namespace UMCLocker
         public MainTab()
         {
             InitializeComponent();
-           
+
         }
 
         private void MainTab_Load(object sender, EventArgs e)
@@ -42,7 +42,7 @@ namespace UMCLocker
             lockerController.LoadAll();
             shoesController.LoadAll();
             DisableButton();
-       }
+        }
 
 
         private void btnAddLocker_Click(object sender, EventArgs e)
@@ -261,8 +261,8 @@ namespace UMCLocker
         {
             shoesController.btnShoesList_Click(sender, e);
         }
-  
-  
+
+
         private void btnTrashFilter_Click(object sender, EventArgs e)
         {
             staffTrashController.btnTrashFilter_Click(sender, e);
@@ -299,7 +299,7 @@ namespace UMCLocker
 
         private void tabCtrMain_SelectedIndexChanged(object sender, EventArgs e)
         {
-          
+
         }
 
         private void btnExportStaff_Click(object sender, EventArgs e)
@@ -343,6 +343,8 @@ namespace UMCLocker
             btnDeleteTrash.Enabled = false;
             btnEditTrash.Enabled = false;
             btnAddNewStaffFromExcel.Enabled = false;
+            btnEditLocker.Enabled = false;
+            btnEditShoes.Enabled = false;
         }
         private void EnableButton()
         {
@@ -356,6 +358,8 @@ namespace UMCLocker
             btnDeleteTrash.Enabled = true;
             btnEditTrash.Enabled = true;
             btnAddNewStaffFromExcel.Enabled = true;
+            btnEditLocker.Enabled = true;
+            btnEditShoes.Enabled = true;
         }
         private void btnLogin_Click(object sender, EventArgs e)
         {
@@ -376,12 +380,22 @@ namespace UMCLocker
                 };
                 loginForm.ShowDialog();
             }
-            
+
         }
 
         private void btnAddNewStaffFromExcel_Click(object sender, EventArgs e)
         {
             settingController.btnAddNewStaffFromExcel_Click(sender, e);
+        }
+
+        private void btnEditLocker_Click(object sender, EventArgs e)
+        {
+            lockerController.btnEditLocker_Click(sender, e);
+        }
+
+        private void btnEditShoes_Click(object sender, EventArgs e)
+        {
+            shoesController.btnEditShoes_Click(sender, e);
         }
     }
 }

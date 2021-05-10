@@ -14,6 +14,7 @@ namespace UMCLocker
         public static char DOT = '.';
         public static string VALUE_DEFAULT = "N/A";
         public static string NOTICE_INSERT_FAILED = "Insert failed!";
+        public static string NOTE_RESOLVE_KEY = "Khóa cần xử lý";
         public static string NOTICE_UPDATE_FAILED = "Update failed!";
         public static string NOTICE_DELETE_FAILED = "Delete failed!";
         public static string NOTICE_DELETE_FOREIGN_KEY = "{0} đang dùng khóa này. Bạn cầ đổi khóa cho họ!";
@@ -39,6 +40,7 @@ namespace UMCLocker
         public static string CONFIRM_DELETE_DEPT = "Bạn có muốn xóa phòng {0} không?";
         public static string CONFIRM_DELETE_POS = "Bạn có muốn xóa chức vụ {0} không?";
         public static string CONFIRM_DELETE_KEY = "Bạn có muốn xóa khóa {0} không?";
+        public static string CONFIRM_EDIT_KEY = "Sửa khóa {0} thành AVAIABLE không?";
         public static string CONFIRM_SAVE_STAFF = "Bạn có muốn lưu không?";
         public static string CONFIRM_CLOSE_WITHOUT_SAVE = "Do you want to close without save?";
         public static string TAPPAGE_STAFF = "tPStaff";
@@ -52,6 +54,7 @@ namespace UMCLocker
         public static string PLACEHOLDER_SEARCH = "Nhập mã nhân viên...";
         public static string STATE_AVAIABLE = "AVAIABLE";
         public static string STATE_USED = "USED";
+        public static string STATE_RESOLVE = "Cần xử lý";
         public static string STATE_ON = "ON";
         public static string STATE_OFF = "OFF";
         public static string NOTE_NOT_RETURN_KEY = "NV không trả khóa";

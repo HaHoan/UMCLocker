@@ -32,6 +32,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnSaveStaff = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.lblStatus = new System.Windows.Forms.Label();
             this.cbbReasonChangeKey = new System.Windows.Forms.ComboBox();
             this.label18 = new System.Windows.Forms.Label();
             this.txbShoesIndex = new System.Windows.Forms.TextBox();
@@ -64,7 +65,6 @@
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
-            this.lblStatus = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.SuspendLayout();
@@ -148,6 +148,16 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(742, 486);
             this.panel3.TabIndex = 22;
+            // 
+            // lblStatus
+            // 
+            this.lblStatus.AutoSize = true;
+            this.lblStatus.ForeColor = System.Drawing.Color.Maroon;
+            this.lblStatus.Location = new System.Drawing.Point(24, 448);
+            this.lblStatus.Name = "lblStatus";
+            this.lblStatus.Size = new System.Drawing.Size(35, 13);
+            this.lblStatus.TabIndex = 42;
+            this.lblStatus.Text = "status";
             // 
             // cbbReasonChangeKey
             // 
@@ -472,16 +482,6 @@
             this.button2.Size = new System.Drawing.Size(20, 23);
             this.button2.TabIndex = 14;
             this.button2.UseVisualStyleBackColor = true;
-            // 
-            // lblStatus
-            // 
-            this.lblStatus.AutoSize = true;
-            this.lblStatus.ForeColor = System.Drawing.Color.Maroon;
-            this.lblStatus.Location = new System.Drawing.Point(24, 448);
-            this.lblStatus.Name = "lblStatus";
-            this.lblStatus.Size = new System.Drawing.Size(35, 13);
-            this.lblStatus.TabIndex = 42;
-            this.lblStatus.Text = "status";
             // 
             // UserNewForm
             // 

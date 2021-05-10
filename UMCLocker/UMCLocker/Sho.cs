@@ -27,6 +27,7 @@ namespace UMCLocker
         public Nullable<int> owned { get; set; }
         public Nullable<int> history_id { get; set; }
         public int id { get; set; }
+        public string note { get; set; }
     
         public virtual history history { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

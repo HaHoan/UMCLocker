@@ -27,10 +27,10 @@ namespace UMCLocker
     
         public virtual DbSet<Dept> Depts { get; set; }
         public virtual DbSet<history> histories { get; set; }
-        public virtual DbSet<Locker> Lockers { get; set; }
         public virtual DbSet<Pos> Pos { get; set; }
-        public virtual DbSet<Sho> Shoes { get; set; }
         public virtual DbSet<Staff> Staffs { get; set; }
         public virtual DbSet<Member> Members { get; set; }
+        public virtual DbSet<Sho> Shoes { get; set; }
+        public virtual DbSet<Locker> Lockers { get; set; }
     }
 }

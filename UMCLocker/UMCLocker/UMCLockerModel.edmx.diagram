@@ -7,18 +7,18 @@
       <Diagram DiagramId="0f25d2e7e51f4187a6a7b71858abc44d" Name="Diagram1">
         <EntityTypeShape EntityType="UMCLOCKERModel.Dept" Width="1.5" PointX="3" PointY="8.875" IsExpanded="true" />
         <EntityTypeShape EntityType="UMCLOCKERModel.history" Width="1.5" PointX="0.75" PointY="3.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="UMCLOCKERModel.Locker" Width="1.5" PointX="3" PointY="1.625" IsExpanded="true" />
         <EntityTypeShape EntityType="UMCLOCKERModel.Pos" Width="1.5" PointX="3" PointY="12.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="UMCLOCKERModel.Sho" Width="1.5" PointX="3" PointY="5.125" IsExpanded="true" />
-        <AssociationConnector Association="UMCLOCKERModel.FK_HistoryLocker" ManuallyRouted="false" />
-        <AssociationConnector Association="UMCLOCKERModel.FK_HistoryShoes" ManuallyRouted="false" />
         <EntityTypeShape EntityType="UMCLOCKERModel.Staff" Width="1.5" PointX="5.25" PointY="5.25" />
         <AssociationConnector Association="UMCLOCKERModel.FK_StaffDept" />
-        <AssociationConnector Association="UMCLOCKERModel.FK_LockerStaff" />
         <AssociationConnector Association="UMCLOCKERModel.FK_StaffPos" />
-        <AssociationConnector Association="UMCLOCKERModel.FK_ShoesStaff" />
         <EntityTypeShape EntityType="UMCLOCKERModel.Member" Width="1.5" PointX="5.375" PointY="0.75" />
-      </Diagram>
+        <EntityTypeShape EntityType="UMCLOCKERModel.Sho" Width="1.5" PointX="3" PointY="5" />
+        <AssociationConnector Association="UMCLOCKERModel.FK_HistoryShoes" />
+        <AssociationConnector Association="UMCLOCKERModel.FK_ShoesStaff" />
+        <EntityTypeShape EntityType="UMCLOCKERModel.Locker" Width="1.5" PointX="3" PointY="1.25" />
+        <AssociationConnector Association="UMCLOCKERModel.FK_HistoryLocker" />
+        <AssociationConnector Association="UMCLOCKERModel.FK_LockerStaff" />
+        </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
 </edmx:Edmx>

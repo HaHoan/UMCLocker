@@ -145,7 +145,7 @@ namespace UMCLocker.Business
             {
                 int lockerNumber = int.Parse(view.DgrvLocker.Rows[view.DgrvLocker.CurrentCell.RowIndex].Cells[0].Value.ToString());
                 int lockerIndex = int.Parse(view.DgrvLocker.Rows[view.DgrvLocker.CurrentCell.RowIndex].Cells[1].Value.ToString());
-                string lockerType = view.DgrvLocker.Rows[view.DgrvLocker.CurrentCell.RowIndex].Cells[2].Value.ToString() == "Tủ nữ" ? "F": "M";
+                string lockerType = view.DgrvLocker.Rows[view.DgrvLocker.CurrentCell.RowIndex].Cells[2].Value.ToString() == "Tủ nữ" ? "F" : "M";
                 if (MessageBox.Show(string.Format(Constants.CONFIRM_DELETE_KEY, lockerNumber + "-" + lockerIndex), "", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
                     if (_lockers[view.DgrvLocker.CurrentCell.RowIndex].owned is int owned)
@@ -226,6 +226,10 @@ namespace UMCLocker.Business
 
         public void btnLockerSearch_Click(object sender, EventArgs e)
         {
+            search();
+        }
+        private void search()
+        {
             try
             {
                 DataView dv = dt.DefaultView;
@@ -266,7 +270,6 @@ namespace UMCLocker.Business
             }
             catch { }
         }
-
         internal void btnLockerList_Click(object sender, EventArgs e)
         {
             DataView dv = dt.DefaultView;
@@ -331,6 +334,37 @@ namespace UMCLocker.Business
             {
 
             }
+        }
+
+        internal void btnEditLocker_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int lockerNumber = int.Parse(view.DgrvLocker.Rows[view.DgrvLocker.CurrentCell.RowIndex].Cells[0].Value.ToString());
+                int lockerIndex = int.Parse(view.DgrvLocker.Rows[view.DgrvLocker.CurrentCell.RowIndex].Cells[1].Value.ToString());
+                string lockerType = view.DgrvLocker.Rows[view.DgrvLocker.CurrentCell.RowIndex].Cells[2].Value.ToString() == "Tủ nữ" ? "F" : "M";
+                var locker = LockerEntity.lockerBy(lockerNumber, lockerIndex, lockerType);
+                if (locker.state != Constants.STATE_RESOLVE)
+                {
+                    MessageBox.Show("Locker này không cần xử lý!");
+                    return;
+                }
+                if (MessageBox.Show(string.Format(Constants.CONFIRM_EDIT_KEY, lockerNumber + "-" + lockerIndex), "", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    bool result = LockerEntity.updateState(Constants.STATE_AVAIABLE, lockerNumber, lockerIndex, lockerType);
+                    if (result)
+                    {
+                        LoadAll();
+                    }
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString());
+            }
+
         }
 
         public void dgrvLocker_MouseClick(object sender, MouseEventArgs e)

@@ -83,7 +83,7 @@ namespace UMCLocker
             //rbtnFemale.Enabled = false;
             //cbbDepartment.Enabled = true;
             //cbbPosition.Enabled = true;
-            //cbbReasonChangeKey.Enabled = true;
+            cbbReasonChangeKey.Enabled = true;
             txbStaffCode.Text = _newStaff.staff_code;
             txbFullName.Text = _newStaff.full_name;
             if (_newStaff.gender == Constants.MALE)

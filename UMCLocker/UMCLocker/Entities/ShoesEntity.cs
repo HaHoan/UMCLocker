@@ -114,7 +114,7 @@ namespace UMCLocker.Entities
             }
         }
 
-        public ResultInfo DeleteOwned(int shoes_id)
+        public ResultInfo DeleteOwned(int shoes_id, string state)
         {
             try
             {
@@ -124,7 +124,7 @@ namespace UMCLocker.Entities
                     if (update != null)
                     {
                         update.owned = null;
-                        update.state = Constants.STATE_AVAIABLE;
+                        update.state = state;
                         db.SaveChanges();
                         return new ResultInfo(Constants.SUCCESS, "");
                     }
@@ -217,6 +217,9 @@ namespace UMCLocker.Entities
                     else if (shoes.owned != null && shoes.owned != owned)
                     {
                         return new ResultInfo(Constants.ERROR_KEY_USED, "Tủ giày đã có người sử dụng");
+                    } else if(shoes.state == Constants.STATE_RESOLVE)
+                    {
+                        return new ResultInfo(Constants.ERROR_KEY_USED, "Tủ giày chưa được xử lý");
                     }
                     else
                     {
@@ -289,7 +292,40 @@ namespace UMCLocker.Entities
                 return new ResultInfo(Constants.ERROR_COMMON, e.Message.ToString());
             }
         }
+        public static bool updateState(string state, int number, int index, string type)
+        {
+            try
+            {
+                using (var db = new UMCLOCKEREntities())
+                {
+                    var shoes = db.Shoes.Where(m => m.shoes_number == number && m.shoes_index == index && m.shoes_type == type).FirstOrDefault();
+                    shoes.state = state;
+                    db.SaveChanges();
+                    return true;
+                }
+            }
+            catch (Exception)
+            {
 
+                return false;
+            }
+        }
+        public static Sho shoesBy(int number, int index, string type)
+        {
+            try
+            {
+                using (var db = new UMCLOCKEREntities())
+                {
+                    var shoes = db.Shoes.Where(m => m.shoes_number == number && m.shoes_index == index && m.shoes_type == type).FirstOrDefault();
+                    return shoes;
+                }
+            }
+            catch (Exception)
+            {
+
+                return null;
+            }
+        }
         public List<StaffEntity> GetHistory(int shoes_id)
         {
             try

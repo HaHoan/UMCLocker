@@ -353,6 +353,34 @@ namespace UMCLocker.Business
             catch (Exception ex) { Console.WriteLine(ex.ToString()); }
         }
 
+        internal void btnEditShoes_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int number = int.Parse(view.DgrvShoes.Rows[view.DgrvShoes.CurrentCell.RowIndex].Cells[0].Value.ToString());
+                int index = int.Parse(view.DgrvShoes.Rows[view.DgrvShoes.CurrentCell.RowIndex].Cells[1].Value.ToString());
+                string type = view.DgrvShoes.Rows[view.DgrvShoes.CurrentCell.RowIndex].Cells[2].Value.ToString() == "Tủ nữ" ? "F" : "M";
+                var shoes = ShoesEntity.shoesBy(number, index, type);
+                if(shoes == null || shoes.state != Constants.STATE_RESOLVE)
+                {
+                    MessageBox.Show("Khóa giày này không cần xử lý!");
+                    return;
+                }
+                if (MessageBox.Show(string.Format(Constants.CONFIRM_EDIT_KEY, number + "-" + index), "", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                   bool result = ShoesEntity.updateState(Constants.STATE_AVAIABLE,number, index, type);
+                    if (result)
+                    {
+                        LoadAll();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString());
+            }
+        }
+
         public void cbbShoesNumber_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))

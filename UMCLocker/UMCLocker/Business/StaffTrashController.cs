@@ -39,6 +39,7 @@ namespace UMCLocker.Business
                 view.DgrvTrash.DataSource = bindingSource;
                 bindingSource.ResetBindings(true);
                 view.DgrvTrash.Refresh();
+
                 ChangeStateButton();
                 view.PbStaffTrash.Hide();
             }
@@ -165,9 +166,18 @@ namespace UMCLocker.Business
             {
                 bindingSource.DataSource = _staffs;
             }
+            else if(string.IsNullOrEmpty(searchNote))
+            {
+                bindingSource.DataSource = _staffs.Where(x =>  x.end_date?.Month == searchMonth.Month && x.end_date?.Year == searchMonth.Year).ToList();
+            }else if(searchMonth == null)
+            {
+                bindingSource.DataSource = _staffs.Where(x => x.note == searchNote).ToList();
+
+            }
             else
             {
                 bindingSource.DataSource = _staffs.Where(x => x.note == searchNote && x.end_date?.Month == searchMonth.Month && x.end_date?.Year == searchMonth.Year).ToList();
+
             }
 
 

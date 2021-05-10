@@ -68,7 +68,7 @@ namespace UMCLocker.Entities
             }
         }
 
-        public ResultInfo DeleteOwned(int locker_id)
+        public ResultInfo DeleteOwned(int locker_id, string state)
         {
             try
             {
@@ -78,7 +78,7 @@ namespace UMCLocker.Entities
                     if (update != null)
                     {
                         update.owned = null;
-                        update.state = Constants.STATE_AVAIABLE;
+                        update.state = state;
                         db.SaveChanges();
                         return new ResultInfo(Constants.SUCCESS, "");
                     }
@@ -175,6 +175,40 @@ namespace UMCLocker.Entities
                 return null;
             }
         }
+        public static bool updateState(string state, int number, int index, string type)
+        {
+            try
+            {
+                using (var db = new UMCLOCKEREntities())
+                {
+                    var locker = db.Lockers.Where(m => m.locker_number == number && m.locker_index == index && m.locker_type == type).FirstOrDefault();
+                    locker.state = state;
+                    db.SaveChanges();
+                    return true;
+                }
+            }
+            catch (Exception)
+            {
+
+                return false;
+            }
+        }
+        public static Locker lockerBy(int number, int index, string type)
+        {
+            try
+            {
+                using(var db = new UMCLOCKEREntities())
+                {
+                    var locker = db.Lockers.Where(m => m.locker_number == number && m.locker_index == index && m.locker_type == type).FirstOrDefault();
+                    return locker;
+                }
+            }
+            catch (Exception)
+            {
+
+                return null;
+            }
+        }
         public static List<Locker> FindLocker(int number, int index, List<Locker> allLocker)
         {
             try
@@ -211,6 +245,9 @@ namespace UMCLocker.Entities
                     else if (locker.owned != null && locker.owned != owned)
                     {
                         return new ResultInfo(Constants.ERROR_KEY_USED, "Tủ locker đã có người sử dụng");
+                    }else if(locker.state == Constants.STATE_RESOLVE)
+                    {
+                        return new ResultInfo(Constants.ERROR_KEY_USED, "Tủ locker chưa được xử lý");
                     }
                     else
                     {

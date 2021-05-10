@@ -30,6 +30,7 @@
           <Property Name="owned" Type="int" />
           <Property Name="history_id" Type="int" />
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="note" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="Member">
           <Key>
@@ -57,6 +58,7 @@
           <Property Name="owned" Type="int" />
           <Property Name="history_id" Type="int" />
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="note" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="Staff">
           <Key>
@@ -202,22 +204,8 @@
           </Key>
           <Property Name="history_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="staff_id" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Lockers" Relationship="Self.FK_HistoryLocker" FromRole="history" ToRole="Locker" />
-          <NavigationProperty Name="Shoes" Relationship="Self.FK_HistoryShoes" FromRole="history" ToRole="Shoes" />
-        </EntityType>
-        <EntityType Name="Locker">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="locker_index" Type="Int32" Nullable="false" />
-          <Property Name="locker_number" Type="Int32" Nullable="false" />
-          <Property Name="state" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="locker_type" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="owned" Type="Int32" />
-          <Property Name="history_id" Type="Int32" />
-          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <NavigationProperty Name="history" Relationship="Self.FK_HistoryLocker" FromRole="Locker" ToRole="history" />
-          <NavigationProperty Name="Staffs" Relationship="UMCLOCKERModel.FK_LockerStaff" FromRole="Locker" ToRole="Staff" />
+          <NavigationProperty Name="Shoes" Relationship="UMCLOCKERModel.FK_HistoryShoes" FromRole="history" ToRole="Sho" />
+          <NavigationProperty Name="Lockers" Relationship="UMCLOCKERModel.FK_HistoryLocker" FromRole="history" ToRole="Locker" />
         </EntityType>
         <EntityType Name="Pos">
           <Key>
@@ -227,76 +215,38 @@
           <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Staffs" Relationship="UMCLOCKERModel.FK_StaffPos" FromRole="Pos" ToRole="Staff" />
         </EntityType>
-        <EntityType Name="Sho">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="shoes_index" Type="Int32" Nullable="false" />
-          <Property Name="shoes_number" Type="Int32" Nullable="false" />
-          <Property Name="state" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="shoes_type" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="owned" Type="Int32" />
-          <Property Name="history_id" Type="Int32" />
-          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <NavigationProperty Name="history" Relationship="Self.FK_HistoryShoes" FromRole="Shoes" ToRole="history" />
-          <NavigationProperty Name="Staffs" Relationship="UMCLOCKERModel.FK_ShoesStaff" FromRole="Sho" ToRole="Staff" />
-        </EntityType>
-        <Association Name="FK_HistoryLocker">
-          <End Role="history" Type="Self.history" Multiplicity="0..1" />
-          <End Role="Locker" Type="Self.Locker" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="history">
-              <PropertyRef Name="history_id" />
-            </Principal>
-            <Dependent Role="Locker">
-              <PropertyRef Name="history_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_HistoryShoes">
-          <End Role="history" Type="Self.history" Multiplicity="0..1" />
-          <End Role="Shoes" Type="Self.Sho" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="history">
-              <PropertyRef Name="history_id" />
-            </Principal>
-            <Dependent Role="Shoes">
-              <PropertyRef Name="history_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityContainer Name="UMCLOCKEREntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Depts" EntityType="Self.Dept" />
           <EntitySet Name="histories" EntityType="Self.history" />
-          <EntitySet Name="Lockers" EntityType="Self.Locker" />
           <EntitySet Name="Pos" EntityType="Self.Pos" />
-          <EntitySet Name="Shoes" EntityType="Self.Sho" />
-          <AssociationSet Name="FK_HistoryLocker" Association="Self.FK_HistoryLocker">
-            <End Role="history" EntitySet="histories" />
-            <End Role="Locker" EntitySet="Lockers" />
-          </AssociationSet>
-          <AssociationSet Name="FK_HistoryShoes" Association="Self.FK_HistoryShoes">
-            <End Role="history" EntitySet="histories" />
-            <End Role="Shoes" EntitySet="Shoes" />
-          </AssociationSet>
           <EntitySet Name="Staffs" EntityType="UMCLOCKERModel.Staff" />
           <AssociationSet Name="FK_StaffDept" Association="UMCLOCKERModel.FK_StaffDept">
             <End Role="Dept" EntitySet="Depts" />
-            <End Role="Staff" EntitySet="Staffs" />
-          </AssociationSet>
-          <AssociationSet Name="FK_LockerStaff" Association="UMCLOCKERModel.FK_LockerStaff">
-            <End Role="Locker" EntitySet="Lockers" />
             <End Role="Staff" EntitySet="Staffs" />
           </AssociationSet>
           <AssociationSet Name="FK_StaffPos" Association="UMCLOCKERModel.FK_StaffPos">
             <End Role="Pos" EntitySet="Pos" />
             <End Role="Staff" EntitySet="Staffs" />
           </AssociationSet>
+          <EntitySet Name="Members" EntityType="UMCLOCKERModel.Member" />
+          <EntitySet Name="Shoes" EntityType="UMCLOCKERModel.Sho" />
+          <AssociationSet Name="FK_HistoryShoes" Association="UMCLOCKERModel.FK_HistoryShoes">
+            <End Role="history" EntitySet="histories" />
+            <End Role="Sho" EntitySet="Shoes" />
+          </AssociationSet>
           <AssociationSet Name="FK_ShoesStaff" Association="UMCLOCKERModel.FK_ShoesStaff">
             <End Role="Sho" EntitySet="Shoes" />
             <End Role="Staff" EntitySet="Staffs" />
           </AssociationSet>
-          <EntitySet Name="Members" EntityType="UMCLOCKERModel.Member" />
+          <EntitySet Name="Lockers" EntityType="UMCLOCKERModel.Locker" />
+          <AssociationSet Name="FK_HistoryLocker" Association="UMCLOCKERModel.FK_HistoryLocker">
+            <End Role="history" EntitySet="histories" />
+            <End Role="Locker" EntitySet="Lockers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LockerStaff" Association="UMCLOCKERModel.FK_LockerStaff">
+            <End Role="Locker" EntitySet="Lockers" />
+            <End Role="Staff" EntitySet="Staffs" />
+          </AssociationSet>
           </EntityContainer>
         <EntityType Name="Staff">
           <Key>
@@ -319,9 +269,9 @@
           <Property Name="modify_date" Type="DateTime" Precision="3" />
           <Property Name="date_change_key" Type="DateTime" Precision="3" />
           <NavigationProperty Name="Dept" Relationship="UMCLOCKERModel.FK_StaffDept" FromRole="Staff" ToRole="Dept" />
-          <NavigationProperty Name="Locker" Relationship="UMCLOCKERModel.FK_LockerStaff" FromRole="Staff" ToRole="Locker" />
           <NavigationProperty Name="Pos" Relationship="UMCLOCKERModel.FK_StaffPos" FromRole="Staff" ToRole="Pos" />
           <NavigationProperty Name="Sho" Relationship="UMCLOCKERModel.FK_ShoesStaff" FromRole="Staff" ToRole="Sho" />
+          <NavigationProperty Name="Locker" Relationship="UMCLOCKERModel.FK_LockerStaff" FromRole="Staff" ToRole="Locker" />
         </EntityType>
         <Association Name="FK_StaffDept">
           <End Type="UMCLOCKERModel.Dept" Role="Dept" Multiplicity="0..1" />
@@ -332,18 +282,6 @@
             </Principal>
             <Dependent Role="Staff">
               <PropertyRef Name="department" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_LockerStaff">
-          <End Type="UMCLOCKERModel.Locker" Role="Locker" Multiplicity="0..1" />
-          <End Type="UMCLOCKERModel.Staff" Role="Staff" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Locker">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="Staff">
-              <PropertyRef Name="locker_id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -359,6 +297,41 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="Member">
+          <Key>
+            <PropertyRef Name="Username" />
+          </Key>
+          <Property Name="Username" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsAdmin" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="Sho">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="shoes_index" Type="Int32" Nullable="false" />
+          <Property Name="shoes_number" Type="Int32" Nullable="false" />
+          <Property Name="state" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="shoes_type" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="owned" Type="Int32" />
+          <Property Name="history_id" Type="Int32" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="note" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="history" Relationship="UMCLOCKERModel.FK_HistoryShoes" FromRole="Sho" ToRole="history" />
+          <NavigationProperty Name="Staffs" Relationship="UMCLOCKERModel.FK_ShoesStaff" FromRole="Sho" ToRole="Staff" />
+        </EntityType>
+        <Association Name="FK_HistoryShoes">
+          <End Type="UMCLOCKERModel.history" Role="history" Multiplicity="0..1" />
+          <End Type="UMCLOCKERModel.Sho" Role="Sho" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="history">
+              <PropertyRef Name="history_id" />
+            </Principal>
+            <Dependent Role="Sho">
+              <PropertyRef Name="history_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_ShoesStaff">
           <End Type="UMCLOCKERModel.Sho" Role="Sho" Multiplicity="0..1" />
           <End Type="UMCLOCKERModel.Staff" Role="Staff" Multiplicity="*" />
@@ -371,14 +344,45 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityType Name="Member">
+        <EntityType Name="Locker">
           <Key>
-            <PropertyRef Name="Username" />
+            <PropertyRef Name="id" />
           </Key>
-          <Property Name="Username" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="IsAdmin" Type="Boolean" />
+          <Property Name="locker_index" Type="Int32" Nullable="false" />
+          <Property Name="locker_number" Type="Int32" Nullable="false" />
+          <Property Name="state" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="locker_type" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="owned" Type="Int32" />
+          <Property Name="history_id" Type="Int32" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="note" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="history" Relationship="UMCLOCKERModel.FK_HistoryLocker" FromRole="Locker" ToRole="history" />
+          <NavigationProperty Name="Staffs" Relationship="UMCLOCKERModel.FK_LockerStaff" FromRole="Locker" ToRole="Staff" />
         </EntityType>
+        <Association Name="FK_HistoryLocker">
+          <End Type="UMCLOCKERModel.history" Role="history" Multiplicity="0..1" />
+          <End Type="UMCLOCKERModel.Locker" Role="Locker" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="history">
+              <PropertyRef Name="history_id" />
+            </Principal>
+            <Dependent Role="Locker">
+              <PropertyRef Name="history_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LockerStaff">
+          <End Type="UMCLOCKERModel.Locker" Role="Locker" Multiplicity="0..1" />
+          <End Type="UMCLOCKERModel.Staff" Role="Staff" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Locker">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Staff">
+              <PropertyRef Name="locker_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -401,37 +405,11 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Lockers">
-            <EntityTypeMapping TypeName="UMCLOCKERModel.Locker">
-              <MappingFragment StoreEntitySet="Locker">
-                <ScalarProperty Name="locker_index" ColumnName="locker_index" />
-                <ScalarProperty Name="locker_number" ColumnName="locker_number" />
-                <ScalarProperty Name="state" ColumnName="state" />
-                <ScalarProperty Name="locker_type" ColumnName="locker_type" />
-                <ScalarProperty Name="owned" ColumnName="owned" />
-                <ScalarProperty Name="history_id" ColumnName="history_id" />
-                <ScalarProperty Name="id" ColumnName="id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Pos">
             <EntityTypeMapping TypeName="UMCLOCKERModel.Pos">
               <MappingFragment StoreEntitySet="Pos">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="name" ColumnName="name" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Shoes">
-            <EntityTypeMapping TypeName="UMCLOCKERModel.Sho">
-              <MappingFragment StoreEntitySet="Shoes">
-                <ScalarProperty Name="shoes_index" ColumnName="shoes_index" />
-                <ScalarProperty Name="shoes_number" ColumnName="shoes_number" />
-                <ScalarProperty Name="state" ColumnName="state" />
-                <ScalarProperty Name="shoes_type" ColumnName="shoes_type" />
-                <ScalarProperty Name="owned" ColumnName="owned" />
-                <ScalarProperty Name="history_id" ColumnName="history_id" />
-                <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -463,6 +441,34 @@
                 <ScalarProperty Name="IsAdmin" ColumnName="IsAdmin" />
                 <ScalarProperty Name="Password" ColumnName="Password" />
                 <ScalarProperty Name="Username" ColumnName="Username" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Shoes">
+            <EntityTypeMapping TypeName="UMCLOCKERModel.Sho">
+              <MappingFragment StoreEntitySet="Shoes">
+                <ScalarProperty Name="note" ColumnName="note" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="history_id" ColumnName="history_id" />
+                <ScalarProperty Name="owned" ColumnName="owned" />
+                <ScalarProperty Name="shoes_type" ColumnName="shoes_type" />
+                <ScalarProperty Name="state" ColumnName="state" />
+                <ScalarProperty Name="shoes_number" ColumnName="shoes_number" />
+                <ScalarProperty Name="shoes_index" ColumnName="shoes_index" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Lockers">
+            <EntityTypeMapping TypeName="UMCLOCKERModel.Locker">
+              <MappingFragment StoreEntitySet="Locker">
+                <ScalarProperty Name="note" ColumnName="note" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="history_id" ColumnName="history_id" />
+                <ScalarProperty Name="owned" ColumnName="owned" />
+                <ScalarProperty Name="locker_type" ColumnName="locker_type" />
+                <ScalarProperty Name="state" ColumnName="state" />
+                <ScalarProperty Name="locker_number" ColumnName="locker_number" />
+                <ScalarProperty Name="locker_index" ColumnName="locker_index" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

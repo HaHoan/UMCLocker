@@ -17,16 +17,16 @@ namespace UMCLocker
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public history()
         {
-            this.Lockers = new HashSet<Locker>();
             this.Shoes = new HashSet<Sho>();
+            this.Lockers = new HashSet<Locker>();
         }
     
         public int history_id { get; set; }
         public int staff_id { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Locker> Lockers { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Sho> Shoes { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Locker> Lockers { get; set; }
     }
 }

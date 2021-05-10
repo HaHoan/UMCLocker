@@ -258,7 +258,7 @@ namespace UMCLocker.Entities
                     staffs = db.Staffs.Include(d => d.Dept).Include(p => p.Pos)
                                                             .Include(l => l.Locker)
                                                             .Include(s => s.Sho)
-                                                            .OrderByDescending(r => r.modify_date)
+                                                            .OrderBy(r => r.modify_date)
                                                             .Where(s => s.state == Constants.STATE_OFF)
                                                             .ToList();
                     list = staffs.Select((x, i) => new StaffEntity
@@ -593,12 +593,12 @@ namespace UMCLocker.Entities
                     // delete owned of old key
                     if (update.locker_id is int locker_id1)
                     {
-                        ResultInfo lResult = new LockerEntity().DeleteOwned(locker_id1);
+                        ResultInfo lResult = new LockerEntity().DeleteOwned(locker_id1, Constants.STATE_AVAIABLE);
                         if (lResult.code != Constants.SUCCESS) return lResult;
                     }
                     if (update.shoes_id is int shoes_id1)
                     {
-                        ResultInfo sResult = new ShoesEntity().DeleteOwned(shoes_id1);
+                        ResultInfo sResult = new ShoesEntity().DeleteOwned(shoes_id1, Constants.STATE_AVAIABLE);
                         if (sResult.code != Constants.SUCCESS) return sResult;
                     }
                     update.state = Constants.STATE_OFF;
@@ -642,12 +642,12 @@ namespace UMCLocker.Entities
                     // delete owned of old key
                     if (update.locker_id is int locker_id1)
                     {
-                        ResultInfo lResult = new LockerEntity().DeleteOwned(locker_id1);
+                        ResultInfo lResult = new LockerEntity().DeleteOwned(locker_id1, Constants.STATE_RESOLVE);
                         if (lResult.code != Constants.SUCCESS) return lResult;
                     }
                     if (update.shoes_id is int shoes_id1)
                     {
-                        ResultInfo sResult = new ShoesEntity().DeleteOwned(shoes_id1);
+                        ResultInfo sResult = new ShoesEntity().DeleteOwned(shoes_id1, Constants.STATE_RESOLVE);
                         if (sResult.code != Constants.SUCCESS) return sResult;
                     }
                     // add new info
@@ -693,7 +693,8 @@ namespace UMCLocker.Entities
                             locker_index = Locker.locker_index,
                             locker_type = Locker.locker_type,
                             state = Constants.STATE_USED,
-                            owned = id
+                            owned = id,
+                            note = Constants.NOTE_RESOLVE_KEY
                         }.Update();
                         if (lResult.code != Constants.SUCCESS) return lResult;
                     }
