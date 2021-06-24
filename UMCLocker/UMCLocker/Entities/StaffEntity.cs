@@ -392,14 +392,17 @@ namespace UMCLocker.Entities
                             {
                                 locker = db.Lockers.Where(m => m.id == staff.locker_id).FirstOrDefault();
                                 locker.state = Constants.STATE_AVAIABLE;
+                                locker.owned = null;
                             }
                             if (staff.shoes_id != null)
                             {
                                 shoes = db.Shoes.Where(m => m.id == staff.shoes_id).FirstOrDefault();
                                 shoes.state = Constants.STATE_AVAIABLE;
+                                shoes.owned = null;
                             }
                             staff.state = Constants.STATE_OFF;
                             staff.end_date = end_date;
+                           
                             staff.note = Constants.NOTE_NOT_RETURN_KEY;
                             var cus = GAManageCus.Where(m => int.Parse(m.Staffcode) == int.Parse(staff.staff_code)).FirstOrDefault();
                             if (cus != null)

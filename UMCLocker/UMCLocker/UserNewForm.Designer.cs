@@ -341,6 +341,7 @@
             this.cbbPosition.Name = "cbbPosition";
             this.cbbPosition.Size = new System.Drawing.Size(424, 21);
             this.cbbPosition.TabIndex = 10;
+            this.cbbPosition.SelectedIndexChanged += new System.EventHandler(this.cbbPosition_SelectedIndexChanged);
             // 
             // cbbDepartment
             // 
@@ -352,6 +353,7 @@
             this.cbbDepartment.Name = "cbbDepartment";
             this.cbbDepartment.Size = new System.Drawing.Size(424, 21);
             this.cbbDepartment.TabIndex = 9;
+            this.cbbDepartment.SelectedIndexChanged += new System.EventHandler(this.cbbDepartment_SelectedIndexChanged);
             // 
             // label9
             // 

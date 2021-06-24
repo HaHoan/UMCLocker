@@ -62,10 +62,11 @@
     <SignManifests>true</SignManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>CABC4725FE3E4A0E019DEEAFF7A684E55403BB86</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>0AD9707248B5D08F39AD7DEDF718131D9157C3F1</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestKeyFile>UMCLocker_TemporaryKey.pfx</ManifestKeyFile>
+    <ManifestKeyFile>
+    </ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
     <GenerateManifests>true</GenerateManifests>

@@ -188,6 +188,13 @@ namespace UMCLocker
                     _newStaff.Sho.shoes_type = Constants.FEMALE;
                 }
                 _newStaff.enter_date = dtpEnterDate.Value.Date;
+                try
+                {
+                    _newStaff.department = _depts.Where(m => m.name == cbbDepartment.Text.Trim()).FirstOrDefault().id;
+                    _newStaff.position = _pos.Where(m => m.name == cbbPosition.Text.Trim()).FirstOrDefault().id;
+                }
+                catch (Exception) { }
+              
                 ResultInfo result = new ResultInfo();
                 if (!string.IsNullOrEmpty(txbLockerNumber.Text.Trim()) && !string.IsNullOrEmpty(txbLockerIndex.Text.Trim()))
                 {
@@ -430,7 +437,7 @@ namespace UMCLocker
 
         private void txbStaffCode_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
         {
-            if(e.KeyCode == Keys.Enter)
+            if(e.KeyCode == Keys.Enter && _type == FormType.Edit)
             {
                 var db = new UMCLOCKEREntities();
                 var staff = db.Staffs.Include(m => m.Locker).Include(m => m.Sho).Where(m => m.staff_code == txbStaffCode.Text.Trim()).FirstOrDefault();
@@ -443,6 +450,16 @@ namespace UMCLocker
                 lblStatus.Text = "";
                 SetUpDataForEditMode();
             }
+        }
+
+        private void cbbDepartment_SelectedIndexChanged(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void cbbPosition_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
