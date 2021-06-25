@@ -86,6 +86,7 @@ namespace UMCLocker
             cbbReasonChangeKey.Enabled = true;
             txbStaffCode.Text = _newStaff.staff_code;
             txbFullName.Text = _newStaff.full_name;
+            txbCustomer.Text = _newStaff.customer;
             if (_newStaff.gender == Constants.MALE)
             {
                 rbtnMale.Checked = true;
@@ -168,6 +169,7 @@ namespace UMCLocker
                     return;
                 }
                 _newStaff.full_name = txbFullName.Text.ToString().Trim();
+                _newStaff.customer = txbCustomer.Text.ToString().Trim();
                 if (string.IsNullOrEmpty(_newStaff.full_name))
                 {
                     txbFullName.Focus();

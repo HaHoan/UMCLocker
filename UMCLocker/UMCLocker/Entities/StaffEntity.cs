@@ -120,6 +120,7 @@ namespace UMCLocker.Entities
             state = s.state;
             end_date = s.end_date;
             note = s.note;
+            customer = s.customer;
             if (Locker == null)
             {
                 Locker = new Locker();
