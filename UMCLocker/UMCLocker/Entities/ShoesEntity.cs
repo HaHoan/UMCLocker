@@ -353,7 +353,8 @@ namespace UMCLocker.Entities
                         Sho = db.Shoes.Where(s => s.id == x.shoes_id).FirstOrDefault(),
                         Dept = db.Depts.Where(d => d.id == x.department).FirstOrDefault(),
                         Pos = db.Pos.Where(p => p.id == x.position).FirstOrDefault(),
-                        state = x.state
+                        state = x.state,
+                        customer = x.customer
                     }).OrderBy(r => r.id)
                     .ToList();
 
