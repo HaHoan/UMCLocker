@@ -418,7 +418,7 @@ namespace UMCLocker.Entities
                                 staff.full_name = Ga.FullName;
                                 isChanged = true;
                             }
-                            if (staff.customer == null || staff.customer.Trim() != Ga.Customer.Trim())
+                            if (staff.customer == null || (Ga.Customer != null && staff.customer.Trim() != Ga.Customer.Trim()) || Ga.Customer == null)
                             {
                                 staff.customer = Ga.Customer;
                                 isChanged = true;
