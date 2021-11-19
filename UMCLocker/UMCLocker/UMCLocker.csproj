@@ -113,6 +113,7 @@
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Threading.Tasks" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -127,6 +128,7 @@
     <Reference Include="TelerikCommon, Version=2019.1.219.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Business\ChartController.cs" />
     <Compile Include="Business\LockerController.cs" />
     <Compile Include="Business\MainTabController.cs" />
     <Compile Include="Business\SettingController.cs" />
@@ -220,6 +222,9 @@
       <DependentUpon>GAUMCModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Staff.cs">
+      <DependentUpon>UMCLOCKERModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TEMP.cs">
       <DependentUpon>UMCLOCKERModel.tt</DependentUpon>
     </Compile>
     <Compile Include="UMCLOCKERModel.Context.cs">
@@ -341,6 +346,7 @@
     <None Include="Assets\icons8-sync-48.png" />
     <None Include="Assets\icons8-sync-30.png" />
     <None Include="Assets\icons8-account-48.png" />
+    <None Include="Assets\bar-chart.png" />
     <Content Include="GAUMCModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>GAUMCModel.edmx</DependentUpon>

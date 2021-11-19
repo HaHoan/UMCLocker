@@ -17,6 +17,7 @@ namespace UMCLocker
         public ShoesController shoesController;
         public StaffController staffController;
         public StaffTrashController staffTrashController;
+        public ChartController chartController;
         SettingController settingController;
         public bool isLogin = false;
         public MainTab()
@@ -34,6 +35,7 @@ namespace UMCLocker
             staffController = new StaffController(this);
             staffTrashController = new StaffTrashController(this);
             settingController = new SettingController(this);
+            chartController = new ChartController(this);
             staffController.LoadAll();
             staffController.LoadCompleted += () =>
             {
@@ -397,5 +399,26 @@ namespace UMCLocker
         {
             shoesController.btnEditShoes_Click(sender, e);
         }
+
+        private void btnFinđuplicateKey_Click(object sender, EventArgs e)
+        {
+            settingController.btnFinđuplicateKey_Click(sender, e);
+        }
+
+        private void bgwSettingFindDup_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
+        {
+            settingController.bgwSettingFindDup_DoWork(sender, e);
+        }
+
+        private void bgwChart_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
+        {
+            chartController.bgwChart_DoWork(sender, e);
+        }
+
+        private void bgwChart_RunWorkerCompleted(object sender, System.ComponentModel.RunWorkerCompletedEventArgs e)
+        {
+            chartController.bgwChart_RunWorkerCompleted(sender, e);
+        }
+
     }
 }

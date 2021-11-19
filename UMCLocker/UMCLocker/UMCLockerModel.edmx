@@ -81,6 +81,18 @@
           <Property Name="modify_date" Type="datetime" />
           <Property Name="date_change_key" Type="datetime" />
         </EntityType>
+        <EntityType Name="TEMP">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Code" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="locker_number" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="locker_index" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="shoes_number" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="shoes_index" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Sex" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
         <Association Name="FK_HistoryLocker">
           <End Role="history" Type="Self.history" Multiplicity="0..1" />
           <End Role="Locker" Type="Self.Locker" Multiplicity="*" />
@@ -161,6 +173,7 @@
           <EntitySet Name="Pos" EntityType="Self.Pos" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Shoes" EntityType="Self.Shoes" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Staff" EntityType="Self.Staff" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TEMP" EntityType="Self.TEMP" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_HistoryLocker" Association="Self.FK_HistoryLocker">
             <End Role="history" EntitySet="history" />
             <End Role="Locker" EntitySet="Locker" />
@@ -247,6 +260,7 @@
             <End Role="Locker" EntitySet="Lockers" />
             <End Role="Staff" EntitySet="Staffs" />
           </AssociationSet>
+          <EntitySet Name="TEMPs" EntityType="UMCLOCKERModel.TEMP" />
           </EntityContainer>
         <EntityType Name="Staff">
           <Key>
@@ -383,6 +397,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="TEMP">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Code" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="locker_number" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="locker_index" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="shoes_number" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="shoes_index" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Sex" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -469,6 +495,19 @@
                 <ScalarProperty Name="state" ColumnName="state" />
                 <ScalarProperty Name="locker_number" ColumnName="locker_number" />
                 <ScalarProperty Name="locker_index" ColumnName="locker_index" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TEMPs">
+            <EntityTypeMapping TypeName="UMCLOCKERModel.TEMP">
+              <MappingFragment StoreEntitySet="TEMP">
+                <ScalarProperty Name="Sex" ColumnName="Sex" />
+                <ScalarProperty Name="shoes_index" ColumnName="shoes_index" />
+                <ScalarProperty Name="shoes_number" ColumnName="shoes_number" />
+                <ScalarProperty Name="locker_index" ColumnName="locker_index" />
+                <ScalarProperty Name="locker_number" ColumnName="locker_number" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

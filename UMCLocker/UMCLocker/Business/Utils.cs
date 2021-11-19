@@ -616,7 +616,65 @@ namespace UMCLocker.Business
             }
         }
 
+        public static ResultInfo duplicate(string path)
+        {
+            IExcelDataReader excelReader2007 = null;
+            try
+            {
+                FileStream stream = new FileStream(path, FileMode.Open);
+                excelReader2007 = ExcelReaderFactory.CreateOpenXmlReader(stream);
 
+                DataSet result = excelReader2007.AsDataSet();
+                using (var db = new UMCLOCKEREntities())
+                {
+
+                    var table = result.Tables[0];
+                    for (int i = 3; i < table.Rows.Count; i++)
+                    {
+                        // reading staff
+                        Staff staff = new Staff();
+                        try
+                        {
+                            string Code = table.Rows[i].ItemArray[1].ToString();
+                            string Sex = table.Rows[i].ItemArray[3].ToString();
+                            string so_tu_locker = table.Rows[i].ItemArray[8].ToString();
+                            string so_o_locker = table.Rows[i].ItemArray[9].ToString();
+                            string so_tu_shoes = table.Rows[i].ItemArray[10].ToString();
+                            string so_o_shoes = table.Rows[i].ItemArray[11].ToString();
+                            var temp = new TEMP()
+                            {
+                                Code = Code,
+                                locker_number = so_tu_locker,
+                                locker_index = so_o_locker,
+                                shoes_number = so_tu_shoes,
+                                shoes_index = so_o_shoes,
+                                Sex = Sex
+
+                            };
+                            db.TEMPs.Add(temp);
+                            db.SaveChanges();
+                        }
+                        catch
+                        {
+
+                        }
+
+
+                    }
+
+                }
+
+                excelReader2007.Close();
+                Console.Read();
+                return new ResultInfo(Constants.SUCCESS, "Import success!");
+            }
+            catch (Exception e)
+            {
+                if (excelReader2007 != null)
+                    excelReader2007.Close();
+                return new ResultInfo(Constants.ERROR_COMMON, e.ToString());
+            }
+        }
     }
 
     public static class ExportUtils

@@ -32,16 +32,32 @@ namespace UMCLocker
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainTab));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title4 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title3 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title2 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnLogin = new System.Windows.Forms.Button();
@@ -126,6 +142,8 @@ namespace UMCLocker
             this.tPKey = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.btnDeleteShoes = new System.Windows.Forms.Button();
+            this.btnEditShoes = new System.Windows.Forms.Button();
             this.lblNumberShoes = new System.Windows.Forms.Label();
             this.btnShoesList = new System.Windows.Forms.Button();
             this.cbbShoesState = new System.Windows.Forms.ComboBox();
@@ -135,6 +153,8 @@ namespace UMCLocker
             this.cbbShoesNumber = new System.Windows.Forms.ComboBox();
             this.btnAddShoes = new System.Windows.Forms.Button();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.btnDeleteLocker = new System.Windows.Forms.Button();
+            this.btnEditLocker = new System.Windows.Forms.Button();
             this.lblNumberLocker = new System.Windows.Forms.Label();
             this.btnLockerList = new System.Windows.Forms.Button();
             this.cbbLockerState = new System.Windows.Forms.ComboBox();
@@ -148,8 +168,15 @@ namespace UMCLocker
             this.dgrvLocker = new System.Windows.Forms.DataGridView();
             this.dgrvShoes = new System.Windows.Forms.DataGridView();
             this.tPSetting = new System.Windows.Forms.TabPage();
+            this.lblStatusDup = new System.Windows.Forms.Label();
+            this.btnFinđuplicateKey = new System.Windows.Forms.Button();
             this.lblStatusAddStaff = new System.Windows.Forms.Label();
             this.btnAddNewStaffFromExcel = new System.Windows.Forms.Button();
+            this.tPChart = new System.Windows.Forms.TabPage();
+            this.chartLockerNu = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.bgStaffTrash = new System.ComponentModel.BackgroundWorker();
             this.bgwSettingImportStaff = new System.ComponentModel.BackgroundWorker();
@@ -157,10 +184,11 @@ namespace UMCLocker
             this.bgwSettingImportKey = new System.ComponentModel.BackgroundWorker();
             this.bgwImportQuitWork = new System.ComponentModel.BackgroundWorker();
             this.bgwSync = new System.ComponentModel.BackgroundWorker();
-            this.btnEditLocker = new System.Windows.Forms.Button();
-            this.btnEditShoes = new System.Windows.Forms.Button();
-            this.btnDeleteLocker = new System.Windows.Forms.Button();
-            this.btnDeleteShoes = new System.Windows.Forms.Button();
+            this.bgwSettingFindDup = new System.ComponentModel.BackgroundWorker();
+            this.bgwChart = new System.ComponentModel.BackgroundWorker();
+            this.chartShoesNu = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.chartShoesNam = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.chartLockerNam = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.tabCtrMain.SuspendLayout();
@@ -180,7 +208,13 @@ namespace UMCLocker
             ((System.ComponentModel.ISupportInitialize)(this.dgrvLocker)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgrvShoes)).BeginInit();
             this.tPSetting.SuspendLayout();
+            this.tPChart.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chartLockerNu)).BeginInit();
+            this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartShoesNu)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartShoesNam)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartLockerNam)).BeginInit();
             this.SuspendLayout();
             // 
             // imageList1
@@ -194,6 +228,7 @@ namespace UMCLocker
             this.imageList1.Images.SetKeyName(4, "trash.png");
             this.imageList1.Images.SetKeyName(5, "settings-icon.png");
             this.imageList1.Images.SetKeyName(6, "settings-icon.png");
+            this.imageList1.Images.SetKeyName(7, "icons8-chart-20.png");
             // 
             // panel1
             // 
@@ -237,7 +272,7 @@ namespace UMCLocker
             // panel2
             // 
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 710);
+            this.panel2.Location = new System.Drawing.Point(0, 744);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1283, 10);
             this.panel2.TabIndex = 1;
@@ -248,7 +283,7 @@ namespace UMCLocker
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(0, 61);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1283, 649);
+            this.panel3.Size = new System.Drawing.Size(1283, 683);
             this.panel3.TabIndex = 2;
             // 
             // tabCtrMain
@@ -258,12 +293,13 @@ namespace UMCLocker
             this.tabCtrMain.Controls.Add(this.tPTrash);
             this.tabCtrMain.Controls.Add(this.tPKey);
             this.tabCtrMain.Controls.Add(this.tPSetting);
+            this.tabCtrMain.Controls.Add(this.tPChart);
             this.tabCtrMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabCtrMain.ImageList = this.imageList1;
             this.tabCtrMain.Location = new System.Drawing.Point(0, 0);
             this.tabCtrMain.Name = "tabCtrMain";
             this.tabCtrMain.SelectedIndex = 0;
-            this.tabCtrMain.Size = new System.Drawing.Size(1283, 649);
+            this.tabCtrMain.Size = new System.Drawing.Size(1283, 683);
             this.tabCtrMain.TabIndex = 1;
             this.tabCtrMain.SelectedIndexChanged += new System.EventHandler(this.tabCtrMain_SelectedIndexChanged);
             // 
@@ -299,21 +335,21 @@ namespace UMCLocker
             // 
             this.dgrvStaff.AllowUserToAddRows = false;
             this.dgrvStaff.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.Black;
-            this.dgrvStaff.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            this.dgrvStaff.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgrvStaff.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgrvStaff.BackgroundColor = System.Drawing.SystemColors.Window;
             this.dgrvStaff.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle16.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            dataGridViewCellStyle16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle16.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgrvStaff.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgrvStaff.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgrvStaff.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgrvStaff.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.index,
@@ -336,14 +372,14 @@ namespace UMCLocker
             this.info,
             this.deptId,
             this.Sho});
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle17.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle17.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgrvStaff.DefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgrvStaff.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgrvStaff.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgrvStaff.Location = new System.Drawing.Point(3, 40);
             this.dgrvStaff.Name = "dgrvStaff";
@@ -702,21 +738,21 @@ namespace UMCLocker
             // 
             this.dgrvTrash.AllowUserToAddRows = false;
             this.dgrvTrash.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle18.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle18.ForeColor = System.Drawing.Color.Black;
-            this.dgrvTrash.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
+            this.dgrvTrash.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgrvTrash.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgrvTrash.BackgroundColor = System.Drawing.SystemColors.Window;
             this.dgrvTrash.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle19.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            dataGridViewCellStyle19.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle19.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgrvTrash.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgrvTrash.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dgrvTrash.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgrvTrash.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
@@ -741,14 +777,14 @@ namespace UMCLocker
             this.dataGridViewTextBoxColumn17,
             this.dataGridViewTextBoxColumn18,
             this.dataGridViewTextBoxColumn19});
-            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle20.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle20.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle20.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgrvTrash.DefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgrvTrash.DefaultCellStyle = dataGridViewCellStyle6;
             this.dgrvTrash.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgrvTrash.Location = new System.Drawing.Point(3, 40);
             this.dgrvTrash.Name = "dgrvTrash";
@@ -1088,6 +1124,32 @@ namespace UMCLocker
             this.panel5.Size = new System.Drawing.Size(626, 29);
             this.panel5.TabIndex = 4;
             // 
+            // btnDeleteShoes
+            // 
+            this.btnDeleteShoes.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnDeleteShoes.FlatAppearance.BorderSize = 0;
+            this.btnDeleteShoes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDeleteShoes.Image = global::UMCLocker.Properties.Resources.delete_icon;
+            this.btnDeleteShoes.Location = new System.Drawing.Point(66, 0);
+            this.btnDeleteShoes.Name = "btnDeleteShoes";
+            this.btnDeleteShoes.Size = new System.Drawing.Size(35, 29);
+            this.btnDeleteShoes.TabIndex = 15;
+            this.btnDeleteShoes.UseVisualStyleBackColor = true;
+            this.btnDeleteShoes.Click += new System.EventHandler(this.btnDeleteShoes_Click);
+            // 
+            // btnEditShoes
+            // 
+            this.btnEditShoes.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnEditShoes.FlatAppearance.BorderSize = 0;
+            this.btnEditShoes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEditShoes.Image = global::UMCLocker.Properties.Resources.edit_icon;
+            this.btnEditShoes.Location = new System.Drawing.Point(31, 0);
+            this.btnEditShoes.Name = "btnEditShoes";
+            this.btnEditShoes.Size = new System.Drawing.Size(35, 29);
+            this.btnEditShoes.TabIndex = 14;
+            this.btnEditShoes.UseVisualStyleBackColor = true;
+            this.btnEditShoes.Click += new System.EventHandler(this.btnEditShoes_Click);
+            // 
             // lblNumberShoes
             // 
             this.lblNumberShoes.AutoSize = true;
@@ -1202,6 +1264,32 @@ namespace UMCLocker
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(626, 29);
             this.panel6.TabIndex = 3;
+            // 
+            // btnDeleteLocker
+            // 
+            this.btnDeleteLocker.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnDeleteLocker.FlatAppearance.BorderSize = 0;
+            this.btnDeleteLocker.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDeleteLocker.Image = global::UMCLocker.Properties.Resources.delete_icon;
+            this.btnDeleteLocker.Location = new System.Drawing.Point(66, 0);
+            this.btnDeleteLocker.Name = "btnDeleteLocker";
+            this.btnDeleteLocker.Size = new System.Drawing.Size(35, 29);
+            this.btnDeleteLocker.TabIndex = 14;
+            this.btnDeleteLocker.UseVisualStyleBackColor = true;
+            this.btnDeleteLocker.Click += new System.EventHandler(this.btnDeleteLocker_Click);
+            // 
+            // btnEditLocker
+            // 
+            this.btnEditLocker.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnEditLocker.FlatAppearance.BorderSize = 0;
+            this.btnEditLocker.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEditLocker.Image = global::UMCLocker.Properties.Resources.edit_icon;
+            this.btnEditLocker.Location = new System.Drawing.Point(31, 0);
+            this.btnEditLocker.Name = "btnEditLocker";
+            this.btnEditLocker.Size = new System.Drawing.Size(35, 29);
+            this.btnEditLocker.TabIndex = 13;
+            this.btnEditLocker.UseVisualStyleBackColor = true;
+            this.btnEditLocker.Click += new System.EventHandler(this.btnEditLocker_Click);
             // 
             // lblNumberLocker
             // 
@@ -1326,19 +1414,19 @@ namespace UMCLocker
             // 
             this.dgrvLocker.AllowUserToAddRows = false;
             this.dgrvLocker.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dgrvLocker.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dgrvLocker.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
             this.dgrvLocker.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgrvLocker.BackgroundColor = System.Drawing.SystemColors.Window;
             this.dgrvLocker.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgrvLocker.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgrvLocker.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.dgrvLocker.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgrvLocker.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgrvLocker.Location = new System.Drawing.Point(4, 61);
@@ -1353,19 +1441,19 @@ namespace UMCLocker
             // 
             this.dgrvShoes.AllowUserToAddRows = false;
             this.dgrvShoes.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dgrvShoes.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dgrvShoes.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle9;
             this.dgrvShoes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgrvShoes.BackgroundColor = System.Drawing.SystemColors.Window;
             this.dgrvShoes.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgrvShoes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgrvShoes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
             this.dgrvShoes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgrvShoes.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgrvShoes.Location = new System.Drawing.Point(637, 61);
@@ -1378,6 +1466,8 @@ namespace UMCLocker
             // 
             // tPSetting
             // 
+            this.tPSetting.Controls.Add(this.lblStatusDup);
+            this.tPSetting.Controls.Add(this.btnFinđuplicateKey);
             this.tPSetting.Controls.Add(this.lblStatusAddStaff);
             this.tPSetting.Controls.Add(this.btnAddNewStaffFromExcel);
             this.tPSetting.ImageIndex = 5;
@@ -1388,6 +1478,25 @@ namespace UMCLocker
             this.tPSetting.TabIndex = 5;
             this.tPSetting.Text = "Cài đặt";
             this.tPSetting.UseVisualStyleBackColor = true;
+            // 
+            // lblStatusDup
+            // 
+            this.lblStatusDup.AutoSize = true;
+            this.lblStatusDup.Location = new System.Drawing.Point(257, 122);
+            this.lblStatusDup.Name = "lblStatusDup";
+            this.lblStatusDup.Size = new System.Drawing.Size(33, 13);
+            this.lblStatusDup.TabIndex = 4;
+            this.lblStatusDup.Text = "None";
+            // 
+            // btnFinđuplicateKey
+            // 
+            this.btnFinđuplicateKey.Location = new System.Drawing.Point(38, 117);
+            this.btnFinđuplicateKey.Name = "btnFinđuplicateKey";
+            this.btnFinđuplicateKey.Size = new System.Drawing.Size(166, 23);
+            this.btnFinđuplicateKey.TabIndex = 3;
+            this.btnFinđuplicateKey.Text = "Tìm nhân viên trùng khóa";
+            this.btnFinđuplicateKey.UseVisualStyleBackColor = true;
+            this.btnFinđuplicateKey.Click += new System.EventHandler(this.btnFinđuplicateKey_Click);
             // 
             // lblStatusAddStaff
             // 
@@ -1408,6 +1517,83 @@ namespace UMCLocker
             this.btnAddNewStaffFromExcel.UseVisualStyleBackColor = true;
             this.btnAddNewStaffFromExcel.Click += new System.EventHandler(this.btnAddNewStaffFromExcel_Click);
             // 
+            // tPChart
+            // 
+            this.tPChart.Controls.Add(this.chartShoesNam);
+            this.tPChart.Controls.Add(this.chartLockerNam);
+            this.tPChart.Controls.Add(this.chartShoesNu);
+            this.tPChart.Controls.Add(this.chartLockerNu);
+            this.tPChart.Controls.Add(this.tableLayoutPanel2);
+            this.tPChart.ImageIndex = 7;
+            this.tPChart.Location = new System.Drawing.Point(4, 26);
+            this.tPChart.Name = "tPChart";
+            this.tPChart.Size = new System.Drawing.Size(1275, 653);
+            this.tPChart.TabIndex = 6;
+            this.tPChart.Text = "Biểu đồ";
+            this.tPChart.UseVisualStyleBackColor = true;
+            // 
+            // chartLockerNu
+            // 
+            chartArea4.Name = "ChartArea1";
+            this.chartLockerNu.ChartAreas.Add(chartArea4);
+            legend4.Name = "Legend1";
+            this.chartLockerNu.Legends.Add(legend4);
+            this.chartLockerNu.Location = new System.Drawing.Point(20, 34);
+            this.chartLockerNu.Name = "chartLockerNu";
+            this.chartLockerNu.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
+            this.chartLockerNu.PaletteCustomColors = new System.Drawing.Color[] {
+        System.Drawing.Color.SteelBlue,
+        System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))))};
+            series4.ChartArea = "ChartArea1";
+            series4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            series4.IsVisibleInLegend = false;
+            series4.LabelBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            series4.LabelBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            series4.Legend = "Legend1";
+            series4.Name = "Locker";
+            this.chartLockerNu.Series.Add(series4);
+            this.chartLockerNu.Size = new System.Drawing.Size(531, 300);
+            this.chartLockerNu.TabIndex = 1;
+            this.chartLockerNu.Text = "chartLockerNu";
+            title4.Name = "Tủ Locker nữ";
+            this.chartLockerNu.Titles.Add(title4);
+            // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.ColumnCount = 2;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.Controls.Add(this.label5, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.label4, 0, 0);
+            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 1;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(1275, 653);
+            this.tableLayoutPanel2.TabIndex = 0;
+            // 
+            // label5
+            // 
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(640, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(631, 23);
+            this.label5.TabIndex = 1;
+            this.label5.Text = "TỦ NAM";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label4
+            // 
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(3, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(631, 23);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "TỦ NỮ";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
@@ -1417,62 +1603,100 @@ namespace UMCLocker
             this.bgwSync.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bgwSync_DoWork);
             this.bgwSync.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bgwSync_RunWorkerCompleted);
             // 
-            // btnEditLocker
+            // bgwSettingFindDup
             // 
-            this.btnEditLocker.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnEditLocker.FlatAppearance.BorderSize = 0;
-            this.btnEditLocker.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEditLocker.Image = global::UMCLocker.Properties.Resources.edit_icon;
-            this.btnEditLocker.Location = new System.Drawing.Point(31, 0);
-            this.btnEditLocker.Name = "btnEditLocker";
-            this.btnEditLocker.Size = new System.Drawing.Size(35, 29);
-            this.btnEditLocker.TabIndex = 13;
-            this.btnEditLocker.UseVisualStyleBackColor = true;
-            this.btnEditLocker.Click += new System.EventHandler(this.btnEditLocker_Click);
+            this.bgwSettingFindDup.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bgwSettingFindDup_DoWork);
             // 
-            // btnEditShoes
+            // bgwChart
             // 
-            this.btnEditShoes.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnEditShoes.FlatAppearance.BorderSize = 0;
-            this.btnEditShoes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEditShoes.Image = global::UMCLocker.Properties.Resources.edit_icon;
-            this.btnEditShoes.Location = new System.Drawing.Point(31, 0);
-            this.btnEditShoes.Name = "btnEditShoes";
-            this.btnEditShoes.Size = new System.Drawing.Size(35, 29);
-            this.btnEditShoes.TabIndex = 14;
-            this.btnEditShoes.UseVisualStyleBackColor = true;
-            this.btnEditShoes.Click += new System.EventHandler(this.btnEditShoes_Click);
+            this.bgwChart.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bgwChart_DoWork);
+            this.bgwChart.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bgwChart_RunWorkerCompleted);
             // 
-            // btnDeleteLocker
+            // chartShoesNu
             // 
-            this.btnDeleteLocker.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnDeleteLocker.FlatAppearance.BorderSize = 0;
-            this.btnDeleteLocker.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDeleteLocker.Image = global::UMCLocker.Properties.Resources.delete_icon;
-            this.btnDeleteLocker.Location = new System.Drawing.Point(66, 0);
-            this.btnDeleteLocker.Name = "btnDeleteLocker";
-            this.btnDeleteLocker.Size = new System.Drawing.Size(35, 29);
-            this.btnDeleteLocker.TabIndex = 14;
-            this.btnDeleteLocker.UseVisualStyleBackColor = true;
-            this.btnDeleteLocker.Click += new System.EventHandler(this.btnDeleteLocker_Click);
+            chartArea3.Name = "ChartArea1";
+            this.chartShoesNu.ChartAreas.Add(chartArea3);
+            legend3.Name = "Legend1";
+            this.chartShoesNu.Legends.Add(legend3);
+            this.chartShoesNu.Location = new System.Drawing.Point(20, 344);
+            this.chartShoesNu.Name = "chartShoesNu";
+            this.chartShoesNu.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
+            this.chartShoesNu.PaletteCustomColors = new System.Drawing.Color[] {
+        System.Drawing.Color.SteelBlue,
+        System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))))};
+            series3.ChartArea = "ChartArea1";
+            series3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            series3.IsVisibleInLegend = false;
+            series3.LabelBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            series3.LabelBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            series3.Legend = "Legend1";
+            series3.Name = "Locker";
+            this.chartShoesNu.Series.Add(series3);
+            this.chartShoesNu.Size = new System.Drawing.Size(531, 300);
+            this.chartShoesNu.TabIndex = 2;
+            this.chartShoesNu.Text = "chart1";
+            title3.Name = "Tủ Locker nữ";
+            this.chartShoesNu.Titles.Add(title3);
             // 
-            // btnDeleteShoes
+            // chartShoesNam
             // 
-            this.btnDeleteShoes.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnDeleteShoes.FlatAppearance.BorderSize = 0;
-            this.btnDeleteShoes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDeleteShoes.Image = global::UMCLocker.Properties.Resources.delete_icon;
-            this.btnDeleteShoes.Location = new System.Drawing.Point(66, 0);
-            this.btnDeleteShoes.Name = "btnDeleteShoes";
-            this.btnDeleteShoes.Size = new System.Drawing.Size(35, 29);
-            this.btnDeleteShoes.TabIndex = 15;
-            this.btnDeleteShoes.UseVisualStyleBackColor = true;
-            this.btnDeleteShoes.Click += new System.EventHandler(this.btnDeleteShoes_Click);
+            chartArea1.Name = "ChartArea1";
+            this.chartShoesNam.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chartShoesNam.Legends.Add(legend1);
+            this.chartShoesNam.Location = new System.Drawing.Point(691, 346);
+            this.chartShoesNam.Name = "chartShoesNam";
+            this.chartShoesNam.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
+            this.chartShoesNam.PaletteCustomColors = new System.Drawing.Color[] {
+        System.Drawing.Color.SteelBlue,
+        System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))))};
+            series1.ChartArea = "ChartArea1";
+            series1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            series1.IsVisibleInLegend = false;
+            series1.LabelBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            series1.LabelBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            series1.Legend = "Legend1";
+            series1.Name = "Locker";
+            this.chartShoesNam.Series.Add(series1);
+            this.chartShoesNam.Size = new System.Drawing.Size(531, 300);
+            this.chartShoesNam.TabIndex = 4;
+            this.chartShoesNam.Text = "chart2";
+            title1.Name = "Tủ Locker nữ";
+            this.chartShoesNam.Titles.Add(title1);
+            // 
+            // chartLockerNam
+            // 
+            chartArea2.Name = "ChartArea1";
+            this.chartLockerNam.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.chartLockerNam.Legends.Add(legend2);
+            this.chartLockerNam.Location = new System.Drawing.Point(691, 36);
+            this.chartLockerNam.Name = "chartLockerNam";
+            this.chartLockerNam.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
+            this.chartLockerNam.PaletteCustomColors = new System.Drawing.Color[] {
+        System.Drawing.Color.SteelBlue,
+        System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))))};
+            series2.ChartArea = "ChartArea1";
+            series2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            series2.IsVisibleInLegend = false;
+            series2.LabelBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            series2.LabelBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            series2.Legend = "Legend1";
+            series2.Name = "Locker";
+            this.chartLockerNam.Series.Add(series2);
+            this.chartLockerNam.Size = new System.Drawing.Size(531, 300);
+            this.chartLockerNam.TabIndex = 3;
+            this.chartLockerNam.Text = "chart3";
+            title2.Name = "Tủ Locker nữ";
+            this.chartLockerNam.Titles.Add(title2);
             // 
             // MainTab
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(1283, 720);
+            this.ClientSize = new System.Drawing.Size(1283, 754);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -1510,7 +1734,13 @@ namespace UMCLocker
             ((System.ComponentModel.ISupportInitialize)(this.dgrvShoes)).EndInit();
             this.tPSetting.ResumeLayout(false);
             this.tPSetting.PerformLayout();
+            this.tPChart.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.chartLockerNu)).EndInit();
+            this.tableLayoutPanel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartShoesNu)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartShoesNam)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartLockerNam)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1658,7 +1888,25 @@ namespace UMCLocker
         private Button btnEditShoes;
         private Button btnDeleteLocker;
         private Button btnEditLocker;
+        private Button btnFinđuplicateKey;
+        private System.ComponentModel.BackgroundWorker bgwSettingFindDup;
+        private Label lblStatusDup;
+        private TabPage tPChart;
+        private System.ComponentModel.BackgroundWorker bgwChart;
+        private TableLayoutPanel tableLayoutPanel2;
+        private Label label5;
+        private Label label4;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chartLockerNu;
 
+        private System.Windows.Forms.DataVisualization.Charting.Chart chartShoesNam;
+        public System.Windows.Forms.DataVisualization.Charting.Chart ChartShoesNam { get => chartShoesNam; }
+        private System.Windows.Forms.DataVisualization.Charting.Chart chartLockerNam;
+        public System.Windows.Forms.DataVisualization.Charting.Chart ChartLockerNam { get => chartLockerNam; }
+        private System.Windows.Forms.DataVisualization.Charting.Chart chartShoesNu;
+        public System.Windows.Forms.DataVisualization.Charting.Chart ChartShoesNu { get => chartShoesNu; }
+        public System.Windows.Forms.DataVisualization.Charting.Chart ChartLockerNu { get => chartLockerNu; }
+        public System.ComponentModel.BackgroundWorker BgwChart { get => bgwChart; }
+        public System.ComponentModel.BackgroundWorker BgwSettingFindDup { get => bgwSettingFindDup; }
         public Label LblStatusAddStaff { get => lblStatusAddStaff; }
         public System.ComponentModel.BackgroundWorker BgwSync  { get => bgwSync; }
 

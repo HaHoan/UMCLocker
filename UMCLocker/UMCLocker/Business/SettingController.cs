@@ -206,5 +206,26 @@ namespace UMCLocker.Business
                 view.BgwSettingAddStaff.RunWorkerAsync(argument: sFileName);
             }
         }
+
+        internal void btnFinđuplicateKey_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog choofdlog = new OpenFileDialog();
+            choofdlog.FilterIndex = 1;
+
+            if (choofdlog.ShowDialog() == DialogResult.OK)
+            {
+                string sFileName = choofdlog.FileName;
+                view.BgwSettingFindDup.RunWorkerAsync(argument: sFileName);
+            }
+        }
+
+        internal void bgwSettingFindDup_DoWork(object sender, DoWorkEventArgs e)
+        {
+
+            string sFileName = (string)e.Argument;
+           
+            ResultInfo result = Utils.duplicate(sFileName);
+            e.Result = result.message;
+        }
     }
 }

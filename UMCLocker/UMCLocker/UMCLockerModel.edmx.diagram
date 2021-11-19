@@ -18,6 +18,7 @@
         <EntityTypeShape EntityType="UMCLOCKERModel.Locker" Width="1.5" PointX="3" PointY="1.25" />
         <AssociationConnector Association="UMCLOCKERModel.FK_HistoryLocker" />
         <AssociationConnector Association="UMCLOCKERModel.FK_LockerStaff" />
+        <EntityTypeShape EntityType="UMCLOCKERModel.TEMP" Width="1.5" PointX="7.375" PointY="0.75" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
