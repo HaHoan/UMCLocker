@@ -42,14 +42,6 @@ namespace UMCLocker
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title4 = new System.Windows.Forms.DataVisualization.Charting.Title();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title3 = new System.Windows.Forms.DataVisualization.Charting.Title();
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
@@ -58,6 +50,14 @@ namespace UMCLocker
             System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Title title2 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title3 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title4 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnLogin = new System.Windows.Forms.Button();
@@ -173,6 +173,9 @@ namespace UMCLocker
             this.lblStatusAddStaff = new System.Windows.Forms.Label();
             this.btnAddNewStaffFromExcel = new System.Windows.Forms.Button();
             this.tPChart = new System.Windows.Forms.TabPage();
+            this.chartShoesNam = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.chartLockerNam = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.chartShoesNu = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.chartLockerNu = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.label5 = new System.Windows.Forms.Label();
@@ -186,9 +189,6 @@ namespace UMCLocker
             this.bgwSync = new System.ComponentModel.BackgroundWorker();
             this.bgwSettingFindDup = new System.ComponentModel.BackgroundWorker();
             this.bgwChart = new System.ComponentModel.BackgroundWorker();
-            this.chartShoesNu = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.chartShoesNam = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.chartLockerNam = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.tabCtrMain.SuspendLayout();
@@ -209,12 +209,12 @@ namespace UMCLocker
             ((System.ComponentModel.ISupportInitialize)(this.dgrvShoes)).BeginInit();
             this.tPSetting.SuspendLayout();
             this.tPChart.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chartShoesNam)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartLockerNam)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartShoesNu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartLockerNu)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chartShoesNu)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chartShoesNam)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chartLockerNam)).BeginInit();
             this.SuspendLayout();
             // 
             // imageList1
@@ -314,7 +314,7 @@ namespace UMCLocker
             this.tPStaff.Location = new System.Drawing.Point(4, 26);
             this.tPStaff.Name = "tPStaff";
             this.tPStaff.Padding = new System.Windows.Forms.Padding(3);
-            this.tPStaff.Size = new System.Drawing.Size(1275, 619);
+            this.tPStaff.Size = new System.Drawing.Size(1275, 653);
             this.tPStaff.TabIndex = 0;
             this.tPStaff.Text = "Quản lý nhân viên";
             this.tPStaff.UseVisualStyleBackColor = true;
@@ -324,7 +324,7 @@ namespace UMCLocker
             this.pbStaff.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pbStaff.BackColor = System.Drawing.Color.Transparent;
             this.pbStaff.Image = global::UMCLocker.Properties.Resources.loading;
-            this.pbStaff.Location = new System.Drawing.Point(597, 258);
+            this.pbStaff.Location = new System.Drawing.Point(597, 275);
             this.pbStaff.Name = "pbStaff";
             this.pbStaff.Size = new System.Drawing.Size(64, 64);
             this.pbStaff.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -386,7 +386,7 @@ namespace UMCLocker
             this.dgrvStaff.ReadOnly = true;
             this.dgrvStaff.RowHeadersVisible = false;
             this.dgrvStaff.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.dgrvStaff.Size = new System.Drawing.Size(1267, 521);
+            this.dgrvStaff.Size = new System.Drawing.Size(1267, 555);
             this.dgrvStaff.TabIndex = 2;
             this.dgrvStaff.VirtualMode = true;
             this.dgrvStaff.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgrvStaff_CellClick);
@@ -545,7 +545,7 @@ namespace UMCLocker
             // 
             this.panel9.Controls.Add(this.lblInfo);
             this.panel9.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel9.Location = new System.Drawing.Point(3, 561);
+            this.panel9.Location = new System.Drawing.Point(3, 595);
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(1267, 53);
             this.panel9.TabIndex = 1;
@@ -717,7 +717,7 @@ namespace UMCLocker
             this.tPTrash.Location = new System.Drawing.Point(4, 26);
             this.tPTrash.Name = "tPTrash";
             this.tPTrash.Padding = new System.Windows.Forms.Padding(3);
-            this.tPTrash.Size = new System.Drawing.Size(1275, 619);
+            this.tPTrash.Size = new System.Drawing.Size(1275, 653);
             this.tPTrash.TabIndex = 4;
             this.tPTrash.Text = "Danh sách nghỉ việc";
             this.tPTrash.UseVisualStyleBackColor = true;
@@ -727,7 +727,7 @@ namespace UMCLocker
             this.pbStaffTrash.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pbStaffTrash.BackColor = System.Drawing.Color.Transparent;
             this.pbStaffTrash.Image = global::UMCLocker.Properties.Resources.loading;
-            this.pbStaffTrash.Location = new System.Drawing.Point(605, 277);
+            this.pbStaffTrash.Location = new System.Drawing.Point(605, 294);
             this.pbStaffTrash.Name = "pbStaffTrash";
             this.pbStaffTrash.Size = new System.Drawing.Size(64, 64);
             this.pbStaffTrash.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -791,7 +791,7 @@ namespace UMCLocker
             this.dgrvTrash.ReadOnly = true;
             this.dgrvTrash.RowHeadersVisible = false;
             this.dgrvTrash.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.dgrvTrash.Size = new System.Drawing.Size(1269, 576);
+            this.dgrvTrash.Size = new System.Drawing.Size(1269, 610);
             this.dgrvTrash.TabIndex = 5;
             this.dgrvTrash.VirtualMode = true;
             // 
@@ -1078,7 +1078,7 @@ namespace UMCLocker
             this.tPKey.Location = new System.Drawing.Point(4, 26);
             this.tPKey.Name = "tPKey";
             this.tPKey.Padding = new System.Windows.Forms.Padding(3);
-            this.tPKey.Size = new System.Drawing.Size(1275, 619);
+            this.tPKey.Size = new System.Drawing.Size(1275, 653);
             this.tPKey.TabIndex = 1;
             this.tPKey.Text = "Quản lý khóa";
             this.tPKey.UseVisualStyleBackColor = true;
@@ -1103,7 +1103,7 @@ namespace UMCLocker
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1267, 611);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1267, 645);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // panel5
@@ -1433,7 +1433,7 @@ namespace UMCLocker
             this.dgrvLocker.Name = "dgrvLocker";
             this.dgrvLocker.ReadOnly = true;
             this.dgrvLocker.RowHeadersVisible = false;
-            this.dgrvLocker.Size = new System.Drawing.Size(626, 546);
+            this.dgrvLocker.Size = new System.Drawing.Size(626, 580);
             this.dgrvLocker.TabIndex = 5;
             this.dgrvLocker.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgrvLocker_CellMouseDoubleClick);
             // 
@@ -1460,7 +1460,7 @@ namespace UMCLocker
             this.dgrvShoes.Name = "dgrvShoes";
             this.dgrvShoes.ReadOnly = true;
             this.dgrvShoes.RowHeadersVisible = false;
-            this.dgrvShoes.Size = new System.Drawing.Size(626, 546);
+            this.dgrvShoes.Size = new System.Drawing.Size(626, 580);
             this.dgrvShoes.TabIndex = 6;
             this.dgrvShoes.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgrvShoes_CellMouseDoubleClick);
             // 
@@ -1474,7 +1474,7 @@ namespace UMCLocker
             this.tPSetting.Location = new System.Drawing.Point(4, 26);
             this.tPSetting.Name = "tPSetting";
             this.tPSetting.Padding = new System.Windows.Forms.Padding(3);
-            this.tPSetting.Size = new System.Drawing.Size(1275, 619);
+            this.tPSetting.Size = new System.Drawing.Size(1275, 653);
             this.tPSetting.TabIndex = 5;
             this.tPSetting.Text = "Cài đặt";
             this.tPSetting.UseVisualStyleBackColor = true;
@@ -1531,6 +1531,87 @@ namespace UMCLocker
             this.tPChart.TabIndex = 6;
             this.tPChart.Text = "Biểu đồ";
             this.tPChart.UseVisualStyleBackColor = true;
+            // 
+            // chartShoesNam
+            // 
+            chartArea1.Name = "ChartArea1";
+            this.chartShoesNam.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chartShoesNam.Legends.Add(legend1);
+            this.chartShoesNam.Location = new System.Drawing.Point(691, 346);
+            this.chartShoesNam.Name = "chartShoesNam";
+            this.chartShoesNam.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
+            this.chartShoesNam.PaletteCustomColors = new System.Drawing.Color[] {
+        System.Drawing.Color.SteelBlue,
+        System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))))};
+            series1.ChartArea = "ChartArea1";
+            series1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            series1.IsVisibleInLegend = false;
+            series1.LabelBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            series1.LabelBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            series1.Legend = "Legend1";
+            series1.Name = "Locker";
+            this.chartShoesNam.Series.Add(series1);
+            this.chartShoesNam.Size = new System.Drawing.Size(531, 300);
+            this.chartShoesNam.TabIndex = 4;
+            this.chartShoesNam.Text = "chart2";
+            title1.Name = "Tủ Locker nữ";
+            this.chartShoesNam.Titles.Add(title1);
+            // 
+            // chartLockerNam
+            // 
+            chartArea2.Name = "ChartArea1";
+            this.chartLockerNam.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.chartLockerNam.Legends.Add(legend2);
+            this.chartLockerNam.Location = new System.Drawing.Point(691, 36);
+            this.chartLockerNam.Name = "chartLockerNam";
+            this.chartLockerNam.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
+            this.chartLockerNam.PaletteCustomColors = new System.Drawing.Color[] {
+        System.Drawing.Color.SteelBlue,
+        System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))))};
+            series2.ChartArea = "ChartArea1";
+            series2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            series2.IsVisibleInLegend = false;
+            series2.LabelBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            series2.LabelBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            series2.Legend = "Legend1";
+            series2.Name = "Locker";
+            this.chartLockerNam.Series.Add(series2);
+            this.chartLockerNam.Size = new System.Drawing.Size(531, 300);
+            this.chartLockerNam.TabIndex = 3;
+            this.chartLockerNam.Text = "chart3";
+            title2.Name = "Tủ Locker nữ";
+            this.chartLockerNam.Titles.Add(title2);
+            // 
+            // chartShoesNu
+            // 
+            chartArea3.Name = "ChartArea1";
+            this.chartShoesNu.ChartAreas.Add(chartArea3);
+            legend3.Name = "Legend1";
+            this.chartShoesNu.Legends.Add(legend3);
+            this.chartShoesNu.Location = new System.Drawing.Point(20, 344);
+            this.chartShoesNu.Name = "chartShoesNu";
+            this.chartShoesNu.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
+            this.chartShoesNu.PaletteCustomColors = new System.Drawing.Color[] {
+        System.Drawing.Color.SteelBlue,
+        System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))))};
+            series3.ChartArea = "ChartArea1";
+            series3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            series3.IsVisibleInLegend = false;
+            series3.LabelBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            series3.LabelBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            series3.Legend = "Legend1";
+            series3.Name = "Locker";
+            this.chartShoesNu.Series.Add(series3);
+            this.chartShoesNu.Size = new System.Drawing.Size(531, 300);
+            this.chartShoesNu.TabIndex = 2;
+            this.chartShoesNu.Text = "chart1";
+            title3.Name = "Tủ Locker nữ";
+            this.chartShoesNu.Titles.Add(title3);
             // 
             // chartLockerNu
             // 
@@ -1612,87 +1693,6 @@ namespace UMCLocker
             this.bgwChart.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bgwChart_DoWork);
             this.bgwChart.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bgwChart_RunWorkerCompleted);
             // 
-            // chartShoesNu
-            // 
-            chartArea3.Name = "ChartArea1";
-            this.chartShoesNu.ChartAreas.Add(chartArea3);
-            legend3.Name = "Legend1";
-            this.chartShoesNu.Legends.Add(legend3);
-            this.chartShoesNu.Location = new System.Drawing.Point(20, 344);
-            this.chartShoesNu.Name = "chartShoesNu";
-            this.chartShoesNu.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
-            this.chartShoesNu.PaletteCustomColors = new System.Drawing.Color[] {
-        System.Drawing.Color.SteelBlue,
-        System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))))};
-            series3.ChartArea = "ChartArea1";
-            series3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            series3.IsVisibleInLegend = false;
-            series3.LabelBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            series3.LabelBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            series3.Legend = "Legend1";
-            series3.Name = "Locker";
-            this.chartShoesNu.Series.Add(series3);
-            this.chartShoesNu.Size = new System.Drawing.Size(531, 300);
-            this.chartShoesNu.TabIndex = 2;
-            this.chartShoesNu.Text = "chart1";
-            title3.Name = "Tủ Locker nữ";
-            this.chartShoesNu.Titles.Add(title3);
-            // 
-            // chartShoesNam
-            // 
-            chartArea1.Name = "ChartArea1";
-            this.chartShoesNam.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.chartShoesNam.Legends.Add(legend1);
-            this.chartShoesNam.Location = new System.Drawing.Point(691, 346);
-            this.chartShoesNam.Name = "chartShoesNam";
-            this.chartShoesNam.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
-            this.chartShoesNam.PaletteCustomColors = new System.Drawing.Color[] {
-        System.Drawing.Color.SteelBlue,
-        System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))))};
-            series1.ChartArea = "ChartArea1";
-            series1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            series1.IsVisibleInLegend = false;
-            series1.LabelBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            series1.LabelBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            series1.Legend = "Legend1";
-            series1.Name = "Locker";
-            this.chartShoesNam.Series.Add(series1);
-            this.chartShoesNam.Size = new System.Drawing.Size(531, 300);
-            this.chartShoesNam.TabIndex = 4;
-            this.chartShoesNam.Text = "chart2";
-            title1.Name = "Tủ Locker nữ";
-            this.chartShoesNam.Titles.Add(title1);
-            // 
-            // chartLockerNam
-            // 
-            chartArea2.Name = "ChartArea1";
-            this.chartLockerNam.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.chartLockerNam.Legends.Add(legend2);
-            this.chartLockerNam.Location = new System.Drawing.Point(691, 36);
-            this.chartLockerNam.Name = "chartLockerNam";
-            this.chartLockerNam.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
-            this.chartLockerNam.PaletteCustomColors = new System.Drawing.Color[] {
-        System.Drawing.Color.SteelBlue,
-        System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))))};
-            series2.ChartArea = "ChartArea1";
-            series2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            series2.IsVisibleInLegend = false;
-            series2.LabelBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            series2.LabelBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            series2.Legend = "Legend1";
-            series2.Name = "Locker";
-            this.chartLockerNam.Series.Add(series2);
-            this.chartLockerNam.Size = new System.Drawing.Size(531, 300);
-            this.chartLockerNam.TabIndex = 3;
-            this.chartLockerNam.Text = "chart3";
-            title2.Name = "Tủ Locker nữ";
-            this.chartLockerNam.Titles.Add(title2);
-            // 
             // MainTab
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -1735,12 +1735,12 @@ namespace UMCLocker
             this.tPSetting.ResumeLayout(false);
             this.tPSetting.PerformLayout();
             this.tPChart.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.chartShoesNam)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartLockerNam)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartShoesNu)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartLockerNu)).EndInit();
             this.tableLayoutPanel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chartShoesNu)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chartShoesNam)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chartLockerNam)).EndInit();
             this.ResumeLayout(false);
 
         }

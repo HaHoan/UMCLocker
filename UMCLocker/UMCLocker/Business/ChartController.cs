@@ -16,7 +16,7 @@ namespace UMCLocker.Business
                 var locker = db.Lockers.ToList();
                 var shoes = db.Shoes.ToList();
 
-                var totalFemaleLocker = locker.Where(m => m.locker_type == Constants.FEMALE);
+                var totalFemaleLocker = locker.Where(m => m.locker_type == Constants.FEMALE && m.state != Constants.STATE_STOCK);
                 var totalFemaleLockerInUse = totalFemaleLocker.Where(m => m.state == Constants.STATE_USED).Count();
                 var totalFemaleLockerAvaiable = totalFemaleLocker.Where(m => m.state == Constants.STATE_AVAIABLE).Count();
 
@@ -34,7 +34,7 @@ namespace UMCLocker.Business
 
                 // tu shoes nu
 
-                var totalFemaleShoes = shoes.Where(m => m.shoes_type == Constants.FEMALE);
+                var totalFemaleShoes = shoes.Where(m => m.shoes_type == Constants.FEMALE && m.state != Constants.STATE_STOCK);
                 var totalFemaleShoesInUse = totalFemaleShoes.Where(m => m.state == Constants.STATE_USED).Count();
                 var totalFemaleShoesAvaiable = totalFemaleShoes.Where(m => m.state == Constants.STATE_AVAIABLE).Count();
 
@@ -51,9 +51,9 @@ namespace UMCLocker.Business
 
                 // tu locker nam
 
-                var totalMaleLocker = locker.Where(m => m.locker_type == Constants.MALE);
-                var totalMaleLockerInUse = totalFemaleLocker.Where(m => m.state == Constants.STATE_USED).Count();
-                var totalMaleLockerAvaiable = totalFemaleLocker.Where(m => m.state == Constants.STATE_AVAIABLE).Count();
+                var totalMaleLocker = locker.Where(m => m.locker_type == Constants.MALE && m.state != Constants.STATE_STOCK);
+                var totalMaleLockerInUse = totalMaleLocker.Where(m => m.state == Constants.STATE_USED).Count();
+                var totalMaleLockerAvaiable = totalMaleLocker.Where(m => m.state == Constants.STATE_AVAIABLE).Count();
 
                 view.ChartLockerNam.Titles.Add("Biểu đồ sử dụng khóa Locker Nam");
                 view.ChartLockerNam.Series["Locker"].Points.AddXY("Tổng", totalMaleLocker.Count().ToString());
@@ -67,9 +67,9 @@ namespace UMCLocker.Business
                 view.ChartLockerNam.Series["Locker"].Points[2].Color = Color.YellowGreen;
 
                 // tu shoes nam
-                var totalMaleShoes = shoes.Where(m => m.shoes_type == Constants.MALE);
-                var totalMaleShoesInUse = totalFemaleShoes.Where(m => m.state == Constants.STATE_USED).Count();
-                var totalMaleShoesAvaiable = totalFemaleShoes.Where(m => m.state == Constants.STATE_AVAIABLE).Count();
+                var totalMaleShoes = shoes.Where(m => m.shoes_type == Constants.MALE && m.state != Constants.STATE_STOCK);
+                var totalMaleShoesInUse = totalMaleShoes.Where(m => m.state == Constants.STATE_USED).Count();
+                var totalMaleShoesAvaiable = totalMaleShoes.Where(m => m.state == Constants.STATE_AVAIABLE).Count();
 
                 view.ChartShoesNam.Titles.Add("Biểu đồ sử dụng khóa tủ giày nam");
                 view.ChartShoesNam.Series["Locker"].Points.AddXY("Tổng", totalMaleShoes.Count().ToString());

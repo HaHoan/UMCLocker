@@ -54,6 +54,7 @@ namespace UMCLocker
         public static string PLACEHOLDER_SEARCH = "Nhập mã nhân viên...";
         public static string STATE_AVAIABLE = "AVAIABLE";
         public static string STATE_USED = "USED";
+        public static string STATE_STOCK = "Tồn kho";
         public static string STATE_RESOLVE = "Cần xử lý";
         public static string STATE_ON = "ON";
         public static string STATE_OFF = "OFF";
