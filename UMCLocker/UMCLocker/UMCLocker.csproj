@@ -14,7 +14,7 @@
     <Deterministic>true</Deterministic>
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <TargetFrameworkProfile />
-    <PublishUrl>\\vn-file\Share\18 IT\U34811%28hoanht%29\LOCKER\</PublishUrl>
+    <PublishUrl>\\172.28.10.12\Share\18 IT\U34811%28hoanht%29\LOCKER\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Unc</InstallFrom>
     <UpdateEnabled>false</UpdateEnabled>
@@ -26,7 +26,7 @@
     <MapFileExtensions>true</MapFileExtensions>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>44</ApplicationRevision>
+    <ApplicationRevision>46</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -129,6 +129,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Business\ChartController.cs" />
+    <Compile Include="Business\CustomExtension.cs" />
     <Compile Include="Business\LockerController.cs" />
     <Compile Include="Business\MainTabController.cs" />
     <Compile Include="Business\SettingController.cs" />
