@@ -343,8 +343,8 @@ namespace UMCLocker.Entities
         }
         public List<StaffEntity> SyncAllData(out string error)
         {
-            try
-            {
+            //try
+            //{
                 using (var db = new UMCLOCKEREntities())
                 {
                     List<Staff> staffs = new List<Staff>();
@@ -372,7 +372,6 @@ namespace UMCLocker.Entities
                         var Ga = GAList.Where(m => m.StaffCode == staff.staff_code.ToCompleteString()).FirstOrDefault();
                         if (Ga == null)
                         {
-
                             var liquite = GALiquite.Where(m => m.StaffCode == staff.staff_code.ToCompleteString()).FirstOrDefault();
                             if (liquite == null) continue;
                             var end_date = liquite.LiquidationDate;
@@ -396,7 +395,7 @@ namespace UMCLocker.Entities
                             staff.end_date = end_date;
 
                             staff.note = Constants.NOTE_NOT_RETURN_KEY;
-                            var cus = GAManageCus.Where(m => m.Staffcode == staff_code.ToCompleteString()).FirstOrDefault();
+                            var cus = GAManageCus.Where(m => m.Staffcode == staff.staff_code.ToCompleteString()).FirstOrDefault();
                             if (cus != null)
                                 staff.customer = cus.Customer;
                             db.SaveChanges();
@@ -459,7 +458,7 @@ namespace UMCLocker.Entities
                     GAList = GAList.Where(m => m.EntryDate >= lastDate).ToList();
                     foreach (var ga in GAList)
                     {
-                        if (staffs.Where(m => m.staff_code != Constants.VALUE_DEFAULT && staff_code.ToCompleteString() == ga.StaffCode) == null)
+                        if (staffs.Where(m => m.staff_code != Constants.VALUE_DEFAULT && m.staff_code.ToCompleteString() == ga.StaffCode) == null)
                         {
                             var Dept = db.Depts.Where(m => m.name == ga.DeptCode).FirstOrDefault();
                             if (Dept == null)
@@ -525,12 +524,12 @@ namespace UMCLocker.Entities
                     error = "";
                     return list;
                 }
-            }
-            catch (Exception e)
-            {
-                error = e.Message.ToString();
-                return null;
-            }
+            //}
+            //catch (Exception e)
+            //{
+            //    error = e.Message.ToString();
+            //    return null;
+            //}
         }
 
         public ResultInfo Insert(StaffEntity staff)
