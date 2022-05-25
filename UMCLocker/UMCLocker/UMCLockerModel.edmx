@@ -80,6 +80,7 @@
           <Property Name="customer" Type="nvarchar" MaxLength="50" />
           <Property Name="modify_date" Type="datetime" />
           <Property Name="date_change_key" Type="datetime" />
+          <Property Name="take_back_date" Type="date" />
         </EntityType>
         <EntityType Name="TEMP">
           <Key>
@@ -232,85 +233,36 @@
           <EntitySet Name="Depts" EntityType="Self.Dept" />
           <EntitySet Name="histories" EntityType="Self.history" />
           <EntitySet Name="Pos" EntityType="Self.Pos" />
-          <EntitySet Name="Staffs" EntityType="UMCLOCKERModel.Staff" />
-          <AssociationSet Name="FK_StaffDept" Association="UMCLOCKERModel.FK_StaffDept">
-            <End Role="Dept" EntitySet="Depts" />
-            <End Role="Staff" EntitySet="Staffs" />
-          </AssociationSet>
-          <AssociationSet Name="FK_StaffPos" Association="UMCLOCKERModel.FK_StaffPos">
-            <End Role="Pos" EntitySet="Pos" />
-            <End Role="Staff" EntitySet="Staffs" />
-          </AssociationSet>
           <EntitySet Name="Members" EntityType="UMCLOCKERModel.Member" />
           <EntitySet Name="Shoes" EntityType="UMCLOCKERModel.Sho" />
           <AssociationSet Name="FK_HistoryShoes" Association="UMCLOCKERModel.FK_HistoryShoes">
             <End Role="history" EntitySet="histories" />
             <End Role="Sho" EntitySet="Shoes" />
           </AssociationSet>
-          <AssociationSet Name="FK_ShoesStaff" Association="UMCLOCKERModel.FK_ShoesStaff">
-            <End Role="Sho" EntitySet="Shoes" />
-            <End Role="Staff" EntitySet="Staffs" />
-          </AssociationSet>
           <EntitySet Name="Lockers" EntityType="UMCLOCKERModel.Locker" />
           <AssociationSet Name="FK_HistoryLocker" Association="UMCLOCKERModel.FK_HistoryLocker">
             <End Role="history" EntitySet="histories" />
             <End Role="Locker" EntitySet="Lockers" />
           </AssociationSet>
+          <EntitySet Name="TEMPs" EntityType="UMCLOCKERModel.TEMP" />
+          <EntitySet Name="Staffs" EntityType="UMCLOCKERModel.Staff" />
+          <AssociationSet Name="FK_StaffDept" Association="UMCLOCKERModel.FK_StaffDept">
+            <End Role="Dept" EntitySet="Depts" />
+            <End Role="Staff" EntitySet="Staffs" />
+          </AssociationSet>
           <AssociationSet Name="FK_LockerStaff" Association="UMCLOCKERModel.FK_LockerStaff">
             <End Role="Locker" EntitySet="Lockers" />
             <End Role="Staff" EntitySet="Staffs" />
           </AssociationSet>
-          <EntitySet Name="TEMPs" EntityType="UMCLOCKERModel.TEMP" />
+          <AssociationSet Name="FK_StaffPos" Association="UMCLOCKERModel.FK_StaffPos">
+            <End Role="Pos" EntitySet="Pos" />
+            <End Role="Staff" EntitySet="Staffs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ShoesStaff" Association="UMCLOCKERModel.FK_ShoesStaff">
+            <End Role="Sho" EntitySet="Shoes" />
+            <End Role="Staff" EntitySet="Staffs" />
+          </AssociationSet>
           </EntityContainer>
-        <EntityType Name="Staff">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="full_name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="gender" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
-          <Property Name="enter_date" Type="DateTime" Precision="0" />
-          <Property Name="department" Type="Int32" />
-          <Property Name="position" Type="Int32" />
-          <Property Name="locker_id" Type="Int32" />
-          <Property Name="shoes_id" Type="Int32" />
-          <Property Name="staff_code" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="state" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Name="end_date" Type="DateTime" Precision="0" />
-          <Property Name="note" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="reason_change_key" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="customer" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="modify_date" Type="DateTime" Precision="3" />
-          <Property Name="date_change_key" Type="DateTime" Precision="3" />
-          <NavigationProperty Name="Dept" Relationship="UMCLOCKERModel.FK_StaffDept" FromRole="Staff" ToRole="Dept" />
-          <NavigationProperty Name="Pos" Relationship="UMCLOCKERModel.FK_StaffPos" FromRole="Staff" ToRole="Pos" />
-          <NavigationProperty Name="Sho" Relationship="UMCLOCKERModel.FK_ShoesStaff" FromRole="Staff" ToRole="Sho" />
-          <NavigationProperty Name="Locker" Relationship="UMCLOCKERModel.FK_LockerStaff" FromRole="Staff" ToRole="Locker" />
-        </EntityType>
-        <Association Name="FK_StaffDept">
-          <End Type="UMCLOCKERModel.Dept" Role="Dept" Multiplicity="0..1" />
-          <End Type="UMCLOCKERModel.Staff" Role="Staff" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Dept">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="Staff">
-              <PropertyRef Name="department" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_StaffPos">
-          <End Type="UMCLOCKERModel.Pos" Role="Pos" Multiplicity="0..1" />
-          <End Type="UMCLOCKERModel.Staff" Role="Staff" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Pos">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="Staff">
-              <PropertyRef Name="position" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityType Name="Member">
           <Key>
             <PropertyRef Name="Username" />
@@ -346,18 +298,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_ShoesStaff">
-          <End Type="UMCLOCKERModel.Sho" Role="Sho" Multiplicity="0..1" />
-          <End Type="UMCLOCKERModel.Staff" Role="Staff" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Sho">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="Staff">
-              <PropertyRef Name="shoes_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityType Name="Locker">
           <Key>
             <PropertyRef Name="id" />
@@ -385,18 +325,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_LockerStaff">
-          <End Type="UMCLOCKERModel.Locker" Role="Locker" Multiplicity="0..1" />
-          <End Type="UMCLOCKERModel.Staff" Role="Staff" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Locker">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="Staff">
-              <PropertyRef Name="locker_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityType Name="TEMP">
           <Key>
             <PropertyRef Name="ID" />
@@ -409,6 +337,80 @@
           <Property Name="shoes_index" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Sex" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
+        <EntityType Name="Staff">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="full_name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="gender" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="enter_date" Type="DateTime" Precision="0" />
+          <Property Name="department" Type="Int32" />
+          <Property Name="position" Type="Int32" />
+          <Property Name="locker_id" Type="Int32" />
+          <Property Name="shoes_id" Type="Int32" />
+          <Property Name="staff_code" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="state" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="end_date" Type="DateTime" Precision="0" />
+          <Property Name="note" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="reason_change_key" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="customer" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="modify_date" Type="DateTime" Precision="3" />
+          <Property Name="date_change_key" Type="DateTime" Precision="3" />
+          <Property Name="take_back_date" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="Dept" Relationship="UMCLOCKERModel.FK_StaffDept" FromRole="Staff" ToRole="Dept" />
+          <NavigationProperty Name="Locker" Relationship="UMCLOCKERModel.FK_LockerStaff" FromRole="Staff" ToRole="Locker" />
+          <NavigationProperty Name="Pos" Relationship="UMCLOCKERModel.FK_StaffPos" FromRole="Staff" ToRole="Pos" />
+          <NavigationProperty Name="Sho" Relationship="UMCLOCKERModel.FK_ShoesStaff" FromRole="Staff" ToRole="Sho" />
+        </EntityType>
+        <Association Name="FK_StaffDept">
+          <End Type="UMCLOCKERModel.Dept" Role="Dept" Multiplicity="0..1" />
+          <End Type="UMCLOCKERModel.Staff" Role="Staff" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dept">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Staff">
+              <PropertyRef Name="department" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LockerStaff">
+          <End Type="UMCLOCKERModel.Locker" Role="Locker" Multiplicity="0..1" />
+          <End Type="UMCLOCKERModel.Staff" Role="Staff" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Locker">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Staff">
+              <PropertyRef Name="locker_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StaffPos">
+          <End Type="UMCLOCKERModel.Pos" Role="Pos" Multiplicity="0..1" />
+          <End Type="UMCLOCKERModel.Staff" Role="Staff" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pos">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Staff">
+              <PropertyRef Name="position" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ShoesStaff">
+          <End Type="UMCLOCKERModel.Sho" Role="Sho" Multiplicity="0..1" />
+          <End Type="UMCLOCKERModel.Staff" Role="Staff" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sho">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Staff">
+              <PropertyRef Name="shoes_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -436,28 +438,6 @@
               <MappingFragment StoreEntitySet="Pos">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="name" ColumnName="name" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Staffs">
-            <EntityTypeMapping TypeName="UMCLOCKERModel.Staff">
-              <MappingFragment StoreEntitySet="Staff">
-                <ScalarProperty Name="date_change_key" ColumnName="date_change_key" />
-                <ScalarProperty Name="modify_date" ColumnName="modify_date" />
-                <ScalarProperty Name="customer" ColumnName="customer" />
-                <ScalarProperty Name="reason_change_key" ColumnName="reason_change_key" />
-                <ScalarProperty Name="note" ColumnName="note" />
-                <ScalarProperty Name="end_date" ColumnName="end_date" />
-                <ScalarProperty Name="state" ColumnName="state" />
-                <ScalarProperty Name="staff_code" ColumnName="staff_code" />
-                <ScalarProperty Name="shoes_id" ColumnName="shoes_id" />
-                <ScalarProperty Name="locker_id" ColumnName="locker_id" />
-                <ScalarProperty Name="position" ColumnName="position" />
-                <ScalarProperty Name="department" ColumnName="department" />
-                <ScalarProperty Name="enter_date" ColumnName="enter_date" />
-                <ScalarProperty Name="gender" ColumnName="gender" />
-                <ScalarProperty Name="full_name" ColumnName="full_name" />
-                <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -508,6 +488,29 @@
                 <ScalarProperty Name="locker_number" ColumnName="locker_number" />
                 <ScalarProperty Name="Code" ColumnName="Code" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Staffs">
+            <EntityTypeMapping TypeName="UMCLOCKERModel.Staff">
+              <MappingFragment StoreEntitySet="Staff">
+                <ScalarProperty Name="take_back_date" ColumnName="take_back_date" />
+                <ScalarProperty Name="date_change_key" ColumnName="date_change_key" />
+                <ScalarProperty Name="modify_date" ColumnName="modify_date" />
+                <ScalarProperty Name="customer" ColumnName="customer" />
+                <ScalarProperty Name="reason_change_key" ColumnName="reason_change_key" />
+                <ScalarProperty Name="note" ColumnName="note" />
+                <ScalarProperty Name="end_date" ColumnName="end_date" />
+                <ScalarProperty Name="state" ColumnName="state" />
+                <ScalarProperty Name="staff_code" ColumnName="staff_code" />
+                <ScalarProperty Name="shoes_id" ColumnName="shoes_id" />
+                <ScalarProperty Name="locker_id" ColumnName="locker_id" />
+                <ScalarProperty Name="position" ColumnName="position" />
+                <ScalarProperty Name="department" ColumnName="department" />
+                <ScalarProperty Name="enter_date" ColumnName="enter_date" />
+                <ScalarProperty Name="gender" ColumnName="gender" />
+                <ScalarProperty Name="full_name" ColumnName="full_name" />
+                <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

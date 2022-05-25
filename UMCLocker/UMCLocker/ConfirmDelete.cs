@@ -12,17 +12,26 @@ namespace UMCLocker
 {
     public partial class ConfirmDelete : Form
     {
-        public Action<bool, DateTime> OK;
-        public ConfirmDelete(string name)
+        public Action<string, DateTime, string> OK;
+        public ConfirmDelete(Staff s)
         {
             InitializeComponent();
             dtpEndDate.Value = DateTime.Now;
-            lblConfirm.Text = name + " đã trả khóa chưa?";
+            lblConfirm.Text = s.full_name + " đã trả khóa chưa?";
+            if (!string.IsNullOrEmpty(s.note))
+            {
+                cbbNote.Text = s.note;
+            }
+            if(s.end_date is DateTime ed)
+            {
+                dtpEndDate.Value = ed;
+            }
+            txbReasonKeyCannotTakeback.Text = s.reason_change_key;
         }
 
         private void btnOK_Click(object sender, EventArgs e)
         {
-            OK(rbReturnKey.Checked,dtpEndDate.Value);
+            OK(cbbNote.Text, dtpEndDate.Value, txbReasonKeyCannotTakeback.Text);
             Close();
         }
     }

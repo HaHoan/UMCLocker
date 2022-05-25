@@ -280,7 +280,9 @@ namespace UMCLocker.Entities
                         Dept = x.Dept,
                         Pos = x.Pos,
                         note = x.note,
-                        end_date = x.end_date
+                        end_date = x.end_date,
+                        take_back_date = x.take_back_date,
+                        reason_change_key = x.reason_change_key
                     }).OrderByDescending(m => m.end_date).ToList();
 
                     return list;
@@ -345,185 +347,188 @@ namespace UMCLocker.Entities
         {
             //try
             //{
-                using (var db = new UMCLOCKEREntities())
+            using (var db = new UMCLOCKEREntities())
+            {
+                List<Staff> staffs = new List<Staff>();
+                List<StaffEntity> list = new List<StaffEntity>();
+
+                staffs = db.Staffs.Include(d => d.Dept).Include(p => p.Pos)
+                                                        .Include(l => l.Locker)
+                                                        .Include(s => s.Sho)
+                                                        .OrderByDescending(r => r.enter_date)
+                                                        .Where(s => s.state == Constants.STATE_ON)
+                                                        .ToList();
+                if (staffs.Count == 0)
                 {
-                    List<Staff> staffs = new List<Staff>();
-                    List<StaffEntity> list = new List<StaffEntity>();
+                    error = "";
+                    return new List<StaffEntity>();
+                }
 
-                    staffs = db.Staffs.Include(d => d.Dept).Include(p => p.Pos)
-                                                            .Include(l => l.Locker)
-                                                            .Include(s => s.Sho)
-                                                            .OrderByDescending(r => r.enter_date)
-                                                            .Where(s => s.state == Constants.STATE_ON)
-                                                            .ToList();
-                    if (staffs.Count == 0)
+                var lastDate = staffs[0].enter_date;
+                var GADb = new GA_UMCEntities();
+                var GAList = GADb.sp_Get_All_Staff_2().ToList();
+                var GALiquite = GADb.PR_ContractLiquite.ToList();
+                var GAManageCus = GADb.PR_InputDataToManage.Where(m => m.KindView == 0).ToList();
+                foreach (var staff in staffs)
+                {
+                    var Ga = GAList.Where(m => m.StaffCode == staff.staff_code.ToCompleteString()).FirstOrDefault();
+                    if (Ga == null)
                     {
-                        error = "";
-                        return new List<StaffEntity>();
-                    }
+                        var liquite = GALiquite.Where(m => m.StaffCode == staff.staff_code.ToCompleteString()).FirstOrDefault();
+                        if (liquite == null) continue;
+                        var end_date = liquite.LiquidationDate;
 
-                    var lastDate = staffs[0].enter_date;
-                    var GADb = new GA_UMCEntities();
-                    var GAList = GADb.sp_Get_All_Staff_2().ToList();
-                    var GALiquite = GADb.PR_ContractLiquite.ToList();
-                    var GAManageCus = GADb.PR_InputDataToManage.Where(m => m.KindView == 0).ToList();
-                    foreach (var staff in staffs)
-                    {
-                        var Ga = GAList.Where(m => m.StaffCode == staff.staff_code.ToCompleteString()).FirstOrDefault();
-                        if (Ga == null)
+                        if (end_date > DateTime.Now) continue;
+                        Locker locker;
+                        Sho shoes;
+                        if (staff.locker_id != null)
                         {
-                            var liquite = GALiquite.Where(m => m.StaffCode == staff.staff_code.ToCompleteString()).FirstOrDefault();
-                            if (liquite == null) continue;
-                            var end_date = liquite.LiquidationDate;
-
-                            if (end_date > DateTime.Now) continue;
-                            Locker locker;
-                            Sho shoes;
-                            if (staff.locker_id != null)
-                            {
-                                locker = db.Lockers.Where(m => m.id == staff.locker_id).FirstOrDefault();
-                                locker.state = Constants.STATE_AVAIABLE;
-                                locker.owned = null;
-                            }
-                            if (staff.shoes_id != null)
-                            {
-                                shoes = db.Shoes.Where(m => m.id == staff.shoes_id).FirstOrDefault();
-                                shoes.state = Constants.STATE_AVAIABLE;
-                                shoes.owned = null;
-                            }
-                            staff.state = Constants.STATE_OFF;
-                            staff.end_date = end_date;
-
-                            staff.note = Constants.NOTE_NOT_RETURN_KEY;
-                            var cus = GAManageCus.Where(m => m.Staffcode == staff.staff_code.ToCompleteString()).FirstOrDefault();
-                            if (cus != null)
-                                staff.customer = cus.Customer;
-                            db.SaveChanges();
+                            locker = db.Lockers.Where(m => m.id == staff.locker_id).FirstOrDefault();
+                            locker.state = Constants.STATE_AVAIABLE;
+                            locker.owned = null;
                         }
-                        else
+                        if (staff.shoes_id != null)
                         {
-                            bool isChanged = false;
-                            if (staff.full_name.Trim() != Ga.FullName.Trim())
-                            {
-                                staff.full_name = Ga.FullName;
-                                isChanged = true;
-                            }
-                            if (staff.customer == null || (Ga.Customer != null && staff.customer.Trim() != Ga.Customer.Trim()) || Ga.Customer == null)
-                            {
-                                staff.customer = Ga.Customer;
-                                isChanged = true;
-                            }
-                            if (staff.enter_date == null || staff.enter_date != Ga.EntryDate)
-                            {
-                                staff.enter_date = Ga.EntryDate;
-                            }
-                            if (staff.Dept != null && staff.Dept.name.Trim() != Ga.DeptCode)
-                            {
-                                var Dept = db.Depts.Where(m => m.name == Ga.DeptCode).FirstOrDefault();
-                                if (Dept == null)
-                                {
-                                    Dept dept = new Dept()
-                                    {
-                                        name = Ga.DeptCode
-                                    };
-                                    db.Depts.Add(dept);
-                                    db.SaveChanges();
-                                    Dept = dept;
-                                }
-                                staff.department = Dept.id;
-                                isChanged = true;
-                            }
-                            if (staff.Pos != null && staff.Pos.name.Trim() != Ga.DeptCode)
-                            {
-                                var Pos = db.Pos.Where(m => m.name == Ga.PosName).FirstOrDefault();
-                                if (Pos == null)
-                                {
-                                    Pos pos = new Pos()
-                                    {
-                                        name = Ga.PosName
-                                    };
-                                    db.Pos.Add(pos);
-                                    db.SaveChanges();
-                                    Pos = pos;
-                                }
-                                staff.position = Pos.id;
-
-                            }
-
-
-                            if (isChanged)
-                                db.SaveChanges();
+                            shoes = db.Shoes.Where(m => m.id == staff.shoes_id).FirstOrDefault();
+                            shoes.state = Constants.STATE_AVAIABLE;
+                            shoes.owned = null;
                         }
-                    }
-                    GAList = GAList.Where(m => m.EntryDate >= lastDate).ToList();
-                    foreach (var ga in GAList)
-                    {
-                        if (staffs.Where(m => m.staff_code != Constants.VALUE_DEFAULT && m.staff_code.ToCompleteString() == ga.StaffCode) == null)
+                        staff.state = Constants.STATE_OFF;
+                        staff.end_date = end_date;
+                        if (end_date is DateTime endDate)
                         {
-                            var Dept = db.Depts.Where(m => m.name == ga.DeptCode).FirstOrDefault();
+                            staff.take_back_date = endDate.AddDays(Constants.MAX_DATE_TAKE_BACK);
+                        }
+                        staff.note = Constants.NOTE_NOT_RETURN_KEY;
+                        var cus = GAManageCus.Where(m => m.Staffcode == staff.staff_code.ToCompleteString()).FirstOrDefault();
+                        if (cus != null)
+                            staff.customer = cus.Customer;
+                        db.SaveChanges();
+                    }
+                    else
+                    {
+                        bool isChanged = false;
+                        if (staff.full_name.Trim() != Ga.FullName.Trim())
+                        {
+                            staff.full_name = Ga.FullName;
+                            isChanged = true;
+                        }
+                        if (staff.customer == null || (Ga.Customer != null && staff.customer.Trim() != Ga.Customer.Trim()) || Ga.Customer == null)
+                        {
+                            staff.customer = Ga.Customer;
+                            isChanged = true;
+                        }
+                        if (staff.enter_date == null || staff.enter_date != Ga.EntryDate)
+                        {
+                            staff.enter_date = Ga.EntryDate;
+                        }
+                        if (staff.Dept != null && staff.Dept.name.Trim() != Ga.DeptCode)
+                        {
+                            var Dept = db.Depts.Where(m => m.name == Ga.DeptCode).FirstOrDefault();
                             if (Dept == null)
                             {
                                 Dept dept = new Dept()
                                 {
-                                    name = ga.DeptCode
+                                    name = Ga.DeptCode
                                 };
                                 db.Depts.Add(dept);
                                 db.SaveChanges();
                                 Dept = dept;
                             }
-                            var Pos = db.Pos.Where(m => m.name == ga.PosName).FirstOrDefault();
+                            staff.department = Dept.id;
+                            isChanged = true;
+                        }
+                        if (staff.Pos != null && staff.Pos.name.Trim() != Ga.DeptCode)
+                        {
+                            var Pos = db.Pos.Where(m => m.name == Ga.PosName).FirstOrDefault();
                             if (Pos == null)
                             {
                                 Pos pos = new Pos()
                                 {
-                                    name = ga.PosName
+                                    name = Ga.PosName
                                 };
                                 db.Pos.Add(pos);
                                 db.SaveChanges();
                                 Pos = pos;
                             }
-                            Staff staff = new Staff()
-                            {
-                                staff_code = ga.StaffCode,
-                                full_name = ga.FullName,
-                                gender = ga.Sex,
-                                enter_date = ga.EntryDate,
-                                locker_id = null,
-                                shoes_id = null,
-                                department = Dept.id,
-                                position = Pos.id,
-                                state = Constants.STATE_ON,
-                                customer = ga.Customer
-                            };
-                            db.Staffs.Add(staff);
-                            db.SaveChanges();
-                            staffs.Add(staff);
+                            staff.position = Pos.id;
+
                         }
+
+
+                        if (isChanged)
+                            db.SaveChanges();
                     }
-                    staffs = staffs.Where(m => m.state.Trim() == Constants.STATE_ON).ToList();
-                    list = staffs.Select((x, i) => new StaffEntity
-                    {
-                        index = i + 1,
-                        id = x.id,
-                        staff_code = x.staff_code,
-                        full_name = x.full_name,
-                        gender = x.gender,
-                        enter_date = x.enter_date,
-                        locker_id = x.locker_id,
-                        shoes_id = x.shoes_id,
-                        Locker = x.Locker,
-                        department = x.department,
-                        position = x.position,
-                        Sho = x.Sho,
-                        Dept = x.Dept,
-                        Pos = x.Pos,
-                        note = x.note,
-                        end_date = x.end_date,
-                        customer = x.customer
-                    }).ToList();
-                    error = "";
-                    return list;
                 }
+                GAList = GAList.Where(m => m.EntryDate >= lastDate).ToList();
+                foreach (var ga in GAList)
+                {
+                    if (staffs.Where(m => m.staff_code != Constants.VALUE_DEFAULT && m.staff_code.ToCompleteString() == ga.StaffCode) == null)
+                    {
+                        var Dept = db.Depts.Where(m => m.name == ga.DeptCode).FirstOrDefault();
+                        if (Dept == null)
+                        {
+                            Dept dept = new Dept()
+                            {
+                                name = ga.DeptCode
+                            };
+                            db.Depts.Add(dept);
+                            db.SaveChanges();
+                            Dept = dept;
+                        }
+                        var Pos = db.Pos.Where(m => m.name == ga.PosName).FirstOrDefault();
+                        if (Pos == null)
+                        {
+                            Pos pos = new Pos()
+                            {
+                                name = ga.PosName
+                            };
+                            db.Pos.Add(pos);
+                            db.SaveChanges();
+                            Pos = pos;
+                        }
+                        Staff staff = new Staff()
+                        {
+                            staff_code = ga.StaffCode,
+                            full_name = ga.FullName,
+                            gender = ga.Sex,
+                            enter_date = ga.EntryDate,
+                            locker_id = null,
+                            shoes_id = null,
+                            department = Dept.id,
+                            position = Pos.id,
+                            state = Constants.STATE_ON,
+                            customer = ga.Customer
+                        };
+                        db.Staffs.Add(staff);
+                        db.SaveChanges();
+                        staffs.Add(staff);
+                    }
+                }
+                staffs = staffs.Where(m => m.state.Trim() == Constants.STATE_ON).ToList();
+                list = staffs.Select((x, i) => new StaffEntity
+                {
+                    index = i + 1,
+                    id = x.id,
+                    staff_code = x.staff_code,
+                    full_name = x.full_name,
+                    gender = x.gender,
+                    enter_date = x.enter_date,
+                    locker_id = x.locker_id,
+                    shoes_id = x.shoes_id,
+                    Locker = x.Locker,
+                    department = x.department,
+                    position = x.position,
+                    Sho = x.Sho,
+                    Dept = x.Dept,
+                    Pos = x.Pos,
+                    note = x.note,
+                    end_date = x.end_date,
+                    customer = x.customer
+                }).ToList();
+                error = "";
+                return list;
+            }
             //}
             //catch (Exception e)
             //{
@@ -597,6 +602,7 @@ namespace UMCLocker.Entities
                     }
                     update.state = Constants.STATE_OFF;
                     update.end_date = end_date;
+                    update.take_back_date = take_back_date;
                     update.note = note;
                     update.modify_date = DateTime.Now;
                     db.SaveChanges();
@@ -623,6 +629,34 @@ namespace UMCLocker.Entities
             {
 
                 throw;
+            }
+        }
+        public ResultInfo UpdateKeyInfoWhenNotTakeBackKey()
+        {
+            try
+            {
+                using (var db = new UMCLOCKEREntities())
+                {
+                    var update = db.Staffs.Where(s => s.id == this.id).FirstOrDefault<Staff>();
+
+                    // delete owned of old key
+                    if (update.locker_id is int locker_id1)
+                    {
+                        ResultInfo lResult = new LockerEntity().DeleteOwned(locker_id1, Constants.STATE_RESOLVE);
+                        if (lResult.code != Constants.SUCCESS) return lResult;
+                    }
+                    if (update.shoes_id is int shoes_id1)
+                    {
+                        ResultInfo sResult = new ShoesEntity().DeleteOwned(shoes_id1, Constants.STATE_RESOLVE);
+                        if (sResult.code != Constants.SUCCESS) return sResult;
+                    }
+                  
+                    return new ResultInfo(Constants.SUCCESS, update.id.ToString());
+                }
+            }
+            catch (Exception e)
+            {
+                return new ResultInfo(Constants.ERROR_COMMON, e.Message.ToString());
             }
         }
         public ResultInfo Update()

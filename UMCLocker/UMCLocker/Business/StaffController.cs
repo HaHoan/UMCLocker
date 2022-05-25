@@ -188,11 +188,12 @@ namespace UMCLocker.Business
             try
             {
                 StaffEntity s = ((List<StaffEntity>)bindingSource.DataSource)[view.DgrvStaff.CurrentCell.RowIndex];
-                ConfirmDelete formConfirm = new ConfirmDelete(s.full_name);
-                formConfirm.OK += (isReturnKey, endDate) =>
+                ConfirmDelete formConfirm = new ConfirmDelete(s);
+                formConfirm.OK += (isReturnKey, endDate, note) =>
                 {
                     s.end_date = endDate;
-                    s.note = isReturnKey ? Constants.NOTE_RETURN_KEY : Constants.NOTE_NOT_RETURN_KEY;
+                    s.take_back_date = endDate.AddDays(Constants.MAX_DATE_TAKE_BACK);
+                    s.note = isReturnKey;
                     ResultInfo result = s.MoveToTrash();
                     if (result.code < 0)
                     {

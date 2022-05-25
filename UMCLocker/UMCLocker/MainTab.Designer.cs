@@ -108,28 +108,6 @@ namespace UMCLocker
             this.tPTrash = new System.Windows.Forms.TabPage();
             this.pbStaffTrash = new System.Windows.Forms.PictureBox();
             this.dgrvTrash = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Customer = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.end_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.note = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel10 = new System.Windows.Forms.Panel();
             this.btnEditTrash = new System.Windows.Forms.Button();
             this.btnExportTrash = new System.Windows.Forms.Button();
@@ -189,6 +167,30 @@ namespace UMCLocker
             this.bgwSync = new System.ComponentModel.BackgroundWorker();
             this.bgwSettingFindDup = new System.ComponentModel.BackgroundWorker();
             this.bgwChart = new System.ComponentModel.BackgroundWorker();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Customer = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.end_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TakeBackDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.note = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ReasonNotTakeBackKey = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.tabCtrMain.SuspendLayout();
@@ -237,7 +239,7 @@ namespace UMCLocker
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1283, 61);
+            this.panel1.Size = new System.Drawing.Size(1359, 61);
             this.panel1.TabIndex = 0;
             // 
             // btnLogin
@@ -260,7 +262,7 @@ namespace UMCLocker
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(0, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(1283, 61);
+            this.label3.Size = new System.Drawing.Size(1359, 61);
             this.label3.TabIndex = 0;
             this.label3.Text = "PHẦN MỀM QUẢN LÝ KHÓA TỦ";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -274,7 +276,7 @@ namespace UMCLocker
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel2.Location = new System.Drawing.Point(0, 744);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1283, 10);
+            this.panel2.Size = new System.Drawing.Size(1359, 10);
             this.panel2.TabIndex = 1;
             // 
             // panel3
@@ -283,7 +285,7 @@ namespace UMCLocker
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(0, 61);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1283, 683);
+            this.panel3.Size = new System.Drawing.Size(1359, 683);
             this.panel3.TabIndex = 2;
             // 
             // tabCtrMain
@@ -299,7 +301,7 @@ namespace UMCLocker
             this.tabCtrMain.Location = new System.Drawing.Point(0, 0);
             this.tabCtrMain.Name = "tabCtrMain";
             this.tabCtrMain.SelectedIndex = 0;
-            this.tabCtrMain.Size = new System.Drawing.Size(1283, 683);
+            this.tabCtrMain.Size = new System.Drawing.Size(1359, 683);
             this.tabCtrMain.TabIndex = 1;
             this.tabCtrMain.SelectedIndexChanged += new System.EventHandler(this.tabCtrMain_SelectedIndexChanged);
             // 
@@ -314,7 +316,7 @@ namespace UMCLocker
             this.tPStaff.Location = new System.Drawing.Point(4, 26);
             this.tPStaff.Name = "tPStaff";
             this.tPStaff.Padding = new System.Windows.Forms.Padding(3);
-            this.tPStaff.Size = new System.Drawing.Size(1275, 653);
+            this.tPStaff.Size = new System.Drawing.Size(1351, 653);
             this.tPStaff.TabIndex = 0;
             this.tPStaff.Text = "Quản lý nhân viên";
             this.tPStaff.UseVisualStyleBackColor = true;
@@ -324,7 +326,7 @@ namespace UMCLocker
             this.pbStaff.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pbStaff.BackColor = System.Drawing.Color.Transparent;
             this.pbStaff.Image = global::UMCLocker.Properties.Resources.loading;
-            this.pbStaff.Location = new System.Drawing.Point(597, 275);
+            this.pbStaff.Location = new System.Drawing.Point(635, 275);
             this.pbStaff.Name = "pbStaff";
             this.pbStaff.Size = new System.Drawing.Size(64, 64);
             this.pbStaff.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -386,7 +388,7 @@ namespace UMCLocker
             this.dgrvStaff.ReadOnly = true;
             this.dgrvStaff.RowHeadersVisible = false;
             this.dgrvStaff.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.dgrvStaff.Size = new System.Drawing.Size(1267, 555);
+            this.dgrvStaff.Size = new System.Drawing.Size(1343, 555);
             this.dgrvStaff.TabIndex = 2;
             this.dgrvStaff.VirtualMode = true;
             this.dgrvStaff.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgrvStaff_CellClick);
@@ -547,7 +549,7 @@ namespace UMCLocker
             this.panel9.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel9.Location = new System.Drawing.Point(3, 595);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(1267, 53);
+            this.panel9.Size = new System.Drawing.Size(1343, 53);
             this.panel9.TabIndex = 1;
             // 
             // lblInfo
@@ -575,7 +577,7 @@ namespace UMCLocker
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel4.Location = new System.Drawing.Point(3, 3);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1267, 37);
+            this.panel4.Size = new System.Drawing.Size(1343, 37);
             this.panel4.TabIndex = 0;
             // 
             // btnSync
@@ -717,7 +719,7 @@ namespace UMCLocker
             this.tPTrash.Location = new System.Drawing.Point(4, 26);
             this.tPTrash.Name = "tPTrash";
             this.tPTrash.Padding = new System.Windows.Forms.Padding(3);
-            this.tPTrash.Size = new System.Drawing.Size(1275, 653);
+            this.tPTrash.Size = new System.Drawing.Size(1351, 653);
             this.tPTrash.TabIndex = 4;
             this.tPTrash.Text = "Danh sách nghỉ việc";
             this.tPTrash.UseVisualStyleBackColor = true;
@@ -727,7 +729,7 @@ namespace UMCLocker
             this.pbStaffTrash.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pbStaffTrash.BackColor = System.Drawing.Color.Transparent;
             this.pbStaffTrash.Image = global::UMCLocker.Properties.Resources.loading;
-            this.pbStaffTrash.Location = new System.Drawing.Point(605, 294);
+            this.pbStaffTrash.Location = new System.Drawing.Point(643, 294);
             this.pbStaffTrash.Name = "pbStaffTrash";
             this.pbStaffTrash.Size = new System.Drawing.Size(64, 64);
             this.pbStaffTrash.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -768,7 +770,9 @@ namespace UMCLocker
             this.dataGridViewTextBoxColumn10,
             this.dataGridViewTextBoxColumn11,
             this.end_date,
+            this.TakeBackDate,
             this.note,
+            this.ReasonNotTakeBackKey,
             this.dataGridViewTextBoxColumn12,
             this.dataGridViewTextBoxColumn13,
             this.dataGridViewTextBoxColumn14,
@@ -791,173 +795,9 @@ namespace UMCLocker
             this.dgrvTrash.ReadOnly = true;
             this.dgrvTrash.RowHeadersVisible = false;
             this.dgrvTrash.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.dgrvTrash.Size = new System.Drawing.Size(1269, 610);
+            this.dgrvTrash.Size = new System.Drawing.Size(1345, 610);
             this.dgrvTrash.TabIndex = 5;
             this.dgrvTrash.VirtualMode = true;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "index";
-            this.dataGridViewTextBoxColumn1.HeaderText = "STT";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.Width = 56;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "staff_code";
-            this.dataGridViewTextBoxColumn2.HeaderText = "Mã nhân viên ";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "full_name";
-            this.dataGridViewTextBoxColumn3.HeaderText = "Họ và tên";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "genderStr";
-            this.dataGridViewTextBoxColumn4.HeaderText = "Giới tính";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "enter_date";
-            this.dataGridViewTextBoxColumn5.HeaderText = "Ngày vào";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.ReadOnly = true;
-            // 
-            // Customer
-            // 
-            this.Customer.DataPropertyName = "customer";
-            this.Customer.HeaderText = "Khách hàng";
-            this.Customer.Name = "Customer";
-            this.Customer.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "deptName";
-            this.dataGridViewTextBoxColumn6.HeaderText = "Phòng ban";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            this.dataGridViewTextBoxColumn6.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn7
-            // 
-            this.dataGridViewTextBoxColumn7.DataPropertyName = "posName";
-            this.dataGridViewTextBoxColumn7.HeaderText = "Chức vụ";
-            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            this.dataGridViewTextBoxColumn7.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn8
-            // 
-            this.dataGridViewTextBoxColumn8.DataPropertyName = "locker_number";
-            this.dataGridViewTextBoxColumn8.HeaderText = "Số tủ locker";
-            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
-            this.dataGridViewTextBoxColumn8.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn9
-            // 
-            this.dataGridViewTextBoxColumn9.DataPropertyName = "locker_index";
-            this.dataGridViewTextBoxColumn9.HeaderText = "Số ô locker";
-            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
-            this.dataGridViewTextBoxColumn9.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn10
-            // 
-            this.dataGridViewTextBoxColumn10.DataPropertyName = "shoes_number";
-            this.dataGridViewTextBoxColumn10.HeaderText = "Số tủ giày";
-            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
-            this.dataGridViewTextBoxColumn10.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn11
-            // 
-            this.dataGridViewTextBoxColumn11.DataPropertyName = "shoes_index";
-            this.dataGridViewTextBoxColumn11.HeaderText = "Số ô giày";
-            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
-            this.dataGridViewTextBoxColumn11.ReadOnly = true;
-            // 
-            // end_date
-            // 
-            this.end_date.DataPropertyName = "end_date";
-            this.end_date.HeaderText = "Ngày kết thúc";
-            this.end_date.Name = "end_date";
-            this.end_date.ReadOnly = true;
-            // 
-            // note
-            // 
-            this.note.DataPropertyName = "note";
-            this.note.HeaderText = "Ghi chú";
-            this.note.Name = "note";
-            this.note.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn12
-            // 
-            this.dataGridViewTextBoxColumn12.DataPropertyName = "id";
-            this.dataGridViewTextBoxColumn12.HeaderText = "id";
-            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
-            this.dataGridViewTextBoxColumn12.ReadOnly = true;
-            this.dataGridViewTextBoxColumn12.Visible = false;
-            // 
-            // dataGridViewTextBoxColumn13
-            // 
-            this.dataGridViewTextBoxColumn13.DataPropertyName = "Locker";
-            this.dataGridViewTextBoxColumn13.HeaderText = "locker";
-            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
-            this.dataGridViewTextBoxColumn13.ReadOnly = true;
-            this.dataGridViewTextBoxColumn13.Visible = false;
-            // 
-            // dataGridViewTextBoxColumn14
-            // 
-            this.dataGridViewTextBoxColumn14.DataPropertyName = "Pos";
-            this.dataGridViewTextBoxColumn14.HeaderText = "Pos";
-            this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
-            this.dataGridViewTextBoxColumn14.ReadOnly = true;
-            this.dataGridViewTextBoxColumn14.Visible = false;
-            // 
-            // dataGridViewTextBoxColumn15
-            // 
-            this.dataGridViewTextBoxColumn15.DataPropertyName = "Dept";
-            this.dataGridViewTextBoxColumn15.HeaderText = "Dept";
-            this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
-            this.dataGridViewTextBoxColumn15.ReadOnly = true;
-            this.dataGridViewTextBoxColumn15.Visible = false;
-            // 
-            // dataGridViewTextBoxColumn16
-            // 
-            this.dataGridViewTextBoxColumn16.DataPropertyName = "position";
-            this.dataGridViewTextBoxColumn16.HeaderText = "posId";
-            this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
-            this.dataGridViewTextBoxColumn16.ReadOnly = true;
-            this.dataGridViewTextBoxColumn16.Visible = false;
-            // 
-            // dataGridViewTextBoxColumn17
-            // 
-            this.dataGridViewTextBoxColumn17.DataPropertyName = "info";
-            this.dataGridViewTextBoxColumn17.HeaderText = "info";
-            this.dataGridViewTextBoxColumn17.Name = "dataGridViewTextBoxColumn17";
-            this.dataGridViewTextBoxColumn17.ReadOnly = true;
-            this.dataGridViewTextBoxColumn17.Visible = false;
-            // 
-            // dataGridViewTextBoxColumn18
-            // 
-            this.dataGridViewTextBoxColumn18.DataPropertyName = "department";
-            this.dataGridViewTextBoxColumn18.HeaderText = "deptId";
-            this.dataGridViewTextBoxColumn18.Name = "dataGridViewTextBoxColumn18";
-            this.dataGridViewTextBoxColumn18.ReadOnly = true;
-            this.dataGridViewTextBoxColumn18.Visible = false;
-            // 
-            // dataGridViewTextBoxColumn19
-            // 
-            this.dataGridViewTextBoxColumn19.DataPropertyName = "Sho";
-            this.dataGridViewTextBoxColumn19.HeaderText = "Sho";
-            this.dataGridViewTextBoxColumn19.Name = "dataGridViewTextBoxColumn19";
-            this.dataGridViewTextBoxColumn19.ReadOnly = true;
-            this.dataGridViewTextBoxColumn19.Visible = false;
             // 
             // panel10
             // 
@@ -972,7 +812,7 @@ namespace UMCLocker
             this.panel10.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel10.Location = new System.Drawing.Point(3, 3);
             this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(1269, 37);
+            this.panel10.Size = new System.Drawing.Size(1345, 37);
             this.panel10.TabIndex = 4;
             // 
             // btnEditTrash
@@ -1032,7 +872,9 @@ namespace UMCLocker
             this.cbbNote.FormattingEnabled = true;
             this.cbbNote.Items.AddRange(new object[] {
             "NV có trả khóa",
-            "NV không trả khóa"});
+            "NV không trả khóa",
+            "Đã thu hồi và chưa trả khóa",
+            "Khóa không thu hồi được"});
             this.cbbNote.Location = new System.Drawing.Point(732, 7);
             this.cbbNote.Name = "cbbNote";
             this.cbbNote.Size = new System.Drawing.Size(121, 21);
@@ -1693,10 +1535,194 @@ namespace UMCLocker
             this.bgwChart.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bgwChart_DoWork);
             this.bgwChart.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bgwChart_RunWorkerCompleted);
             // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "index";
+            this.dataGridViewTextBoxColumn1.HeaderText = "STT";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Width = 56;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "staff_code";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Mã nhân viên ";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            this.dataGridViewTextBoxColumn2.Width = 113;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "full_name";
+            this.dataGridViewTextBoxColumn3.HeaderText = "Họ và tên";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "genderStr";
+            this.dataGridViewTextBoxColumn4.HeaderText = "Giới tính";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "enter_date";
+            this.dataGridViewTextBoxColumn5.HeaderText = "Ngày vào";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            // 
+            // Customer
+            // 
+            this.Customer.DataPropertyName = "customer";
+            this.Customer.HeaderText = "Khách hàng";
+            this.Customer.Name = "Customer";
+            this.Customer.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "deptName";
+            this.dataGridViewTextBoxColumn6.HeaderText = "Phòng ban";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            this.dataGridViewTextBoxColumn7.DataPropertyName = "posName";
+            this.dataGridViewTextBoxColumn7.HeaderText = "Chức vụ";
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            this.dataGridViewTextBoxColumn7.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn8
+            // 
+            this.dataGridViewTextBoxColumn8.DataPropertyName = "locker_number";
+            this.dataGridViewTextBoxColumn8.HeaderText = "Số tủ locker";
+            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            this.dataGridViewTextBoxColumn8.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn9
+            // 
+            this.dataGridViewTextBoxColumn9.DataPropertyName = "locker_index";
+            this.dataGridViewTextBoxColumn9.HeaderText = "Số ô locker";
+            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            this.dataGridViewTextBoxColumn9.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn10
+            // 
+            this.dataGridViewTextBoxColumn10.DataPropertyName = "shoes_number";
+            this.dataGridViewTextBoxColumn10.HeaderText = "Số tủ giày";
+            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
+            this.dataGridViewTextBoxColumn10.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn11
+            // 
+            this.dataGridViewTextBoxColumn11.DataPropertyName = "shoes_index";
+            this.dataGridViewTextBoxColumn11.HeaderText = "Số ô giày";
+            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
+            this.dataGridViewTextBoxColumn11.ReadOnly = true;
+            // 
+            // end_date
+            // 
+            this.end_date.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.end_date.DataPropertyName = "end_date";
+            this.end_date.HeaderText = "Ngày kết thúc";
+            this.end_date.Name = "end_date";
+            this.end_date.ReadOnly = true;
+            this.end_date.Width = 112;
+            // 
+            // TakeBackDate
+            // 
+            this.TakeBackDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.TakeBackDate.DataPropertyName = "take_back_date";
+            this.TakeBackDate.HeaderText = "Ngày thu hồi";
+            this.TakeBackDate.Name = "TakeBackDate";
+            this.TakeBackDate.ReadOnly = true;
+            this.TakeBackDate.Width = 104;
+            // 
+            // note
+            // 
+            this.note.DataPropertyName = "note";
+            this.note.HeaderText = "Ghi chú";
+            this.note.Name = "note";
+            this.note.ReadOnly = true;
+            // 
+            // ReasonNotTakeBackKey
+            // 
+            this.ReasonNotTakeBackKey.DataPropertyName = "reason_change_key";
+            this.ReasonNotTakeBackKey.HeaderText = "Remark";
+            this.ReasonNotTakeBackKey.Name = "ReasonNotTakeBackKey";
+            this.ReasonNotTakeBackKey.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn12
+            // 
+            this.dataGridViewTextBoxColumn12.DataPropertyName = "id";
+            this.dataGridViewTextBoxColumn12.HeaderText = "id";
+            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
+            this.dataGridViewTextBoxColumn12.ReadOnly = true;
+            this.dataGridViewTextBoxColumn12.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn13
+            // 
+            this.dataGridViewTextBoxColumn13.DataPropertyName = "Locker";
+            this.dataGridViewTextBoxColumn13.HeaderText = "locker";
+            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
+            this.dataGridViewTextBoxColumn13.ReadOnly = true;
+            this.dataGridViewTextBoxColumn13.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn14
+            // 
+            this.dataGridViewTextBoxColumn14.DataPropertyName = "Pos";
+            this.dataGridViewTextBoxColumn14.HeaderText = "Pos";
+            this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
+            this.dataGridViewTextBoxColumn14.ReadOnly = true;
+            this.dataGridViewTextBoxColumn14.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn15
+            // 
+            this.dataGridViewTextBoxColumn15.DataPropertyName = "Dept";
+            this.dataGridViewTextBoxColumn15.HeaderText = "Dept";
+            this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
+            this.dataGridViewTextBoxColumn15.ReadOnly = true;
+            this.dataGridViewTextBoxColumn15.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn16
+            // 
+            this.dataGridViewTextBoxColumn16.DataPropertyName = "position";
+            this.dataGridViewTextBoxColumn16.HeaderText = "posId";
+            this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
+            this.dataGridViewTextBoxColumn16.ReadOnly = true;
+            this.dataGridViewTextBoxColumn16.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn17
+            // 
+            this.dataGridViewTextBoxColumn17.DataPropertyName = "info";
+            this.dataGridViewTextBoxColumn17.HeaderText = "info";
+            this.dataGridViewTextBoxColumn17.Name = "dataGridViewTextBoxColumn17";
+            this.dataGridViewTextBoxColumn17.ReadOnly = true;
+            this.dataGridViewTextBoxColumn17.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn18
+            // 
+            this.dataGridViewTextBoxColumn18.DataPropertyName = "department";
+            this.dataGridViewTextBoxColumn18.HeaderText = "deptId";
+            this.dataGridViewTextBoxColumn18.Name = "dataGridViewTextBoxColumn18";
+            this.dataGridViewTextBoxColumn18.ReadOnly = true;
+            this.dataGridViewTextBoxColumn18.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn19
+            // 
+            this.dataGridViewTextBoxColumn19.DataPropertyName = "Sho";
+            this.dataGridViewTextBoxColumn19.HeaderText = "Sho";
+            this.dataGridViewTextBoxColumn19.Name = "dataGridViewTextBoxColumn19";
+            this.dataGridViewTextBoxColumn19.ReadOnly = true;
+            this.dataGridViewTextBoxColumn19.Visible = false;
+            // 
             // MainTab
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(1283, 754);
+            this.ClientSize = new System.Drawing.Size(1359, 754);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -1835,28 +1861,6 @@ namespace UMCLocker
         private PictureBox pbStaffTrash;
         private Button btnExportStaff;
         private Button btnExportTrash;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private DataGridViewTextBoxColumn Customer;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
-        private DataGridViewTextBoxColumn end_date;
-        private DataGridViewTextBoxColumn note;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn16;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn17;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn18;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn19;
         private DataGridViewTextBoxColumn index;
         private DataGridViewTextBoxColumn staff_code;
         private DataGridViewTextBoxColumn full_name;
@@ -1903,6 +1907,31 @@ namespace UMCLocker
         private System.Windows.Forms.DataVisualization.Charting.Chart chartLockerNam;
         public System.Windows.Forms.DataVisualization.Charting.Chart ChartLockerNam { get => chartLockerNam; }
         private System.Windows.Forms.DataVisualization.Charting.Chart chartShoesNu;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private DataGridViewTextBoxColumn Customer;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
+        private DataGridViewTextBoxColumn end_date;
+        private DataGridViewTextBoxColumn TakeBackDate;
+        private DataGridViewTextBoxColumn note;
+        private DataGridViewTextBoxColumn ReasonNotTakeBackKey;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn16;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn17;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn18;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn19;
+
         public System.Windows.Forms.DataVisualization.Charting.Chart ChartShoesNu { get => chartShoesNu; }
         public System.Windows.Forms.DataVisualization.Charting.Chart ChartLockerNu { get => chartLockerNu; }
         public System.ComponentModel.BackgroundWorker BgwChart { get => bgwChart; }

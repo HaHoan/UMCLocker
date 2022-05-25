@@ -30,11 +30,12 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ConfirmDelete));
             this.lblConfirm = new System.Windows.Forms.Label();
-            this.rbReturnKey = new System.Windows.Forms.RadioButton();
-            this.rbNotReturnKey = new System.Windows.Forms.RadioButton();
             this.btnOK = new System.Windows.Forms.Button();
             this.dtpEndDate = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txbReasonKeyCannotTakeback = new System.Windows.Forms.TextBox();
+            this.cbbNote = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // lblConfirm
@@ -47,32 +48,9 @@
             this.lblConfirm.TabIndex = 0;
             this.lblConfirm.Text = "Nhân viên này đã trả khóa chưa?";
             // 
-            // rbReturnKey
-            // 
-            this.rbReturnKey.AutoSize = true;
-            this.rbReturnKey.Checked = true;
-            this.rbReturnKey.Location = new System.Drawing.Point(21, 44);
-            this.rbReturnKey.Name = "rbReturnKey";
-            this.rbReturnKey.Size = new System.Drawing.Size(55, 17);
-            this.rbReturnKey.TabIndex = 1;
-            this.rbReturnKey.TabStop = true;
-            this.rbReturnKey.Text = "Trả rồi";
-            this.rbReturnKey.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.rbReturnKey.UseVisualStyleBackColor = true;
-            // 
-            // rbNotReturnKey
-            // 
-            this.rbNotReturnKey.AutoSize = true;
-            this.rbNotReturnKey.Location = new System.Drawing.Point(147, 44);
-            this.rbNotReturnKey.Name = "rbNotReturnKey";
-            this.rbNotReturnKey.Size = new System.Drawing.Size(65, 17);
-            this.rbNotReturnKey.TabIndex = 2;
-            this.rbNotReturnKey.Text = "Chưa trả";
-            this.rbNotReturnKey.UseVisualStyleBackColor = true;
-            // 
             // btnOK
             // 
-            this.btnOK.Location = new System.Drawing.Point(107, 132);
+            this.btnOK.Location = new System.Drawing.Point(277, 264);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 23);
             this.btnOK.TabIndex = 3;
@@ -82,30 +60,62 @@
             // 
             // dtpEndDate
             // 
-            this.dtpEndDate.Location = new System.Drawing.Point(91, 86);
+            this.dtpEndDate.Location = new System.Drawing.Point(17, 84);
             this.dtpEndDate.Name = "dtpEndDate";
-            this.dtpEndDate.Size = new System.Drawing.Size(200, 20);
+            this.dtpEndDate.Size = new System.Drawing.Size(260, 20);
             this.dtpEndDate.TabIndex = 4;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(13, 89);
+            this.label1.Location = new System.Drawing.Point(14, 68);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(52, 13);
             this.label1.TabIndex = 5;
             this.label1.Text = "End Date";
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(14, 119);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(156, 13);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "Lý do không thu hồi được khóa";
+            // 
+            // txbReasonKeyCannotTakeback
+            // 
+            this.txbReasonKeyCannotTakeback.Location = new System.Drawing.Point(17, 142);
+            this.txbReasonKeyCannotTakeback.Multiline = true;
+            this.txbReasonKeyCannotTakeback.Name = "txbReasonKeyCannotTakeback";
+            this.txbReasonKeyCannotTakeback.Size = new System.Drawing.Size(335, 116);
+            this.txbReasonKeyCannotTakeback.TabIndex = 7;
+            // 
+            // cbbNote
+            // 
+            this.cbbNote.FormattingEnabled = true;
+            this.cbbNote.Items.AddRange(new object[] {
+            "NV có trả khóa",
+            "NV không trả khóa",
+            "Đã thu hồi và chưa trả khóa",
+            "Khóa không thu hồi được"});
+            this.cbbNote.Location = new System.Drawing.Point(17, 32);
+            this.cbbNote.Name = "cbbNote";
+            this.cbbNote.Size = new System.Drawing.Size(260, 21);
+            this.cbbNote.TabIndex = 8;
+            this.cbbNote.Text = "NV có trả khóa";
+            // 
             // ConfirmDelete
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(303, 187);
+            this.ClientSize = new System.Drawing.Size(363, 299);
+            this.Controls.Add(this.cbbNote);
+            this.Controls.Add(this.txbReasonKeyCannotTakeback);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dtpEndDate);
             this.Controls.Add(this.btnOK);
-            this.Controls.Add(this.rbNotReturnKey);
-            this.Controls.Add(this.rbReturnKey);
             this.Controls.Add(this.lblConfirm);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -121,10 +131,11 @@
         #endregion
 
         private System.Windows.Forms.Label lblConfirm;
-        private System.Windows.Forms.RadioButton rbReturnKey;
-        private System.Windows.Forms.RadioButton rbNotReturnKey;
         private System.Windows.Forms.Button btnOK;
         private System.Windows.Forms.DateTimePicker dtpEndDate;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txbReasonKeyCannotTakeback;
+        private System.Windows.Forms.ComboBox cbbNote;
     }
 }

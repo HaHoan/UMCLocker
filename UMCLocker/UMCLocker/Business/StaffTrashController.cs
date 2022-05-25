@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Data.Entity;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -29,6 +30,38 @@ namespace UMCLocker.Business
             view.PbStaffTrash.Location = new Point((view.PbStaff.Parent.ClientSize.Width / 2) - (view.PbStaff.Image.Width / 2),
                              (view.PbStaff.Parent.ClientSize.Height / 2) - (view.PbStaff.Image.Height / 2));
             view.PbStaffTrash.Refresh();
+            UpdateWhenExpiredDate();
+        }
+
+        private void UpdateWhenExpiredDate()
+        {
+            using (var db = new UMCLOCKEREntities())
+            {
+                var list = db.Staffs.Where(m => m.state == Constants.STATE_OFF && m.take_back_date < DateTime.Now && m.note != Constants.NOTE_RETURN_KEY).ToList();
+                foreach (var staff in list)
+                {
+                    bool isResolve = false;
+                    var locker = db.Lockers.Where(m => m.id == staff.locker_id).FirstOrDefault();
+                    if(locker.state == Constants.STATE_RESOLVE)
+                    {
+                        isResolve = true;
+                    }
+                    var shoes = db.Shoes.Where(m => m.id == staff.shoes_id).FirstOrDefault();
+                    if(shoes.state == Constants.STATE_RESOLVE)
+                    {
+                        isResolve = true;
+                    }
+                    if(isResolve)
+                    {
+                        staff.note = Constants.NOTE_NOT_TAKE_BACK_KEY ;
+                    }else
+                    {
+                        staff.note = Constants.NOTE_TAKE_BACK_KEY;
+                    }
+                  
+                }
+                db.SaveChanges();
+            }
         }
 
         private void BgwStaffTrash_RunWorkerCompleted(object sender, System.ComponentModel.RunWorkerCompletedEventArgs e)
@@ -39,7 +72,6 @@ namespace UMCLocker.Business
                 view.DgrvTrash.DataSource = bindingSource;
                 bindingSource.ResetBindings(true);
                 view.DgrvTrash.Refresh();
-
                 ChangeStateButton();
                 view.PbStaffTrash.Hide();
             }
@@ -97,7 +129,7 @@ namespace UMCLocker.Business
             {
                 view.BtnDeleteTrash.Enabled = false;
                 view.BtnEditTrash.Enabled = false;
-                
+
             }
             else
             {
@@ -166,10 +198,11 @@ namespace UMCLocker.Business
             {
                 bindingSource.DataSource = _staffs;
             }
-            else if(string.IsNullOrEmpty(searchNote))
+            else if (string.IsNullOrEmpty(searchNote))
             {
-                bindingSource.DataSource = _staffs.Where(x =>  x.end_date?.Month == searchMonth.Month && x.end_date?.Year == searchMonth.Year).ToList();
-            }else if(searchMonth == null)
+                bindingSource.DataSource = _staffs.Where(x => x.end_date?.Month == searchMonth.Month && x.end_date?.Year == searchMonth.Year).ToList();
+            }
+            else if (searchMonth == null)
             {
                 bindingSource.DataSource = _staffs.Where(x => x.note == searchNote).ToList();
 
@@ -212,20 +245,51 @@ namespace UMCLocker.Business
             try
             {
                 StaffEntity s = ((List<StaffEntity>)bindingSource.DataSource)[view.DgrvTrash.CurrentCell.RowIndex];
-                ConfirmDelete formConfirm = new ConfirmDelete(s.full_name);
-                formConfirm.OK += (isReturnKey, endDate) =>
+                ConfirmDelete formConfirm = new ConfirmDelete(s);
+                formConfirm.OK += (isReturnKey, endDate, note) =>
                 {
-                    s.end_date = endDate;
-                    s.note = isReturnKey ? Constants.NOTE_RETURN_KEY : Constants.NOTE_NOT_RETURN_KEY;
-                    ResultInfo result = s.MoveToTrash();
-                    if (result.code < 0)
+                    using (var db = new UMCLOCKEREntities())
                     {
-                        MessageBox.Show(result.message);
+                        using (DbContextTransaction transaction = db.Database.BeginTransaction())
+                        {
+                            try
+                            {
+                                var staff = db.Staffs.Where(m => m.id == s.id).FirstOrDefault();
+                                staff.note = isReturnKey;
+                                if(isReturnKey == Constants.NOTE_NOT_TAKE_BACK_KEY)
+                                {
+                                    staff.reason_change_key = note.Trim();
+                                    var locker = db.Lockers.Where(m => m.id == staff.locker_id).FirstOrDefault();
+                                    locker.state = Constants.STATE_RESOLVE;
+                                   
+                                    var shoes = db.Shoes.Where(m => m.id == staff.shoes_id).FirstOrDefault();
+                                    shoes.state = Constants.STATE_RESOLVE;
+
+                                }
+                                else
+                                {
+                                    var locker = db.Lockers.Where(m => m.id == staff.locker_id).FirstOrDefault();
+                                    locker.state = Constants.STATE_AVAIABLE;
+
+                                    var shoes = db.Shoes.Where(m => m.id == staff.shoes_id).FirstOrDefault();
+                                    shoes.state = Constants.STATE_AVAIABLE;
+                                }
+                                view.lockerController.LoadAll();
+                                view.shoesController.LoadAll();
+                                db.SaveChanges();
+                                transaction.Commit();
+                                view.BgStaffTrash.RunWorkerAsync();
+                            }
+                            catch (Exception ex)
+                            {
+                                transaction.Rollback();
+                                throw;
+                            }
+                           
+                        }
+                          
                     }
-                    else
-                    {
-                        view.BgStaffTrash.RunWorkerAsync();
-                    }
+                   
                 };
                 formConfirm.ShowDialog();
             }

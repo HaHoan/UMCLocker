@@ -8,6 +8,7 @@ namespace UMCLocker
 {
     public static class Constants
     {
+        public static int MAX_DATE_TAKE_BACK = 5;
         public static char UNDERSCORE = '_';
         public static char COMMA = ',';
         public static string SERAPATOR = @"\";
@@ -60,6 +61,8 @@ namespace UMCLocker
         public static string STATE_OFF = "OFF";
         public static string NOTE_NOT_RETURN_KEY = "NV không trả khóa";
         public static string NOTE_RETURN_KEY = "NV có trả khóa";
+        public static string NOTE_TAKE_BACK_KEY = "Đã thu hồi và chưa trả khóa";
+        public static string NOTE_NOT_TAKE_BACK_KEY = "Khóa không thu hồi được";
         public static string LOCKER = "L";
         public static string SHOES = "S";
         public static string EXCEL_STAFF = "Danh sách nhân viên sử dụng khóa";
