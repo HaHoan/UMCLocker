@@ -256,9 +256,9 @@ namespace UMCLocker.Business
                             {
                                 var staff = db.Staffs.Where(m => m.id == s.id).FirstOrDefault();
                                 staff.note = isReturnKey;
-                                if(isReturnKey == Constants.NOTE_NOT_TAKE_BACK_KEY)
+                                staff.reason_change_key = note.Trim();
+                                if (isReturnKey == Constants.NOTE_NOT_TAKE_BACK_KEY)
                                 {
-                                    staff.reason_change_key = note.Trim();
                                     var locker = db.Lockers.Where(m => m.id == staff.locker_id).FirstOrDefault();
                                     locker.state = Constants.STATE_RESOLVE;
                                    
@@ -274,10 +274,10 @@ namespace UMCLocker.Business
                                     var shoes = db.Shoes.Where(m => m.id == staff.shoes_id).FirstOrDefault();
                                     shoes.state = Constants.STATE_AVAIABLE;
                                 }
-                                view.lockerController.LoadAll();
-                                view.shoesController.LoadAll();
                                 db.SaveChanges();
                                 transaction.Commit();
+                                view.lockerController.LoadAll();
+                                view.shoesController.LoadAll();
                                 view.BgStaffTrash.RunWorkerAsync();
                             }
                             catch (Exception ex)
