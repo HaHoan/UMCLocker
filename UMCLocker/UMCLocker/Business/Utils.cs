@@ -842,6 +842,7 @@ namespace UMCLocker.Business
                 sheet.Range["K1:L1"].Merge();
                 sheet.Range[string.Format("M{0}", row)].Text = "Ngày kết thúc";
                 sheet.Range[string.Format("N{0}", row)].Text = "Ghi chú";
+                sheet.Range[string.Format("O{0}", row)].Text = "Ngày trả khóa";
 
                 row++;
                 sheet.Range[string.Format("H{0}", row)].Text = "Số tủ";
@@ -905,6 +906,10 @@ namespace UMCLocker.Business
                         sheet.Range[string.Format("M{0}", row)].Text = endDate.ToShortDateString();
                     }
                     sheet.Range[string.Format("N{0}", row)].Text = staff.note;
+                    if(staff.ngay_tra_khoa is DateTime NgayTraKhoa)
+                    {
+                        sheet.Range[string.Format("O{0}", row)].Text = NgayTraKhoa.ToShortDateString();
+                    }
                     row++;
                 }
                 workbook.SaveToFile(path, ExcelVersion.Version2013);
