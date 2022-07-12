@@ -265,9 +265,9 @@ namespace UMCLocker
         }
 
 
-        private void btnTrashFilter_Click(object sender, EventArgs e)
+        private void btnNoteFilter(object sender, EventArgs e)
         {
-            staffTrashController.btnTrashFilter_Click(sender, e);
+            staffTrashController.btnNoteFilter(sender, e);
         }
 
         private void btnTrashAll_Click(object sender, EventArgs e)
@@ -420,5 +420,14 @@ namespace UMCLocker
             chartController.bgwChart_RunWorkerCompleted(sender, e);
         }
 
+        private void btnFilterNgayKetThuc_Click(object sender, EventArgs e)
+        {
+            staffTrashController.btnFilterNgayKetThuc_Click(sender, e);
+        }
+
+        private void btnNgayTraKhoa_Click(object sender, EventArgs e)
+        {
+            staffTrashController.btnNgayTraKhoa_Click(sender, e);
+        }
     }
 }

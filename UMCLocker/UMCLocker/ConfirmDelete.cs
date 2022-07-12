@@ -16,7 +16,7 @@ namespace UMCLocker
         public ConfirmDelete(Staff s)
         {
             InitializeComponent();
-            dtpEndDate.Value = DateTime.Now;
+            dtpNgayTraKhoa.Value = DateTime.Now;
             lblConfirm.Text = s.full_name + " đã trả khóa chưa?";
             if (!string.IsNullOrEmpty(s.note))
             {
@@ -24,14 +24,14 @@ namespace UMCLocker
             }
             if(s.end_date is DateTime ed)
             {
-                dtpEndDate.Value = ed;
+                dtpNgayTraKhoa.Value = ed;
             }
             txbReasonKeyCannotTakeback.Text = s.reason_change_key;
         }
 
         private void btnOK_Click(object sender, EventArgs e)
         {
-            OK(cbbNote.Text, dtpEndDate.Value, txbReasonKeyCannotTakeback.Text);
+            OK(cbbNote.Text, dtpNgayTraKhoa.Value, txbReasonKeyCannotTakeback.Text);
             Close();
         }
     }

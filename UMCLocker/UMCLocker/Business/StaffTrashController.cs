@@ -40,25 +40,28 @@ namespace UMCLocker.Business
                 var list = db.Staffs.Where(m => m.state == Constants.STATE_OFF && m.take_back_date < DateTime.Now && m.note != Constants.NOTE_RETURN_KEY).ToList();
                 foreach (var staff in list)
                 {
+                    if (staff.locker_id != null) break;
+                    if (staff.shoes_id != null) break;
                     bool isResolve = false;
                     var locker = db.Lockers.Where(m => m.id == staff.locker_id).FirstOrDefault();
-                    if(locker.state == Constants.STATE_RESOLVE)
+                    if (locker.state == Constants.STATE_RESOLVE)
                     {
                         isResolve = true;
                     }
                     var shoes = db.Shoes.Where(m => m.id == staff.shoes_id).FirstOrDefault();
-                    if(shoes.state == Constants.STATE_RESOLVE)
+                    if (shoes.state == Constants.STATE_RESOLVE)
                     {
                         isResolve = true;
                     }
-                    if(isResolve)
+                    if (isResolve)
                     {
-                        staff.note = Constants.NOTE_NOT_TAKE_BACK_KEY ;
-                    }else
+                        staff.note = Constants.NOTE_NOT_TAKE_BACK_KEY;
+                    }
+                    else
                     {
                         staff.note = Constants.NOTE_TAKE_BACK_KEY;
                     }
-                  
+
                 }
                 db.SaveChanges();
             }
@@ -189,31 +192,10 @@ namespace UMCLocker.Business
 
         }
 
-        internal void btnTrashFilter_Click(object sender, EventArgs e)
+        internal void btnNoteFilter(object sender, EventArgs e)
         {
             string searchNote = view.CbbNote.Text.ToString();
-            DateTime searchMonth = view.DpMonth.Value.Date;
-
-            if (string.IsNullOrEmpty(searchNote) && searchMonth == null)
-            {
-                bindingSource.DataSource = _staffs;
-            }
-            else if (string.IsNullOrEmpty(searchNote))
-            {
-                bindingSource.DataSource = _staffs.Where(x => x.end_date?.Month == searchMonth.Month && x.end_date?.Year == searchMonth.Year).ToList();
-            }
-            else if (searchMonth == null)
-            {
-                bindingSource.DataSource = _staffs.Where(x => x.note == searchNote).ToList();
-
-            }
-            else
-            {
-                bindingSource.DataSource = _staffs.Where(x => x.note == searchNote && x.end_date?.Month == searchMonth.Month && x.end_date?.Year == searchMonth.Year).ToList();
-
-            }
-
-
+            bindingSource.DataSource = _staffs.Where(x => x.note == searchNote).ToList();
             view.DgrvTrash.Refresh();
             ChangeStateButton();
         }
@@ -246,7 +228,7 @@ namespace UMCLocker.Business
             {
                 StaffEntity s = ((List<StaffEntity>)bindingSource.DataSource)[view.DgrvTrash.CurrentCell.RowIndex];
                 ConfirmDelete formConfirm = new ConfirmDelete(s);
-                formConfirm.OK += (isReturnKey, endDate, note) =>
+                formConfirm.OK += (isReturnKey, ngay_tra_khoa, note) =>
                 {
                     using (var db = new UMCLOCKEREntities())
                     {
@@ -257,11 +239,12 @@ namespace UMCLocker.Business
                                 var staff = db.Staffs.Where(m => m.id == s.id).FirstOrDefault();
                                 staff.note = isReturnKey;
                                 staff.reason_change_key = note.Trim();
+                                staff.ngay_tra_khoa = ngay_tra_khoa;
                                 if (isReturnKey == Constants.NOTE_NOT_TAKE_BACK_KEY)
                                 {
                                     var locker = db.Lockers.Where(m => m.id == staff.locker_id).FirstOrDefault();
                                     locker.state = Constants.STATE_RESOLVE;
-                                   
+
                                     var shoes = db.Shoes.Where(m => m.id == staff.shoes_id).FirstOrDefault();
                                     shoes.state = Constants.STATE_RESOLVE;
 
@@ -285,11 +268,11 @@ namespace UMCLocker.Business
                                 transaction.Rollback();
                                 throw;
                             }
-                           
+
                         }
-                          
+
                     }
-                   
+
                 };
                 formConfirm.ShowDialog();
             }
@@ -297,6 +280,23 @@ namespace UMCLocker.Business
             {
                 MessageBox.Show(ex.Message.ToString());
             }
+        }
+
+        internal void btnFilterNgayKetThuc_Click(object sender, EventArgs e)
+        {
+            DateTime searchMonth = view.DpMonth.Value.Date;
+            bindingSource.DataSource = _staffs.Where(x => x.end_date?.Month == searchMonth.Month
+            && x.end_date?.Year == searchMonth.Year).ToList();
+            view.DgrvTrash.Refresh();
+            ChangeStateButton();
+        }
+
+        internal void btnNgayTraKhoa_Click(object sender, EventArgs e)
+        {
+            DateTime ngayTraKhoa = view.DtpNgayTraKhoa.Value.Date;
+            bindingSource.DataSource = _staffs.Where(x => x.ngay_tra_khoa == ngayTraKhoa).ToList();
+            view.DgrvTrash.Refresh();
+            ChangeStateButton();
         }
     }
 }

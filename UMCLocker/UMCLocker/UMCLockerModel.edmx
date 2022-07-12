@@ -81,6 +81,7 @@
           <Property Name="modify_date" Type="datetime" />
           <Property Name="date_change_key" Type="datetime" />
           <Property Name="take_back_date" Type="date" />
+          <Property Name="ngay_tra_khoa" Type="date" />
         </EntityType>
         <EntityType Name="TEMP">
           <Key>
@@ -358,6 +359,7 @@
           <Property Name="modify_date" Type="DateTime" Precision="3" />
           <Property Name="date_change_key" Type="DateTime" Precision="3" />
           <Property Name="take_back_date" Type="DateTime" Precision="0" />
+          <Property Name="ngay_tra_khoa" Type="DateTime" Precision="0" />
           <NavigationProperty Name="Dept" Relationship="UMCLOCKERModel.FK_StaffDept" FromRole="Staff" ToRole="Dept" />
           <NavigationProperty Name="Locker" Relationship="UMCLOCKERModel.FK_LockerStaff" FromRole="Staff" ToRole="Locker" />
           <NavigationProperty Name="Pos" Relationship="UMCLOCKERModel.FK_StaffPos" FromRole="Staff" ToRole="Pos" />
@@ -494,6 +496,7 @@
           <EntitySetMapping Name="Staffs">
             <EntityTypeMapping TypeName="UMCLOCKERModel.Staff">
               <MappingFragment StoreEntitySet="Staff">
+                <ScalarProperty Name="ngay_tra_khoa" ColumnName="ngay_tra_khoa" />
                 <ScalarProperty Name="take_back_date" ColumnName="take_back_date" />
                 <ScalarProperty Name="date_change_key" ColumnName="date_change_key" />
                 <ScalarProperty Name="modify_date" ColumnName="modify_date" />

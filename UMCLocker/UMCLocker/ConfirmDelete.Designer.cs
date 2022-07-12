@@ -31,7 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ConfirmDelete));
             this.lblConfirm = new System.Windows.Forms.Label();
             this.btnOK = new System.Windows.Forms.Button();
-            this.dtpEndDate = new System.Windows.Forms.DateTimePicker();
+            this.dtpNgayTraKhoa = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txbReasonKeyCannotTakeback = new System.Windows.Forms.TextBox();
@@ -58,21 +58,21 @@
             this.btnOK.UseVisualStyleBackColor = true;
             this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
-            // dtpEndDate
+            // dtpNgayTraKhoa
             // 
-            this.dtpEndDate.Location = new System.Drawing.Point(17, 84);
-            this.dtpEndDate.Name = "dtpEndDate";
-            this.dtpEndDate.Size = new System.Drawing.Size(260, 20);
-            this.dtpEndDate.TabIndex = 4;
+            this.dtpNgayTraKhoa.Location = new System.Drawing.Point(17, 84);
+            this.dtpNgayTraKhoa.Name = "dtpNgayTraKhoa";
+            this.dtpNgayTraKhoa.Size = new System.Drawing.Size(260, 20);
+            this.dtpNgayTraKhoa.TabIndex = 4;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(14, 68);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(52, 13);
+            this.label1.Size = new System.Drawing.Size(74, 13);
             this.label1.TabIndex = 5;
-            this.label1.Text = "End Date";
+            this.label1.Text = "Ngày trả khóa";
             // 
             // label2
             // 
@@ -114,7 +114,7 @@
             this.Controls.Add(this.txbReasonKeyCannotTakeback);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.dtpEndDate);
+            this.Controls.Add(this.dtpNgayTraKhoa);
             this.Controls.Add(this.btnOK);
             this.Controls.Add(this.lblConfirm);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -132,7 +132,7 @@
 
         private System.Windows.Forms.Label lblConfirm;
         private System.Windows.Forms.Button btnOK;
-        private System.Windows.Forms.DateTimePicker dtpEndDate;
+        private System.Windows.Forms.DateTimePicker dtpNgayTraKhoa;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txbReasonKeyCannotTakeback;

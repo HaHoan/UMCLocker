@@ -282,7 +282,8 @@ namespace UMCLocker.Entities
                         note = x.note,
                         end_date = x.end_date,
                         take_back_date = x.take_back_date,
-                        reason_change_key = x.reason_change_key
+                        reason_change_key = x.reason_change_key,
+                        ngay_tra_khoa = x.ngay_tra_khoa
                     }).OrderByDescending(m => m.end_date).ToList();
 
                     return list;
@@ -603,6 +604,7 @@ namespace UMCLocker.Entities
                     update.state = Constants.STATE_OFF;
                     update.end_date = end_date;
                     update.take_back_date = take_back_date;
+                    update.ngay_tra_khoa = ngay_tra_khoa;
                     update.note = note;
                     update.modify_date = DateTime.Now;
                     db.SaveChanges();
